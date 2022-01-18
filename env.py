@@ -1,15 +1,28 @@
+import os
+
 import yaml
 
 
-class Api:
-	env = yaml.safe_load(open("env.yaml"))
-	url = "www.sss.com"
+class Env:
+	rootPath = os.path.dirname(os.path.abspath(__file__))
+	configPath = os.path.join(rootPath, "env.yaml")
+	env = yaml.safe_load(open(configPath))
+	url = "https://env.teletraan.io/graphql"
 
-	def print_env(self):
-		a = self.url.replace("sss", self.env["env_name"]["test2"])
-		print(a)
+	def get_env(self):
+		url_new = self.url.replace("env", self.env["env"][self.env["default"]]["name"])
+		return url_new
+
+	def get_account(self):
+		account = self.env["env"][self.env["default"]]["account"]
+		return account
+
+	def get_pwd(self):
+		pwd = self.env["env"][self.env["default"]]["password"]
+		return pwd
 
 
 if __name__ == "__main__":
-	api = Api()
-	api.print_env()
+	ge = Env()
+	res = ge.get_env()
+	print(res)

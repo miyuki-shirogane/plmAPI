@@ -1,9 +1,14 @@
+import ssl
+import urllib.request as UR
 from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
+
+from env import Env
+from switch import Switch
 from schema.platform_schema import Mutation, Query
 
 
-# # 这是简单的发GraphQL请求示例
+# # 这是简单的发GraphQL请求示例，不依赖自动生成的schema
 # def login_simple():
 #     url = "https://test2.teletraan.io/graphql"
 #     headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
@@ -20,29 +25,43 @@ from schema.platform_schema import Mutation, Query
 #     data = endpoint(query, variables)
 #     print(data, type(data))
 
-class Request:
-    url = "https://test2.teletraan.io/graphql"
+# 走代理时，全局取消证书验证，避免报错
 
-    """
-    暂时不知道sgqlc的proxy口子留在哪，不知道咋用；也不是必需的，姑且先放着吧
-    """
-    # def __init__(self):
-    #     proxy_ = "127.0.0.1:8080"
-    #     if proxy_:
-    #         proxy = {
-    #             "http": 'http://' + proxy_,
-    #             "https": 'http://' + proxy_
-    #         }
-    #     else:
-    #         proxy = None
+
+class Request:
+    get_env = Env()
+    url = get_env.get_env()
+    account = get_env.get_account()
+    password = get_env.get_pwd()
+
+    def __init__(self, proxy_=None):
+        switch = Switch()
+        is_switch_on = switch.is_proxy_on()
+        if is_switch_on is True:
+            ssl._create_default_https_context = ssl._create_unverified_context
+            proxy_ = "127.0.0.1:8080"
+        else:
+            pass
+        if proxy_:
+            proxy = {
+                "http": 'http://' + proxy_,
+                "https": 'http://' + proxy_
+            }
+        else:
+            proxy = None
+        proxy_support = UR.ProxyHandler(proxy)
+        # build a new opener that adds authentication and caching FTP handlers
+        opener = UR.build_opener(proxy_support, UR.CacheFTPHandler)
+        # install it
+        UR.install_opener(opener)
 
     # 这是sgqlc提供的更优雅的请求方式
     def login_right(self):
         headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers, timeout=3)
         variables = {
-            "account": "Caitlyn",
-            "password": "Caitlyn"
+            "account": self.account,
+            "password": self.password
           }
         op = Operation(Mutation)
         login = op.login(input=variables)
@@ -72,5 +91,5 @@ class Request:
 if __name__ == "__main__":
     r = Request()
     # login_simple()
-    # r.login_right()
-    r.query_project()
+    r.login_right()
+    # r.query_project()

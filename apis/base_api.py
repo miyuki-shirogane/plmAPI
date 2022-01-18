@@ -1,7 +1,7 @@
 import ssl
-import urllib.request as UR
-from env import Env
-from switch import Switch
+import urllib.request as ur
+from utils.env import Env
+from utils.switch import Switch
 
 
 class BaseApi:
@@ -26,8 +26,8 @@ class BaseApi:
             }
         else:
             proxy = None
-        proxy_support = UR.ProxyHandler(proxy)
+        proxy_support = ur.ProxyHandler(proxy)
         # build a new opener that adds authentication and caching FTP handlers
-        opener = UR.build_opener(proxy_support, UR.CacheFTPHandler)
+        opener = ur.build_opener(proxy_support, ur.CacheFTPHandler)
         # install it
-        UR.install_opener(opener)
+        ur.install_opener(opener)

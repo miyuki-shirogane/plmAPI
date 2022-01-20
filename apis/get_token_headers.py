@@ -5,12 +5,12 @@ from schema.platform_schema import Mutation
 
 
 class GetTokenHeader(BaseApi):
-    def get_token(self):
+    def get_token(self, account=BaseApi.account, password=BaseApi.password):
         headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers, timeout=3)
         variables = {
-            "account": self.account,
-            "password": self.password
+            "account": account,
+            "password": password
         }
         op = Operation(Mutation)
         login = op.login(input=variables)
@@ -20,12 +20,12 @@ class GetTokenHeader(BaseApi):
         token = "Token " + res.token
         return token
 
-    def get_headers(self):
+    def get_headers(self, account=BaseApi.account, password=BaseApi.password):
         headers = {
             'accept': 'application/json',
             'Content-Type': 'application/json'
         }
-        headers.setdefault("authorization", self.get_token())
+        headers.setdefault("authorization", self.get_token(account, password))
         return headers
 
 

@@ -3,8 +3,8 @@ import urllib.request as UR
 from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
 
-from env import Env
-from switch import Switch
+from utils.env import Env
+from utils.switch import Switch
 from schema.platform_schema import Mutation, Query
 
 

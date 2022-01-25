@@ -1,7 +1,7 @@
 from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
 from apis.base_api import BaseApi
-from schema.platform_schema import Mutation
+from schema.platform_schema import Mutation, Query
 
 
 class GetTokenHeader(BaseApi):
@@ -28,8 +28,21 @@ class GetTokenHeader(BaseApi):
         headers.setdefault("authorization", self.get_token(account, password))
         return headers
 
+    def get_user(self):
+        """
+        :return:class User; 如果想要company_id, 可以使用:
+            res.company.id, res = return
+        """
+        headers = GetTokenHeader.get_headers(self)
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        op.me()
+        data = endpoint(op)
+        res = (op + data).me
+        return res
+
 
 if __name__ == '__main__':
     a = GetTokenHeader()
-    res1 = a.get_headers()
-    print(res1)
+    res1 = a.get_user()
+    print(res1.company.id)

@@ -1,5 +1,7 @@
 import ssl
 import urllib.request as UR
+
+import yaml
 from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
 
@@ -87,10 +89,40 @@ class Request:
         res = (op + data).product_project_list.data
         print(res)
 
+    def json_to_yaml(self):
+        j = {
+            "input1": {
+                "attachment": [
+                    {
+                        "id": "202"
+                    }
+                ],
+                "category": "CUSTOMIZATION",
+                "code": "kqy2",
+                "company": {
+                    "id": "11"
+                },
+                "description": "说明",
+                "name": "kqy2",
+                "planStartAt": 1643126400000,
+                "projectGroup": [
+                    {
+                        "id": 131
+                    }
+                ]
+            }
+        }
+        with open("utils/variables.yaml", "w") as f:
+            yaml.safe_dump(data=j, stream=f, allow_unicode=True)
+
+    def yaml_to_json(self):
+        y = yaml.safe_load(open("utils/variables.yaml"))
+        res = y["input1"]
+        print(res)
 
 
 if __name__ == "__main__":
     r = Request()
     # login_simple()
-    r.login_right()
+    r.yaml_to_json()
     # r.query_project()

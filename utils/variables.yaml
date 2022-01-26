@@ -1,0 +1,12 @@
+create_product_project_temp:
+  attachment:
+  - id: '202'
+  category: CUSTOMIZATION
+  code: kqy2
+  company:
+    id: '11'
+  description: 说明
+  name: kqy2
+  planStartAt: 1643126400000
+  projectGroup:
+  - id: 131

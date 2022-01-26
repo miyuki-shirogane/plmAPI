@@ -1,5 +1,10 @@
+import json
+import os
 import ssl
 import urllib.request as ur
+
+import yaml
+
 from utils.env import Env
 from utils.switch import Switch
 
@@ -31,3 +36,35 @@ class BaseApi:
         opener = ur.build_opener(proxy_support, ur.CacheFTPHandler)
         # install it
         ur.install_opener(opener)
+
+    def get_variables(self, variables_name: str):
+        """
+        :param variables_name: for instance: variables_name="create_product_project_temp"
+        :return: json
+        """
+        root_path = os.path.abspath(os.path.join(os.getcwd(), ".."))
+        path = os.path.join(root_path, "utils/variables.yaml")
+        variables = yaml.safe_load(open(path))
+        res = variables[variables_name]
+        return res
+
+    def modify_variables(self, target_json, args: list):
+        """
+        CAUTION: 只支持一级字段;
+
+        :param target_json: 目标Json, 配合method get_variables使用
+        :param args: 列表形式的参数, 记录目标参数和修改后的效果。for instance:
+            args=[("name", "jojo"), ("code", "jojo")]
+        :return: Json after modified
+        """
+        json_temp = target_json
+        for (target, change_to) in args:
+            json_temp[target] = change_to
+        return json_temp
+
+
+if __name__ == '__main__':
+    b = BaseApi()
+    t = b.get_variables(variables_name="create_product_project_temp")
+    res = b.modify_variables(target_json=t, args=[("name", "jojo5"), ("code", "jojo5")])
+    print(res)

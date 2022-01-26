@@ -1,7 +1,8 @@
 from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
 from apis.get_token_headers import GetTokenHeader
-from schema.platform_schema import Query
+from schema.platform_schema import Query, Mutation
+from utils.mock import Mock
 
 
 class ProjectApis(GetTokenHeader):
@@ -63,15 +64,27 @@ class ProjectApis(GetTokenHeader):
         return res
 
     """__MUTATION__"""
-    def create_product_project(self):
-        pass
+    def create_product_project(self, args):
+        """
+        :param args: 列表形式的参数, 记录variables目标参数和修改后的效果。for instance:
+            args=[("name", "jojo"), ("code", "jojo")]; CAUTION: 只支持一级字段;
+        :return: project_id, type = str
+        """
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        variables_temp = self.get_variables(variables_name="create_product_project_temp")
+        variables = self.modify_variables(target_json=variables_temp, args=args)
+        op = Operation(Mutation)
+        op.create_product_project(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).create_product_project
+            return res
+        except:
+            return None
 
 
 if __name__ == '__main__':
     project = ProjectApis()
-    # consequence = project.product_project_list(args=["id"], search="rs6", category=["CUSTOMIZATION"])
-    # id = consequence.data[0].id
-    # detail = project.product_project(project_id=id)
-    # print(detail)
-    consequence = project.is_product_project_exists(code="rf", company={"id": "11"}, name="rf")
+    consequence = project.create_product_project(args=[("name", "Jolyn"), ("code", "看不懂")])
     print(consequence)

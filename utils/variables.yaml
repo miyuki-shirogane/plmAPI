@@ -10,3 +10,15 @@ create_product_project_temp:
   planStartAt: 1643126400000
   projectGroup:
   - id: 131
+
+add_product_task:
+  project:
+    id: 178
+  task:
+  - executive:
+      id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
+    name: task_name_a_QbcF1h
+    participant:
+    - id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
+    planEndAt: 1644163200000
+    planStartAt: 1644163200000

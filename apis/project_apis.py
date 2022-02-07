@@ -1,3 +1,4 @@
+import sgqlc
 from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
 from apis.get_token_headers import GetTokenHeader
@@ -68,7 +69,7 @@ class ProjectApis(GetTokenHeader):
         """
         :param args: 列表形式的参数, 记录variables目标参数和修改后的效果。for instance:
             args=[("name", "jojo"), ("code", "jojo")]; CAUTION: 只支持一级字段;
-        :return: project_id, type = str
+        :return: project_id, type = str; or error message, type = str
         """
         headers = self.get_headers()
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
@@ -81,7 +82,21 @@ class ProjectApis(GetTokenHeader):
             res = (op + data).create_product_project
             return res
         except:
-            return None
+            res = data.get("errors")[0].get("message")
+            return res
+
+    def add_product_task(self, args):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        variables_temp = self.get_variables(variables_name="add_product_task")
+        # 这个有点不一样，晚点改改
+        variables = self.modify_variables(target_json=variables_temp, args=args)
+        op = Operation(Mutation)
+        op.add_product_task(input=variables)
+        data = endpoint(op)
+        res = (op + data).add_product_task
+        return res
+
 
 
 if __name__ == '__main__':

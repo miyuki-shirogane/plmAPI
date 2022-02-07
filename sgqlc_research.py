@@ -91,34 +91,56 @@ class Request:
 
     def json_to_yaml(self):
         j = {
-            "input1": {
-                "attachment": [
-                    {
-                        "id": "202"
-                    }
-                ],
-                "category": "CUSTOMIZATION",
-                "code": "kqy2",
-                "company": {
-                    "id": "11"
-                },
-                "description": "说明",
-                "name": "kqy2",
-                "planStartAt": 1643126400000,
-                "projectGroup": [
-                    {
-                        "id": 131
-                    }
-                ]
+          "project": {
+            "id": 178
+          },
+          "task": [
+            {
+              "executive": {
+                "id": "b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b"
+              },
+              "name": "task_name_a_QbcF1h",
+              "participant": [
+                {
+                  "id": "b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b"
+                }
+              ],
+              "planEndAt": 1644163200000,
+              "planStartAt": 1644163200000
             }
+          ]
         }
         with open("utils/variables.yaml", "w") as f:
             yaml.safe_dump(data=j, stream=f, allow_unicode=True)
 
     def yaml_to_json(self):
         y = yaml.safe_load(open("utils/variables.yaml"))
-        res = y["input1"]
+        res = y["add_product_task"]
         print(res)
+
+    def change(self):
+        j = {
+            "project": {
+                "id": 178
+            },
+            "task": [
+                {
+                    "executive": {
+                        "id": "b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b"
+                    },
+                    "name": "task_name_a_QbcF1h",
+                    "participant": [
+                        {
+                            "id": "b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b"
+                        }
+                    ],
+                    "planEndAt": 1644163200000,
+                    "planStartAt": 1644163200000
+                }
+            ]
+        }
+        j["task"][0]["name"] = "啊？"
+        print(j)
 
 
 if __name__ == "__main__":
@@ -126,3 +148,4 @@ if __name__ == "__main__":
     # login_simple()
     r.yaml_to_json()
     # r.query_project()
+    # r.json_to_yaml()

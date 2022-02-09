@@ -1,0 +1,6 @@
+2022-02-09 17:58:56 [ERROR] GraphQL query failed with 1 errors (base.py:213)
+2022-02-09 17:58:56 [INFO] Error #0: (base.py:220)
+2022-02-09 17:58:56 [INFO]    | 项目的名称/编码重复 (base.py:222)
+2022-02-09 17:58:56 [ERROR] GraphQL query failed with 1 errors (base.py:213)
+2022-02-09 17:58:56 [INFO] Error #0: (base.py:220)
+2022-02-09 17:58:56 [INFO]    | 'NoneType' object has no attribute 'type_' (base.py:222)

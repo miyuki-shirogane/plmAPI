@@ -44,5 +44,7 @@ class GetTokenHeader(BaseApi):
 
 if __name__ == '__main__':
     a = GetTokenHeader()
-    res1 = a.get_user()
-    print(res1.company.id)
+    # res1 = a.get_user()
+    # print(res1.company.id)
+    res2 = a.get_headers(account="admin", password="teletraan@2022")
+    print(res2)

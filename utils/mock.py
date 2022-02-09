@@ -10,9 +10,10 @@ class Mock:
         res = data_name + ran_str
         return res
 
-    # Format = YYYYMMDD
-    def current_date(self):
-        return time.strftime('%Y%m%d', time.localtime(time.time()))
+    # 毫秒级时间戳
+    def current_time(self):
+        t = time.time()
+        return int(round(t * 1000))
 
     def attachment_path(self, attachment_name: str):
         root_path = os.path.abspath(os.path.join(os.getcwd(), ".."))
@@ -22,5 +23,6 @@ class Mock:
 
 if __name__ == "__main__":
     mock = Mock()
+    print(mock.current_time())
     # print(mock.mock_data("test"))
-    print(mock.attachment_path("s"))
+    # print(mock.attachment_path("s"))

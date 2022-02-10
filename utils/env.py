@@ -21,8 +21,11 @@ class Env:
 		pwd = self.env["env"][self.env["default"]]["password"]
 		return pwd
 
+	def get_env_name(self):
+		return self.env["default"]
+
 
 if __name__ == "__main__":
 	ge = Env()
-	res = ge.get_env()
+	res = ge.get_env_name()
 	print(res)

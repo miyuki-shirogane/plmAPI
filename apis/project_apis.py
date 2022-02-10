@@ -1,17 +1,16 @@
 from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
 from apis.get_token_headers import GetTokenHeader
-from case_data.project_data import Data
 from schema.platform_schema import Query, Mutation
-from utils.mock import Mock
 
 
 class ProjectApis(GetTokenHeader):
     """__QUERY__"""
-    def product_project_list(self, args=None, **kwargs):
+    def product_project_list(self, order_by=["-created_at"], args=None, **kwargs):
         """
-        limit 10, if not satisfied, update the method.
+                limit 10, if not satisfied, update the method.
 
+        :param order_by: ["-create_at"] or ["create_at"]
         :param args: data下要返回哪些值, for instance: ["name", "code"] (NOTICE: data下的一级字段，如果要更深层的子字段，将不支持。)
         :type args: list
         :param kwargs: filter, for instance:
@@ -24,7 +23,8 @@ class ProjectApis(GetTokenHeader):
         op = Operation(Query)
         project_list = op.product_project_list(
             limit=10,
-            filter=eval(f"{kwargs}")
+            filter=eval(f"{kwargs}"),
+            order_by=order_by
         )
         if args:
             project_list.data.__fields__(*args)
@@ -82,15 +82,13 @@ class ProjectApis(GetTokenHeader):
             res = data.get("errors")[0].get("message")
             return res
 
-    # 需整改，届时参照下上面的兄弟
-    def add_product_task(self, project_id: int, task_name: str):
-        mock = Mock()
+    def add_product_task(self, variables):
+        """
+        :param variables: 传入参数
+        :return: True 或者报错
+        """
         headers = self.get_headers()
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
-        variables = self.get_variables(variables_name="add_product_task")
-        variables["project"]["id"] = project_id
-        variables["task"][0]["name"] = task_name
-        variables["task"][0]["planEndAt"] = variables["task"][0]["planStartAt"] = mock.current_time()
         op = Operation(Mutation)
         op.add_product_task(input=variables)
         data = endpoint(op)
@@ -100,9 +98,11 @@ class ProjectApis(GetTokenHeader):
 
 if __name__ == '__main__':
     project = ProjectApis()
-    data = Data()
-    variables = data.create_product_project_normal()
-    project.create_product_project(variables=variables)
-    consequence = project.create_product_project(variables=variables)
+    con = project.product_project_list(args=["id"])
+    print(con.data[0].id)
+    # data = Data()
+    # variables = data.create_product_project_normal()
+    # project.create_product_project(variables=variables)
+    # consequence = project.create_product_project(variables=variables)
     # consequence = project.add_product_task(project_id=209, task_name="task_name_a_QbcF1h")
-    print(len(consequence))
+    # print(len(consequence))

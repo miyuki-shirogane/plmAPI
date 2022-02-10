@@ -110,11 +110,11 @@ class Request:
             }
           ]
         }
-        with open("utils/variables.yaml", "w") as f:
+        with open("case_data/variables_test2.yaml", "w") as f:
             yaml.safe_dump(data=j, stream=f, allow_unicode=True)
 
     def yaml_to_json(self):
-        y = yaml.safe_load(open("utils/variables.yaml"))
+        y = yaml.safe_load(open("case_data/variables_test2.yaml"))
         res = y["add_product_task"]
         print(res)
 

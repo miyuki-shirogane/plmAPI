@@ -1,0 +1,6 @@
+project:
+  create_product_project:
+    duplicate: "项目的名称/编码重复"
+    miss_require: "'NoneType' object has no attribute 'type_'"
+    not_exist_group: 'insert or update on table "product_project_project_group" violates foreign key
+    constraint "product_project_project_group_project_group_id_fkey"'

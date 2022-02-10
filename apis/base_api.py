@@ -14,6 +14,7 @@ class BaseApi:
     url = get_env.get_env()
     account = get_env.get_account()
     password = get_env.get_pwd()
+    env_name = get_env.get_env_name()
 
     def __init__(self, proxy_=None):
         switch = Switch()
@@ -43,7 +44,7 @@ class BaseApi:
         :return: json
         """
         root_path = os.path.abspath(os.path.join(os.getcwd(), ".."))
-        path = os.path.join(root_path, "utils/variables.yaml")
+        path = os.path.join(root_path, "case_data/variables_" + self.env_name + ".yaml")
         variables = yaml.safe_load(open(path))
         res = variables[variables_name]
         return res
@@ -66,5 +67,5 @@ class BaseApi:
 if __name__ == '__main__':
     b = BaseApi()
     t = b.get_variables(variables_name="create_product_project_temp")
-    res = b.modify_variables(target_json=t, args=[("name", "jojo5"), ("code", "jojo5")])
-    print(res)
+    res1 = b.modify_variables(target_json=t, args=[("name", "jojo5"), ("code", "jojo5")])
+    print(res1)

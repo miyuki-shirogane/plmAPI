@@ -36,7 +36,7 @@ class Data(BaseApi):
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
-    # ADD_PRODUCT_TASK
+    # ADD_PRODUCT_TASK；这里不太一样，一旦添加成功，页面上就不允许再添加了。但是接口层面是允许再加的，不晓得有没有问题。
     def add_product_task_normal(self):
         # 得查询一下最新的project_id是多少; 实现的方案是通过接口调用查询
         project_id = self.project.product_project_list(args=["id"]).data[0].id

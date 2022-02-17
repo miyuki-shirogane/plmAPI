@@ -1,4 +1,6 @@
 from apis.base_api import BaseApi
+from apis.flow_apis import FlowApis
+from apis.get_token_headers import GetTokenHeader
 from utils.mock import Mock
 from apis.project_apis import ProjectApis
 
@@ -6,6 +8,8 @@ from apis.project_apis import ProjectApis
 class Data(BaseApi):
     mock = Mock()
     project = ProjectApis()
+    flow = FlowApis()
+    user = GetTokenHeader()
     name = mock.mock_data(data_name="name")
     code = mock.mock_data(data_name="code")
 
@@ -40,13 +44,19 @@ class Data(BaseApi):
     def add_product_task_normal(self):
         # 得查询一下最新的project_id是多少; 实现的方案是通过接口调用查询
         project_id = self.project.product_project_list(args=["id"]).data[0].id
+        company_id = self.user.get_user().company.id
+        flow_ids = self.flow.product_flows(args=["id"], company=[{"id": company_id}])
+        flow_id = flow_ids[0].id
+        flow_detail = self.flow.product_flow(flow_id=flow_id, args=["task_template"])
+        task_name = flow_detail.task_template[0].name
         variables = self.get_variables(variables_name="add_product_task")
         variables["project"]["id"] = project_id
-        # variables["task"][0]["name"] = task_name
+        variables["task"][0]["name"] = task_name
         variables["task"][0]["planEndAt"] = variables["task"][0]["planStartAt"] = self.mock.current_time()
         return variables
 
 
 if __name__ == '__main__':
     data = Data()
-    data.add_product_task_normal()
+    r = data.add_product_task_normal()
+    print(r)

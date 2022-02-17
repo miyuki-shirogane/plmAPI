@@ -46,7 +46,9 @@ class FlowApis(GetTokenHeader):
 
 if __name__ == '__main__':
     f = FlowApis()
-    res_data = f.product_flows(args=["id"], company=[{"id": "11"}])
-    flow_id1 = res_data[0].id
-    flow = f.product_flow(flow_id=flow_id1, args=["task_template"])
-    print(flow.task_template[0].name)
+    # res_data = f.product_flows(args=["id"], company=[{"id": "11"}])
+    # flow_id1 = res_data[0].id
+    # flow = f.product_flow(flow_id=flow_id1, args=["task_template"])
+    # print(flow.task_template[0].name)
+    res_data = f.product_flow(flow_id=96)
+    print(len(res_data))

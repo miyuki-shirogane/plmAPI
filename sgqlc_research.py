@@ -78,12 +78,12 @@ class Request:
         '''
         return res.token
 
-    def query_project(self):
+    def query_project(self, order_by=["-created_at"], **kwargs):
         token = 'Token ' + self.login_right()
         headers = {'accept': 'application/json', 'Content-Type': 'application/json', 'authorization': token}
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers, timeout=3)
         op = Operation(Query)
-        pro = op.product_project_list(limit=10)
+        pro = op.product_project_list(limit=10, filter=eval(f"{kwargs}"), order_by=order_by)
         pro.data.attachment()
         data = endpoint(op)
         res = (op + data).product_project_list.data
@@ -146,6 +146,6 @@ class Request:
 if __name__ == "__main__":
     r = Request()
     # login_simple()
-    r.yaml_to_json()
-    # r.query_project()
+    # r.yaml_to_json()
+    r.query_project()
     # r.json_to_yaml()

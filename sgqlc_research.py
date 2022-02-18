@@ -91,26 +91,20 @@ class Request:
 
     def json_to_yaml(self):
         j = {
-          "project": {
-            "id": 178
-          },
-          "task": [
-            {
-              "executive": {
-                "id": "b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b"
+              "category": {
+                "id": 31
               },
-              "name": "task_name_a_QbcF1h",
-              "participant": [
-                {
-                  "id": "b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b"
-                }
-              ],
-              "planEndAt": 1644163200000,
-              "planStartAt": 1644163200000
+              "code": "fr",
+              "company": {
+                "id": "11"
+              },
+              "name": "rf",
+              "property": "PRODUCT",
+              "specification": "rf",
+              "unit": "rf",
+              "versions": "fr"
             }
-          ]
-        }
-        with open("case_data/variables_test2.yaml", "w") as f:
+        with open("case_data/temp_v.yaml", "w") as f:
             yaml.safe_dump(data=j, stream=f, allow_unicode=True)
 
     def yaml_to_json(self):
@@ -147,5 +141,5 @@ if __name__ == "__main__":
     r = Request()
     # login_simple()
     # r.yaml_to_json()
-    r.query_project()
-    # r.json_to_yaml()
+    # r.query_project()
+    r.json_to_yaml()

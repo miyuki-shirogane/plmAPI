@@ -1,4 +1,4 @@
-create_product_project_temp:
+create_product_project:
   attachment:
   - id: '202'
   category: CUSTOMIZATION
@@ -22,3 +22,15 @@ add_product_task:
     - id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
     planEndAt: 1644163200000
     planStartAt: 1644163200000
+
+create_material:
+  category:
+    id: 31
+  code: fr
+  company:
+    id: '11'
+  name: rf
+  property: PRODUCT
+  specification: rf
+  unit: rf
+  versions: fr

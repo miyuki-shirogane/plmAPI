@@ -2,11 +2,11 @@ import pytest
 from hamcrest import *
 from apis.project_apis import ProjectApis
 from case_data.get_expect import Expect
-from case_data.project_data import Data
+from case_data.project_data import ProjectData
 
 
 class TestProject:
-    data = Data()
+    data = ProjectData()
     expect = Expect()
     c_v2 = data.create_product_project_duplicate()
     c_v3 = data.create_product_project_no_project_group()

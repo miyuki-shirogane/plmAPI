@@ -5,7 +5,7 @@ from utils.mock import Mock
 from apis.project_apis import ProjectApis
 
 
-class Data(BaseApi):
+class ProjectData(BaseApi):
     mock = Mock()
     project = ProjectApis()
     flow = FlowApis()
@@ -17,7 +17,7 @@ class Data(BaseApi):
     # CREATE_PRODUCT_PROJECT
     def create_product_project_normal(self):
         args = [("name", self.name), ("code", self.code)]
-        variables_temp = self.get_variables(variables_name="create_product_project_temp")
+        variables_temp = self.get_variables(variables_name="create_product_project")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
@@ -29,7 +29,7 @@ class Data(BaseApi):
         name = self.mock.mock_data(data_name="name")
         code = self.mock.mock_data(data_name="code")
         args = [("name", name), ("code", code), ("projectGroup", [])]
-        variables_temp = self.get_variables(variables_name="create_product_project_temp")
+        variables_temp = self.get_variables(variables_name="create_product_project")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
@@ -37,7 +37,7 @@ class Data(BaseApi):
         name = self.mock.mock_data(data_name="name")
         code = self.mock.mock_data(data_name="code")
         args = [("name", name), ("code", code), ("projectGroup", [{"id": 10000}])]
-        variables_temp = self.get_variables(variables_name="create_product_project_temp")
+        variables_temp = self.get_variables(variables_name="create_product_project")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
@@ -57,6 +57,6 @@ class Data(BaseApi):
 
 
 if __name__ == '__main__':
-    data = Data()
+    data = ProjectData()
     r = data.add_product_task_normal()
     print(r)

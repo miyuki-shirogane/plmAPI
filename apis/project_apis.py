@@ -14,7 +14,7 @@ class ProjectApis(GetTokenHeader):
         :param args: data下要返回哪些值, for instance: ["name", "code"] (NOTICE: data下的一级字段，如果要更深层的子字段，将不支持。)
         :type args: list
         :param kwargs: filter, for instance:
-            search="rs6", category=["CUSTOMIZATION"]
+            search="rs6", category=["CUSTOMIZATION"]/(OPTIMIZATION, RESEARCH), projectGroup=[{"id": "11"}]
         :return: class, for instance:
             ProductProjectList(data=[ProductProject(name='project_name_Urs6Se', code='project_code_QBHymL')], total_count=1)
         """
@@ -46,7 +46,6 @@ class ProjectApis(GetTokenHeader):
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
         op = Operation(Query)
         project_detail = op.product_project(id=project_id)
-        # 需要再好好优化下，让不同层级都能随意取到
         if args:
             project_detail.data.__fields__(*args)
         data = endpoint(op)
@@ -101,11 +100,5 @@ class ProjectApis(GetTokenHeader):
 
 if __name__ == '__main__':
     project = ProjectApis()
-    con = project.product_project_list()
+    con = project.product_project(project_id=10)
     print(con)
-    # data = Data()
-    # variables = data.create_product_project_normal()
-    # project.create_product_project(variables=variables)
-    # consequence = project.create_product_project(variables=variables)
-    # consequence = project.add_product_task(project_id=209, task_name="task_name_a_QbcF1h")
-    # print(len(consequence))

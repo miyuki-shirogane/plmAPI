@@ -7,7 +7,7 @@ from schema.platform_schema import Query
 
 class MaterialApi(GetTokenHeader):
     """__QUERY__"""
-    def material_list(self, args, **kwargs):
+    def material_list(self, args=None, **kwargs):
         headers = self.get_headers()
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
         op = Operation(Query)
@@ -15,8 +15,11 @@ class MaterialApi(GetTokenHeader):
             limit=10,
             filter=eval(f"{kwargs}"),
         )
-        m_list.data.__fields__(*args)
-        m_list.total_count()
+        if args:
+            m_list.data.__fields__(*args)
+            m_list.total_count()
+        else:
+            pass
         data = endpoint(op)
         res = (op + data).material_list
         return res
@@ -24,4 +27,4 @@ class MaterialApi(GetTokenHeader):
 
 if __name__ == '__main__':
     m = MaterialApi()
-    print(m.material_list(args=["id"]))
+    print(m.material_list())

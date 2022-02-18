@@ -6,7 +6,7 @@ from schema.platform_schema import Query, Mutation
 
 class ProjectApis(GetTokenHeader):
     """__QUERY__"""
-    def product_project_list(self, args, order_by=["-created_at"], **kwargs):
+    def product_project_list(self, args=None, order_by=["-created_at"], **kwargs):
         """
                 limit 10, if not satisfied, update the method.
 
@@ -26,8 +26,11 @@ class ProjectApis(GetTokenHeader):
             filter=eval(f"{kwargs}"),
             order_by=order_by
         )
-        project_list.data.__fields__(*args)
-        project_list.total_count()
+        if args:
+            project_list.data.__fields__(*args)
+            project_list.total_count()
+        else:
+            pass
         data = endpoint(op)
         res = (op + data).product_project_list
         return res
@@ -98,7 +101,7 @@ class ProjectApis(GetTokenHeader):
 
 if __name__ == '__main__':
     project = ProjectApis()
-    con = project.product_project(project_id=10)
+    con = project.product_project_list()
     print(con)
     # data = Data()
     # variables = data.create_product_project_normal()

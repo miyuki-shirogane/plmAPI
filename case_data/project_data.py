@@ -21,10 +21,6 @@ class ProjectData(BaseApi):
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
-    def create_product_project_duplicate(self):
-        res = self.create_product_project_normal()
-        return res
-
     def create_product_project_no_project_group(self):
         name = self.mock.mock_data(data_name="name")
         code = self.mock.mock_data(data_name="code")

@@ -8,7 +8,8 @@ from case_data.project_data import ProjectData
 class TestProject:
     data = ProjectData()
     expect = Expect()
-    c_v2 = data.create_product_project_duplicate()
+    c_v1 = data.create_product_project_normal()
+    c_v2 = c_v1
     c_v3 = data.create_product_project_no_project_group()
     c_v4 = data.create_product_project_not_exist_group()
     c_e1 = expect.get_expect("project", "create_product_project", "duplicate")
@@ -20,8 +21,7 @@ class TestProject:
 
     # CREATE PRODUCT PROJECT
     def test_create_product_project_normal(self):
-        c_v1 = self.data.create_product_project_normal()
-        res = self.project.create_product_project(variables=c_v1)
+        res = self.project.create_product_project(variables=self.c_v1)
         assert_that(type(res), equal_to(int))
 
     """

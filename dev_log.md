@@ -48,3 +48,10 @@ list那种接口 后面有data、total_count的，args必填，因为。。
         res = (op + data).material_list
         return res
 ```
+
+###2022-02-22
+有关联的时候 还是不要查了 新增更好；避免啥也没有就跑不下去了。\
+现在`project_data.py`文件中，涉及到了flow_id的查询，后续写完`flowApi`，\
+再做修改。
+现在在写的`material_apis.py`，依赖到`category_id`，需要新增一个。\
+也就是说，先创建类别，再创建物料。

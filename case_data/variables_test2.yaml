@@ -32,5 +32,11 @@ create_material:
   name: rf
   property: PRODUCT
   specification: rf
-  unit: rf
+  unit: kPa
   versions: fr
+
+create_material_category:
+  company:
+    id: '11'
+  name: kmm
+  property: PRODUCT

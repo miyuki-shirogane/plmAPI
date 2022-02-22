@@ -2,6 +2,7 @@ from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
 
 from apis.get_token_headers import GetTokenHeader
+from case_data.material_data import MaterialData
 from schema.platform_schema import Query, Mutation
 
 
@@ -32,6 +33,11 @@ class MaterialApi(GetTokenHeader):
         return res
 
     def material(self, material_id: int, args=None):
+        """
+        :param material_id: 输入物料id
+        :param args: 输入需要返回的字段，如["name", "code"]
+        :return:
+        """
         headers = self.get_headers()
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
         op = Operation(Query)
@@ -64,6 +70,10 @@ class MaterialApi(GetTokenHeader):
     """__MUTATION__"""
 
     def create_material(self, variables):
+        """
+        :param variables: 传入参数
+        :return: 物料id，或错误信息
+        """
         headers = self.get_headers()
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
         op = Operation(Mutation)
@@ -85,5 +95,9 @@ class MaterialApi(GetTokenHeader):
 
 if __name__ == '__main__':
     m = MaterialApi()
-    print(m.is_material_exists(name="ed", code="ed", versions="ed"))
-    # print(m.material(material_id=103, args=["code", "name", "versions"]))
+    d = MaterialData()
+    # print(m.is_material_exists(name="ed", code="ed", versions="ed"))
+    # print(m.material_list(args=["code", "name", "versions"], property=["PRODUCT"]))
+    variables = d.create_material_normal()
+    print(m.create_material(variables=variables))
+    print(m.create_material(variables=variables))

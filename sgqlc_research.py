@@ -91,18 +91,11 @@ class Request:
 
     def json_to_yaml(self):
         j = {
-              "category": {
-                "id": 31
-              },
-              "code": "fr",
               "company": {
                 "id": "11"
               },
-              "name": "rf",
-              "property": "PRODUCT",
-              "specification": "rf",
-              "unit": "rf",
-              "versions": "fr"
+              "name": "km",
+              "property": "PRODUCT"
             }
         with open("case_data/temp_v.yaml", "w") as f:
             yaml.safe_dump(data=j, stream=f, allow_unicode=True)

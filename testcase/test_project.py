@@ -12,6 +12,7 @@ class TestProject:
     c_v2 = c_v1
     c_v3 = data.create_product_project_no_project_group()
     c_v4 = data.create_product_project_not_exist_group()
+
     c_e1 = expect.get_expect("project", "create_product_project", "duplicate")
     c_e2 = expect.get_expect("project", "create_product_project", "miss_require")
     c_e3 = expect.get_expect("project", "create_product_project", "not_exist_group")

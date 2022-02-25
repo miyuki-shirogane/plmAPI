@@ -4,3 +4,11 @@ project:
     miss_require: "'NoneType' object has no attribute 'type_'"
     not_exist_group: 'insert or update on table "product_project_project_group" violates foreign key
     constraint "product_project_project_group_project_group_id_fkey"'
+
+material:
+  is_material_exists:
+    e1: False
+    e2: False
+    e3: True
+    e4: True
+    e5: True

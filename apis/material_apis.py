@@ -50,11 +50,6 @@ class MaterialApi(GetTokenHeader):
 
     def is_material_exists(self, **kwargs):
         """
-        这个接口届时需要设计用例如下：
-        a, a, a  ; 正常 预期F
-        ed, a,a/a, ed, a ; name-code关系一对一 预期T
-        a, a, b  ; 正常 预期F
-        a, a, b  ;同一物料版本唯一 预期T
         :param kwargs: 传入参数，形如：
             code="string!", company={"id": "1"}, name="string!", versions="string!"
         :return: BOOLEAN
@@ -96,8 +91,8 @@ class MaterialApi(GetTokenHeader):
 if __name__ == '__main__':
     m = MaterialApi()
     d = MaterialData()
-    # print(m.is_material_exists(name="ed", code="ed", versions="ed"))
+    print(m.is_material_exists())
     # print(m.material_list(args=["code", "name", "versions"], property=["PRODUCT"]))
-    v = d.create_material_normal()
-    print(m.create_material(variables=v))
-    print(m.create_material(variables=v))
+    # v = d.create_material_normal()
+    # print(m.create_material(variables=v))
+    # print(m.create_material(variables=v))

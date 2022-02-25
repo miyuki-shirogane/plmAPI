@@ -129,10 +129,14 @@ class Request:
         j["task"][0]["name"] = "啊？"
         print(j)
 
+    def yy(self):
+        v = {'code': 'code_ys69jX', 'company': {'id': '11'}, 'name': 'name_t74hUO', 'property': 'PRODUCT', 'unit': 'kPa', 'versions': 'versions_g4iVca'}
+        print(*v)
+
 
 if __name__ == "__main__":
     r = Request()
     # login_simple()
     # r.yaml_to_json()
     # r.query_project()
-    r.json_to_yaml()
+    r.yy()

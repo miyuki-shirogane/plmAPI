@@ -1,6 +1,5 @@
-import pytest
-
 from apis.base_api import BaseApi
+from apis.material_apis import MaterialApi
 from apis.material_category_apis import MaterialCategoryApi
 from case_data.material_category_data import MaterialCategoryData
 from utils.mock import Mock
@@ -52,7 +51,53 @@ class MaterialData(BaseApi):
         res = MaterialData.is_material_exits_normal_1(self)
         return res
 
+    @staticmethod
+    def _material_info(num: int):
+        """
+        用法：比如 _material_info(num=0).id
+        :param num: list请求中第num个物料信息
+        :return: class, 含attribute如下：id, name, code, version
+        """
+        material = MaterialApi()
+        material_info = material.material_list(args=["id", "name", "code", "versions"]).data[num]
+        return material_info
+
+    def update_material_normal_1(self):
+        material_name = self.mock.mock_data("name")
+        material_code = self.mock.mock_data("code")
+        material_versions = self.mock.mock_data("versions")
+        material_id = MaterialData._material_info(num=0).id
+        args = [("id", material_id),
+                ("name", material_name), ("code", material_code), ("versions", material_versions)]
+        variables_temp = self.get_variables(variables_name="update_material")
+        variables = self.modify_variables(target_json=variables_temp, args=args)
+        return variables
+
+    def update_material_normal_2(self):
+        info_0 = MaterialData._material_info(0)
+        material_versions = self.mock.mock_data("versions")
+        args = [("id", info_0.id), ("name", info_0.name), ("code", info_0.code), ("versions", material_versions)]
+        variables_temp = self.get_variables(variables_name="update_material")
+        variables = self.modify_variables(target_json=variables_temp, args=args)
+        return variables
+
+    def update_material_abnormal_1(self):
+        info_0 = MaterialData._material_info(0)
+        info_1 = MaterialData._material_info(1)
+        args = [("id", info_0.id), ("name", info_1.name), ("code", info_0.code), ("versions", info_0.versions)]
+        variables_temp = self.get_variables(variables_name="update_material")
+        variables = self.modify_variables(target_json=variables_temp, args=args)
+        return variables
+
+    def update_material_abnormal_2(self):
+        info_0 = MaterialData._material_info(0)
+        info_1 = MaterialData._material_info(1)
+        args = [("id", info_0.id), ("name", info_0.name), ("code", info_1.code), ("versions", info_0.versions)]
+        variables_temp = self.get_variables(variables_name="update_material")
+        variables = self.modify_variables(target_json=variables_temp, args=args)
+        return variables
+
 
 if __name__ == '__main__':
     a = MaterialData()
-    print(a.is_material_exits_normal_1())
+    print(a.update_material_abnormal_2())

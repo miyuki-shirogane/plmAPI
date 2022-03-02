@@ -35,6 +35,12 @@ create_material:
   unit: kPa
   versions: fr
 
+update_material:
+  id: 120
+  code: fr
+  name: rf
+  versions: fr
+
 create_material_category:
   company:
     id: '11'

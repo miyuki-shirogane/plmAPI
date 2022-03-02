@@ -6,9 +6,8 @@ project:
     constraint "product_project_project_group_project_group_id_fkey"'
 
 material:
-  is_material_exists:
-    e1: False
-    e2: False
-    e3: True
-    e4: True
-    e5: True
+  update_material:
+    e1: True
+    e2: True
+    e3: "名称、编码不匹配"
+    e4: "名称、编码不匹配"

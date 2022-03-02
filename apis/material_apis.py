@@ -2,7 +2,6 @@ from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
 
 from apis.get_token_headers import GetTokenHeader
-from case_data.material_data import MaterialData
 from schema.platform_schema import Query, Mutation
 
 
@@ -81,18 +80,30 @@ class MaterialApi(GetTokenHeader):
             res = data.get("errors")[0].get("message")
             return res
 
-    def update_material(self):
-        pass
+    def update_material(self, variables):
+        """
+        :param variables: 传入参数
+        :return: True或者ErrorMessage
+        """
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.update_material(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).update_material
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
 
     def delete_material(self):
         pass
 
 
 if __name__ == '__main__':
+    from case_data.material_data import MaterialData
     m = MaterialApi()
     d = MaterialData()
-    print(m.is_material_exists())
-    # print(m.material_list(args=["code", "name", "versions"], property=["PRODUCT"]))
-    # v = d.create_material_normal()
-    # print(m.create_material(variables=v))
-    # print(m.create_material(variables=v))
+    v = d.update_material_abnormal_1()
+    print(m.update_material(variables=v))

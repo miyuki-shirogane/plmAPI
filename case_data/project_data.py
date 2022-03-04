@@ -17,7 +17,7 @@ class ProjectData(BaseApi):
     # CREATE_PRODUCT_PROJECT
     def create_product_project_normal(self):
         args = [("name", self.name), ("code", self.code)]
-        variables_temp = self.get_variables(variables_name="create_product_project")
+        variables_temp = self.get_variables(module_name="project", variables_name="create_product_project")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
@@ -25,7 +25,7 @@ class ProjectData(BaseApi):
         name = self.mock.mock_data(data_name="name")
         code = self.mock.mock_data(data_name="code")
         args = [("name", name), ("code", code), ("projectGroup", [])]
-        variables_temp = self.get_variables(variables_name="create_product_project")
+        variables_temp = self.get_variables(module_name="project", variables_name="create_product_project")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
@@ -33,7 +33,7 @@ class ProjectData(BaseApi):
         name = self.mock.mock_data(data_name="name")
         code = self.mock.mock_data(data_name="code")
         args = [("name", name), ("code", code), ("projectGroup", [{"id": 10000}])]
-        variables_temp = self.get_variables(variables_name="create_product_project")
+        variables_temp = self.get_variables(module_name="project", variables_name="create_product_project")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
@@ -45,7 +45,7 @@ class ProjectData(BaseApi):
         flow_id = flow_ids[0].id
         flow_detail = self.flow.product_flow(flow_id=flow_id, args=["task_template"])
         task_name = flow_detail.task_template[0].name
-        variables = self.get_variables(variables_name="add_product_task")
+        variables = self.get_variables(module_name="project", variables_name="add_product_task")
         variables["project"]["id"] = project_id
         variables["task"][0]["name"] = task_name
         variables["task"][0]["planEndAt"] = variables["task"][0]["planStartAt"] = self.mock.current_time()

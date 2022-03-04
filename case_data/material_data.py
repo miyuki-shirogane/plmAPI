@@ -23,7 +23,7 @@ class MaterialData(BaseApi):
         v_material_category_id = {"id": material_category_id}
         args = [("category", v_material_category_id), ("specification", specification), ("name", name),
                 ("code", code), ("versions", versions)]
-        variables_temp = self.get_variables(variables_name="create_material")
+        variables_temp = self.get_variables(module_name="material", variables_name="create_material")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
@@ -69,7 +69,7 @@ class MaterialData(BaseApi):
         material_id = MaterialData._material_info(num=0).id
         args = [("id", material_id),
                 ("name", material_name), ("code", material_code), ("versions", material_versions)]
-        variables_temp = self.get_variables(variables_name="update_material")
+        variables_temp = self.get_variables(module_name="material", variables_name="update_material")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
@@ -77,7 +77,7 @@ class MaterialData(BaseApi):
         info_0 = MaterialData._material_info(0)
         material_versions = self.mock.mock_data("versions")
         args = [("id", info_0.id), ("name", info_0.name), ("code", info_0.code), ("versions", material_versions)]
-        variables_temp = self.get_variables(variables_name="update_material")
+        variables_temp = self.get_variables(module_name="material", variables_name="update_material")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
@@ -85,7 +85,7 @@ class MaterialData(BaseApi):
         info_0 = MaterialData._material_info(0)
         info_1 = MaterialData._material_info(1)
         args = [("id", info_0.id), ("name", info_1.name), ("code", info_0.code), ("versions", info_0.versions)]
-        variables_temp = self.get_variables(variables_name="update_material")
+        variables_temp = self.get_variables(module_name="material", variables_name="update_material")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
@@ -93,11 +93,15 @@ class MaterialData(BaseApi):
         info_0 = MaterialData._material_info(0)
         info_1 = MaterialData._material_info(1)
         args = [("id", info_0.id), ("name", info_0.name), ("code", info_1.code), ("versions", info_0.versions)]
-        variables_temp = self.get_variables(variables_name="update_material")
+        variables_temp = self.get_variables(module_name="material", variables_name="update_material")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
+
+    def delete_material_normal(self):
+        material_id = MaterialData._material_info(num=0).id
+        return [material_id]
 
 
 if __name__ == '__main__':
     a = MaterialData()
-    print(a.update_material_abnormal_2())
+    print(a.delete_material_normal())

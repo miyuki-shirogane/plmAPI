@@ -38,7 +38,7 @@ class BaseApi:
         # install it
         ur.install_opener(opener)
 
-    def get_variables(self, variables_name: str):
+    def get_variables(self, module_name:str, variables_name: str):
         """
         :param variables_name: for instance: variables_name="create_product_project_temp"
         :return: json
@@ -46,7 +46,7 @@ class BaseApi:
         root_path = os.path.abspath(os.path.join(os.getcwd(), ".."))
         path = os.path.join(root_path, "case_data/variables_" + self.env_name + ".yaml")
         variables = yaml.safe_load(open(path))
-        res = variables[variables_name]
+        res = variables[module_name][variables_name]
         return res
 
     def modify_variables(self, target_json, args: list):
@@ -66,6 +66,6 @@ class BaseApi:
 
 if __name__ == '__main__':
     b = BaseApi()
-    t = b.get_variables(variables_name="create_product_project_temp")
+    t = b.get_variables(module_name="project", variables_name="create_product_project")
     res1 = b.modify_variables(target_json=t, args=[("name", "jojo5"), ("code", "jojo5")])
     print(res1)

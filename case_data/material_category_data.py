@@ -12,7 +12,7 @@ class MaterialCategoryData(BaseApi):
         :return:
         """
         args = [("name", self.name), ("property", material_property)]
-        variables_temp = self.get_variables(variables_name="create_material_category")
+        variables_temp = self.get_variables(module_name="category", variables_name="create_material_category")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 

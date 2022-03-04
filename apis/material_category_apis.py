@@ -50,8 +50,4 @@ class MaterialCategoryApi(GetTokenHeader):
 
 if __name__ == '__main__':
     m = MaterialCategoryApi()
-    # re = m.material_category_list(args=["id", "name"], property=["PRODUCT"])
-    # print(re)
-    v = m.get_variables(variables_name="create_material_category")
-    re = m.create_material_category(variables=v)
-    print(re)
+

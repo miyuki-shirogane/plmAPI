@@ -1,6 +1,0 @@
-2022-03-01 14:29:03 [ERROR] GraphQL query failed with 1 errors (base.py:213)
-2022-03-01 14:29:03 [INFO] Error #0: (base.py:220)
-2022-03-01 14:29:03 [INFO]    | 名称、编码不匹配 (base.py:222)
-2022-03-01 14:29:04 [ERROR] GraphQL query failed with 1 errors (base.py:213)
-2022-03-01 14:29:04 [INFO] Error #0: (base.py:220)
-2022-03-01 14:29:04 [INFO]    | 名称、编码不匹配 (base.py:222)

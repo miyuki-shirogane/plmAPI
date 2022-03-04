@@ -28,7 +28,7 @@ class TestMaterial:
     def post_condition(self):
         print("需要做点后置操作")
         yield
-        variables_temp = self.data.get_variables(variables_name="create_material")
+        variables_temp = self.data.get_variables(module_name="project", variables_name="create_material")
         pop_keys = ["category", "specification"]
         [variables_temp.pop(k) for k in pop_keys]
         args = [("name", self.data.name), ("code", self.data.code), ("versions", self.data.versions)]
@@ -56,3 +56,9 @@ class TestMaterial:
     def test_update_material(self, variables, expect):
         res = self.material.update_material(variables=variables)
         assert_that(res, equal_to(expect))
+
+    def test_delete_material_normal(self):
+        variables = self.data.delete_material_normal()
+        res = self.material.delete_material(variables=variables)
+        assert_that(res, equal_to(True))
+        

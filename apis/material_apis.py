@@ -97,13 +97,23 @@ class MaterialApi(GetTokenHeader):
             res = data.get("errors")[0].get("message")
             return res
 
-    def delete_material(self):
-        pass
+    def delete_material(self, variables):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.delete_material(id=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).delete_material
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
 
 
 if __name__ == '__main__':
     from case_data.material_data import MaterialData
     m = MaterialApi()
     d = MaterialData()
-    v = d.update_material_abnormal_1()
-    print(m.update_material(variables=v))
+    v = d.delete_material_normal()
+    print(m.delete_material(variables=v))

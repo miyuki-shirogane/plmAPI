@@ -1,48 +1,51 @@
-create_product_project:
-  attachment:
-  - id: '202'
-  category: CUSTOMIZATION
-  code: kqy2
-  company:
-    id: '11'
-  description: 说明
-  name: kqy2
-  planStartAt: 1643126400000
-  projectGroup:
-  - id: 131
+project:
+  create_product_project:
+    attachment:
+    - id: '202'
+    category: CUSTOMIZATION
+    code: kqy2
+    company:
+      id: '11'
+    description: 说明
+    name: kqy2
+    planStartAt: 1643126400000
+    projectGroup:
+    - id: 131
 
-add_product_task:
-  project:
-    id: 178
-  task:
-  - executive:
-      id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
-    name: task_name_a_QbcF1h
-    participant:
-    - id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
-    planEndAt: 1644163200000
-    planStartAt: 1644163200000
+  add_product_task:
+    project:
+      id: 178
+    task:
+    - executive:
+        id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
+      name: task_name_a_QbcF1h
+      participant:
+      - id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
+      planEndAt: 1644163200000
+      planStartAt: 1644163200000
 
-create_material:
-  category:
-    id: 31
-  code: fr
-  company:
-    id: '11'
-  name: rf
-  property: PRODUCT
-  specification: rf
-  unit: kPa
-  versions: fr
+material:
+  create_material:
+    category:
+      id: 31
+    code: fr
+    company:
+      id: '11'
+    name: rf
+    property: PRODUCT
+    specification: rf
+    unit: kPa
+    versions: fr
 
-update_material:
-  id: 120
-  code: fr
-  name: rf
-  versions: fr
+  update_material:
+    id: 120
+    code: fr
+    name: rf
+    versions: fr
 
-create_material_category:
-  company:
-    id: '11'
-  name: kmm
-  property: PRODUCT
+category:
+  create_material_category:
+    company:
+      id: '11'
+    name: kmm
+    property: PRODUCT

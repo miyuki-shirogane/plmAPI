@@ -25,10 +25,9 @@ class TestMaterial:
         self.material = MaterialApi()
 
     @pytest.fixture(scope="function")
-    def post_condition(self):
-        print("需要做点后置操作")
+    def _post_condition(self):
         yield
-        variables_temp = self.data.get_variables(module_name="project", variables_name="create_material")
+        variables_temp = self.data.get_variables(module_name="material", variables_name="create_material")
         pop_keys = ["category", "specification"]
         [variables_temp.pop(k) for k in pop_keys]
         args = [("name", self.data.name), ("code", self.data.code), ("versions", self.data.versions)]
@@ -39,7 +38,7 @@ class TestMaterial:
         res = self.material.create_material(variables=self.c_v1)
         assert_that(type(res), equal_to(int))
 
-    def test_is_material_exits_normal(self, post_condition):
+    def test_is_material_exits_normal(self, _post_condition):
         res = self.material.is_material_exists(name=self.exits_l1[0], code=self.exits_l1[1], versions=self.exits_l1[2])
         assert_that(res, equal_to(False))
 
@@ -61,4 +60,3 @@ class TestMaterial:
         variables = self.data.delete_material_normal()
         res = self.material.delete_material(variables=variables)
         assert_that(res, equal_to(True))
-        

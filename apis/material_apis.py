@@ -50,7 +50,7 @@ class MaterialApi(GetTokenHeader):
     def is_material_exists(self, **kwargs):
         """
         :param kwargs: 传入参数，形如：
-            code="string!", company={"id": "1"}, name="string!", versions="string!"
+            company={"id": "1"}, name="string!", versions="string!"
         :return: BOOLEAN
         """
         headers = self.get_headers()

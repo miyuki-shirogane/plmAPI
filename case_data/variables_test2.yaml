@@ -45,7 +45,5 @@ material:
 
 category:
   create_material_category:
-    company:
-      id: '11'
     name: kmm
     property: PRODUCT

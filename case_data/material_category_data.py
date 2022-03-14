@@ -5,6 +5,7 @@ from utils.mock import Mock
 class MaterialCategoryData(BaseApi):
     mock = Mock()
     name = mock.mock_data("category_name")
+    is_name = mock.mock_data("category")
 
     def create_material_category_normal(self, material_property: str):
         """
@@ -15,6 +16,9 @@ class MaterialCategoryData(BaseApi):
         variables_temp = self.get_variables(module_name="category", variables_name="create_material_category")
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
+
+    def is_category_exits(self):
+        return [self.is_name, "PRODUCT"]
 
 
 if __name__ == '__main__':

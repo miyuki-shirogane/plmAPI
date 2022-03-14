@@ -1,6 +1,5 @@
 from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
-
 from apis.get_token_headers import GetTokenHeader
 from schema.platform_schema import Query, Mutation
 
@@ -29,6 +28,37 @@ class MaterialCategoryApi(GetTokenHeader):
         res = (op + data).material_category_list
         return res
 
+    def material_category(self, category_id: int, args=None):
+        """
+        :param category_id: 输入物料id
+        :param args: 输入需要返回的字段，如["name", "code"]
+        :return:
+        """
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        category_detail = op.material_category(id=category_id)
+        if args:
+            category_detail.__fields__(*args)
+        data = endpoint(op)
+        res = (op + data).material_category
+        return res
+
+    def is_material_category_exists(self, **kwargs):
+        """
+        :param kwargs: 传入参数，形如：
+            name="string!", property="string!"
+            material_property:PRODUCT, RAW_MATERIAL, INTERMEDIATE, BACTERIA
+        :return: BOOLEAN
+        """
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        op.is_material_category_exists(input=eval(f"{kwargs}"))
+        data = endpoint(op)
+        res = (op + data).is_material_category_exists
+        return res
+
     """__MUTATION__"""
     def create_material_category(self, variables):
         """
@@ -50,4 +80,5 @@ class MaterialCategoryApi(GetTokenHeader):
 
 if __name__ == '__main__':
     m = MaterialCategoryApi()
+    print(m.material_category(category_id=10))
 

@@ -47,3 +47,8 @@ category:
   create_material_category:
     name: kmm
     property: PRODUCT
+
+  update_material_category:
+    id: 68
+    name: kmm
+    property: PRODUCT

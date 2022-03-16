@@ -17,7 +17,7 @@ class MaterialCategoryApi(GetTokenHeader):
         op = Operation(Query)
         mc_list = op.material_category_list(
             limit=10,
-            filter=eval(f"{kwargs}"),
+            filter=eval(f"{kwargs}")
         )
         if args:
             mc_list.data.__fields__(*args)
@@ -72,6 +72,36 @@ class MaterialCategoryApi(GetTokenHeader):
         data = endpoint(op)
         try:
             res = (op + data).create_material_category
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
+    def update_material_category(self, variables):
+        """
+        :param variables: 传入参数
+        :return: True or errMessage
+        """
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.update_material_category(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).update_material_category
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
+    def delete_category(self, variables):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.delete_material_category(id=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).delete_material_category
             return res
         except:
             res = data.get("errors")[0].get("message")

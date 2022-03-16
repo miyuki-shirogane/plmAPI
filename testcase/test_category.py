@@ -24,11 +24,21 @@ class TestCategory:
         assert_that(type(res), equal_to(int))
 
     def test_is_category_exits_normal(self):
-        c_l = self.data.is_category_exits()
-        res = self.category.is_material_category_exists(name=c_l[0], property=c_l[1])
+        i_l = self.data.is_category_exits()
+        res = self.category.is_material_category_exists(name=i_l[0], property=i_l[1])
         assert_that(res, equal_to(False))
 
     def test_is_category_exits_abnormal(self, _pre_condition):
-        c_l = self.data.is_category_exits()
-        res = self.category.is_material_category_exists(name=c_l[0], property=c_l[1])
+        i_l = self.data.is_category_exits()
+        res = self.category.is_material_category_exists(name=i_l[0], property=i_l[1])
+        assert_that(res, equal_to(True))
+
+    def test_update_category(self):
+        u_v = self.data.update_category()
+        res = self.category.update_material_category(variables=u_v)
+        assert_that(res, equal_to(True))
+
+    def test_delete_category(self):
+        d_v = self.data.delete_category_normal()
+        res = self.category.delete_category(variables=d_v)
         assert_that(res, equal_to(True))

@@ -91,8 +91,11 @@ class Request:
 
     def json_to_yaml(self):
         j = {
-              "id": [
-                121
+              "name": "f",
+              "taskConfiguration": [
+                {
+                  "name": "a"
+                }
               ]
             }
         with open("case_data/temp_v.yaml", "w") as f:

@@ -1,2 +1,4 @@
-id:
-- 121
+name: f
+taskConfiguration:
+- name: a
+- name: b

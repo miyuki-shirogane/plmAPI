@@ -2,7 +2,7 @@ from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
 
 from apis.get_token_headers import GetTokenHeader
-from schema.platform_schema import Query
+from schema.platform_schema import Query, Mutation
 
 
 class FlowApis(GetTokenHeader):
@@ -43,12 +43,65 @@ class FlowApis(GetTokenHeader):
         res = (op + data).product_flow
         return res
 
+    def is_product_flow_exists(self, **kwargs):
+        """
+        :param kwargs: 传入参数, name: string!, company: id
+        :return: BOOLEAN
+        """
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        op.is_product_flow_exists(input=eval(f"{kwargs}"))
+        data = endpoint(op)
+        res = (op + data).is_product_flow_exists
+        return res
+
+    """__MUTATION__"""
+    def create_product_flow(self, variables):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.create_product_flow(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).create_product_flow
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
+    def update_product_flow(self, variables):
+        """
+        :param variables: 传入参数
+        :return: True or errMessage
+        """
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.update_product_flow(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).update_product_flow
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
+    def delete_product_flow(self, variables):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.delete_product_flow(id=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).delete_product_flow
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
 
 if __name__ == '__main__':
     f = FlowApis()
-    # res_data = f.product_flows(args=["id"], company=[{"id": "11"}])
-    # flow_id1 = res_data[0].id
-    # flow = f.product_flow(flow_id=flow_id1, args=["task_template"])
-    # print(flow.task_template[0].name)
-    res_data = f.product_flow(flow_id=96)
-    print(len(res_data))
+    res_data = f.delete_product_flow(variables=[103])
+    print(res_data)

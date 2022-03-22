@@ -52,3 +52,15 @@ category:
     id: 68
     name: kmm
     property: PRODUCT
+
+flow:
+  create_product_flow:
+    name: f
+    taskConfiguration:
+      - name: a
+
+  update_product_flow:
+    id: 68
+    name: kmm
+    taskConfiguration:
+      - name: a

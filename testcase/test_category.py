@@ -28,6 +28,7 @@ class TestCategory:
         res = self.category.is_material_category_exists(name=i_l[0], property=i_l[1])
         assert_that(res, equal_to(False))
 
+    # 严格来说，这也不算abnormal。只是预期结果是"已存在"，即True
     def test_is_category_exits_abnormal(self, _pre_condition):
         i_l = self.data.is_category_exits()
         res = self.category.is_material_category_exists(name=i_l[0], property=i_l[1])

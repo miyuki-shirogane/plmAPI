@@ -41,10 +41,24 @@ class GetTokenHeader(BaseApi):
         res = (op + data).me
         return res
 
+    def users_info(self, num: int, args=None, **kwargs):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        users_info = op.users(
+            filter=eval(f"{kwargs}"),
+        )
+        if args:
+            users_info.__fields__(*args)
+        data = endpoint(op)
+        res = (op + data).users.data[num]
+        return res
+
 
 if __name__ == '__main__':
     a = GetTokenHeader()
     # res1 = a.get_user()
     # print(res1.company.id)
-    res2 = a.get_headers(account="admin", password="teletraan@2022")
+    # res2 = a.get_headers(account="admin", password="teletraan@2022")
+    res2 = a.users_info(num=0).id
     print(res2)

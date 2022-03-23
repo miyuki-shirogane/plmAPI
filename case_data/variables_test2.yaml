@@ -64,3 +64,11 @@ flow:
     name: kmm
     taskConfiguration:
       - name: a
+
+group:
+  create_project_group:
+    name: em
+
+  update_project_group:
+    id: 135
+    name: a

@@ -67,7 +67,7 @@ class GroupApis(GetTokenHeader):
         if args:
             group_member_detail.__fields__(*args)
         data = endpoint(op)
-        res = (op + data).project_group_member_list[0]
+        res = (op + data).project_group_member_list
         return res
 
     """__MUTATION__"""
@@ -111,10 +111,34 @@ class GroupApis(GetTokenHeader):
             return res
 
     def add_project_group_member(self, variables):
-        pass
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.add_project_group_member(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).add_project_group_member
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
+    def remove_project_group_member(self, variables):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.remove_project_group_member(id=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).remove_project_group_member
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
 
 
 if __name__ == '__main__':
     g = GroupApis()
-    print(g.project_group_list())
+    v = {'id': [122]}
+    print(g.remove_project_group_member(variables=v))
     # print(g.project_group_member_list(group_id=10, args=["member"]).member.account)

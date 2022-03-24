@@ -1,3 +1,21 @@
+user:
+  create_role:
+    name: a
+    permissions:
+    - permission:
+        id: '1'
+    - permission:
+        id: '3'
+    - permission:
+        id: '4'
+
+  create_user:
+    account: aaaaas
+    isActive: True
+    name: s
+    role:
+    - id: '55'
+
 project:
   create_product_project:
     attachment:
@@ -72,3 +90,13 @@ group:
   update_project_group:
     id: 135
     name: a
+
+  add_project_group_member:
+    member:
+    - id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
+    projectGroup:
+      id: '135'
+
+  remove_project_member_member:
+    id:
+    - 116

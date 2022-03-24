@@ -1,6 +1,6 @@
 from apis.base_api import BaseApi
 from apis.flow_apis import FlowApis
-from apis.get_token_headers import GetTokenHeader
+from apis.user_apis import User
 from utils.mock import Mock
 from apis.project_apis import ProjectApis
 
@@ -9,7 +9,7 @@ class ProjectData(BaseApi):
     mock = Mock()
     project = ProjectApis()
     flow = FlowApis()
-    user = GetTokenHeader()
+    user = User()
     company_id = user.get_user().company.id
     name = mock.mock_data(data_name="name")
     code = mock.mock_data(data_name="code")

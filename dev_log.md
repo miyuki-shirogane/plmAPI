@@ -55,3 +55,8 @@ list那种接口 后面有data、total_count的，args必填，因为。。
 再做修改。
 现在在写的`material_apis.py`，依赖到`category_id`，需要新增一个。\
 也就是说，先创建类别，再创建物料。
+
+###2022-03-24
+注意到schema中包含create_user接口。那到时候看看，能不能在conftest.py文件中，\
+设置session级别的fixture，令检测user数量是否达到预期，若是pass，否则新增用户。\
+这个是后话，晚点确认下。

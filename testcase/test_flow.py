@@ -40,7 +40,7 @@ class TestFlow:
         res = self.flow.update_product_flow(variables=u_v)
         assert_that(res, equal_to(True))
 
-    def test_delete_category(self):
+    def test_delete_flow(self):
         d_v = self.data.delete_flow_normal()
         res = self.flow.delete_product_flow(variables=d_v)
         assert_that(res, equal_to(True))

@@ -60,3 +60,11 @@ list那种接口 后面有data、total_count的，args必填，因为。。
 注意到schema中包含create_user接口。那到时候看看，能不能在conftest.py文件中，\
 设置session级别的fixture，令检测user数量是否达到预期，若是pass，否则新增用户。\
 这个是后话，晚点确认下。
+
+###2022-03-25
+昨天设想的设计已经实现，效果符合预期。暂且没有发现bug
+
+###2022-03-26
+事情开始变得复杂，project模块有必要先准备用例，再去实现了，需要导航；另外，\
+ProjectData需要修改下,比如create_project的时候，group_id不能用已有的默认数据\
+不同的环境这么搞，会发生问题。

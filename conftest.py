@@ -20,6 +20,7 @@ user_count = data.user_count()
 role_count = data.role_count()
 
 
+# 创建一下用户、角色
 @pytest.fixture(scope="session", autouse=True)
 def pre_condition_for_the_satiation():
     if role_count >= 2:

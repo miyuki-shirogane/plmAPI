@@ -139,6 +139,5 @@ class GroupApis(GetTokenHeader):
 
 if __name__ == '__main__':
     g = GroupApis()
-    v = {'id': [122]}
-    print(g.remove_project_group_member(variables=v))
+    print(g.project_group_list())
     # print(g.project_group_member_list(group_id=10, args=["member"]).member.account)

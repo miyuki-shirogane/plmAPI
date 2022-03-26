@@ -91,21 +91,23 @@ class Request:
 
     def json_to_yaml(self):
         j = {
-              "account": "aaaaas",
-              "isActive": True,
-              "name": "s",
-              "role": [
-                {
-                  "id": "55"
-                }
-              ]
+              "product": {
+                "code": "code",
+                "name": "name",
+                "property": "PRODUCT",
+                "unit": "unit",
+                "versions": "version"
+              },
+              "project": {
+                "id": 273
+              }
             }
         with open("case_data/temp_v.yaml", "w") as f:
             yaml.safe_dump(data=j, stream=f, allow_unicode=True)
 
     def yaml_to_json(self):
         y = yaml.safe_load(open("case_data/variables_test2.yaml"))
-        res = y["add_product_task"]
+        res = y["project"]["add_product_task"]
         print(res)
 
     def change(self):
@@ -140,7 +142,7 @@ class Request:
 if __name__ == "__main__":
     r = Request()
     # login_simple()
-    # r.yaml_to_json()
+    r.yaml_to_json()
     # r.query_project()
     # r.yy()
-    r.json_to_yaml()
+    # r.json_to_yaml()

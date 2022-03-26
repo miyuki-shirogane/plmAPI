@@ -1,5 +1,8 @@
-account: aaaaas
-isActive: true
-name: s
-role:
-- id: '55'
+product:
+  code: code
+  name: name
+  property: PRODUCT
+  unit: unit
+  versions: version
+project:
+  id: 273

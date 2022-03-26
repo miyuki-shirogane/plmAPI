@@ -66,6 +66,21 @@ class ProjectApis(GetTokenHeader):
         res = (op + data).is_product_project_exists
         return res
 
+    def product_task_list(self, args=None, **kwargs):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        task_list = op.product_task_list(
+            filter=eval(f"{kwargs}"),
+        )
+        if args:
+            task_list.__fields__(*args)
+        else:
+            pass
+        data = endpoint(op)
+        res = (op + data).product_task_list
+        return res
+
     """__MUTATION__"""
     def create_product_project(self, variables):
         """
@@ -84,6 +99,25 @@ class ProjectApis(GetTokenHeader):
             res = data.get("errors")[0].get("message")
             return res
 
+    def set_product_project(self, variables):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.set_product_project(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).set_product_project
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
+    def start_product_project(self):
+        pass
+
+    def end_product_project(self):
+        pass
+
     def add_product_task(self, variables):
         """
         :param variables: 传入参数
@@ -96,6 +130,9 @@ class ProjectApis(GetTokenHeader):
         data = endpoint(op)
         res = (op + data).add_product_task
         return res
+
+    def update_product_task(self):
+        pass
 
 
 if __name__ == '__main__':

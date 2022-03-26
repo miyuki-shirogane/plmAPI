@@ -40,6 +40,15 @@ project:
     project:
       id: 273
 
+  start_product_project:
+    id:
+    - 116
+
+  end_product_project:
+    attachment: [ ]
+    description: description
+    id: 273
+
   add_product_task:
     project:
       id: 178
@@ -106,7 +115,3 @@ group:
     - id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
     projectGroup:
       id: '135'
-
-  remove_project_member_member:
-    id:
-    - 116

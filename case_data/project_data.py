@@ -55,6 +55,17 @@ class ProjectData(BaseApi):
             variables["product"][i] = column
         return variables
 
+    def start_product_project(self, project_id: int):
+        variables = self.get_variables(module_name="project", variables_name="start_product_project")
+        variables["id"] = [project_id]
+        return variables
+
+    def end_product_project(self, project_id: int):
+        variables = self.get_variables(module_name="project", variables_name="end_product_project")
+        variables["id"] = project_id
+        return variables
+
+
     # ADD_PRODUCT_TASK；这里不太一样，一旦添加成功，页面上就不允许再添加了。但是接口层面是允许再加的，不晓得有没有问题。
     def add_product_task_normal(self):
         # 得查询一下最新的project_id是多少; 实现的方案是通过接口调用查询
@@ -72,4 +83,4 @@ class ProjectData(BaseApi):
 
 if __name__ == '__main__':
     data = ProjectData()
-    print(data.set_product_project())
+    print(data.end_product_project(project_id=12))

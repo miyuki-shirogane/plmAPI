@@ -91,16 +91,9 @@ class Request:
 
     def json_to_yaml(self):
         j = {
-              "product": {
-                "code": "code",
-                "name": "name",
-                "property": "PRODUCT",
-                "unit": "unit",
-                "versions": "version"
-              },
-              "project": {
-                "id": 273
-              }
+              "attachment": [],
+              "description": "jn",
+              "id": 273
             }
         with open("case_data/temp_v.yaml", "w") as f:
             yaml.safe_dump(data=j, stream=f, allow_unicode=True)
@@ -142,7 +135,7 @@ class Request:
 if __name__ == "__main__":
     r = Request()
     # login_simple()
-    r.yaml_to_json()
+    # r.yaml_to_json()
     # r.query_project()
     # r.yy()
-    # r.json_to_yaml()
+    r.json_to_yaml()

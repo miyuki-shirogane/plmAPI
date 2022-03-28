@@ -35,6 +35,11 @@ class TestProject:
         res = self.project.create_product_project(variables=variables)
         assert_that(res, equal_to(expect))
 
+    def test_set_project_product(self):
+        variables = self.data.set_project_product()
+        res = self.project.set_project_product(variables=variables)
+        assert_that(res, equal_to(True))
+
     # ADD PRODUCT TASK
     def test_add_product_task_normal(self):
         a_v1 = self.data.add_product_task_normal()

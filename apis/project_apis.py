@@ -99,24 +99,44 @@ class ProjectApis(GetTokenHeader):
             res = data.get("errors")[0].get("message")
             return res
 
-    def set_product_project(self, variables):
+    def set_project_product(self, variables):
         headers = self.get_headers()
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
         op = Operation(Mutation)
-        op.set_product_project(input=variables)
+        op.set_project_product(input=variables)
         data = endpoint(op)
         try:
-            res = (op + data).set_product_project
+            res = (op + data).set_project_product
             return res
         except:
             res = data.get("errors")[0].get("message")
             return res
 
-    def start_product_project(self):
-        pass
+    def start_product_project(self, project_id):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.start_product_project(id=[project_id])
+        data = endpoint(op)
+        try:
+            res = (op + data).start_product_project
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
 
-    def end_product_project(self):
-        pass
+    def end_product_project(self, variables):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.end_product_project(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).end_product_project
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
 
     def add_product_task(self, variables):
         """

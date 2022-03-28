@@ -30,7 +30,7 @@ project:
     projectGroup:
     - id: 131
 
-  set_product_project:
+  set_project_product:
     product:
       code: code
       name: name

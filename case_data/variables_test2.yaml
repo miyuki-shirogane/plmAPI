@@ -61,6 +61,17 @@ project:
       planEndAt: 1644163200000
       planStartAt: 1644163200000
 
+  update_product_task:
+    id: 86
+    name: task_wWYcZp
+    planEndAt: 1648534208097
+    planStartAt: 1648534208097
+
+  create_task_bom:
+    task:
+      id: 87
+    versions: ec
+
 material:
   create_material:
     category:

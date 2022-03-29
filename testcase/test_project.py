@@ -45,3 +45,18 @@ class TestProject:
         a_v1 = self.data.add_product_task_normal()
         res = self.project.add_product_task(variables=a_v1)
         assert_that(res, equal_to(True))
+
+    def test_update_product_task(self):
+        u_v = self.data.update_product_task()
+        res = self.project.update_product_task(variables=u_v)
+        assert_that(res, equal_to(True))
+
+    def test_start_project(self):
+        project_id = self.data.start_product_project()
+        res = self.project.start_product_project(project_id=project_id)
+        assert_that(res, equal_to(True))
+
+    def test_create_task_bom(self):
+        c_v = self.data.create_task_bom()
+        res = self.project.create_task_bom(variables=c_v)
+        print(res)

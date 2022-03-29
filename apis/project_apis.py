@@ -74,7 +74,7 @@ class ProjectApis(GetTokenHeader):
             filter=eval(f"{kwargs}"),
         )
         if args:
-            task_list.__fields__(*args)
+            task_list.data.__fields__(*args)
         else:
             pass
         data = endpoint(op)
@@ -151,11 +151,38 @@ class ProjectApis(GetTokenHeader):
         res = (op + data).add_product_task
         return res
 
-    def update_product_task(self):
-        pass
+    def update_product_task(self, variables):
+        """
+        :param variables:
+        :return: True or error message
+        """
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.update_product_task(input=variables)
+        data = endpoint(op)
+        res = (op + data).update_product_task
+        return res
+
+    def create_task_bom(self, variables):
+        """
+        :param variables:
+        :return: bom id
+        """
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.create_task_bom(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).create_task_bom
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
 
 
 if __name__ == '__main__':
     project = ProjectApis()
-    con = project.product_project(project_id=10)
+    con = project.product_task_list(args=["id", "name", "plan_start_at", "plan_end_at"], project=[{"id": 284}])
     print(con)

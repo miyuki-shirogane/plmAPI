@@ -136,7 +136,44 @@ class ProjectData(BaseApi):
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
+    def delete_bom(self):
+        c_v = self.create_task_bom()
+        bom_id = self.project.create_task_bom(variables=c_v)
+        return bom_id
+
+    def add_bom_material(self, material_id: int):
+        project_id = self.project.product_project_list(args=["id"]).data[0].id
+        task_id = self.project.product_task_list(args=["id"], project=[{"id": project_id}]).data[0].id
+        bom_id = self.project.bom_list(args=["id"], task=[{"id": task_id}]).data[0].id
+        variables_temp = self.get_variables(module_name="project", variables_name="add_bom_material")
+        args = [("bom", {"id": bom_id}), ("material", [{"id": material_id}])]
+        variables = self.modify_variables(target_json=variables_temp, args=args)
+        return variables
+
+    def update_bom_material(self):
+        project_id = self.project.product_project_list(args=["id"]).data[0].id
+        task_id = self.project.product_task_list(args=["id"], project=[{"id": project_id}]).data[0].id
+        bom_id = self.project.bom_list(args=["id"], task=[{"id": task_id}]).data[0].id
+        material_info = self.project.bom_material_list(args=["material"], bom=[{"id": bom_id}])
+        material_id = material_info.data[0].material.id
+        research_unit = self.mock.mock_data("researchUnit")
+        variables = self.get_variables(module_name="project", variables_name="update_bom_material")
+        variables["bom"]["id"] = bom_id
+        variables["bomMaterial"][0]["material"]["id"] = material_id
+        variables["bomMaterial"][0]["researchUnit"] = research_unit
+        return variables
+
+    def end_product_project(self):
+        project_id = self.project.product_project_list(args=["id"]).data[0].id
+        task_id = self.project.product_task_list(args=["id"], project=[{"id": project_id}]).data[0].id
+        bom_id = self.project.bom_list(args=["id"], task=[{"id": task_id}]).data[0].id
+        description = self.mock.mock_data("description")
+        variables_temp = self.get_variables(module_name="project", variables_name="end_product_project")
+        args = [("bom", {"id": bom_id}), ("id", project_id), ("description", description)]
+        variables = self.modify_variables(target_json=variables_temp, args=args)
+        return variables
+
 
 if __name__ == '__main__':
     data = ProjectData()
-    print(data.update_product_task())
+    print(data.end_product_project())

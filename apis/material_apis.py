@@ -116,4 +116,4 @@ if __name__ == '__main__':
     m = MaterialApi()
     d = MaterialData()
     v = d.delete_material_normal()
-    print(m.delete_material(variables=v))
+    print(m.material_list(args=["name"]))

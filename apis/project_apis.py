@@ -96,6 +96,21 @@ class ProjectApis(GetTokenHeader):
         res = (op + data).bom_list
         return res
 
+    def bom_material_list(self, args=None, **kwargs):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        bom_material_list = op.bom_material_list(
+            filter=eval(f"{kwargs}"),
+        )
+        if args:
+            bom_material_list.data.__fields__(*args)
+        else:
+            pass
+        data = endpoint(op)
+        res = (op + data).bom_material_list
+        return res
+
     """__MUTATION__"""
     def create_product_project(self, variables):
         """
@@ -209,10 +224,62 @@ class ProjectApis(GetTokenHeader):
             res = data.get("errors")[0].get("message")
             return res
 
+    def delete_bom(self, bom_id):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.delete_bom(id=[bom_id])
+        data = endpoint(op)
+        try:
+            res = (op + data).delete_bom
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
+    def add_bom_material(self, variables):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.add_bom_material(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).add_bom_material
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
+    def remove_bom_material(self, material_id: list):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.remove_bom_material(id=material_id)
+        data = endpoint(op)
+        try:
+            res = (op + data).remove_bom_material
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
+    def update_bom_material(self, variables):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.update_bom_material(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).update_bom_material
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
 
 if __name__ == '__main__':
     project = ProjectApis()
     v = {"id": 84, "versions": "???"}
-    con = project.update_bom(variables=v)
+    con = project.bom_material_list(args=["id"], bom=[{"id": 94}]).data
     # con = project.bom_list(args=["id"], task=[{"id": 87}]).data[0].id
-    print(con)
+    print([i.id for i in con])

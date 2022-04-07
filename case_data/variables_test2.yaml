@@ -45,9 +45,11 @@ project:
     - 116
 
   end_product_project:
-    attachment: [ ]
-    description: description
-    id: 273
+    attachment: []
+    bom:
+      id: 98
+    description: 不知道，瞎搞搞
+    id: 308
 
   add_product_task:
     project:
@@ -79,6 +81,21 @@ project:
   update_bom:
     id: 84
     versions: versions
+
+  add_bom_material:
+    bom:
+      id: 93
+    material:
+    - id: 149
+
+  update_bom_material:
+    bom:
+      id: 96
+    bomMaterial:
+    - material:
+        id: 153
+      proportion: 1
+      researchUnit: 'unit'
 
 material:
   create_material:

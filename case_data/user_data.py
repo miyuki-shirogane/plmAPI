@@ -25,8 +25,9 @@ class UserData(BaseApi):
 
     def create_user(self):
         user_account = self.mock.mock_data("account")
+        user_name = self.mock.mock_data("name")
         variables_temp = self.get_variables(module_name="user", variables_name="create_user")
-        args = [("account", user_account), ("role", [{"id": self.role_id}])]
+        args = [("account", user_account), ("name", user_name), ("role", [{"id": self.role_id}])]
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 

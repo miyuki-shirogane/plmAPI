@@ -81,6 +81,21 @@ class ProjectApis(GetTokenHeader):
         res = (op + data).product_task_list
         return res
 
+    def bom_list(self, args=None, **kwargs):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        bom_list = op.bom_list(
+            filter=eval(f"{kwargs}"),
+        )
+        if args:
+            bom_list.data.__fields__(*args)
+        else:
+            pass
+        data = endpoint(op)
+        res = (op + data).bom_list
+        return res
+
     """__MUTATION__"""
     def create_product_project(self, variables):
         """
@@ -181,8 +196,23 @@ class ProjectApis(GetTokenHeader):
             res = data.get("errors")[0].get("message")
             return res
 
+    def update_bom(self, variables):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.update_bom(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).update_bom
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
 
 if __name__ == '__main__':
     project = ProjectApis()
-    con = project.product_task_list(args=["id", "name", "plan_start_at", "plan_end_at"], project=[{"id": 284}])
+    v = {"id": 84, "versions": "???"}
+    con = project.update_bom(variables=v)
+    # con = project.bom_list(args=["id"], task=[{"id": 87}]).data[0].id
     print(con)

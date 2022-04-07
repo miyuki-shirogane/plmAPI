@@ -62,8 +62,12 @@ project:
       planStartAt: 1644163200000
 
   update_product_task:
+    executive:
+      id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
     id: 86
     name: task_wWYcZp
+    participant:
+    - id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
     planEndAt: 1648534208097
     planStartAt: 1648534208097
 
@@ -71,6 +75,10 @@ project:
     task:
       id: 87
     versions: ec
+
+  update_bom:
+    id: 84
+    versions: versions
 
 material:
   create_material:

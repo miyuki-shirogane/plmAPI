@@ -101,6 +101,12 @@ class ProjectData(BaseApi):
         variables = self.get_variables(module_name="project", variables_name="update_product_task")
         task_info = self.project.product_task_list(
             args=["id", "name", "plan_start_at", "plan_end_at"], project=[{"id": project_id}]).data[0]
+        mem_id_list = ProjectData._get_member_info(self, member_num=3)
+        executive = mem_id_list[0]
+        mem_id_list.pop(0)
+        participant_list = mem_id_list
+        variables["executive"] = {"id": executive}
+        variables["participant"] = [{"id": participant_list[0]}, {"id": participant_list[1]}]
         variables["id"] = task_info.id
         variables["name"] = task_info.name
         variables["planEndAt"] = task_info.plan_end_at
@@ -120,7 +126,17 @@ class ProjectData(BaseApi):
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
+    def update_bom(self):
+        project_id = self.project.product_project_list(args=["id"]).data[0].id
+        task_id = self.project.product_task_list(args=["id"], project=[{"id": project_id}]).data[0].id
+        bom_id = self.project.bom_list(args=["id"], task=[{"id": task_id}]).data[0].id
+        variables_temp = self.get_variables(module_name="project", variables_name="update_bom")
+        bom_versions = self.mock.mock_data("versions")
+        args = [("id", bom_id), ("versions", bom_versions)]
+        variables = self.modify_variables(target_json=variables_temp, args=args)
+        return variables
+
 
 if __name__ == '__main__':
     data = ProjectData()
-    print(data.create_task_bom())
+    print(data.update_product_task())

@@ -59,4 +59,9 @@ class TestProject:
     def test_create_task_bom(self):
         c_v = self.data.create_task_bom()
         res = self.project.create_task_bom(variables=c_v)
-        print(res)
+        assert_that(type(res), equal_to(int))
+
+    def test_update_bom(self):
+        u_v = self.data.update_bom()
+        res = self.project.update_bom(variables=u_v)
+        assert_that(res, equal_to(True))

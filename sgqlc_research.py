@@ -131,8 +131,16 @@ class Request:
         print(j)
 
     def yy(self):
-        v = {'code': 'code_ys69jX', 'company': {'id': '11'}, 'name': 'name_t74hUO', 'property': 'PRODUCT', 'unit': 'kPa', 'versions': 'versions_g4iVca'}
-        print(*v)
+        for i in [1, 3]:
+            res = []
+            if i == 3:
+                for j in range(3):
+                    res.append(j)
+                    j += 1
+                break
+            elif i != 3:
+                continue
+        return res
 
 
 if __name__ == "__main__":
@@ -140,5 +148,6 @@ if __name__ == "__main__":
     # login_simple()
     # r.yaml_to_json()
     # r.query_project()
-    # r.yy()
-    r.json_to_yaml()
+    c = r.yy()
+    print(c)
+    # r.json_to_yaml()

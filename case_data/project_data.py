@@ -1,3 +1,5 @@
+import pytest
+
 from apis.base_api import BaseApi
 from apis.flow_apis import FlowApis
 from apis.group_apis import GroupApis
@@ -18,28 +20,43 @@ class ProjectData(BaseApi):
     name = mock.mock_data(data_name="name")
     code = mock.mock_data(data_name="code")
 
-    def _create_project_get_group_id(self, member_num: int):
+    def _create_project_get_group_id(self):
+        # 创建小组，新增3个人员，返回小组id
         c_v = self.group_data.create_project_group_normal()
         group_id = self.group.create_project_group(variables=c_v)
-        for i in range(member_num):
+        for i in range(3):
             a_v = self.group_data.add_member(num=i)
             self.group.add_project_group_member(variables=a_v)
             i += 1
         return group_id
 
-    def _get_member_info(self, member_num: int):
-        group_id = self.group.project_group_list(args=["data"]).data[0].id
-        member_info = self.group.project_group_member_list(group_id=group_id, args=["member"])
-        res = []
-        for i in range(member_num):
-            res.append(member_info[i].member.id)
-            i += 1
+    def _get_member_info(self):
+        group_id_1 = self.group.project_group_list(args=["data"]).data[0].id
+        group_id_2 = self.group.project_group_list(args=["data"]).data[1].id
+        for i in [group_id_1, group_id_2]:
+            member_info = self.group.project_group_member_list(group_id=i, args=["member"])
+            res = []
+            if len(member_info) == 3:
+                for j in range(3):
+                    res.append(member_info[j].member.id)
+                    j += 1
+                break
+            elif len(member_info) != 3:
+                continue
         return res
+        # , member_num: int, group_num = 0
+        # group_id = self.group.project_group_list(args=["data"]).data[group_num].id
+        # member_info = self.group.project_group_member_list(group_id=group_id, args=["member"])
+        # res = []
+        # for i in range(member_num):
+        #     res.append(member_info[i].member.id)
+        #     i += 1
+        # return res
 
     # CREATE_PRODUCT_PROJECT
     def create_product_project_normal(self):
         # 创建小组，内含3个成员。返回小组id
-        group_id = ProjectData._create_project_get_group_id(self, member_num=3)
+        group_id = ProjectData._create_project_get_group_id(self)
         args = [("name", self.name), ("code", self.code), ("projectGroup", [{"id": group_id}])]
         variables_temp = self.get_variables(module_name="project", variables_name="create_product_project")
         variables = self.modify_variables(target_json=variables_temp, args=args)
@@ -84,7 +101,7 @@ class ProjectData(BaseApi):
         flow_id = flow_ids[0].id
         flow_detail = self.flow.product_flow(flow_id=flow_id, args=["task_template"])
         task_name = flow_detail.task_template[0].name
-        mem_id_list = ProjectData._get_member_info(self, member_num=3)
+        mem_id_list = ProjectData._get_member_info(self)
         executive = mem_id_list[0]
         mem_id_list.pop(0)
         participant_list = mem_id_list
@@ -101,7 +118,7 @@ class ProjectData(BaseApi):
         variables = self.get_variables(module_name="project", variables_name="update_product_task")
         task_info = self.project.product_task_list(
             args=["id", "name", "plan_start_at", "plan_end_at"], project=[{"id": project_id}]).data[0]
-        mem_id_list = ProjectData._get_member_info(self, member_num=3)
+        mem_id_list = ProjectData._get_member_info(self)
         executive = mem_id_list[0]
         mem_id_list.pop(0)
         participant_list = mem_id_list
@@ -176,4 +193,4 @@ class ProjectData(BaseApi):
 
 if __name__ == '__main__':
     data = ProjectData()
-    print(data.end_product_project())
+    print(data._get_member_info())

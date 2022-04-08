@@ -8,7 +8,7 @@ class GroupData(BaseApi):
     mock = Mock()
     group = GroupApis()
     g_th = User()
-    group_name = mock.mock_data("group")
+
     is_name = mock.mock_data("group")
 
     def _group_info(self, num: int):
@@ -21,8 +21,9 @@ class GroupData(BaseApi):
         return members_info
 
     def create_project_group_normal(self):
+        group_name = self.mock.mock_data("group")
         variables_temp = self.get_variables(module_name="group", variables_name="create_project_group")
-        args = [("name", self.group_name)]
+        args = [("name", group_name)]
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
@@ -42,7 +43,9 @@ class GroupData(BaseApi):
         return variables
 
     def add_member(self, num=0):
+        # 第一个小组id
         group_id = self._group_info(num=0).id
+        # 第num个人员id
         member_id = self.g_th.users_info().data[num].id
         args = [("member", [{"id": member_id}]), ("projectGroup", {"id": str(group_id)})]
         variables_temp = self.get_variables(module_name="group", variables_name="add_project_group_member")

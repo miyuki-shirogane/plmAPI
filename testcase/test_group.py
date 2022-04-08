@@ -36,6 +36,7 @@ class TestGroup:
         assert_that(res, equal_to(False))
 
     # 严格来说，这也不算abnormal。只是预期结果是"已存在"，即True
+
     def test_is_group_exits_abnormal(self, _pre_condition_for_is_group_exits):
         name = self.data.is_group_exists()
         res = self.group.is_project_group_name_exists(name=name)

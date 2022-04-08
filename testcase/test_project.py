@@ -3,9 +3,11 @@ from hamcrest import *
 
 from apis.material_apis import MaterialApi
 from apis.project_apis import ProjectApis
+from apis.user_apis import User
 from case_data.get_expect import Expect
 from case_data.material_data import MaterialData
 from case_data.project_data import ProjectData
+from utils.read_db import ReadDB
 
 
 class TestProject:
@@ -13,6 +15,8 @@ class TestProject:
     material_data = MaterialData()
     data = ProjectData()
     expect = Expect()
+    read_db = ReadDB()
+    user = User()
     c_v1 = data.create_product_project_normal()
     c_v2 = c_v1
     c_v3 = data.create_product_project_no_project_group()
@@ -22,11 +26,17 @@ class TestProject:
     c_e2 = expect.get_expect("project", "create_product_project", "miss_require")
     c_e3 = expect.get_expect("project", "create_product_project", "not_exist_group")
 
-    bl_e1 = 13
-    bl_e2 = 58
+    company_id = user.get_user().company.id
+    # bl_e1 = read_db.select_count_of_bom_is_released_or_not(company_id=company_id, is_released=True)[0]
+    bl_e2 = read_db.select_count_of_bom_is_released_or_not(company_id=company_id, is_released=False)[0]
 
     def setup(self):
         self.project = ProjectApis()
+
+    @pytest.fixture(scope="function")
+    def get_bom_released_expect(self):
+        bl_e1 = self.read_db.select_count_of_bom_is_released_or_not(company_id=self.company_id, is_released=True)[0]
+        return bl_e1
 
     # CREATE PRODUCT PROJECT
     def test_create_product_project_normal(self):
@@ -113,7 +123,11 @@ class TestProject:
         assert_that(res, equal_to(True))
 
     # released BOM 筛选查询，比较常用；也是工艺优化流程中会用到的查询，相较其他更重要一点
-    @pytest.mark.parametrize("is_released,expect", [[True, bl_e1], [False, bl_e2]], ids=["已定版BOM", "未定版BOM"])
-    def test_bom_list(self, is_released, expect):
-        res_count = len(self.project.bom_list(args=["id"], is_released=is_released).data)
+    def test_bom_list_is_released(self, get_bom_released_expect):
+        res_count = len(self.project.bom_list(args=["id"], is_released=True).data)
+        expect = get_bom_released_expect
         assert_that(res_count, equal_to(expect))
+
+    def test_bom_list_is_not_released(self, get_bom_released_expect):
+        res_count = len(self.project.bom_list(args=["id"], is_released=False).data)
+        assert_that(res_count, equal_to(self.bl_e2))

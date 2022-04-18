@@ -68,7 +68,7 @@ class Request:
         op = Operation(Mutation)
         login = op.login(input=variables)
         # 指定返回token，不要userid
-        login.token()
+        # login.token()
         data = endpoint(op)
         res = (op + data).login
         '''
@@ -76,7 +76,7 @@ class Request:
         如果res = op + data
         res = Mutation(⬆️res)
         '''
-        return res.token
+        return res
 
     def query_project(self, order_by=["-created_at"], **kwargs):
         token = 'Token ' + self.login_right()
@@ -145,9 +145,9 @@ class Request:
 
 if __name__ == "__main__":
     r = Request()
-    # login_simple()
+    print(r.login_right())
     # r.yaml_to_json()
     # r.query_project()
-    c = r.yy()
-    print(c)
+    # c = r.yy()
+    # print(c)
     # r.json_to_yaml()

@@ -23,6 +23,6 @@ class Mock:
 
 if __name__ == "__main__":
     mock = Mock()
-    print(mock.current_time())
-    # print(mock.mock_data("test"))
+    # print(mock.current_time())
+    print(mock.mock_data("test"))
     # print(mock.attachment_path("s"))

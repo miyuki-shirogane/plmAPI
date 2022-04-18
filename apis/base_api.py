@@ -1,4 +1,3 @@
-import json
 import os
 import ssl
 import urllib.request as ur

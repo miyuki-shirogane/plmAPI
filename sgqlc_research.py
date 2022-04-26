@@ -67,16 +67,16 @@ class Request:
           }
         op = Operation(Mutation)
         login = op.login(input=variables)
-        # 指定返回token，不要userid
-        # login.token()
+        # # 指定返回token，不要userid
+        # # login.token()
         data = endpoint(op)
-        res = (op + data).login
+        # res = (op + data).login
         '''
         res = AuthInfo(token=34CkAS3qWpt5xw0O7QX5teMjKUwUnoTh)
         如果res = op + data
         res = Mutation(⬆️res)
         '''
-        return res
+        return data
 
     def query_project(self, order_by=["-created_at"], **kwargs):
         token = 'Token ' + self.login_right()
@@ -91,12 +91,9 @@ class Request:
 
     def json_to_yaml(self):
         j = {
-              "attachment": [],
-              "bom": {
-                "id": 98
-              },
-              "description": "不知道，瞎搞搞",
-              "id": 308
+              "code": "A003",
+              "id": 160,
+              "name": "Area_003"
             }
         with open("case_data/temp_v.yaml", "w") as f:
             yaml.safe_dump(data=j, stream=f, allow_unicode=True)

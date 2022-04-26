@@ -37,8 +37,9 @@ class BaseApi:
         # install it
         ur.install_opener(opener)
 
-    def get_variables(self, module_name:str, variables_name: str):
+    def get_variables(self, module_name: str, variables_name: str):
         """
+        :param module_name:
         :param variables_name: for instance: variables_name="create_product_project_temp"
         :return: json
         """

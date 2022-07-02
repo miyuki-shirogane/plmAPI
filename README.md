@@ -37,7 +37,7 @@
 }
 ```
 在query中，graphql定义了要传入的参数，和返回的值，其中返回的值可以进行按需查询
-```
+```jsx
 query  typeCompanies($filter:  CompanyFilter,  $scenario:  TypeCompaniesScenario)  {
     typeCompanies(filter:  $filter,  scenario:  $scenario)  {
         data  {

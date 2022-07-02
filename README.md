@@ -3,7 +3,7 @@
   <summary>目录</summary>
   <ol>
     <li>
-      <a href="#about-the-project">项目介绍</a>
+      <a href="#项目介绍">项目介绍</a>
     </li>
     <li>
       <a href="#some-details">一些细节</a>

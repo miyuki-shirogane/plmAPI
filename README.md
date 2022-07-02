@@ -15,8 +15,10 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
+
 ## 项目介绍
 本项目为我司工业互联网SaaS平台中plm项目（产品生命周期）的接口自动化测试项目。采用Python + pytest + sgqlc 技术栈完成。
+
 ###公司项目背景
 公司后端技术采取的是 [GraphQL](https://graphql.org/) 来定义接口。每次项目开发之后，后端开发会先给出一份schema，前端根据这份schema去了解数据定义，schema先行，前端根据这份schema也有自己的mock技术，前后端并行开发。
 采取微服务方式部署，GraphQL网关会把所有的微服务集合起来，暴露一个地址给前端调用。
@@ -34,9 +36,11 @@
 }
 ```
 在query中，graphql定义了要传入的参数，和返回的值，其中返回的值可以进行按需查询。
+
 ###技术选型
 首先选用Python + pytest框架（技术较新，社区活跃，插件丰富），保证编程的简单，可以专注于测试用例设计与测试数据设计。然后通过调研，选用[sgqlc](https://github.com/profusion/sgqlc) 第三方库来替代传统的requests库，与GraphQL较好的契合。
 并通过向该库作者咨询，解决了难以通过代理调试接口的问题。
+
 ###实现细节
 ```apis```包封装业务接口，其中```base_api.py```文件封装一些公共方法。\
 ```utils```包内含一些工具类：mock数据、读取环境数据、DB访问、代理开关。\
@@ -44,6 +48,7 @@
 ```test_case```包内含测试用例方法，其中灵活使用```parametrize/fixture```等装饰器实现用例参数化、前后置操作及其他具体需求。\
 ```conftest.py```文件内含一些hook函数实现将收集的测试用例items的name和node_id的中文显示。\
 另，```dev_log.md```是开发过程中记录一些思考过程和点子。
+
 ##效果展示
 主要结合allure以测试报告网页的形式输出，这里截图如下：
 ![截图](img.png)

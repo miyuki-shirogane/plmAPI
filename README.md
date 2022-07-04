@@ -2,6 +2,7 @@
 <details>
   <summary>目录</summary>
   <ol>
+    <li><a href="#如何使用">如何使用</a></li>
     <li>
       <a href="#项目介绍">项目介绍</a>
       <ul>
@@ -13,6 +14,48 @@
     <li><a href="#效果展示">效果展示</a></li>
   </ol>
 </details>
+
+<!-- HOW TO USE -->
+
+## 如何使用
+
+**0.安装依赖库**
+
+```shell
+pip install install -r requirements.txt
+```
+
+**1. 根据schema快速生成graphql接口**
+
+```
+python \
+    -m sgqlc.introspection \
+    --exclude-deprecated \
+    --exclude-description \
+    https://your_url/graphql/ \
+    platform_schema.json || exit 1
+sgqlc-codegen schema platform_schema.json platform_schema.py;
+```
+
+ps: 如果报错无法识别https，安装证书也许可以解决
+
+```
+bash /Applications/Python*/Install\ Certificates.command
+```
+
+**2. 进入测试用例目录执行用例**
+
+```shell
+cd testcase
+pytest -vs # 或使用其他需要的命令行参数
+```
+
+ps: 如果报错无法识别https，安装证书也许可以解决
+
+```
+bash /Applications/Python*/Install\ Certificates.command
+```
+
 
 <!-- ABOUT THE PROJECT -->
 

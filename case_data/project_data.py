@@ -16,7 +16,7 @@ class ProjectData(BaseApi):
     group_data = GroupData()
     flow = FlowApis()
     user = User()
-    company_id = user.get_user().company.id
+    company_id = user.get_user().tenant.company_id
     name = mock.mock_data(data_name="name")
     code = mock.mock_data(data_name="code")
 

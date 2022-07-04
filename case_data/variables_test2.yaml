@@ -10,11 +10,22 @@ user:
         id: '4'
 
   create_user:
-    account: aaaaas
-    isActive: True
-    name: s
-    role:
-    - id: '55'
+    account: kmkmjjnj
+    isAccountEnabled: true
+    name: jnjn
+    organizations:
+      - id: 5a55658f-8845-3b89-852e-d306307a0062
+    roles:
+      - id: 042abd12-0202-4f46-9154-85ed75ab14e5
+
+
+  create_organization:
+    code: ok
+    name: ok
+    manager:
+      id: '98'
+    parent:
+      id: '54'
 
 project:
   create_product_project:

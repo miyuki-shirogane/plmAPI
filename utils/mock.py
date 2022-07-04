@@ -10,6 +10,10 @@ class Mock:
         res = data_name + ran_str
         return res
 
+    def mock_code(self):
+        res = ''.join(random.sample(string.ascii_letters + string.digits, 6))
+        return res
+
     # 毫秒级时间戳
     def current_time(self):
         t = time.time()

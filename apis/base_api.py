@@ -1,9 +1,7 @@
 import os
 import ssl
 import urllib.request as ur
-
 import yaml
-
 from utils.env import Env
 from utils.switch import Switch
 
@@ -13,6 +11,7 @@ class BaseApi:
     url = get_env.get_env()
     account = get_env.get_account()
     password = get_env.get_pwd()
+    tenant_code = get_env.get_tenant_code()
     env_name = get_env.get_env_name()
 
     def __init__(self, proxy_=None):
@@ -62,10 +61,3 @@ class BaseApi:
         for (target, change_to) in args:
             json_temp[target] = change_to
         return json_temp
-
-
-if __name__ == '__main__':
-    b = BaseApi()
-    t = b.get_variables(module_name="project", variables_name="create_product_project")
-    res1 = b.modify_variables(target_json=t, args=[("name", "jojo5"), ("code", "jojo5")])
-    print(res1)

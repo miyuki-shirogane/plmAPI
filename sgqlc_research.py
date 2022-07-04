@@ -91,9 +91,19 @@ class Request:
 
     def json_to_yaml(self):
         j = {
-              "code": "A003",
-              "id": 160,
-              "name": "Area_003"
+              "account": "kmkmjjnj",
+              "isAccountEnabled": True,
+              "name": "jnjn",
+              "organizations": [
+                {
+                  "id": "5a55658f-8845-3b89-852e-d306307a0062"
+                }
+              ],
+              "roles": [
+                {
+                  "id": "042abd12-0202-4f46-9154-85ed75ab14e5"
+                }
+              ]
             }
         with open("case_data/temp_v.yaml", "w") as f:
             yaml.safe_dump(data=j, stream=f, allow_unicode=True)
@@ -142,9 +152,9 @@ class Request:
 
 if __name__ == "__main__":
     r = Request()
-    print(r.login_right())
+    # print(r.login_right())
     # r.yaml_to_json()
     # r.query_project()
     # c = r.yy()
     # print(c)
-    # r.json_to_yaml()
+    r.json_to_yaml()

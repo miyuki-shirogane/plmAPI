@@ -1,6 +1,5 @@
 from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
-
 from apis.get_token_headers import GetTokenHeader
 from schema.platform_schema import Mutation, Query
 
@@ -23,13 +22,13 @@ class User(GetTokenHeader):
         headers = self.get_headers()
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
         op = Operation(Query)
-        users_info = op.users(
+        user_list = op.user_list(
             filter=eval(f"{kwargs}"),
         )
         if args:
-            users_info.__fields__(*args)
+            user_list.__fields__(*args)
         data = endpoint(op)
-        res = (op + data).users
+        res = (op + data).user_list
         return res
 
     def roles_info(self, args=None, **kwargs):
@@ -71,11 +70,43 @@ class User(GetTokenHeader):
             res = data.get("errors")[0].get("message")
             return res
 
+    def organization_tree_nodes(self):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        op.organization_tree_nodes()
+        data = endpoint(op)
+        res = (op + data).organization_tree_nodes
+        return res
+
+    def create_organization(self, variables):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Mutation)
+        op.create_organization(input=variables)
+        data = endpoint(op)
+        try:
+            res = (op + data).create_organization
+            return res
+        except:
+            res = data.get("errors")[0].get("message")
+            return res
+
+    def department_tree(self):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        op.department_tree(filter={})
+        data = endpoint(op)
+        res = (op + data).department_tree
+        return res
+
 
 if __name__ == '__main__':
     a = User()
-    # res1 = a.get_user()
-    # print(res1.company.id)
-    # res2 = a.get_headers(account="admin", password="teletraan@2022")
-    res2 = a.roles_info().data[0].id
-    print(res2)
+    con = a.get_user().tenant.company_id
+    print(con)
+    # con = a.create_user()
+    # print(con)
+    # con = a.department_tree()
+    # print(json.loads(con)["id"])

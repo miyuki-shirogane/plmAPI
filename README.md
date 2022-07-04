@@ -22,7 +22,7 @@
 **0.安装依赖库**
 
 ```shell
-pip install install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 **1. 根据schema快速生成graphql接口**

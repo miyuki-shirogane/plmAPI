@@ -52,10 +52,6 @@ pytest -vs # 或使用其他需要的命令行参数
 
 ps: 如果报错无法识别https，安装证书也许可以解决
 
-```
-bash /Applications/Python*/Install\ Certificates.command
-```
-
 
 <!-- ABOUT THE PROJECT -->
 

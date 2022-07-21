@@ -193,4 +193,4 @@ class ProjectData(BaseApi):
 
 if __name__ == '__main__':
     data = ProjectData()
-    print(data._get_member_info())
+    print(data.add_product_task_normal())

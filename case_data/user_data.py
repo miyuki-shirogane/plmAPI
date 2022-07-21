@@ -43,22 +43,23 @@ class UserData(BaseApi):
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
 
-    def create_organization(self):
+    def create_organization(self, manager_id=manager_id):
         organization_name = self.mock.mock_data("organization")
         organization_code = self.mock.mock_code()
-        variables_temp = self.get_variables(module_name="user", variables_name="create_department")
+        variables_temp = self.get_variables(module_name="user", variables_name="create_organization")
         args = [
             ("name", organization_name),
             ("code", organization_code),
-            ("manager", {"id": self.manager_id}),
+            ("manager", {"id": manager_id}),
             ("parent", {"id": self.organization_id})
         ]
         variables = self.modify_variables(target_json=variables_temp, args=args)
         return variables
-#
-#
-# if __name__ == '__main__':
-#     s = UserData()
+
+
+if __name__ == '__main__':
+    s = UserData()
+    print(s.create_organization())
 #     source = s.department_tree
 #     con = jmespath.search("children[:].name", source)[-4:]
 #     print(con)

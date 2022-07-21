@@ -1,0 +1,162 @@
+user:
+  create_role:
+    name: a
+    permissions:
+    - permission:
+        id: '1'
+    - permission:
+        id: '3'
+    - permission:
+        id: '4'
+
+  create_user:
+    account: kmkmjjnj
+    isAccountEnabled: true
+    name: jnjn
+    organizations:
+      - id: 5a55658f-8845-3b89-852e-d306307a0062
+    roles:
+      - id: 042abd12-0202-4f46-9154-85ed75ab14e5
+
+
+  create_organization:
+    code: ok
+    name: ok
+    manager:
+      id: '98'
+    parent:
+      id: '54'
+
+project:
+  create_product_project:
+    attachment:
+    - id: '1'
+    category: CUSTOMIZATION
+    code: kqy2
+    description: 说明
+    name: kqy2
+    planStartAt: 1643126400000
+    projectGroup:
+    - id: 131
+
+  set_project_product:
+    product:
+      code: code
+      name: name
+      property: PRODUCT
+      unit: unit
+      versions: version
+    project:
+      id: 273
+
+  start_product_project:
+    id:
+    - 116
+
+  end_product_project:
+    attachment: []
+    bom:
+      id: 98
+    description: 不知道，瞎搞搞
+    id: 308
+
+  add_product_task:
+    project:
+      id: 178
+    task:
+    - executive:
+        id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
+      name: task_name_a_QbcF1h
+      participant:
+      - id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
+      planEndAt: 1644163200000
+      planStartAt: 1644163200000
+
+  update_product_task:
+    executive:
+      id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
+    id: 86
+    name: task_wWYcZp
+    participant:
+    - id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
+    planEndAt: 1648534208097
+    planStartAt: 1648534208097
+
+  create_task_bom:
+    task:
+      id: 87
+    versions: ec
+
+  update_bom:
+    id: 84
+    versions: versions
+
+  add_bom_material:
+    bom:
+      id: 93
+    material:
+    - id: 149
+
+  update_bom_material:
+    bom:
+      id: 96
+    bomMaterial:
+    - material:
+        id: 153
+      proportion: 1
+      researchUnit: 'unit'
+
+material:
+  create_material:
+    category:
+      id: 31
+    code: fr
+    company:
+      id: '11'
+    name: rf
+    property: PRODUCT
+    specification: rf
+    unit: kPa
+    versions: fr
+
+  update_material:
+    id: 120
+    code: fr
+    name: rf
+    versions: fr
+
+category:
+  create_material_category:
+    name: kmm
+    property: PRODUCT
+
+  update_material_category:
+    id: 68
+    name: kmm
+    property: PRODUCT
+
+flow:
+  create_product_flow:
+    name: f
+    taskConfiguration:
+      - name: a
+
+  update_product_flow:
+    id: 68
+    name: kmm
+    taskConfiguration:
+      - name: a
+
+group:
+  create_project_group:
+    name: em
+
+  update_project_group:
+    id: 135
+    name: a
+
+  add_project_group_member:
+    member:
+    - id: b8e2c7cc-6198-48ab-9faa-e2d9cb410f4b
+    projectGroup:
+      id: '135'

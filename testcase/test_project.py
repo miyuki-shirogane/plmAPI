@@ -26,7 +26,7 @@ class TestProject:
     c_e2 = expect.get_expect("project", "create_product_project", "miss_require")
     c_e3 = expect.get_expect("project", "create_product_project", "not_exist_group")
 
-    company_id = user.get_user().company.id
+    company_id = 4702  # user.get_user().company.id
     # bl_e1 = read_db.select_count_of_bom_is_released_or_not(company_id=company_id, is_released=True)[0]
     bl_e2 = read_db.select_count_of_bom_is_released_or_not(company_id=company_id, is_released=False)[0]
 
@@ -41,6 +41,7 @@ class TestProject:
     # CREATE PRODUCT PROJECT
     def test_create_product_project_normal(self):
         res = self.project.create_product_project(variables=self.c_v1)
+        print(res)
         assert_that(type(res), equal_to(int))
 
     """

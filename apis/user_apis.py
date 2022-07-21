@@ -1,3 +1,4 @@
+import jmespath
 from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
 from apis.get_token_headers import GetTokenHeader
@@ -19,6 +20,12 @@ class User(GetTokenHeader):
         return res
 
     def users_info(self, args=None, **kwargs):
+        """
+        常用用法： users_info(search="Jayce").data[0].id
+        :param args:
+        :param kwargs:
+        :return:
+        """
         headers = self.get_headers()
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
         op = Operation(Query)
@@ -101,12 +108,39 @@ class User(GetTokenHeader):
         res = (op + data).department_tree
         return res
 
+    def department_list(self, args=None, **kwargs):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        department_info = op.department_list(
+            filter=eval(f"{kwargs}"),
+        )
+        if args:
+            department_info.__fields__(*args)
+        data = endpoint(op)
+        res = (op + data).department_list
+        return res
+
+    def organization_list(self, args=None, **kwargs):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        organization_info = op.organization_list(
+            filter=eval(f"{kwargs}"),
+        )
+        if args:
+            organization_info.__fields__(*args)
+        data = endpoint(op)
+        res = (op + data).organization_list
+        return res
+
 
 if __name__ == '__main__':
     a = User()
-    con = a.get_user().tenant.company_id
+    # name = a.organization_list(id="0bb2ace2-5633-3913-bc67-cedae567a943").data[0].name
+    # con = a.department_list(args=["id", "name"], ids=[{"id": 62640}])
+    con = a.get_user()
     print(con)
     # con = a.create_user()
     # print(con)
-    # con = a.department_tree()
     # print(json.loads(con)["id"])

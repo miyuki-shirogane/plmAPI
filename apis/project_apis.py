@@ -279,7 +279,6 @@ class ProjectApis(GetTokenHeader):
 
 if __name__ == '__main__':
     project = ProjectApis()
-    v = {"id": 84, "versions": "???"}
-    con = project.bom_material_list(args=["id"], bom=[{"id": 94}]).data
+    con = project.product_project_list(args=["id"]).data[0].id
     # con = project.bom_list(args=["id"], task=[{"id": 87}]).data[0].id
-    print([i.id for i in con])
+    print(con)

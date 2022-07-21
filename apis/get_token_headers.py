@@ -5,6 +5,8 @@ from schema.platform_schema import Mutation
 
 
 class GetTokenHeader(BaseApi):
+    token = None
+
     def get_token(self, account=BaseApi.account, password=BaseApi.password, tenant_code=BaseApi.tenant_code):
         headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers, timeout=3)
@@ -26,7 +28,11 @@ class GetTokenHeader(BaseApi):
             'accept': 'application/json',
             'Content-Type': 'application/json'
         }
-        headers.setdefault("authorization", self.get_token(account, password, tenant_code))
+
+        if not self.token:
+            token = self.get_token(account, password, tenant_code)
+            self.token = token
+        headers.setdefault("authorization", self.token)
         return headers
 
 

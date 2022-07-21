@@ -91,25 +91,23 @@ class Request:
 
     def json_to_yaml(self):
         j = {
-              "account": "kmkmjjnj",
-              "isAccountEnabled": True,
-              "name": "jnjn",
-              "organizations": [
-                {
-                  "id": "5a55658f-8845-3b89-852e-d306307a0062"
-                }
-              ],
-              "roles": [
-                {
-                  "id": "042abd12-0202-4f46-9154-85ed75ab14e5"
-                }
-              ]
-            }
+  "attachment": None,
+  "expected": {
+    "start": 1657814400000,
+    "end": 1657987199999
+  },
+  "reason": None,
+  "thing": [
+    {
+      "id": "8317"
+    }
+  ]
+}
         with open("case_data/temp_v.yaml", "w") as f:
             yaml.safe_dump(data=j, stream=f, allow_unicode=True)
 
     def yaml_to_json(self):
-        y = yaml.safe_load(open("case_data/variables_test2.yaml"))
+        y = yaml.safe_load(open("case_data/variables_teamsit2.yaml"))
         res = y["project"]["add_product_task"]
         print(res)
 

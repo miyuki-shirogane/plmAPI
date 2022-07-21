@@ -38,9 +38,29 @@ class AuthenticationSourceKind(sgqlc.types.Enum):
     __choices__ = ('LDAP_3', 'OAUTH_2', 'OPENID_CONNECT_1', 'SAML_2')
 
 
+class AutoRegisterUCCFieldType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('DATE', 'LABEL', 'MULTI_RADIO', 'RADIO', 'RANGE', 'RANGE_EXTREMUM', 'SELECT_BOX', 'SET', 'TEXT')
+
+
+class AutoRegisterUCCFiledValue(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('FLOAT', 'TEXT')
+
+
+class BacklogStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('FINISHED', 'PENDING')
+
+
 class BarCodeType(sgqlc.types.Enum):
     __schema__ = platform_schema
     __choices__ = ('CODE128', 'QRCODE')
+
+
+class BomStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('IN_PROCESS', 'RELEASED', 'VERIFY')
 
 
 Boolean = sgqlc.types.Boolean
@@ -160,6 +180,311 @@ class EamImportOption(sgqlc.types.Enum):
     __choices__ = ('INSERT_NORMAL', 'UPSERT_NORMAL')
 
 
+class ErpAnchorTimeType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPLETE', 'START')
+
+
+class ErpAutoRegisterConfigEndTiming(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPLETE', 'REQUIRED')
+
+
+class ErpAutoRegisterConfigStartTiming(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPLETE', 'END', 'FIELD', 'OPERATION', 'START')
+
+
+class ErpAutoRegisterConfigTimes(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('ONCE', 'REPEAT')
+
+
+class ErpAutoRegisterConfigTimingMode(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('BATCH', 'SCHEDULE')
+
+
+class ErpCheckConfigConditionStatementComparator(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('EQ', 'LESS', 'LESS_EQ', 'MORE', 'MORE_EQ')
+
+
+class ErpCheckConfigConditionStatementField(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('AMOUNT', 'PRICE')
+
+
+class ErpCheckConfigConditionStatementOperator(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('ADD', 'DIVIDE', 'MULTIPLY', 'SUBTRACT')
+
+
+class ErpCheckConfigConditionStatementType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CONSTANT', 'VARIABLE')
+
+
+class ErpCustomerHasVisit(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('NO', 'YES')
+
+
+class ErpCustomerStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('FORBIDDEN', 'VALID')
+
+
+class ErpCustomerType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('SETTLED', 'UNSETTLED')
+
+
+class ErpDefaultAnchor(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('ACTION', 'TODAY')
+
+
+class ErpImportOption(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('INSERT_NORMAL', 'UPSERT_NORMAL')
+
+
+class ErpInventoryScope(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('EQ', 'GT', 'LT')
+
+
+class ErpIssueNotificationSource(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('ALLOCATE', 'MANUAL', 'REQUISITION', 'SALE')
+
+
+class ErpIssueStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPLETE', 'ISSUE', 'PENDING_ISSUE')
+
+
+class ErpMaterialBatchRule(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('FOQ', 'MOQ')
+
+
+class ErpMaterialProperty(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CUSTOMIZED', 'OTHER', 'PRODUCT', 'RAW', 'SEMI', 'SUPPLEMENT')
+
+
+class ErpMaterialSource(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('DELEGATION', 'MESC', 'MESI', 'PROCUREMENT', 'VIRTUAL')
+
+
+class ErpMesConfigBaseTime(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('END', 'START')
+
+
+class ErpMonthPlanImportTemplateInput(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CODE', 'NO')
+
+
+class ErpOrderAreaStatisticsDimension(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CITY', 'COUNTRY', 'PROVINCE')
+
+
+class ErpOrderCheckConfigConditionMeet(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('ALL', 'ANY')
+
+
+class ErpOrderCurrency(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('EUR', 'RMB', 'USD')
+
+
+class ErpOrderProductStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('OFF_SHELF', 'ON_SALE')
+
+
+class ErpOrderProductionNotificationStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CHECKED', 'PENDING_CHECK', 'PENDING_TRANSFER')
+
+
+class ErpOrderShipNotificationStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CANCELED', 'PENDING_SHIP', 'PENDING_TRANSFER', 'SHIPPED', 'SHIPPING')
+
+
+class ErpOrderStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CHECK_FAILED', 'COMPLETE', 'PENDING_CHECK', 'PENDING_PRODUCTION', 'PENDING_PRODUCTION_SHIP', 'PENDING_SHIP', 'PENDING_SHIP_COMPLETE', 'PENDING_SUBMIT')
+
+
+class ErpProcessStartAtType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('BASE', 'FS', 'SS')
+
+
+class ErpProductionTaskOperate(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPLETE', 'RESUBMIT', 'SAVE', 'START', 'SUBMIT', 'UPDATE')
+
+
+class ErpProductionTaskSource(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('MANUAL', 'ORDER', 'PLAN', 'SAMPLE_ORDER')
+
+
+class ErpProductionTaskStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPLETE', 'PENDING_PRODUCTION', 'PENDING_SCHEDULE', 'PENDING_SUBMIT', 'PRODUCTION')
+
+
+class ErpQuotaMethod(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('AUTO', 'MANUAL')
+
+
+class ErpReceiveNotificationSource(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('ALLOCATE', 'MANUAL', 'PROCUREMENT', 'PRODUCTION')
+
+
+class ErpReceiveStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPLETE', 'PENDING_RECEIVE', 'RECEIVE')
+
+
+class ErpScheduleProcessStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CANCELED', 'NORMAL')
+
+
+class ErpScheduleStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPLETED', 'DISPATCHED', 'PARTIALLY_DISPATCHED', 'PENDING_DISPATCH')
+
+
+class ErpScheduleType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('DIRECT', 'MERGE')
+
+
+class ErpSpcType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('AUTO', 'MANUAL')
+
+
+class ErpSpcValueType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('DATE', 'FLOAT')
+
+
+class ErpTaskDispatchTiming(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('FIX', 'MANUAL', 'NOW', 'REGULAR')
+
+
+class ErpTaskListTiming(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CANCEL', 'COMPLETE', 'DISPATCH', 'PLAN_END', 'PLAN_START', 'RECOVER', 'START', 'SUSPEND')
+
+
+class ErpTaskStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CANCELED', 'COMPLETED', 'MERGING', 'PENDING_DISPATCH', 'UNCOMPLETED')
+
+
+class ErpTaskTemplateDispatchTiming(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('FIX', 'MANUAL', 'NOW', 'REGULAR')
+
+
+class ErpTaskTemplateNoEndAtFormat(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('YYMM', 'YYMMDD', 'YYYYMM', 'YYYYMMDD')
+
+
+class ErpTaskTemplateNoSuffixCountOn(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('PROCESS', 'TASK')
+
+
+class ErpTaskTemplateNoSuffixRange(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('DAY', 'MONTH')
+
+
+class ErpTaskTemplateNoSuffixRelation(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('PROCESS', 'TASK')
+
+
+class ErpTaskTemplateOperator(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('ADD', 'SUBTRACT')
+
+
+class ErpTaskTemplateProcessParamsDefault(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('PROCESS', 'TASK')
+
+
+class ErpTaskTemplateStartEndTiming(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('PROCESS_DURATION', 'PROCESS_FIX', 'TASK_DURATION', 'TASK_FIX')
+
+
+class ErpTaskTemplateThingStyle(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('NAME_NO', 'NO')
+
+
+class ErpTaskTemplateTimeFormat(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('YYMMDD', 'YYMMDDHHMM')
+
+
+class ErpVisitPurpose(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CUSTOMER_MAINTENANCE', 'INFO_COLLECTION', 'MARKET_MAINTENANCE', 'PRODUCT_SALE')
+
+
+class ErpVisitResult(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPLETED', 'UNCOMPLETED')
+
+
+class ErpVisitStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CANCELED', 'COMPLETED', 'EXPIRED', 'TODO', 'UNCOMPLETED')
+
+
+class ErpVisitType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('FLESH', 'PHONE')
+
+
+class ErpWarehouseRegisterType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPLETE', 'TEMPORARY')
+
+
+class ErpWarehouseZoneDimension(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COLUMN', 'LAYER', 'ROW', 'ZONE')
+
+
+class ErpWarehouseZoneStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('AL', 'OH', 'SR')
+
+
 Float = sgqlc.types.Float
 
 class Granularity(sgqlc.types.Enum):
@@ -170,6 +495,11 @@ class Granularity(sgqlc.types.Enum):
 ID = sgqlc.types.ID
 
 Int = sgqlc.types.Int
+
+class InterfaceType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('Ethernet', 'Serial232', 'Serial485')
+
 
 class JSON(sgqlc.types.Scalar):
     __schema__ = platform_schema
@@ -182,6 +512,16 @@ class JSONString(sgqlc.types.Scalar):
 class JumpKind(sgqlc.types.Enum):
     __schema__ = platform_schema
     __choices__ = ('CURRENT_WINDOW', 'NEW_WINDOW')
+
+
+class JunyeMetricKind(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CURRENT_FEEDBACK', 'FLOW', 'FREQUENCY_FEEDBACK', 'LIQUID_LEVEL', 'PRESSURE', 'TEMPERATURE')
+
+
+class JunyeMetricUnit(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('AMPERE', 'CELSIUS_DEGREE', 'CUBIC_METER_PER_HOUR', 'HERTZ', 'MEGA_PASCAL', 'METER')
 
 
 class LDAP3EncryptionMethod(sgqlc.types.Enum):
@@ -199,6 +539,11 @@ class LoginConfigurationKind(sgqlc.types.Enum):
     __choices__ = ('OAUTH_2', 'OPENID_CONNECT_1', 'SYSTEM')
 
 
+class MaterialProperty(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('BACTERIA', 'INTERMEDIATE', 'PRODUCT', 'RAW_MATERIAL')
+
+
 class MessageChannelKind(sgqlc.types.Enum):
     __schema__ = platform_schema
     __choices__ = ('EMAIL', 'INBOX', 'WECOM')
@@ -207,6 +552,11 @@ class MessageChannelKind(sgqlc.types.Enum):
 class MessageKind(sgqlc.types.Enum):
     __schema__ = platform_schema
     __choices__ = ('FILE', 'IMAGE', 'TEXT', 'TEXT_CARD', 'VIDEO')
+
+
+class NotificationTiming(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('MANUAL', 'NOW', 'PAYMENT_AMOUNT', 'PAYMENT_PERCENTAGE')
 
 
 class OnState(sgqlc.types.Enum):
@@ -229,9 +579,29 @@ class PermissionType(sgqlc.types.Enum):
     __choices__ = ('FEATURE', 'MENU', 'PAGE')
 
 
+class ProductProjectCategory(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CUSTOMIZATION', 'OPTIMIZATION', 'RESEARCH')
+
+
+class ProductProjectDocumentPhase(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('PROJECT_INPUT', 'PROJECT_OUTPUT', 'TASK_OUTPUT')
+
+
+class ProductProjectStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('ENDED', 'IN_PROCESS', 'PENDING')
+
+
 class PushScheduleType(sgqlc.types.Enum):
     __schema__ = platform_schema
     __choices__ = ('CRON', 'IMMEDIATELY')
+
+
+class RegisterErpTaskWorkReportOperate(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPLETE', 'SUSPEND', 'TEMPORARY')
 
 
 class RepeatPeriod(sgqlc.types.Enum):
@@ -247,6 +617,21 @@ class ResponseFormat(sgqlc.types.Enum):
 class ReturnState(sgqlc.types.Enum):
     __schema__ = platform_schema
     __choices__ = ('NOT_RETURNED', 'RETURNED')
+
+
+class RouterConfigurationStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('FAIL', 'NULL', 'SUCCESS')
+
+
+class RouterStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('OFFLINE', 'ONLINE')
+
+
+class RouterThingStatus(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('OFFLINE', 'ONLINE')
 
 
 class SetOption(sgqlc.types.Enum):
@@ -554,9 +939,29 @@ class TimestampRange(sgqlc.types.Scalar):
     __schema__ = platform_schema
 
 
+class TypeTaskScenario(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CANCELED', 'COMPLETED', 'DISPATCHED', 'MERGING', 'PENDING_DISPATCH')
+
+
+class TypeUpdateErpProductionTaskScenario(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPLETE', 'RESUBMIT', 'START', 'SUBMIT', 'UPDATE')
+
+
+class TypeUpdateTaskStatusScenario(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('RECOVER', 'START', 'SUSPEND')
+
+
 class UCCAttachmentType(sgqlc.types.Enum):
     __schema__ = platform_schema
     __choices__ = ('AUDIO', 'CUSTOM', 'DOC', 'PIC', 'VIDEO', 'ZIP')
+
+
+class UCCDataType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('BOOL', 'DATE', 'DATETIME', 'FLOAT', 'INT', 'STRING', 'TIME')
 
 
 class UCCFieldType(sgqlc.types.Enum):
@@ -569,15 +974,43 @@ class UCCFiledValue(sgqlc.types.Enum):
     __choices__ = ('FLOAT', 'TEXT')
 
 
+class UCCFilterUIType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('CASCADER', 'CHECKBOX', 'DATETIME_RANGE', 'DATE_RANGE', 'NUMBER_RANGE', 'SELECT', 'TEXT', 'TREE')
+
+
+class UCCOperator(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('BETWEEN', 'EQ', 'GT', 'GTE', 'IEQ', 'ILIKE', 'IN', 'INEQ', 'IS_NULL', 'LIKE', 'LT', 'LTE', 'NEQ', 'NOT_BETWEEN', 'NOT_IN', 'NOT_OVERLAP', 'OVERLAP')
+
+
 class UCCScope(sgqlc.types.Enum):
     __schema__ = platform_schema
     __choices__ = ('COMPANY', 'PLATFORM')
+
+
+class UpdateErpTaskStatusOperate(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('RECOVER', 'START', 'SUSPEND')
 
 
 class UserInfoRequestMethod(sgqlc.types.Enum):
     __schema__ = platform_schema
     __choices__ = ('GET', 'POST')
 
+
+# class UserOrigin(sgqlc.types.Enum):
+#     __schema__ = platform_schema
+#     __choices__ = ()
+
+
+class UserType(sgqlc.types.Enum):
+    __schema__ = platform_schema
+    __choices__ = ('COMPANY_ADMIN', 'COMPANY_NORMAL')
+
+
+class Void(sgqlc.types.Scalar):
+    __schema__ = platform_schema
 
 
 
@@ -596,6 +1029,73 @@ class AdapterModelFilterInput(sgqlc.types.Input):
     __field_names__ = ('search', 'thing_mechanism_model_code')
     search = sgqlc.types.Field(String, graphql_name='search')
     thing_mechanism_model_code = sgqlc.types.Field(String, graphql_name='thingMechanismModelCode')
+
+
+class AddBacklogToUsers(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('backlog', 'users')
+    backlog = sgqlc.types.Field(sgqlc.types.non_null('BacklogInput'), graphql_name='backlog')
+    users = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('StringIDInput'))), graphql_name='users')
+
+
+class AddBomMaterialInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('bom', 'company', 'material')
+    bom = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='bom')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    material = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput'))), graphql_name='material')
+
+
+class AddErpOrderProductInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('code', 'customer', 'english_name', 'material', 'price', 'remark')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    customer = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='customer')
+    english_name = sgqlc.types.Field(String, graphql_name='englishName')
+    material = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='material')
+    price = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='price')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+
+
+class AddErpProcessThingInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('capacity', 'process', 'thing', 'unit')
+    capacity = sgqlc.types.Field(Float, graphql_name='capacity')
+    process = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='process')
+    thing = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='thing')
+    unit = sgqlc.types.Field(String, graphql_name='unit')
+
+
+class AddErpWarehouseItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('issue_notification', 'item', 'receive_notification', 'warehouse')
+    issue_notification = sgqlc.types.Field('IntIDInput', graphql_name='issueNotification')
+    item = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of('IntIDInput')), graphql_name='item')
+    receive_notification = sgqlc.types.Field('IntIDInput', graphql_name='receiveNotification')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouse')
+
+
+class AddProductTaskInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('project', 'task')
+    project = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='project')
+    task = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('CreateTaskInput'))), graphql_name='task')
+
+
+class AddProjectDocumentInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('attachment', 'phase', 'project', 'task')
+    attachment = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('StringIDInput'))), graphql_name='attachment')
+    phase = sgqlc.types.Field(sgqlc.types.non_null(ProductProjectDocumentPhase), graphql_name='phase')
+    project = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='project')
+    task = sgqlc.types.Field('IntIDInput', graphql_name='task')
+
+
+class AddProjectGroupMemberInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('member', 'project_group')
+    member = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='member')
+    project_group = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='projectGroup')
 
 
 class AddThingBorrowDraftInput(sgqlc.types.Input):
@@ -652,6 +1152,13 @@ class AppVersionListFilterInput(sgqlc.types.Input):
     app_id = sgqlc.types.Field(String, graphql_name='appId')
 
 
+class ApplyRouterTemplateConfigurationInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('router_template_configuration', 'routers')
+    router_template_configuration = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='routerTemplateConfiguration')
+    routers = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='routers')
+
+
 class ApproveChangeBorrowInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('id', 'opinion')
@@ -666,11 +1173,35 @@ class ApproveThingCalibrateInput(sgqlc.types.Input):
     remark = sgqlc.types.Field(String, graphql_name='remark')
 
 
+class ArrangeErpProductionTaskInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'task')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    task = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpProductionTaskInput'))), graphql_name='task')
+
+
 class AssignAppPermissionsInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('app', 'permissions')
     app = sgqlc.types.Field(sgqlc.types.non_null('StringIDInput'), graphql_name='app')
     permissions = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('StringIDInput'))), graphql_name='permissions')
+
+
+class AssignErpManagerInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('customer', 'manager')
+    customer = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='customer')
+    manager = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='manager')
+
+
+class AssignErpVisitInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('due_at', 'id', 'manager', 'purpose', 'remark')
+    due_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='dueAt')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    manager = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='manager')
+    purpose = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpVisitPurpose))), graphql_name='purpose')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
 
 
 class AssignTenantAppsInput(sgqlc.types.Input):
@@ -687,6 +1218,48 @@ class AuthorizationRuleFilterInput(sgqlc.types.Input):
     permission_types = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(PermissionType)), graphql_name='permissionTypes')
 
 
+class AutoRegisterUCCFieldInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('content', 'default_bool', 'default_num', 'default_str', 'default_str_list', 'field_type', 'format', 'hint', 'id', 'label', 'max', 'max_range', 'min', 'min_range', 'multi', 'name', 'option', 'required', 'role', 'round', 'set', 'type', 'unit', 'width', 'zeroable')
+    content = sgqlc.types.Field(String, graphql_name='content')
+    default_bool = sgqlc.types.Field(Boolean, graphql_name='defaultBool')
+    default_num = sgqlc.types.Field(Float, graphql_name='defaultNum')
+    default_str = sgqlc.types.Field(String, graphql_name='defaultStr')
+    default_str_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='defaultStrList')
+    field_type = sgqlc.types.Field(sgqlc.types.non_null(AutoRegisterUCCFieldType), graphql_name='fieldType')
+    format = sgqlc.types.Field(String, graphql_name='format')
+    hint = sgqlc.types.Field(String, graphql_name='hint')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    label = sgqlc.types.Field(String, graphql_name='label')
+    max = sgqlc.types.Field(Float, graphql_name='max')
+    max_range = sgqlc.types.Field('AutoRegisterUCCMetaRangeExtremumInput', graphql_name='maxRange')
+    min = sgqlc.types.Field(Float, graphql_name='min')
+    min_range = sgqlc.types.Field('AutoRegisterUCCMetaRangeExtremumInput', graphql_name='minRange')
+    multi = sgqlc.types.Field(Boolean, graphql_name='multi')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    option = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='option')
+    required = sgqlc.types.Field(Boolean, graphql_name='required')
+    role = sgqlc.types.Field(sgqlc.types.list_of('IDInput'), graphql_name='role')
+    round = sgqlc.types.Field(Int, graphql_name='round')
+    set = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('AutoRegisterUCCFieldInput')), graphql_name='set')
+    type = sgqlc.types.Field(String, graphql_name='type')
+    unit = sgqlc.types.Field(String, graphql_name='unit')
+    width = sgqlc.types.Field(Int, graphql_name='width')
+    zeroable = sgqlc.types.Field(Boolean, graphql_name='zeroable')
+
+
+class AutoRegisterUCCMetaRangeExtremumInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('default', 'hint', 'max', 'min', 'required', 'unit', 'zeroable')
+    default = sgqlc.types.Field(Float, graphql_name='default')
+    hint = sgqlc.types.Field(String, graphql_name='hint')
+    max = sgqlc.types.Field(Float, graphql_name='max')
+    min = sgqlc.types.Field(Float, graphql_name='min')
+    required = sgqlc.types.Field(Boolean, graphql_name='required')
+    unit = sgqlc.types.Field(String, graphql_name='unit')
+    zeroable = sgqlc.types.Field(Boolean, graphql_name='zeroable')
+
+
 class BIFilterInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('aggregation', 'end', 'granularity', 'metric', 'series', 'start')
@@ -696,6 +1269,54 @@ class BIFilterInput(sgqlc.types.Input):
     metric = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='metric')
     series = sgqlc.types.Field(String, graphql_name='series')
     start = sgqlc.types.Field(Timestamp, graphql_name='start')
+
+
+class BacklogFieldDataInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('key', 'value')
+    key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
+    value = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='value')
+
+
+class BacklogInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'group', 'id', 'title', 'url')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(BacklogFieldDataInput)), graphql_name='data')
+    group = sgqlc.types.Field(sgqlc.types.non_null('StringIDInput'), graphql_name='group')
+    id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='id')
+    title = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='title')
+    url = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='url')
+
+
+class BomFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'is_released', 'product', 'project', 'search', 'task')
+    company = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='company')
+    is_released = sgqlc.types.Field(Boolean, graphql_name='isReleased')
+    product = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='product')
+    project = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='project')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    task = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='task')
+
+
+class BomMaterialFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('bom', 'company', 'is_released', 'property', 'search')
+    bom = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='bom')
+    company = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='company')
+    is_released = sgqlc.types.Field(Boolean, graphql_name='isReleased')
+    property = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(MaterialProperty)), graphql_name='property')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class BomMaterialInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('amount', 'field_data', 'material', 'proportion', 'research_unit')
+    amount = sgqlc.types.Field(Float, graphql_name='amount')
+    field_data = sgqlc.types.Field(JSON, graphql_name='fieldData')
+    material = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='material')
+    proportion = sgqlc.types.Field(Float, graphql_name='proportion')
+    research_unit = sgqlc.types.Field(String, graphql_name='researchUnit')
 
 
 class CalibrateOrganizationListFilterInput(sgqlc.types.Input):
@@ -783,6 +1404,72 @@ class CheckAlterDepartmentThingGroupInput(sgqlc.types.Input):
     thing_group = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='thingGroup')
 
 
+class CheckErpOrderInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'approve', 'attachment', 'check_remark', 'city', 'country', 'county', 'currency', 'expect_delivery_time', 'extra_data', 'id', 'item_list', 'order_amount', 'payment_amount', 'payment_percentage', 'production_notification_condition', 'province', 'remark', 'ship_notification_condition')
+    address = sgqlc.types.Field(String, graphql_name='address')
+    approve = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='approve')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='attachment')
+    check_remark = sgqlc.types.Field(String, graphql_name='checkRemark')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    country = sgqlc.types.Field(String, graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    currency = sgqlc.types.Field(ErpOrderCurrency, graphql_name='currency')
+    expect_delivery_time = sgqlc.types.Field(Timestamp, graphql_name='expectDeliveryTime')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpOrderItemInput'))), graphql_name='itemList')
+    order_amount = sgqlc.types.Field(Float, graphql_name='orderAmount')
+    payment_amount = sgqlc.types.Field(Float, graphql_name='paymentAmount')
+    payment_percentage = sgqlc.types.Field(Float, graphql_name='paymentPercentage')
+    production_notification_condition = sgqlc.types.Field('NotificationConditionInput', graphql_name='productionNotificationCondition')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    ship_notification_condition = sgqlc.types.Field('NotificationConditionInput', graphql_name='shipNotificationCondition')
+
+
+class CheckErpSampleOrderInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'approve', 'attachment', 'check_remark', 'city', 'country', 'county', 'currency', 'expect_delivery_time', 'extra_data', 'id', 'item_list', 'order_amount', 'payment_amount', 'payment_percentage', 'production_notification_condition', 'province', 'remark', 'ship_notification_condition')
+    address = sgqlc.types.Field(String, graphql_name='address')
+    approve = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='approve')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='attachment')
+    check_remark = sgqlc.types.Field(String, graphql_name='checkRemark')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    country = sgqlc.types.Field(String, graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    currency = sgqlc.types.Field(ErpOrderCurrency, graphql_name='currency')
+    expect_delivery_time = sgqlc.types.Field(Timestamp, graphql_name='expectDeliveryTime')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpSampleOrderItemInput'))), graphql_name='itemList')
+    order_amount = sgqlc.types.Field(Float, graphql_name='orderAmount')
+    payment_amount = sgqlc.types.Field(Float, graphql_name='paymentAmount')
+    payment_percentage = sgqlc.types.Field(Float, graphql_name='paymentPercentage')
+    production_notification_condition = sgqlc.types.Field('NotificationConditionInput', graphql_name='productionNotificationCondition')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    ship_notification_condition = sgqlc.types.Field('NotificationConditionInput', graphql_name='shipNotificationCondition')
+
+
+class CheckErpTaskWorkReportChannelFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('channel', 'task')
+    channel = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='channel')
+    task = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='task')
+
+
+class CheckMergeAllErpTaskFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('channel', 'end', 'process', 'product', 'search', 'start')
+    channel = sgqlc.types.Field(String, graphql_name='channel')
+    end = sgqlc.types.Field(Timestamp, graphql_name='end')
+    process = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='process')
+    product = sgqlc.types.Field('IntIDInput', graphql_name='product')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    start = sgqlc.types.Field(Timestamp, graphql_name='start')
+
+
 class CityFilterInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('province',)
@@ -815,6 +1502,28 @@ class CodeColumnConfigurationInput(sgqlc.types.Input):
     order_number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='orderNumber')
     relate_column = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(CodeRuleConfigurationColumn)), graphql_name='relateColumn')
     start_number = sgqlc.types.Field(Int, graphql_name='startNumber')
+
+
+class CollectConfigurationInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('channel_protocol', 'collect_period', 'collect_points', 'ethernet_channel', 'interface_type', 'report_period', 'serial_channel')
+    channel_protocol = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='channelProtocol')
+    collect_period = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='collectPeriod')
+    collect_points = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('CollectPointInput'))), graphql_name='collectPoints')
+    ethernet_channel = sgqlc.types.Field('EthernetChannelInput', graphql_name='ethernetChannel')
+    interface_type = sgqlc.types.Field(sgqlc.types.non_null(InterfaceType), graphql_name='interfaceType')
+    report_period = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='reportPeriod')
+    serial_channel = sgqlc.types.Field('SerialChannelInput', graphql_name='serialChannel')
+
+
+class CollectPointInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('addr_offset', 'alias_name', 'data_type', 'name', 'register_type')
+    addr_offset = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='addrOffset')
+    alias_name = sgqlc.types.Field(String, graphql_name='aliasName')
+    data_type = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='dataType')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    register_type = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='registerType')
 
 
 class CompanyBIDatasourceFilter(sgqlc.types.Input):
@@ -948,6 +1657,72 @@ class ConfirmBorrowInput(sgqlc.types.Input):
     remark = sgqlc.types.Field(String, graphql_name='remark')
 
 
+class ConfirmErpOrderPaymentInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('order', 'payment_amount', 'payment_complete', 'payment_percentage')
+    order = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='order')
+    payment_amount = sgqlc.types.Field(Float, graphql_name='paymentAmount')
+    payment_complete = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='paymentComplete')
+    payment_percentage = sgqlc.types.Field(Float, graphql_name='paymentPercentage')
+
+
+class ConfirmErpOrderProductionInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'item_list', 'need_production', 'order')
+    department = sgqlc.types.Field('IDInput', graphql_name='department')
+    item_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpProductionItemInput')), graphql_name='itemList')
+    need_production = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='needProduction')
+    order = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='order')
+
+
+class ConfirmErpOrderShipInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'city', 'country', 'county', 'expect_ship_time', 'item_list', 'order', 'province', 'remark', 'ship_confirm_complete')
+    address = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='address')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    country = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    expect_ship_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='expectShipTime')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpOrderShipItemInput'))), graphql_name='itemList')
+    order = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='order')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    ship_confirm_complete = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='shipConfirmComplete')
+
+
+class ConfirmErpSampleOrderPaymentInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('order', 'payment_amount', 'payment_complete', 'payment_percentage')
+    order = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='order')
+    payment_amount = sgqlc.types.Field(Float, graphql_name='paymentAmount')
+    payment_complete = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='paymentComplete')
+    payment_percentage = sgqlc.types.Field(Float, graphql_name='paymentPercentage')
+
+
+class ConfirmErpSampleOrderProductionInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'item_list', 'need_production', 'order')
+    department = sgqlc.types.Field('IDInput', graphql_name='department')
+    item_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpSampleProductionItemInput')), graphql_name='itemList')
+    need_production = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='needProduction')
+    order = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='order')
+
+
+class ConfirmErpSampleOrderShipInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'city', 'country', 'county', 'expect_ship_time', 'item_list', 'order', 'province', 'remark', 'ship_confirm_complete')
+    address = sgqlc.types.Field(String, graphql_name='address')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    country = sgqlc.types.Field(String, graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    expect_ship_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='expectShipTime')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpSampleOrderShipItemInput'))), graphql_name='itemList')
+    order = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='order')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    ship_confirm_complete = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='shipConfirmComplete')
+
+
 class ConfirmReturnByThingInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('remark', 'return_at', 'thing')
@@ -977,6 +1752,13 @@ class ContentInput(sgqlc.types.Input):
     targets = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('FieldInput'))), graphql_name='targets')
     template = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='template')
     url = sgqlc.types.Field(String, graphql_name='url')
+
+
+class CopyErpProductionWorkflowInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
 
 
 class CountyFilterInput(sgqlc.types.Input):
@@ -1082,6 +1864,15 @@ class CreateDepositoryInput(sgqlc.types.Input):
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
 
 
+class CreateDeviceChannelConfigurationInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('collect', 'company', 'name', 'router')
+    collect = sgqlc.types.Field(sgqlc.types.non_null(CollectConfigurationInput), graphql_name='collect')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    router = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='router')
+
+
 class CreateEamFileInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('company_id', 'file_name', 'length', 'name')
@@ -1117,6 +1908,407 @@ class CreateEnterpriseAppInput(sgqlc.types.Input):
     __field_names__ = ('description', 'name')
     description = sgqlc.types.Field(String, graphql_name='description')
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class CreateErpCustomerInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'city', 'company', 'contact', 'country', 'county', 'extra_data', 'name', 'province', 'short_name', 'status', 'type')
+    address = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='address')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    contact = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpCustomerContactInput'))), graphql_name='contact')
+    country = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    short_name = sgqlc.types.Field(String, graphql_name='shortName')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpCustomerStatus), graphql_name='status')
+    type = sgqlc.types.Field(sgqlc.types.non_null(ErpCustomerType), graphql_name='type')
+
+
+class CreateErpDepartmentInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'department', 'name', 'remark')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    department = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='department')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+
+
+class CreateErpFileInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('key', 'length', 'name')
+    key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
+    length = sgqlc.types.Field(Int, graphql_name='length')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class CreateErpMaterialInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('batch_number', 'batch_rule', 'category', 'code', 'company', 'extra_data', 'lead_time', 'name', 'property', 'remark', 'source', 'specification', 'subcategory', 'unit')
+    batch_number = sgqlc.types.Field(Int, graphql_name='batchNumber')
+    batch_rule = sgqlc.types.Field(ErpMaterialBatchRule, graphql_name='batchRule')
+    category = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='category')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    company = sgqlc.types.Field('IntIDInput', graphql_name='company')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    lead_time = sgqlc.types.Field(Int, graphql_name='leadTime')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    property = sgqlc.types.Field(sgqlc.types.non_null(ErpMaterialProperty), graphql_name='property')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    source = sgqlc.types.Field(ErpMaterialSource, graphql_name='source')
+    specification = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='specification')
+    subcategory = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='subcategory')
+    unit = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='unit')
+
+
+class CreateErpOrderCheckConfigInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'condition', 'name', 'role')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    condition = sgqlc.types.Field('ErpOrderCheckConfigConditionInput', graphql_name='condition')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    role = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='role')
+
+
+class CreateErpOrderInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'attachment', 'city', 'company', 'contact', 'country', 'county', 'currency', 'customer', 'customer_name', 'expect_delivery_time', 'extra_data', 'item_list', 'order_amount', 'payment_amount', 'payment_percentage', 'production_notification_condition', 'province', 'remark', 'ship_notification_condition', 'submit')
+    address = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='address')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='attachment')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    contact = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='contact')
+    country = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    currency = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderCurrency), graphql_name='currency')
+    customer = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='customer')
+    customer_name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='customerName')
+    expect_delivery_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='expectDeliveryTime')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpOrderItemInput'))), graphql_name='itemList')
+    order_amount = sgqlc.types.Field(Float, graphql_name='orderAmount')
+    payment_amount = sgqlc.types.Field(Float, graphql_name='paymentAmount')
+    payment_percentage = sgqlc.types.Field(Float, graphql_name='paymentPercentage')
+    production_notification_condition = sgqlc.types.Field(sgqlc.types.non_null('NotificationConditionInput'), graphql_name='productionNotificationCondition')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    ship_notification_condition = sgqlc.types.Field(sgqlc.types.non_null('NotificationConditionInput'), graphql_name='shipNotificationCondition')
+    submit = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='submit')
+
+
+class CreateErpOrderProductInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'code', 'company', 'customer', 'english_name', 'name', 'price', 'remark', 'specification', 'subcategory', 'unit')
+    category = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='category')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    customer = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='customer')
+    english_name = sgqlc.types.Field(String, graphql_name='englishName')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    price = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='price')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    specification = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='specification')
+    subcategory = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='subcategory')
+    unit = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='unit')
+
+
+class CreateErpPositionInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'name')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class CreateErpPositionUserInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('position', 'user')
+    position = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='position')
+    user = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('StrIDInput'))), graphql_name='user')
+
+
+class CreateErpProcessInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'name')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class CreateErpProductionPlanningInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('apr', 'aug', 'code', 'dec', 'department', 'feb', 'jan', 'jul', 'jun', 'mar', 'may', 'nov', 'oct', 'sep', 'start')
+    apr = sgqlc.types.Field(Float, graphql_name='apr')
+    aug = sgqlc.types.Field(Float, graphql_name='aug')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    dec = sgqlc.types.Field(Float, graphql_name='dec')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    feb = sgqlc.types.Field(Float, graphql_name='feb')
+    jan = sgqlc.types.Field(Float, graphql_name='jan')
+    jul = sgqlc.types.Field(Float, graphql_name='jul')
+    jun = sgqlc.types.Field(Float, graphql_name='jun')
+    mar = sgqlc.types.Field(Float, graphql_name='mar')
+    may = sgqlc.types.Field(Float, graphql_name='may')
+    nov = sgqlc.types.Field(Float, graphql_name='nov')
+    oct = sgqlc.types.Field(Float, graphql_name='oct')
+    sep = sgqlc.types.Field(Float, graphql_name='sep')
+    start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='start')
+
+
+class CreateErpProductionWorkflowInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'name')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class CreateErpSalePlanInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'department', 'month', 'plan', 'product')
+    company = sgqlc.types.Field('IntIDInput', graphql_name='company')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    month = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='month')
+    plan = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpSalePlanInput')), graphql_name='plan')
+    product = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='product')
+
+
+class CreateErpSampleOrderCheckConfigInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'condition', 'name', 'role')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    condition = sgqlc.types.Field('ErpSampleOrderCheckConfigConditionInput', graphql_name='condition')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    role = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='role')
+
+
+class CreateErpSampleOrderInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'attachment', 'city', 'company', 'contact', 'country', 'county', 'currency', 'customer', 'customer_name', 'expect_delivery_time', 'extra_data', 'item_list', 'order_amount', 'payment_amount', 'payment_percentage', 'production_notification_condition', 'province', 'remark', 'ship_notification_condition', 'submit')
+    address = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='address')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='attachment')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    contact = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='contact')
+    country = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    currency = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderCurrency), graphql_name='currency')
+    customer = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='customer')
+    customer_name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='customerName')
+    expect_delivery_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='expectDeliveryTime')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpSampleOrderItemInput'))), graphql_name='itemList')
+    order_amount = sgqlc.types.Field(Float, graphql_name='orderAmount')
+    payment_amount = sgqlc.types.Field(Float, graphql_name='paymentAmount')
+    payment_percentage = sgqlc.types.Field(Float, graphql_name='paymentPercentage')
+    production_notification_condition = sgqlc.types.Field(sgqlc.types.non_null('NotificationConditionInput'), graphql_name='productionNotificationCondition')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    ship_notification_condition = sgqlc.types.Field(sgqlc.types.non_null('NotificationConditionInput'), graphql_name='shipNotificationCondition')
+    submit = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='submit')
+
+
+class CreateErpScheduleInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'schedule_process', 'technique')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    schedule_process = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpScheduleProcessInput'))), graphql_name='scheduleProcess')
+    technique = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='technique')
+
+
+class CreateErpTaskTemplateDispatchInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('base_time', 'day', 'hour', 'timestamp', 'timing')
+    base_time = sgqlc.types.Field(ErpMesConfigBaseTime, graphql_name='baseTime')
+    day = sgqlc.types.Field(Int, graphql_name='day')
+    hour = sgqlc.types.Field(Int, graphql_name='hour')
+    timestamp = sgqlc.types.Field(Timestamp, graphql_name='timestamp')
+    timing = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskDispatchTiming), graphql_name='timing')
+
+
+class CreateErpTaskTemplateInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('attachment', 'department', 'description', 'dispatch', 'name', 'no', 'plan_end', 'plan_start', 'position', 'process', 'process_params', 'product_output', 'supplement', 'thing', 'user_exists')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='attachment')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    description = sgqlc.types.Field(String, graphql_name='description')
+    dispatch = sgqlc.types.Field(CreateErpTaskTemplateDispatchInput, graphql_name='dispatch')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    no = sgqlc.types.Field('CreateErpTaskTemplateNoInput', graphql_name='no')
+    plan_end = sgqlc.types.Field('CreateErpTaskTemplatePlanStartEndInput', graphql_name='planEnd')
+    plan_start = sgqlc.types.Field('CreateErpTaskTemplatePlanStartEndInput', graphql_name='planStart')
+    position = sgqlc.types.Field('IntIDInput', graphql_name='position')
+    process = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='process')
+    process_params = sgqlc.types.Field('CreateErpTaskTemplateProcessParamsInput', graphql_name='processParams')
+    product_output = sgqlc.types.Field('CreateErpTaskTemplateProductOutputInput', graphql_name='productOutput')
+    supplement = sgqlc.types.Field('CreateErpTaskTemplateSupplementInput', graphql_name='supplement')
+    thing = sgqlc.types.Field('CreateErpTaskTemplateThingInput', graphql_name='thing')
+    user_exists = sgqlc.types.Field(Boolean, graphql_name='userExists')
+
+
+class CreateErpTaskTemplateNoInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department_idexists', 'end_at_exists', 'end_at_format', 'exists', 'manual', 'pre_process_no_exists', 'product_idexists', 'suffix_count_on', 'suffix_exists', 'suffix_fill', 'suffix_range', 'thing_exists')
+    department_idexists = sgqlc.types.Field(Boolean, graphql_name='departmentIDExists')
+    end_at_exists = sgqlc.types.Field(Boolean, graphql_name='endAtExists')
+    end_at_format = sgqlc.types.Field(ErpTaskTemplateNoEndAtFormat, graphql_name='endAtFormat')
+    exists = sgqlc.types.Field(Boolean, graphql_name='exists')
+    manual = sgqlc.types.Field(Boolean, graphql_name='manual')
+    pre_process_no_exists = sgqlc.types.Field(Boolean, graphql_name='preProcessNoExists')
+    product_idexists = sgqlc.types.Field(Boolean, graphql_name='productIDExists')
+    suffix_count_on = sgqlc.types.Field(ErpTaskTemplateNoSuffixCountOn, graphql_name='suffixCountOn')
+    suffix_exists = sgqlc.types.Field(Boolean, graphql_name='suffixExists')
+    suffix_fill = sgqlc.types.Field(Int, graphql_name='suffixFill')
+    suffix_range = sgqlc.types.Field(ErpTaskTemplateNoSuffixRange, graphql_name='suffixRange')
+    thing_exists = sgqlc.types.Field(Boolean, graphql_name='thingExists')
+
+
+class CreateErpTaskTemplatePlanStartEndInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('base_time', 'format', 'operator', 'timedelta', 'timing')
+    base_time = sgqlc.types.Field(ErpMesConfigBaseTime, graphql_name='baseTime')
+    format = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskTemplateTimeFormat), graphql_name='format')
+    operator = sgqlc.types.Field(ErpTaskTemplateOperator, graphql_name='operator')
+    timedelta = sgqlc.types.Field(Int, graphql_name='timedelta')
+    timing = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskTemplateStartEndTiming), graphql_name='timing')
+
+
+class CreateErpTaskTemplateProcessParamsInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('params_choice', 'params_choose_all', 'params_default', 'params_exists', 'register_params', 'show_detail')
+    params_choice = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='paramsChoice')
+    params_choose_all = sgqlc.types.Field(Boolean, graphql_name='paramsChooseAll')
+    params_default = sgqlc.types.Field(ErpTaskTemplateProcessParamsDefault, graphql_name='paramsDefault')
+    params_exists = sgqlc.types.Field(Boolean, graphql_name='paramsExists')
+    register_params = sgqlc.types.Field(Boolean, graphql_name='registerParams')
+    show_detail = sgqlc.types.Field(Boolean, graphql_name='showDetail')
+
+
+class CreateErpTaskTemplateProductOutputInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('register_product_output',)
+    register_product_output = sgqlc.types.Field(Boolean, graphql_name='registerProductOutput')
+
+
+class CreateErpTaskTemplateSupplementInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('editable', 'exists', 'stock_logic')
+    editable = sgqlc.types.Field(Boolean, graphql_name='editable')
+    exists = sgqlc.types.Field(Boolean, graphql_name='exists')
+    stock_logic = sgqlc.types.Field(ErpTaskTemplateOperator, graphql_name='stockLogic')
+
+
+class CreateErpTaskTemplateThingInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('choice', 'default', 'editable', 'exists', 'multiple', 'style')
+    choice = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='choice')
+    default = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='default')
+    editable = sgqlc.types.Field(Boolean, graphql_name='editable')
+    exists = sgqlc.types.Field(Boolean, graphql_name='exists')
+    multiple = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='multiple')
+    style = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskTemplateThingStyle), graphql_name='style')
+
+
+class CreateErpTechniqueInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'department')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('CreateErpTechniqueProductInput'))), graphql_name='data')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+
+
+class CreateErpTechniqueProductInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('name', 'product')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    product = sgqlc.types.Field(sgqlc.types.non_null('MesBomMaterialInput'), graphql_name='product')
+
+
+class CreateErpThingInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'thing')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='department')
+    thing = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='thing')
+
+
+class CreateErpVisitInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'customer', 'due_at', 'purpose', 'remark')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    customer = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='customer')
+    due_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='dueAt')
+    purpose = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpVisitPurpose))), graphql_name='purpose')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+
+
+class CreateErpWarehouseInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'city', 'company', 'country', 'county', 'name', 'province', 'remark', 'type')
+    address = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='address')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    country = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    type = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='type')
+
+
+class CreateErpWarehouseItemCategoryInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'company', 'name')
+    category = sgqlc.types.Field('IDInput', graphql_name='category')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class CreateErpWarehouseItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'code', 'company', 'name', 'remark', 'specification', 'subcategory', 'unit', 'warehouse')
+    category = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='category')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    specification = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='specification')
+    subcategory = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='subcategory')
+    unit = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='unit')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='warehouse')
+
+
+class CreateErpWarehouseTypeInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'name')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class CreateErpWarehouseUserInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'user', 'warehouse')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    user = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='user')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='warehouse')
+
+
+class CreateErpWarehouseZoneInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('column_max', 'column_min', 'layer_max', 'layer_min', 'name', 'remark', 'row_max', 'row_min', 'warehouse')
+    column_max = sgqlc.types.Field(Int, graphql_name='columnMax')
+    column_min = sgqlc.types.Field(Int, graphql_name='columnMin')
+    layer_max = sgqlc.types.Field(Int, graphql_name='layerMax')
+    layer_min = sgqlc.types.Field(Int, graphql_name='layerMin')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    row_max = sgqlc.types.Field(Int, graphql_name='rowMax')
+    row_min = sgqlc.types.Field(Int, graphql_name='rowMin')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouse')
+
+
+class CreateErpWorkshopInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'thing_group')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='department')
+    thing_group = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='thingGroup')
 
 
 class CreateEvasionDateInput(sgqlc.types.Input):
@@ -1172,6 +2364,28 @@ class CreateMarketFileInput(sgqlc.types.Input):
     __field_names__ = ('length', 'name')
     length = sgqlc.types.Field(Int, graphql_name='length')
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class CreateMaterialCategoryInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'name', 'property')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    property = sgqlc.types.Field(sgqlc.types.non_null(MaterialProperty), graphql_name='property')
+
+
+class CreateMaterialInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'code', 'company', 'field_data', 'name', 'property', 'specification', 'unit', 'versions')
+    category = sgqlc.types.Field('IntIDInput', graphql_name='category')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    field_data = sgqlc.types.Field(JSON, graphql_name='fieldData')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    property = sgqlc.types.Field(sgqlc.types.non_null(MaterialProperty), graphql_name='property')
+    specification = sgqlc.types.Field(String, graphql_name='specification')
+    unit = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='unit')
+    versions = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='versions')
 
 
 class CreateMetaTemplateInput(sgqlc.types.Input):
@@ -1257,10 +2471,75 @@ class CreateOutsideCalibrateInput(sgqlc.types.Input):
     pay_status = sgqlc.types.Field(OutsideCalibratePayStatus, graphql_name='payStatus')
 
 
+class CreatePlmFileInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company_id', 'length', 'name')
+    company_id = sgqlc.types.Field(ID, graphql_name='companyId')
+    length = sgqlc.types.Field(Int, graphql_name='length')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class CreateProductFlowInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'name', 'task_configuration')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    task_configuration = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('TaskConfigurationInput'))), graphql_name='taskConfiguration')
+
+
+class CreateProductProjectInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('attachment', 'category', 'code', 'company', 'description', 'field_data', 'name', 'plan_start_at', 'project_group')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('StringIDInput')), graphql_name='attachment')
+    category = sgqlc.types.Field(sgqlc.types.non_null(ProductProjectCategory), graphql_name='category')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    description = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='description')
+    field_data = sgqlc.types.Field(JSON, graphql_name='fieldData')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    plan_start_at = sgqlc.types.Field(Timestamp, graphql_name='planStartAt')
+    project_group = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput'))), graphql_name='projectGroup')
+
+
+class CreateProjectGroupInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'name')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
 class CreateRoleInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('description', 'name')
     description = sgqlc.types.Field(String, graphql_name='description')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class CreateRouterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('activated_at', 'client_id', 'code', 'company', 'contact', 'desc', 'detail_things', 'images', 'location', 'model', 'name', 'phone', 'purchased_at', 'years_of_maintenance')
+    activated_at = sgqlc.types.Field(Timestamp, graphql_name='activatedAt')
+    client_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='clientId')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    contact = sgqlc.types.Field(String, graphql_name='contact')
+    desc = sgqlc.types.Field(String, graphql_name='desc')
+    detail_things = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('detailThingInput')), graphql_name='detailThings')
+    images = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='images')
+    location = sgqlc.types.Field(String, graphql_name='location')
+    model = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='model')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    phone = sgqlc.types.Field(String, graphql_name='phone')
+    purchased_at = sgqlc.types.Field(Timestamp, graphql_name='purchasedAt')
+    years_of_maintenance = sgqlc.types.Field(Int, graphql_name='yearsOfMaintenance')
+
+
+class CreateRouterTemplateConfigurationInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('collects', 'company', 'model', 'name')
+    collects = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(CollectConfigurationInput))), graphql_name='collects')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    model = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='model')
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
 
 
@@ -1388,6 +2667,24 @@ class CreateSparePartWriteoffItemInput(sgqlc.types.Input):
     __field_names__ = ('item', 'quantity')
     item = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='item')
     quantity = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='quantity')
+
+
+class CreateTaskBomInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'task', 'versions')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    task = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='task')
+    versions = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='versions')
+
+
+class CreateTaskInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('executive', 'name', 'participant', 'plan_end_at', 'plan_start_at')
+    executive = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='executive')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    participant = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='participant')
+    plan_end_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='planEndAt')
+    plan_start_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='planStartAt')
 
 
 class CreateTenantInput(sgqlc.types.Input):
@@ -1807,11 +3104,34 @@ class DebugAdapterKeyInput(sgqlc.types.Input):
     type = sgqlc.types.Field(DataType, graphql_name='type')
 
 
+class DefaultFilterFieldInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('active', 'data_type', 'default_filter_value', 'default_operator', 'editable', 'id', 'is_preset', 'label', 'multiple', 'options', 'type')
+    active = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='active')
+    data_type = sgqlc.types.Field(sgqlc.types.non_null(UCCDataType), graphql_name='dataType')
+    default_filter_value = sgqlc.types.Field(String, graphql_name='defaultFilterValue')
+    default_operator = sgqlc.types.Field(sgqlc.types.non_null(UCCOperator), graphql_name='defaultOperator')
+    editable = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='editable')
+    id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='id')
+    is_preset = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isPreset')
+    label = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='label')
+    multiple = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='multiple')
+    options = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='options')
+    type = sgqlc.types.Field(sgqlc.types.non_null(UCCFilterUIType), graphql_name='type')
+
+
 class DeleteDepartmentThingGroupInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('department', 'thing_groups')
     department = sgqlc.types.Field(sgqlc.types.non_null(JSONString), graphql_name='department')
     thing_groups = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IDInput'))), graphql_name='thingGroups')
+
+
+class DeleteErpPositionUserInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('position', 'user')
+    position = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='position')
+    user = sgqlc.types.Field(sgqlc.types.non_null('StrIDInput'), graphql_name='user')
 
 
 class DeleteInput(sgqlc.types.Input):
@@ -1884,10 +3204,24 @@ class DeptUserThingGroupInputFilter(sgqlc.types.Input):
     user = sgqlc.types.Field('IDInput', graphql_name='user')
 
 
+class DeviceChannelConfigurationFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('router_id', 'search')
+    router_id = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='routerId')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class DragErpProcessInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('after_item', 'item', 'pre_item')
+    after_item = sgqlc.types.Field('IntIDInput', graphql_name='afterItem')
+    item = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='item')
+    pre_item = sgqlc.types.Field('IntIDInput', graphql_name='preItem')
+
+
 class DuplicateUCCFormStructureInput(sgqlc.types.Input):
     __schema__ = platform_schema
-    __field_names__ = ('company', 'key_pair')
-    company = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='company')
+    __field_names__ = ('key_pair',)
     key_pair = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('DuplicateUCCFormStructureKeyInput')), graphql_name='keyPair')
 
 
@@ -2038,6 +3372,15 @@ class EamSparePartWarehouseListFilterInput(sgqlc.types.Input):
     search = sgqlc.types.Field(String, graphql_name='search')
 
 
+class EndProductProject(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('attachment', 'bom', 'description', 'id')
+    attachment = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('StringIDInput'))), graphql_name='attachment')
+    bom = sgqlc.types.Field('IntIDInput', graphql_name='bom')
+    description = sgqlc.types.Field(String, graphql_name='description')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+
+
 class EnergyGroupFilterInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('company_id',)
@@ -2049,6 +3392,1032 @@ class EnumDataInput(sgqlc.types.Input):
     __field_names__ = ('name', 'value')
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
     value = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='value')
+
+
+class ErpAllWarehouseItemCategoryListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company',)
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+
+
+class ErpAutoRegisterConfigEndInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('mode', 'task_template', 'timing')
+    mode = sgqlc.types.Field(ErpAutoRegisterConfigTimingMode, graphql_name='mode')
+    task_template = sgqlc.types.Field('IntIDInput', graphql_name='taskTemplate')
+    timing = sgqlc.types.Field(sgqlc.types.non_null(ErpAutoRegisterConfigEndTiming), graphql_name='timing')
+
+
+class ErpAutoRegisterConfigFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'task_template', 'workflow')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    task_template = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='taskTemplate')
+    workflow = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='workflow')
+
+
+class ErpAutoRegisterConfigStartInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('key', 'mode', 'task_template', 'timing')
+    key = sgqlc.types.Field(String, graphql_name='key')
+    mode = sgqlc.types.Field(ErpAutoRegisterConfigTimingMode, graphql_name='mode')
+    task_template = sgqlc.types.Field('IntIDInput', graphql_name='taskTemplate')
+    timing = sgqlc.types.Field(sgqlc.types.non_null(ErpAutoRegisterConfigStartTiming), graphql_name='timing')
+
+
+class ErpBatchNoExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'no', 'task')
+    company = sgqlc.types.Field('IntIDInput', graphql_name='company')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    task = sgqlc.types.Field('IntIDInput', graphql_name='task')
+
+
+class ErpBomMaterial(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'material')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    material = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='material')
+
+
+class ErpCustomerContactInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('name', 'phone')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    phone = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='phone')
+
+
+class ErpCustomerExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'id', 'name')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpCustomerListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'end', 'has_visit', 'manager', 'scope', 'search', 'start', 'status', 'type')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    end = sgqlc.types.Field(Timestamp, graphql_name='end')
+    has_visit = sgqlc.types.Field(ErpCustomerHasVisit, graphql_name='hasVisit')
+    manager = sgqlc.types.Field('IDInput', graphql_name='manager')
+    scope = sgqlc.types.Field(Boolean, graphql_name='scope')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    start = sgqlc.types.Field(Timestamp, graphql_name='start')
+    status = sgqlc.types.Field(ErpCustomerStatus, graphql_name='status')
+    type = sgqlc.types.Field(ErpCustomerType, graphql_name='type')
+
+
+class ErpDailyReportFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'month', 'product')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    month = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='month')
+    product = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='product')
+
+
+class ErpDepartmentExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'id', 'name')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpDepartmentListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'department')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    department = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='department')
+
+
+class ErpEdgePositionInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('source_handle', 'target_handle')
+    source_handle = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='sourceHandle')
+    target_handle = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='targetHandle')
+
+
+class ErpInventoryDetailFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('dimension', 'item', 'status', 'warehouse')
+    dimension = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseZoneDimension), graphql_name='dimension')
+    item = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='item')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseZoneStatus), graphql_name='status')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouse')
+
+
+class ErpIssueInfoInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('batch', 'warehouse_location')
+    batch = sgqlc.types.Field(String, graphql_name='batch')
+    warehouse_location = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpIssueWarehouseLocationInput'))), graphql_name='warehouseLocation')
+
+
+class ErpIssueItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('issue_info', 'item', 'notification_number')
+    issue_info = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpIssueInfoInput)), graphql_name='issueInfo')
+    item = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='item')
+    notification_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='notificationNumber')
+
+
+class ErpIssueLogListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'search', 'source', 'subcategory', 'warehouse')
+    category = sgqlc.types.Field('IDInput', graphql_name='category')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    source = sgqlc.types.Field(ErpIssueNotificationSource, graphql_name='source')
+    subcategory = sgqlc.types.Field('IDInput', graphql_name='subcategory')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouse')
+
+
+class ErpIssueNotificationExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'no')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+
+
+class ErpIssueNotificationListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'item', 'search', 'source', 'status', 'subcategory', 'warehouse')
+    category = sgqlc.types.Field('IDInput', graphql_name='category')
+    item = sgqlc.types.Field('IDInput', graphql_name='item')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    source = sgqlc.types.Field(ErpIssueNotificationSource, graphql_name='source')
+    status = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpIssueStatus))), graphql_name='status')
+    subcategory = sgqlc.types.Field('IDInput', graphql_name='subcategory')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouse')
+
+
+class ErpIssueWarehouseLocationInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('issue_number', 'warehouse_location')
+    issue_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='issueNumber')
+    warehouse_location = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouseLocation')
+
+
+class ErpManagerListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company',)
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+
+
+class ErpMaterialInventoryListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'material', 'scope')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    material = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='material')
+    scope = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpInventoryScope))), graphql_name='scope')
+
+
+class ErpMaterialListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'company', 'property', 'search', 'subcategory')
+    category = sgqlc.types.Field('IntIDInput', graphql_name='category')
+    company = sgqlc.types.Field('IntIDInput', graphql_name='company')
+    property = sgqlc.types.Field(ErpMaterialProperty, graphql_name='property')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    subcategory = sgqlc.types.Field('IntIDInput', graphql_name='subcategory')
+
+
+class ErpMaterialNameExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'company', 'id', 'name', 'specification', 'subcategory', 'unit')
+    category = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='category')
+    company = sgqlc.types.Field('IntIDInput', graphql_name='company')
+    id = sgqlc.types.Field(Int, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    specification = sgqlc.types.Field(String, graphql_name='specification')
+    subcategory = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='subcategory')
+    unit = sgqlc.types.Field(String, graphql_name='unit')
+
+
+class ErpMergeProductionChannelListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'process')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    process = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='process')
+
+
+class ErpMergeStartProcessListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department',)
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+
+
+class ErpMockTaskInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('creator', 'department', 'dispatch', 'end', 'no', 'production_no', 'start', 'status', 'technique_task_template')
+    creator = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='creator')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    dispatch = sgqlc.types.Field(Timestamp, graphql_name='dispatch')
+    end = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='end')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    production_no = sgqlc.types.Field(String, graphql_name='productionNo')
+    start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='start')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskStatus), graphql_name='status')
+    technique_task_template = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='techniqueTaskTemplate')
+
+
+class ErpMonthPlanListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'customer', 'department', 'month', 'search', 'subcategory')
+    category = sgqlc.types.Field('IntIDInput', graphql_name='category')
+    customer = sgqlc.types.Field('IntIDInput', graphql_name='customer')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    month = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='month')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    subcategory = sgqlc.types.Field('IntIDInput', graphql_name='subcategory')
+
+
+class ErpMonthPlanProductList(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'month', 'product')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    month = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='month')
+    product = sgqlc.types.Field('IntIDInput', graphql_name='product')
+
+
+class ErpMpsListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'department', 'end', 'granularity', 'search', 'start', 'subcategory')
+    category = sgqlc.types.Field('IntIDInput', graphql_name='category')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='department')
+    end = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='end')
+    granularity = sgqlc.types.Field(sgqlc.types.non_null(Granularity), graphql_name='granularity')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='start')
+    subcategory = sgqlc.types.Field('IntIDInput', graphql_name='subcategory')
+
+
+class ErpMyPositionListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'own', 'search')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    own = sgqlc.types.Field(Boolean, graphql_name='own')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class ErpNotificationFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'warehouse')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouse')
+
+
+class ErpOccupiedByTaskFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('process', 'task_template', 'technique')
+    process = sgqlc.types.Field('IntIDInput', graphql_name='process')
+    task_template = sgqlc.types.Field('IntIDInput', graphql_name='task_template')
+    technique = sgqlc.types.Field('IntIDInput', graphql_name='technique')
+
+
+class ErpOrderAreaStatisticsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'currency', 'dimension', 'end', 'start')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    currency = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderCurrency)), graphql_name='currency')
+    dimension = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderAreaStatisticsDimension), graphql_name='dimension')
+    end = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='end')
+    start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='start')
+
+
+class ErpOrderCheckConfigConditionInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('meet', 'statement')
+    meet = sgqlc.types.Field(ErpOrderCheckConfigConditionMeet, graphql_name='meet')
+    statement = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpOrderCheckConfigConditionStatementInput'))), graphql_name='statement')
+
+
+class ErpOrderCheckConfigConditionStatementInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('comparator', 'field', 'operator', 'type', 'value')
+    comparator = sgqlc.types.Field(sgqlc.types.non_null(ErpCheckConfigConditionStatementComparator), graphql_name='comparator')
+    field = sgqlc.types.Field(sgqlc.types.non_null(ErpCheckConfigConditionStatementField), graphql_name='field')
+    operator = sgqlc.types.Field(ErpCheckConfigConditionStatementOperator, graphql_name='operator')
+    type = sgqlc.types.Field(sgqlc.types.non_null(ErpCheckConfigConditionStatementType), graphql_name='type')
+    value = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='value')
+
+
+class ErpOrderCheckConfigExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'id', 'name')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpOrderCheckConfigFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company',)
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+
+
+class ErpOrderCustomerStatisticsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'currency', 'end', 'search', 'start')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    currency = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderCurrency)), graphql_name='currency')
+    end = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='end')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='start')
+
+
+class ErpOrderItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('order_number', 'price', 'product')
+    order_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='orderNumber')
+    price = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='price')
+    product = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='product')
+
+
+class ErpOrderListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'end', 'manager', 'my_check', 'payment_complete', 'search', 'start', 'status')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    end = sgqlc.types.Field(Timestamp, graphql_name='end')
+    manager = sgqlc.types.Field('IDInput', graphql_name='manager')
+    my_check = sgqlc.types.Field(Boolean, graphql_name='myCheck')
+    payment_complete = sgqlc.types.Field(Boolean, graphql_name='paymentComplete')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    start = sgqlc.types.Field(Timestamp, graphql_name='start')
+    status = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderStatus)), graphql_name='status')
+
+
+class ErpOrderManagerStatisticsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'currency', 'end', 'manager', 'start')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    currency = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderCurrency)), graphql_name='currency')
+    end = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='end')
+    manager = sgqlc.types.Field('IDInput', graphql_name='manager')
+    start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='start')
+
+
+class ErpOrderProcessFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('order', 'scope')
+    order = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='order')
+    scope = sgqlc.types.Field(Boolean, graphql_name='scope')
+
+
+class ErpOrderProductCodeExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('code', 'company', 'id')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    id = sgqlc.types.Field(Int, graphql_name='id')
+
+
+class ErpOrderProductionNotificationFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('order',)
+    order = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='order')
+
+
+class ErpOrderShipItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('product', 'ship_number')
+    product = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='product')
+    ship_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='shipNumber')
+
+
+class ErpOrderShipNotificationListFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('order',)
+    order = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='order')
+
+
+class ErpPositionExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'id', 'name')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    id = sgqlc.types.Field(Int, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpPositionListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'search')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class ErpPositionUserFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'position', 'user')
+    department = sgqlc.types.Field('IntIDInput', graphql_name='department')
+    position = sgqlc.types.Field('IntIDInput', graphql_name='position')
+    user = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('StrIDInput')), graphql_name='user')
+
+
+class ErpProcessEdgeInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('info', 'input_process', 'output_process', 'relation')
+    info = sgqlc.types.Field(sgqlc.types.non_null(ErpEdgePositionInput), graphql_name='info')
+    input_process = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='inputProcess')
+    output_process = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='outputProcess')
+    relation = sgqlc.types.Field(sgqlc.types.non_null(ErpProcessStartAtType), graphql_name='relation')
+
+
+class ErpProcessExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'id', 'name')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    id = sgqlc.types.Field(Int, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpProcessInfoInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('x', 'y')
+    x = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='x')
+    y = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='y')
+
+
+class ErpProcessListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'search')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class ErpProcessNodeInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('info', 'no', 'process')
+    info = sgqlc.types.Field(sgqlc.types.non_null(ErpProcessInfoInput), graphql_name='info')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    process = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='process')
+
+
+class ErpProcessScheduleTimeFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('anchor_process', 'is_merge', 'plan_end', 'plan_start', 'schedule', 'technique')
+    anchor_process = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='anchorProcess')
+    is_merge = sgqlc.types.Field(Boolean, graphql_name='isMerge')
+    plan_end = sgqlc.types.Field(Timestamp, graphql_name='planEnd')
+    plan_start = sgqlc.types.Field(Timestamp, graphql_name='planStart')
+    schedule = sgqlc.types.Field('IntIDInput', graphql_name='schedule')
+    technique = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='technique')
+
+
+class ErpProcessTaskInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('batch', 'number', 'task', 'trigger_task')
+    batch = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='batch')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='number')
+    task = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput'))), graphql_name='task')
+    trigger_task = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='triggerTask')
+
+
+class ErpProcessThingListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('process', 'thing')
+    process = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='process')
+    thing = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='thing')
+
+
+class ErpProductNameListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'type')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    type = sgqlc.types.Field(String, graphql_name='type')
+
+
+class ErpProductTypeListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company',)
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+
+
+class ErpProductionItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('product', 'production_number')
+    product = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='product')
+    production_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='productionNumber')
+
+
+class ErpProductionNotificationListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'department', 'end', 'no', 'search', 'start', 'status', 'subcategory')
+    category = sgqlc.types.Field('IntIDInput', graphql_name='category')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='department')
+    end = sgqlc.types.Field(Timestamp, graphql_name='end')
+    no = sgqlc.types.Field(String, graphql_name='no')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    start = sgqlc.types.Field(Timestamp, graphql_name='start')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProductionNotificationStatus), graphql_name='status')
+    subcategory = sgqlc.types.Field('IntIDInput', graphql_name='subcategory')
+
+
+class ErpProductionTaskInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('confirm_production_number', 'delivery_time', 'no', 'product', 'production_number')
+    confirm_production_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='confirmProductionNumber')
+    delivery_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='deliveryTime')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    product = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='product')
+    production_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='productionNumber')
+
+
+class ErpProductionTaskListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'department', 'end', 'product', 'search', 'source', 'start', 'status', 'subcategory')
+    category = sgqlc.types.Field('IntIDInput', graphql_name='category')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='department')
+    end = sgqlc.types.Field(Timestamp, graphql_name='end')
+    product = sgqlc.types.Field('IntIDInput', graphql_name='product')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    source = sgqlc.types.Field(ErpProductionTaskSource, graphql_name='source')
+    start = sgqlc.types.Field(Timestamp, graphql_name='start')
+    status = sgqlc.types.Field(ErpProductionTaskStatus, graphql_name='status')
+    subcategory = sgqlc.types.Field('IntIDInput', graphql_name='subcategory')
+
+
+class ErpProductionWorkflowExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'id', 'name')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    id = sgqlc.types.Field(Int, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpProductionWorkflowListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'search')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class ErpReceiveItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('batch', 'item', 'notification_number', 'remark', 'warehouse_location')
+    batch = sgqlc.types.Field(String, graphql_name='batch')
+    item = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='item')
+    notification_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='notificationNumber')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    warehouse_location = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpWarehouseLocationInput')), graphql_name='warehouseLocation')
+
+
+class ErpReceiveLogListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'search', 'source', 'subcategory', 'warehouse')
+    category = sgqlc.types.Field('IDInput', graphql_name='category')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    source = sgqlc.types.Field(ErpReceiveNotificationSource, graphql_name='source')
+    subcategory = sgqlc.types.Field('IDInput', graphql_name='subcategory')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouse')
+
+
+class ErpReceiveNotificationExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'no')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+
+
+class ErpReceiveNotificationListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'search', 'source', 'status', 'subcategory', 'warehouse')
+    category = sgqlc.types.Field('IDInput', graphql_name='category')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    source = sgqlc.types.Field(ErpReceiveNotificationSource, graphql_name='source')
+    status = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpReceiveStatus))), graphql_name='status')
+    subcategory = sgqlc.types.Field('IDInput', graphql_name='subcategory')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouse')
+
+
+class ErpRegisterItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('batch', 'id', 'remark', 'warehouse_location')
+    batch = sgqlc.types.Field(String, graphql_name='batch')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    warehouse_location = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpWarehouseLocationInput'))), graphql_name='warehouseLocation')
+
+
+class ErpSafeStockInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('value', 'warehouse')
+    value = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='value')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouse')
+
+
+class ErpSalePlanInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('date', 'number')
+    date = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='date')
+    number = sgqlc.types.Field(Float, graphql_name='number')
+
+
+class ErpSampleOrderCheckConfigConditionInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('meet', 'statement')
+    meet = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderCheckConfigConditionMeet), graphql_name='meet')
+    statement = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderCheckConfigConditionStatementInput))), graphql_name='statement')
+
+
+class ErpSampleOrderCheckConfigConditionStatementInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('comparator', 'field', 'operator', 'type', 'value')
+    comparator = sgqlc.types.Field(sgqlc.types.non_null(ErpCheckConfigConditionStatementComparator), graphql_name='comparator')
+    field = sgqlc.types.Field(sgqlc.types.non_null(ErpCheckConfigConditionStatementField), graphql_name='field')
+    operator = sgqlc.types.Field(ErpCheckConfigConditionStatementOperator, graphql_name='operator')
+    type = sgqlc.types.Field(sgqlc.types.non_null(ErpCheckConfigConditionStatementType), graphql_name='type')
+    value = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='value')
+
+
+class ErpSampleOrderCheckConfigExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'id', 'name')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpSampleOrderCheckConfigFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company',)
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+
+
+class ErpSampleOrderItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('order_number', 'price', 'product')
+    order_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='orderNumber')
+    price = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='price')
+    product = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='product')
+
+
+class ErpSampleOrderListFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'end', 'manager', 'my_check', 'payment_complete', 'search', 'start', 'status')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    end = sgqlc.types.Field(Timestamp, graphql_name='end')
+    manager = sgqlc.types.Field('IDInput', graphql_name='manager')
+    my_check = sgqlc.types.Field(Boolean, graphql_name='myCheck')
+    payment_complete = sgqlc.types.Field(Boolean, graphql_name='paymentComplete')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    start = sgqlc.types.Field(Timestamp, graphql_name='start')
+    status = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderStatus)), graphql_name='status')
+
+
+class ErpSampleOrderProcessFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('order', 'scope')
+    order = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='order')
+    scope = sgqlc.types.Field(Boolean, graphql_name='scope')
+
+
+class ErpSampleOrderProductionNotificationFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('order',)
+    order = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='order')
+
+
+class ErpSampleOrderShipItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('product', 'ship_number')
+    product = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='product')
+    ship_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='shipNumber')
+
+
+class ErpSampleOrderShipNotificationListFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('order',)
+    order = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='order')
+
+
+class ErpSampleProductionItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('product', 'production_number')
+    product = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='product')
+    production_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='productionNumber')
+
+
+class ErpScheduleListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'end', 'search', 'search_production', 'start', 'status', 'technique_exist', 'type')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    end = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='end')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    search_production = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='searchProduction')
+    start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='start')
+    status = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpScheduleStatus)), graphql_name='status')
+    technique_exist = sgqlc.types.Field(Boolean, graphql_name='techniqueExist')
+    type = sgqlc.types.Field(ErpScheduleType, graphql_name='type')
+
+
+class ErpScheduleProcessInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('material', 'plan_end', 'plan_start', 'process', 'thing')
+    material = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='material')
+    plan_end = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='planEnd')
+    plan_start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='planStart')
+    process = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='process')
+    thing = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='thing')
+
+
+class ErpScheduleProcessTimeInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'plan_end', 'plan_start', 'process')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    plan_end = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='planEnd')
+    plan_start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='planStart')
+    process = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='process')
+
+
+class ErpTaskListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('channel', 'department', 'end', 'position', 'process', 'product', 'search', 'start', 'status', 'task_template', 'timing')
+    channel = sgqlc.types.Field(String, graphql_name='channel')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    end = sgqlc.types.Field(Timestamp, graphql_name='end')
+    position = sgqlc.types.Field('IntIDInput', graphql_name='position')
+    process = sgqlc.types.Field('IntIDInput', graphql_name='process')
+    product = sgqlc.types.Field('IntIDInput', graphql_name='product')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    start = sgqlc.types.Field(Timestamp, graphql_name='start')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskStatus), graphql_name='status')
+    task_template = sgqlc.types.Field('IntIDInput', graphql_name='taskTemplate')
+    timing = sgqlc.types.Field(ErpTaskListTiming, graphql_name='timing')
+
+
+class ErpTaskStatisticByPositionFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'status')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskStatus), graphql_name='status')
+
+
+class ErpTaskTemplateDispatchInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('base_time', 'day', 'hour', 'minute', 'timestamp', 'timing')
+    base_time = sgqlc.types.Field(ErpMesConfigBaseTime, graphql_name='baseTime')
+    day = sgqlc.types.Field(Int, graphql_name='day')
+    hour = sgqlc.types.Field(Int, graphql_name='hour')
+    minute = sgqlc.types.Field(Int, graphql_name='minute')
+    timestamp = sgqlc.types.Field(Timestamp, graphql_name='timestamp')
+    timing = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskTemplateDispatchTiming), graphql_name='timing')
+
+
+class ErpTaskTemplateExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'id', 'name')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    id = sgqlc.types.Field(Int, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpTaskTemplateListByWorkflowFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'search')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class ErpTaskTemplateListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'id', 'position', 'process')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    id = sgqlc.types.Field(Int, graphql_name='id')
+    position = sgqlc.types.Field('IntIDInput', graphql_name='position')
+    process = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='process')
+
+
+class ErpTaskTemplateQuotaBindedFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('quota', 'task_template')
+    quota = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='quota')
+    task_template = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='taskTemplate')
+
+
+class ErpTaskWorkReportListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('end', 'operator', 'position', 'search', 'start', 'task_template')
+    end = sgqlc.types.Field(Timestamp, graphql_name='end')
+    operator = sgqlc.types.Field('IDInput', graphql_name='operator')
+    position = sgqlc.types.Field('IntIDInput', graphql_name='position')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    start = sgqlc.types.Field(Timestamp, graphql_name='start')
+    task_template = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='taskTemplate')
+
+
+class ErpTechniqueExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'id', 'name')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    id = sgqlc.types.Field(Int, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpTechniqueListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'preset', 'product')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    preset = sgqlc.types.Field(Boolean, graphql_name='preset')
+    product = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IntIDInput')), graphql_name='product')
+
+
+class ErpTemplateListByBatchNoFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('template', 'type', 'workflow')
+    template = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='template')
+    type = sgqlc.types.Field(ErpAutoRegisterConfigTimingMode, graphql_name='type')
+    workflow = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='workflow')
+
+
+class ErpThingListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'thing')
+    department = sgqlc.types.Field('IDInput', graphql_name='department')
+    thing = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='thing')
+
+
+class ErpVisitListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('canceled_end', 'canceled_start', 'company', 'created_end', 'created_start', 'due_end', 'due_start', 'end', 'logged_end', 'logged_start', 'manager', 'search', 'start', 'status', 'type')
+    canceled_end = sgqlc.types.Field(Timestamp, graphql_name='canceledEnd')
+    canceled_start = sgqlc.types.Field(Timestamp, graphql_name='canceledStart')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    created_end = sgqlc.types.Field(Timestamp, graphql_name='createdEnd')
+    created_start = sgqlc.types.Field(Timestamp, graphql_name='createdStart')
+    due_end = sgqlc.types.Field(Timestamp, graphql_name='dueEnd')
+    due_start = sgqlc.types.Field(Timestamp, graphql_name='dueStart')
+    end = sgqlc.types.Field(Timestamp, graphql_name='end')
+    logged_end = sgqlc.types.Field(Timestamp, graphql_name='loggedEnd')
+    logged_start = sgqlc.types.Field(Timestamp, graphql_name='loggedStart')
+    manager = sgqlc.types.Field('IDInput', graphql_name='manager')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    start = sgqlc.types.Field(Timestamp, graphql_name='start')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpVisitStatus), graphql_name='status')
+    type = sgqlc.types.Field(ErpVisitType, graphql_name='type')
+
+
+class ErpVisitTotalByManagerFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'end', 'manager', 'start')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    end = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='end')
+    manager = sgqlc.types.Field('IDInput', graphql_name='manager')
+    start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='start')
+
+
+class ErpVisitTransferByManagerFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'end', 'manager', 'start')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    end = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='end')
+    manager = sgqlc.types.Field('IDInput', graphql_name='manager')
+    start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='start')
+
+
+class ErpWarehouseDailyReportFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'month', 'product')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    month = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='month')
+    product = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='product')
+
+
+class ErpWarehouseItemCategoryExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'id', 'name')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpWarehouseItemCategoryListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'company')
+    category = sgqlc.types.Field('IDInput', graphql_name='category')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+
+
+class ErpWarehouseItemExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'company', 'name', 'specification', 'subcategory', 'unit')
+    category = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='category')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    specification = sgqlc.types.Field(String, graphql_name='specification')
+    subcategory = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='subcategory')
+    unit = sgqlc.types.Field(String, graphql_name='unit')
+
+
+class ErpWarehouseItemInventoryInfoFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('item', 'warehouse')
+    item = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='item')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouse')
+
+
+class ErpWarehouseItemListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'company', 'search', 'subcategory', 'warehouse')
+    category = sgqlc.types.Field('IDInput', graphql_name='category')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    subcategory = sgqlc.types.Field('IDInput', graphql_name='subcategory')
+    warehouse = sgqlc.types.Field('IDInput', graphql_name='warehouse')
+
+
+class ErpWarehouseItemSafeStockFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('item',)
+    item = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='item')
+
+
+class ErpWarehouseItemSafeStockListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'company', 'search', 'subcategory')
+    category = sgqlc.types.Field('IDInput', graphql_name='category')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    subcategory = sgqlc.types.Field('IDInput', graphql_name='subcategory')
+
+
+class ErpWarehouseItemStockListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'company', 'search', 'subcategory')
+    category = sgqlc.types.Field('IDInput', graphql_name='category')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    subcategory = sgqlc.types.Field('IDInput', graphql_name='subcategory')
+
+
+class ErpWarehouseListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'item', 'search', 'type')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    item = sgqlc.types.Field('IDInput', graphql_name='item')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    type = sgqlc.types.Field('IDInput', graphql_name='type')
+
+
+class ErpWarehouseLocationInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('column', 'layer', 'number', 'row', 'warehouse_zone')
+    column = sgqlc.types.Field(Int, graphql_name='column')
+    layer = sgqlc.types.Field(Int, graphql_name='layer')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='number')
+    row = sgqlc.types.Field(Int, graphql_name='row')
+    warehouse_zone = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouseZone')
+
+
+class ErpWarehouseTypeExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'id', 'name')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpWarehouseTypeListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company',)
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+
+
+class ErpWarehouseUserListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'user')
+    company = sgqlc.types.Field('IDInput', graphql_name='company')
+    user = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='user')
+
+
+class ErpWarehouseZoneExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'warehouse')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    warehouse = sgqlc.types.Field('IDInput', graphql_name='warehouse')
+
+
+class ErpWarehouseZoneListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('warehouse',)
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='warehouse')
+
+
+class ErpWorkshopListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'thing_group')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IDInput'), graphql_name='department')
+    thing_group = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('IDInput')), graphql_name='thingGroup')
+
+
+class EthernetChannelInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('ip', 'port', 'slave_id')
+    ip = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='ip')
+    port = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='port')
+    slave_id = sgqlc.types.Field(Int, graphql_name='slaveId')
 
 
 class EvasionDateFilterInput(sgqlc.types.Input):
@@ -2121,6 +4490,23 @@ class IDInput(sgqlc.types.Input):
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
 
 
+class ImportErpMonthPlanInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'department', 'file_path', 'option', 'template')
+    company = sgqlc.types.Field('IntIDInput', graphql_name='company')
+    department = sgqlc.types.Field(sgqlc.types.non_null('IntIDInput'), graphql_name='department')
+    file_path = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='filePath')
+    option = sgqlc.types.Field(sgqlc.types.non_null(ErpImportOption), graphql_name='option')
+    template = sgqlc.types.Field(sgqlc.types.non_null(ErpMonthPlanImportTemplateInput), graphql_name='template')
+
+
+class ImportFileInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'name')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
 class InboxMessageFilterInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('is_read', 'source_app_keys')
@@ -2163,6 +4549,14 @@ class IsAttachmentTypeListExistsInput(sgqlc.types.Input):
     __field_names__ = ('company', 'name')
     company = sgqlc.types.Field(IDInput, graphql_name='company')
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class IsBomExistsInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'product', 'versions')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    product = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='product')
+    versions = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='versions')
 
 
 class IsCalibrateOrganizationInput(sgqlc.types.Input):
@@ -2269,7 +4663,46 @@ class IsMaintenanceMethodExistsInput(sgqlc.types.Input):
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
 
 
+class IsMaterialCategoryExistsInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'name', 'property')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    property = sgqlc.types.Field(sgqlc.types.non_null(MaterialProperty), graphql_name='property')
+
+
+class IsMaterialExistsInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('code', 'company', 'name', 'versions')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    versions = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='versions')
+
+
 class IsOutsideCalibrateExistsInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'name')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class IsProductFlowExistsInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'name')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class IsProductProjectExistsInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('code', 'company', 'name')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class IsProjectGroupNameExistsInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('company', 'name')
     company = sgqlc.types.Field(IDInput, graphql_name='company')
@@ -2435,6 +4868,25 @@ class IssueSparePartClaimInput(sgqlc.types.Input):
     remark = sgqlc.types.Field(String, graphql_name='remark')
 
 
+class LogErpVisitInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'attachment', 'city', 'contact', 'country', 'county', 'detail', 'end_at', 'id', 'phone', 'province', 'start_at', 'status', 'type')
+    address = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='address')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='attachment')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    contact = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='contact')
+    country = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    detail = sgqlc.types.Field(String, graphql_name='detail')
+    end_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='endAt')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    phone = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='phone')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    start_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='startAt')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpVisitStatus), graphql_name='status')
+    type = sgqlc.types.Field(sgqlc.types.non_null(ErpVisitType), graphql_name='type')
+
+
 class LogListFilterInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('action', 'app_id', 'end', 'search', 'start')
@@ -2487,6 +4939,51 @@ class MaintenanceSparePartItemInput(sgqlc.types.Input):
     spare_part_outbound = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='sparePartOutbound')
 
 
+class ManualCreateErpProductionTaskInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('confirm_production_number', 'delivery_time', 'department', 'operate', 'product', 'remark')
+    confirm_production_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='confirmProductionNumber')
+    delivery_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='deliveryTime')
+    department = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='department')
+    operate = sgqlc.types.Field(sgqlc.types.non_null(ErpProductionTaskOperate), graphql_name='operate')
+    product = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='product')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+
+
+class ManualErpIssueInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('item', 'no', 'operate', 'warehouse')
+    item = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(ErpIssueItemInput)), graphql_name='item')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    operate = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseRegisterType), graphql_name='operate')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='warehouse')
+
+
+class ManualErpReceiveInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('item', 'no', 'operate', 'warehouse')
+    item = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(ErpReceiveItemInput)), graphql_name='item')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    operate = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseRegisterType), graphql_name='operate')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='warehouse')
+
+
+class MaterialCategoryFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'property', 'search')
+    company = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='company')
+    property = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(MaterialProperty)), graphql_name='property')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class MaterialFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'property', 'search')
+    company = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='company')
+    property = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(MaterialProperty)), graphql_name='property')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
 class MenuListFilterInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('search',)
@@ -2497,6 +4994,36 @@ class MenuVisitHistoryListFilterInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('search',)
     search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class MergeErpTaskInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('process', 'schedule_process', 'task', 'technique')
+    process = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='process')
+    schedule_process = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpScheduleProcessInput))), graphql_name='scheduleProcess')
+    task = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput))), graphql_name='task')
+    technique = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='technique')
+
+
+class MesBomMaterialInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('bom', 'id')
+    bom = sgqlc.types.Field(sgqlc.types.non_null('MesTechniqueBomInput'), graphql_name='bom')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+
+
+class MesTechniqueBomInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'product')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    product = sgqlc.types.Field(sgqlc.types.non_null('MesTechniqueProductInput'), graphql_name='product')
+
+
+class MesTechniqueProductInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('code', 'version')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    version = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='version')
 
 
 class MessageTemplateListInput(sgqlc.types.Input):
@@ -2517,6 +5044,13 @@ class MoveThingInput(sgqlc.types.Input):
     __field_names__ = ('thing_group', 'things')
     thing_group = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='thingGroup')
     things = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(IDInput))), graphql_name='things')
+
+
+class MyBacklogGroupFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('apps', 'groups')
+    apps = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('StringIDInput')), graphql_name='apps')
+    groups = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('StringIDInput')), graphql_name='groups')
 
 
 class MyTenantAppListFilterInput(sgqlc.types.Input):
@@ -2547,6 +5081,13 @@ class MyThingInventoryRecordListFilterInput(sgqlc.types.Input):
     ticket = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='ticket')
 
 
+class NotificationConditionInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('condition', 'value')
+    condition = sgqlc.types.Field(sgqlc.types.non_null(NotificationTiming), graphql_name='condition')
+    value = sgqlc.types.Field(Float, graphql_name='value')
+
+
 class OldRoleFilterInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('company', 'id', 'permission', 'scope', 'search')
@@ -2574,6 +5115,13 @@ class OperateThingBorrowInput(sgqlc.types.Input):
     opinion = sgqlc.types.Field(String, graphql_name='opinion')
 
 
+class OptimizeMaterialInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('product', 'versions')
+    product = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='product')
+    versions = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='versions')
+
+
 class OrganizationListFilterInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('id', 'is_children_included', 'search')
@@ -2593,6 +5141,13 @@ class OutsideCalibrateListListFilterInput(sgqlc.types.Input):
     __field_names__ = ('calibrate_organization', 'company', 'search')
     calibrate_organization = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='calibrateOrganization')
     company = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='company')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class PageListFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('apps', 'search')
+    apps = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('StringIDInput')), graphql_name='apps')
     search = sgqlc.types.Field(String, graphql_name='search')
 
 
@@ -2632,15 +5187,114 @@ class PermissionDataRangeInput(sgqlc.types.Input):
 
 class PermissionFilterInput(sgqlc.types.Input):
     __schema__ = platform_schema
-    __field_names__ = ('ids', 'types')
+    __field_names__ = ('ids', 'require_data_ranges', 'types')
     ids = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='ids')
+    require_data_ranges = sgqlc.types.Field(Boolean, graphql_name='requireDataRanges')
     types = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(PermissionType)), graphql_name='types')
+
+
+class ProductFlowFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'search')
+    company = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='company')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class ProductProjectDocumentFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('phase', 'project', 'search')
+    phase = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ProductProjectDocumentPhase)), graphql_name='phase')
+    project = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='project')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class ProductProjectFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'company', 'project_group', 'search')
+    category = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ProductProjectCategory)), graphql_name='category')
+    company = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='company')
+    project_group = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='projectGroup')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class ProductTaskDocumentInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('task',)
+    task = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='task')
+
+
+class ProductTaskFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'executive', 'project', 'search')
+    company = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='company')
+    executive = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='executive')
+    project = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='project')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class ProjectGroupFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'search')
+    company = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='company')
+    search = sgqlc.types.Field(String, graphql_name='search')
 
 
 class PushScheduleInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('type',)
     type = sgqlc.types.Field(PushScheduleType, graphql_name='type')
+
+
+class RegisterErpIssueInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'item', 'operate', 'warehouse')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    item = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of('RegisterErpIssueItemInput')), graphql_name='item')
+    operate = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseRegisterType), graphql_name='operate')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='warehouse')
+
+
+class RegisterErpIssueItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'issue_info')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    issue_info = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpIssueInfoInput)), graphql_name='issueInfo')
+
+
+class RegisterErpReceiveInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'item', 'operate', 'warehouse')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    item = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(ErpRegisterItemInput)), graphql_name='item')
+    operate = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseRegisterType), graphql_name='operate')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='warehouse')
+
+
+class RegisterErpTaskWorkReportInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('add_batch_no', 'add_number', 'batch_no', 'channel', 'is_add', 'material', 'merge', 'operate', 'operator', 'output', 'process_params', 'production_no', 'task', 'thing', 'work_report')
+    add_batch_no = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='addBatchNo')
+    add_number = sgqlc.types.Field(Int, graphql_name='addNumber')
+    batch_no = sgqlc.types.Field(String, graphql_name='batchNo')
+    channel = sgqlc.types.Field(String, graphql_name='channel')
+    is_add = sgqlc.types.Field(Boolean, graphql_name='isAdd')
+    material = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('RegisterErpTaskWorkReportMaterialInput')), graphql_name='material')
+    merge = sgqlc.types.Field(Boolean, graphql_name='merge')
+    operate = sgqlc.types.Field(sgqlc.types.non_null(RegisterErpTaskWorkReportOperate), graphql_name='operate')
+    operator = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='operator')
+    output = sgqlc.types.Field(Float, graphql_name='output')
+    process_params = sgqlc.types.Field(JSON, graphql_name='processParams')
+    production_no = sgqlc.types.Field(String, graphql_name='productionNo')
+    task = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='task')
+    thing = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='thing')
+    work_report = sgqlc.types.Field(JSON, graphql_name='workReport')
+
+
+class RegisterErpTaskWorkReportMaterialInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('material', 'number')
+    material = sgqlc.types.Field(sgqlc.types.non_null(ErpBomMaterial), graphql_name='material')
+    number = sgqlc.types.Field(Int, graphql_name='number')
 
 
 class RejectChangeBorrowInput(sgqlc.types.Input):
@@ -2749,6 +5403,95 @@ class RoleThingCategoryFilterInput(sgqlc.types.Input):
     role = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('StringIDInput')), graphql_name='role')
 
 
+class RouterAlarmLevelFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('search',)
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class RouterAlarmRecordFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('alarm_levels', 'companies', 'is_ack', 'is_restored', 'occurred_end', 'occurred_start', 'search')
+    alarm_levels = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='alarmLevels')
+    companies = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='companies')
+    is_ack = sgqlc.types.Field(Boolean, graphql_name='isAck')
+    is_restored = sgqlc.types.Field(Boolean, graphql_name='isRestored')
+    occurred_end = sgqlc.types.Field(Timestamp, graphql_name='occurredEnd')
+    occurred_start = sgqlc.types.Field(Timestamp, graphql_name='occurredStart')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class RouterAlarmRecordSummaryFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('companies', 'is_ack', 'is_restored')
+    companies = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='companies')
+    is_ack = sgqlc.types.Field(Boolean, graphql_name='isAck')
+    is_restored = sgqlc.types.Field(Boolean, graphql_name='isRestored')
+
+
+class RouterAlarmRuleInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('enabled', 'level', 'suggestion', 'threshold', 'type')
+    enabled = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='enabled')
+    level = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='level')
+    suggestion = sgqlc.types.Field(String, graphql_name='suggestion')
+    threshold = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='threshold')
+    type = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='type')
+
+
+class RouterAlarmTypeFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('search',)
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class RouterFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('client_id', 'code', 'companies', 'configuration_status', 'models', 'search', 'status')
+    client_id = sgqlc.types.Field(String, graphql_name='clientId')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    companies = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='companies')
+    configuration_status = sgqlc.types.Field(RouterConfigurationStatus, graphql_name='configurationStatus')
+    models = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='models')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    status = sgqlc.types.Field(RouterStatus, graphql_name='status')
+
+
+class RouterHistoryFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('end', 'fields', 'start')
+    end = sgqlc.types.Field(Timestamp, graphql_name='end')
+    fields = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='fields')
+    start = sgqlc.types.Field(Timestamp, graphql_name='start')
+
+
+class RouterModelFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('search',)
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class RouterSummaryFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('companies',)
+    companies = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='companies')
+
+
+class RouterTemplateConfigurationFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('companies', 'models', 'search')
+    companies = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='companies')
+    models = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='models')
+    search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class RouterTemplateFilterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'router_template_name')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    router_template_name = sgqlc.types.Field(String, graphql_name='routerTemplateName')
+
+
 class SaveThingCalibrateInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('calibrate_at', 'calibrate_label', 'calibrate_method', 'calibrate_organization', 'calibrate_report', 'calibrate_result', 'certificate_return_at', 'certificate_state', 'explain', 'id', 'return_state', 'send_at')
@@ -2788,6 +5531,17 @@ class SaveThingRepairInput(sgqlc.types.Input):
     id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
     related_operator = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='relatedOperator')
     thing_repair_process_item = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ThingRepairProcessItemInput')), graphql_name='thingRepairProcessItem')
+
+
+class SerialChannelInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('baud', 'com_port', 'data_bit', 'parity', 'slave_id', 'stop_bit')
+    baud = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='baud')
+    com_port = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='comPort')
+    data_bit = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='dataBit')
+    parity = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='parity')
+    slave_id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='slaveId')
+    stop_bit = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='stopBit')
 
 
 class SetAuthorizationRuleInput(sgqlc.types.Input):
@@ -2887,6 +5641,187 @@ class SetEamSparePartWarehouseManager(sgqlc.types.Input):
     warehouse = sgqlc.types.Field(IntIDInput, graphql_name='warehouse')
 
 
+class SetErpAutoRegisterConfigInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'department', 'enabled', 'end', 'interval', 'is_auto_complete', 'quota', 'start', 'task_template', 'times', 'workflow')
+    company = sgqlc.types.Field(IntIDInput, graphql_name='company')
+    department = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='department')
+    enabled = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='enabled')
+    end = sgqlc.types.Field(sgqlc.types.non_null(ErpAutoRegisterConfigEndInput), graphql_name='end')
+    interval = sgqlc.types.Field(Int, graphql_name='interval')
+    is_auto_complete = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isAutoComplete')
+    quota = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('SetErpQuotaDetailInput'))), graphql_name='quota')
+    start = sgqlc.types.Field(sgqlc.types.non_null(ErpAutoRegisterConfigStartInput), graphql_name='start')
+    task_template = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='taskTemplate')
+    times = sgqlc.types.Field(sgqlc.types.non_null(ErpAutoRegisterConfigTimes), graphql_name='times')
+    workflow = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='workflow')
+
+
+class SetErpCustomerInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'city', 'contact', 'country', 'county', 'extra_data', 'id', 'name', 'province', 'short_name', 'status', 'type')
+    address = sgqlc.types.Field(String, graphql_name='address')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    contact = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpCustomerContactInput)), graphql_name='contact')
+    country = sgqlc.types.Field(String, graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    short_name = sgqlc.types.Field(String, graphql_name='shortName')
+    status = sgqlc.types.Field(ErpCustomerStatus, graphql_name='status')
+    type = sgqlc.types.Field(ErpCustomerType, graphql_name='type')
+
+
+class SetErpDailyReport(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'date', 'product', 'remark')
+    company = sgqlc.types.Field(IntIDInput, graphql_name='company')
+    date = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='date')
+    product = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='product')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+
+
+class SetErpPositionUserInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('position', 'user')
+    position = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput))), graphql_name='position')
+    user = sgqlc.types.Field(sgqlc.types.non_null('StrIDInput'), graphql_name='user')
+
+
+class SetErpProductionWorkflowInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('add_plan_at', 'anchor_process', 'anchor_time_type', 'default_anchor', 'edge', 'hour', 'id', 'merge', 'node', 'task')
+    add_plan_at = sgqlc.types.Field(Timestamp, graphql_name='addPlanAt')
+    anchor_process = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='anchorProcess')
+    anchor_time_type = sgqlc.types.Field(sgqlc.types.non_null(ErpAnchorTimeType), graphql_name='anchorTimeType')
+    default_anchor = sgqlc.types.Field(sgqlc.types.non_null(ErpDefaultAnchor), graphql_name='defaultAnchor')
+    edge = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessEdgeInput))), graphql_name='edge')
+    hour = sgqlc.types.Field(Int, graphql_name='hour')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    merge = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('SetErpProductionWorkflowMergeInput')), graphql_name='merge')
+    node = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessNodeInput))), graphql_name='node')
+    task = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessTaskInput)), graphql_name='task')
+
+
+class SetErpProductionWorkflowMergeInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('channel', 'confirm_process', 'confirm_task_template', 'start_process')
+    channel = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='channel')
+    confirm_process = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='confirmProcess')
+    confirm_task_template = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='confirmTaskTemplate')
+    start_process = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='startProcess')
+
+
+class SetErpQuotaDetailInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('key', 'method', 'name', 'spc')
+    key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
+    method = sgqlc.types.Field(sgqlc.types.non_null(ErpQuotaMethod), graphql_name='method')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    spc = sgqlc.types.Field('SpcQuotaInput', graphql_name='spc')
+
+
+class SetErpTaskDispatchConfigInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('base_time', 'day', 'department', 'hour', 'timestamp', 'timing')
+    base_time = sgqlc.types.Field(ErpMesConfigBaseTime, graphql_name='baseTime')
+    day = sgqlc.types.Field(Int, graphql_name='day')
+    department = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='department')
+    hour = sgqlc.types.Field(Int, graphql_name='hour')
+    timestamp = sgqlc.types.Field(Timestamp, graphql_name='timestamp')
+    timing = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskDispatchTiming), graphql_name='timing')
+
+
+class SetErpTechniquePresetTaskDetailInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('description', 'duration', 'material', 'parameter', 'product', 'production_attachment', 'task_attachment', 'task_template', 'work_report')
+    description = sgqlc.types.Field(String, graphql_name='description')
+    duration = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='duration')
+    material = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='material')
+    parameter = sgqlc.types.Field(JSON, graphql_name='parameter')
+    product = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='product')
+    production_attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='productionAttachment')
+    task_attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='taskAttachment')
+    task_template = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='taskTemplate')
+    work_report = sgqlc.types.Field(JSON, graphql_name='workReport')
+
+
+class SetErpTechniquePresetTaskInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('detail', 'technique')
+    detail = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(SetErpTechniquePresetTaskDetailInput)), graphql_name='detail')
+    technique = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='technique')
+
+
+class SetErpTechniqueProcessTimeInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'technique', 'workflow')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('SetErpTechniqueProcessTimePairInput')), graphql_name='data')
+    technique = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='technique')
+    workflow = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='workflow')
+
+
+class SetErpTechniqueProcessTimePairInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('duration', 'prepare_time', 'process')
+    duration = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='duration')
+    prepare_time = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='prepareTime')
+    process = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='process')
+
+
+class SetErpWarehouseInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'remark', 'warehouse')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    warehouse = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='warehouse')
+
+
+class SetErpWarehouseItemCategoryDataInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'sub')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    sub = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('SetErpWarehouseItemSubCategoryInput')), graphql_name='sub')
+
+
+class SetErpWarehouseItemCategoryInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'data')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(SetErpWarehouseItemCategoryDataInput)), graphql_name='data')
+
+
+class SetErpWarehouseItemSafeStockInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('item', 'safe_stock')
+    item = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='item')
+    safe_stock = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpSafeStockInput))), graphql_name='safeStock')
+
+
+class SetErpWarehouseItemSubCategoryInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class SetErpWarehouseTypeDataInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class SetErpWarehouseTypeInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'data')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(SetErpWarehouseTypeDataInput)), graphql_name='data')
+
+
 class SetFormThingCategoryInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('eam_form', 'option', 'thing_category')
@@ -2907,6 +5842,14 @@ class SetPermissionToTenantInput(sgqlc.types.Input):
     __field_names__ = ('permissions', 'tenant')
     permissions = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('StringIDInput'))), graphql_name='permissions')
     tenant = sgqlc.types.Field(sgqlc.types.non_null('StringIDInput'), graphql_name='tenant')
+
+
+class SetProjectProductInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('optimize_product', 'product', 'project')
+    optimize_product = sgqlc.types.Field(OptimizeMaterialInput, graphql_name='optimizeProduct')
+    product = sgqlc.types.Field(CreateMaterialInput, graphql_name='product')
+    project = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='project')
 
 
 class SetRoleThingCategory(sgqlc.types.Input):
@@ -3093,6 +6036,15 @@ class SetUCCFormStructureInput(sgqlc.types.Input):
     id = sgqlc.types.Field(ID, graphql_name='id')
     key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
     zone = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.list_of('UCCFieldInput')), graphql_name='zone')
+
+
+class SetUCCFormWithAutoRegister(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'id', 'key', 'zone')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
+    zone = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.list_of(AutoRegisterUCCFieldInput)), graphql_name='zone')
 
 
 class SetUCCStackDataInput(sgqlc.types.Input):
@@ -3285,10 +6237,31 @@ class SparePartWriteoffFilterInput(sgqlc.types.Input):
     start_at = sgqlc.types.Field(Timestamp, graphql_name='startAt')
 
 
+class SpcQuotaInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('key', 'name')
+    key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class SpcQuotaListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'search', 'spc_type')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    spc_type = sgqlc.types.Field(ErpSpcType, graphql_name='spcType')
+
+
 class StarAppInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('app',)
     app = sgqlc.types.Field(sgqlc.types.non_null('StringIDInput'), graphql_name='app')
+
+
+class StrIDInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id',)
+    id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='id')
 
 
 class StringIDInput(sgqlc.types.Input):
@@ -3365,6 +6338,13 @@ class TableFieldConfigInput(sgqlc.types.Input):
     visible = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='visible')
 
 
+class TableFilterFieldInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('active', 'id')
+    active = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='active')
+    id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='id')
+
+
 class TableFixedFieldInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('disabled', 'hide', 'label', 'meta', 'name', 'options', 'required')
@@ -3407,6 +6387,12 @@ class TableFixedFieldsConfigFilterInput(sgqlc.types.Input):
     key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
     required = sgqlc.types.Field(Boolean, graphql_name='required')
     search = sgqlc.types.Field(String, graphql_name='search')
+
+
+class TaskConfigurationInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('name',)
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
 
 
 class TenantAppListFilterInput(sgqlc.types.Input):
@@ -4063,6 +7049,20 @@ class UpdateAuthorizationRulesOfUserInput(sgqlc.types.Input):
     user = sgqlc.types.Field(sgqlc.types.non_null(StringIDInput), graphql_name='user')
 
 
+class UpdateBomInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'versions')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    versions = sgqlc.types.Field(String, graphql_name='versions')
+
+
+class UpdateBomMaterialInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('bom', 'bom_material')
+    bom = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='bom')
+    bom_material = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(BomMaterialInput))), graphql_name='bomMaterial')
+
+
 class UpdateCalibrateOrganizationInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('id', 'name')
@@ -4149,6 +7149,14 @@ class UpdateDepositoryInput(sgqlc.types.Input):
     name = sgqlc.types.Field(String, graphql_name='name')
 
 
+class UpdateDeviceChannelConfigurationInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('collect', 'id', 'name')
+    collect = sgqlc.types.Field(CollectConfigurationInput, graphql_name='collect')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+
+
 class UpdateEamFieldInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('attachment_type', 'company', 'content', 'default_bool', 'default_num', 'default_str', 'default_str_list', 'desc', 'extension', 'format', 'group', 'hint', 'id', 'is_active', 'max', 'max_count', 'max_range', 'max_size', 'meta_id', 'min', 'min_range', 'multi', 'name', 'option', 'role', 'round', 'set', 'type', 'unit', 'zeroable')
@@ -4226,6 +7234,351 @@ class UpdateEnterpriseAppInput(sgqlc.types.Input):
     url = sgqlc.types.Field(String, graphql_name='url')
 
 
+class UpdateErpDepartmentInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'id', 'name', 'remark')
+    department = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='department')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+
+
+class UpdateErpIssueLogInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('batch', 'id', 'remark', 'warehouse_location')
+    batch = sgqlc.types.Field(String, graphql_name='batch')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    warehouse_location = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseLocationInput), graphql_name='warehouseLocation')
+
+
+class UpdateErpMaterialInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('batch_number', 'batch_rule', 'category', 'code', 'extra_data', 'id', 'lead_time', 'name', 'property', 'remark', 'source', 'specification', 'subcategory', 'unit')
+    batch_number = sgqlc.types.Field(Int, graphql_name='batchNumber')
+    batch_rule = sgqlc.types.Field(ErpMaterialBatchRule, graphql_name='batchRule')
+    category = sgqlc.types.Field(IntIDInput, graphql_name='category')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    lead_time = sgqlc.types.Field(Int, graphql_name='leadTime')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    property = sgqlc.types.Field(ErpMaterialProperty, graphql_name='property')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    source = sgqlc.types.Field(ErpMaterialSource, graphql_name='source')
+    specification = sgqlc.types.Field(String, graphql_name='specification')
+    subcategory = sgqlc.types.Field(IntIDInput, graphql_name='subcategory')
+    unit = sgqlc.types.Field(String, graphql_name='unit')
+
+
+class UpdateErpMaterialInventoryInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'number')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='number')
+
+
+class UpdateErpMonthPlanInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'plan')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    plan = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpSalePlanInput)), graphql_name='plan')
+
+
+class UpdateErpOrderCheckConfigInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('condition', 'editable', 'id', 'name', 'required', 'role')
+    condition = sgqlc.types.Field(ErpOrderCheckConfigConditionInput, graphql_name='condition')
+    editable = sgqlc.types.Field(Boolean, graphql_name='editable')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    required = sgqlc.types.Field(Boolean, graphql_name='required')
+    role = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='role')
+
+
+class UpdateErpOrderInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'attachment', 'city', 'contact', 'country', 'county', 'currency', 'customer', 'customer_name', 'expect_delivery_time', 'extra_data', 'id', 'item_list', 'order_amount', 'payment_amount', 'payment_percentage', 'production_notification_condition', 'province', 'remark', 'ship_notification_condition', 'submit')
+    address = sgqlc.types.Field(String, graphql_name='address')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='attachment')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    contact = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='contact')
+    country = sgqlc.types.Field(String, graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    currency = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderCurrency), graphql_name='currency')
+    customer = sgqlc.types.Field(IDInput, graphql_name='customer')
+    customer_name = sgqlc.types.Field(String, graphql_name='customerName')
+    expect_delivery_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='expectDeliveryTime')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderItemInput))), graphql_name='itemList')
+    order_amount = sgqlc.types.Field(Float, graphql_name='orderAmount')
+    payment_amount = sgqlc.types.Field(Float, graphql_name='paymentAmount')
+    payment_percentage = sgqlc.types.Field(Float, graphql_name='paymentPercentage')
+    production_notification_condition = sgqlc.types.Field(sgqlc.types.non_null(NotificationConditionInput), graphql_name='productionNotificationCondition')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    ship_notification_condition = sgqlc.types.Field(sgqlc.types.non_null(NotificationConditionInput), graphql_name='shipNotificationCondition')
+    submit = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='submit')
+
+
+class UpdateErpOrderProductInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('code', 'customer', 'english_name', 'id', 'name', 'price', 'remark', 'specification', 'status', 'unit')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    customer = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='customer')
+    english_name = sgqlc.types.Field(String, graphql_name='englishName')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    price = sgqlc.types.Field(Float, graphql_name='price')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    specification = sgqlc.types.Field(String, graphql_name='specification')
+    status = sgqlc.types.Field(ErpOrderProductStatus, graphql_name='status')
+    unit = sgqlc.types.Field(String, graphql_name='unit')
+
+
+class UpdateErpPositionInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class UpdateErpProcessInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('extra_data', 'id', 'name')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+
+
+class UpdateErpProcessThingInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('capacity', 'id', 'unit')
+    capacity = sgqlc.types.Field(Float, graphql_name='capacity')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    unit = sgqlc.types.Field(String, graphql_name='unit')
+
+
+class UpdateErpProductionInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('number', 'order_product', 'production')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='number')
+    order_product = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='orderProduct')
+    production = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='production')
+
+
+class UpdateErpProductionPlanningInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('apr', 'aug', 'dec', 'feb', 'id', 'jan', 'jul', 'jun', 'mar', 'may', 'nov', 'oct', 'sep')
+    apr = sgqlc.types.Field(Float, graphql_name='apr')
+    aug = sgqlc.types.Field(Float, graphql_name='aug')
+    dec = sgqlc.types.Field(Float, graphql_name='dec')
+    feb = sgqlc.types.Field(Float, graphql_name='feb')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    jan = sgqlc.types.Field(Float, graphql_name='jan')
+    jul = sgqlc.types.Field(Float, graphql_name='jul')
+    jun = sgqlc.types.Field(Float, graphql_name='jun')
+    mar = sgqlc.types.Field(Float, graphql_name='mar')
+    may = sgqlc.types.Field(Float, graphql_name='may')
+    nov = sgqlc.types.Field(Float, graphql_name='nov')
+    oct = sgqlc.types.Field(Float, graphql_name='oct')
+    sep = sgqlc.types.Field(Float, graphql_name='sep')
+
+
+class UpdateErpProductionTaskInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('confirm_production_number', 'delivery_time', 'id', 'operate', 'product', 'remark')
+    confirm_production_number = sgqlc.types.Field(Float, graphql_name='confirmProductionNumber')
+    delivery_time = sgqlc.types.Field(Timestamp, graphql_name='deliveryTime')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    operate = sgqlc.types.Field(sgqlc.types.non_null(ErpProductionTaskOperate), graphql_name='operate')
+    product = sgqlc.types.Field(IDInput, graphql_name='product')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+
+
+class UpdateErpProductionWorkflowInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class UpdateErpReceiveLogInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('batch', 'id', 'remark', 'warehouse_location')
+    batch = sgqlc.types.Field(String, graphql_name='batch')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    warehouse_location = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseLocationInput), graphql_name='warehouseLocation')
+
+
+class UpdateErpSampleOrderCheckConfigInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('condition', 'editable', 'id', 'name', 'required', 'role')
+    condition = sgqlc.types.Field(ErpSampleOrderCheckConfigConditionInput, graphql_name='condition')
+    editable = sgqlc.types.Field(Boolean, graphql_name='editable')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    required = sgqlc.types.Field(Boolean, graphql_name='required')
+    role = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='role')
+
+
+class UpdateErpSampleOrderInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'attachment', 'city', 'contact', 'country', 'county', 'currency', 'customer', 'customer_name', 'expect_delivery_time', 'extra_data', 'id', 'item_list', 'order_amount', 'payment_amount', 'payment_percentage', 'production_notification_condition', 'province', 'remark', 'ship_notification_condition', 'submit')
+    address = sgqlc.types.Field(String, graphql_name='address')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='attachment')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    contact = sgqlc.types.Field(IDInput, graphql_name='contact')
+    country = sgqlc.types.Field(String, graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    currency = sgqlc.types.Field(ErpOrderCurrency, graphql_name='currency')
+    customer = sgqlc.types.Field(IDInput, graphql_name='customer')
+    customer_name = sgqlc.types.Field(String, graphql_name='customerName')
+    expect_delivery_time = sgqlc.types.Field(Timestamp, graphql_name='expectDeliveryTime')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    item_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderItemInput)), graphql_name='itemList')
+    order_amount = sgqlc.types.Field(Float, graphql_name='orderAmount')
+    payment_amount = sgqlc.types.Field(Float, graphql_name='paymentAmount')
+    payment_percentage = sgqlc.types.Field(Float, graphql_name='paymentPercentage')
+    production_notification_condition = sgqlc.types.Field(NotificationConditionInput, graphql_name='productionNotificationCondition')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    ship_notification_condition = sgqlc.types.Field(NotificationConditionInput, graphql_name='shipNotificationCondition')
+    submit = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='submit')
+
+
+class UpdateErpScheduleInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'schedule_process')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    schedule_process = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpScheduleProcessInput)), graphql_name='scheduleProcess')
+
+
+class UpdateErpScheduleProcessTimeInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'schedule_process')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    schedule_process = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpScheduleProcessTimeInput)), graphql_name='scheduleProcess')
+
+
+class UpdateErpTaskInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'material', 'plan_end_at', 'plan_start_at', 'thing')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    material = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='material')
+    plan_end_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='planEndAt')
+    plan_start_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='planStartAt')
+    thing = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='thing')
+
+
+class UpdateErpTaskStatusInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'operate', 'remark')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    operate = sgqlc.types.Field(sgqlc.types.non_null(UpdateErpTaskStatusOperate), graphql_name='operate')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+
+
+class UpdateErpTaskTemplateInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('attachment', 'description', 'dispatch', 'id', 'name', 'no', 'plan_end', 'plan_start', 'position', 'process', 'process_params', 'product_output', 'supplement', 'thing', 'user_exists')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='attachment')
+    description = sgqlc.types.Field(String, graphql_name='description')
+    dispatch = sgqlc.types.Field(CreateErpTaskTemplateDispatchInput, graphql_name='dispatch')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    no = sgqlc.types.Field(CreateErpTaskTemplateNoInput, graphql_name='no')
+    plan_end = sgqlc.types.Field(CreateErpTaskTemplatePlanStartEndInput, graphql_name='planEnd')
+    plan_start = sgqlc.types.Field(CreateErpTaskTemplatePlanStartEndInput, graphql_name='planStart')
+    position = sgqlc.types.Field(IntIDInput, graphql_name='position')
+    process = sgqlc.types.Field(IntIDInput, graphql_name='process')
+    process_params = sgqlc.types.Field(CreateErpTaskTemplateProcessParamsInput, graphql_name='processParams')
+    product_output = sgqlc.types.Field(CreateErpTaskTemplateProductOutputInput, graphql_name='productOutput')
+    supplement = sgqlc.types.Field(CreateErpTaskTemplateSupplementInput, graphql_name='supplement')
+    thing = sgqlc.types.Field(CreateErpTaskTemplateThingInput, graphql_name='thing')
+    user_exists = sgqlc.types.Field(Boolean, graphql_name='userExists')
+
+
+class UpdateErpTaskWorkReportInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('batch_no', 'id', 'material', 'operator', 'output', 'process_params', 'production_no', 'thing', 'work_report')
+    batch_no = sgqlc.types.Field(String, graphql_name='batchNo')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    material = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(RegisterErpTaskWorkReportMaterialInput)), graphql_name='material')
+    operator = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='operator')
+    output = sgqlc.types.Field(Float, graphql_name='output')
+    process_params = sgqlc.types.Field(JSON, graphql_name='processParams')
+    production_no = sgqlc.types.Field(String, graphql_name='productionNo')
+    thing = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='thing')
+    work_report = sgqlc.types.Field(JSON, graphql_name='workReport')
+
+
+class UpdateErpWarehouseInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'city', 'country', 'county', 'id', 'name', 'province', 'remark', 'type')
+    address = sgqlc.types.Field(String, graphql_name='address')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    country = sgqlc.types.Field(String, graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    type = sgqlc.types.Field(IDInput, graphql_name='type')
+
+
+class UpdateErpWarehouseItemCategoryInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class UpdateErpWarehouseItemInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'code', 'id', 'name', 'remark', 'specification', 'subcategory', 'unit', 'warehouse')
+    category = sgqlc.types.Field(IDInput, graphql_name='category')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    specification = sgqlc.types.Field(String, graphql_name='specification')
+    subcategory = sgqlc.types.Field(IDInput, graphql_name='subcategory')
+    unit = sgqlc.types.Field(String, graphql_name='unit')
+    warehouse = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='warehouse')
+
+
+class UpdateErpWarehouseTypeInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class UpdateErpWarehouseUserInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('user', 'warehouse')
+    user = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='user')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(IDInput))), graphql_name='warehouse')
+
+
+class UpdateErpWarehouseZoneInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('column_max', 'column_min', 'id', 'layer_max', 'layer_min', 'name', 'remark', 'row_max', 'row_min')
+    column_max = sgqlc.types.Field(Int, graphql_name='columnMax')
+    column_min = sgqlc.types.Field(Int, graphql_name='columnMin')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    layer_max = sgqlc.types.Field(Int, graphql_name='layerMax')
+    layer_min = sgqlc.types.Field(Int, graphql_name='layerMin')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    row_max = sgqlc.types.Field(Int, graphql_name='rowMax')
+    row_min = sgqlc.types.Field(Int, graphql_name='rowMin')
+
+
 class UpdateEvasionDateInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('end_date', 'id', 'name', 'start_date')
@@ -4258,6 +7611,28 @@ class UpdateMaintenanceMethodInput(sgqlc.types.Input):
     id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
     name = sgqlc.types.Field(String, graphql_name='name')
     thing_label = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='thingLabel')
+
+
+class UpdateMaterialCategoryInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'property')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    property = sgqlc.types.Field(MaterialProperty, graphql_name='property')
+
+
+class UpdateMaterialInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'code', 'field_data', 'id', 'name', 'property', 'specification', 'unit', 'versions')
+    category = sgqlc.types.Field(IntIDInput, graphql_name='category')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    field_data = sgqlc.types.Field(JSON, graphql_name='fieldData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    property = sgqlc.types.Field(MaterialProperty, graphql_name='property')
+    specification = sgqlc.types.Field(String, graphql_name='specification')
+    unit = sgqlc.types.Field(String, graphql_name='unit')
+    versions = sgqlc.types.Field(String, graphql_name='versions')
 
 
 class UpdateMeInput(sgqlc.types.Input):
@@ -4354,12 +7729,89 @@ class UpdateOutsideCalibrateInput(sgqlc.types.Input):
     pay_status = sgqlc.types.Field(OutsideCalibratePayStatus, graphql_name='payStatus')
 
 
+class UpdateProductFlowInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'task_configuration')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    task_configuration = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(TaskConfigurationInput)), graphql_name='taskConfiguration')
+
+
+class UpdateProductTaskInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('executive', 'id', 'name', 'participant', 'plan_end_at', 'plan_start_at')
+    executive = sgqlc.types.Field(IDInput, graphql_name='executive')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    participant = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='participant')
+    plan_end_at = sgqlc.types.Field(Timestamp, graphql_name='planEndAt')
+    plan_start_at = sgqlc.types.Field(Timestamp, graphql_name='planStartAt')
+
+
+class UpdateProjectDocumentInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('attachment', 'phase', 'project', 'task')
+    attachment = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(StringIDInput))), graphql_name='attachment')
+    phase = sgqlc.types.Field(sgqlc.types.non_null(ProductProjectDocumentPhase), graphql_name='phase')
+    project = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='project')
+    task = sgqlc.types.Field(IntIDInput, graphql_name='task')
+
+
+class UpdateProjectGroupInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+
+
 class UpdateRoleInput(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('description', 'id', 'name')
     description = sgqlc.types.Field(String, graphql_name='description')
     id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='id')
     name = sgqlc.types.Field(String, graphql_name='name')
+
+
+class UpdateRouterAlarmRecordsInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('ids', 'is_ack')
+    ids = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='ids')
+    is_ack = sgqlc.types.Field(Boolean, graphql_name='is_ack')
+
+
+class UpdateRouterInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('activated_at', 'client_id', 'code', 'contact', 'desc', 'detail_things', 'id', 'images', 'location', 'model', 'name', 'phone', 'purchased_at', 'years_of_maintenance')
+    activated_at = sgqlc.types.Field(Timestamp, graphql_name='activatedAt')
+    client_id = sgqlc.types.Field(String, graphql_name='clientId')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    contact = sgqlc.types.Field(String, graphql_name='contact')
+    desc = sgqlc.types.Field(String, graphql_name='desc')
+    detail_things = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('detailThingInput')), graphql_name='detailThings')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    images = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='images')
+    location = sgqlc.types.Field(String, graphql_name='location')
+    model = sgqlc.types.Field(IDInput, graphql_name='model')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    phone = sgqlc.types.Field(String, graphql_name='phone')
+    purchased_at = sgqlc.types.Field(Timestamp, graphql_name='purchasedAt')
+    years_of_maintenance = sgqlc.types.Field(Int, graphql_name='yearsOfMaintenance')
+
+
+class UpdateRouterTemplateConfigurationInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('collects', 'id', 'model', 'name')
+    collects = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(CollectConfigurationInput)), graphql_name='collects')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    model = sgqlc.types.Field(IDInput, graphql_name='model')
+    name = sgqlc.types.Field(String, graphql_name='name')
+
+
+class UpdateRoutersAlarmRulesInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('alarm_rules', 'routers')
+    alarm_rules = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(RouterAlarmRuleInput))), graphql_name='alarmRules')
+    routers = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(IDInput))), graphql_name='routers')
 
 
 class UpdateSourceKeyInput(sgqlc.types.Input):
@@ -4873,8 +8325,25 @@ class UserFilterInput(sgqlc.types.Input):
 
 class UserListFilter(sgqlc.types.Input):
     __schema__ = platform_schema
-    __field_names__ = ('ids',)
+    __field_names__ = ('company', 'current_only', 'department', 'ids', 'is_active', 'role', 'search', 'search_name', 'type', 'uid')
+    company = sgqlc.types.Field(IntIDInput, graphql_name='company')
+    current_only = sgqlc.types.Field(Boolean, graphql_name='currentOnly')
+    department = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='department')
     ids = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(StringIDInput)), graphql_name='ids')
+    is_active = sgqlc.types.Field(Boolean, graphql_name='isActive')
+    role = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='role')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    search_name = sgqlc.types.Field(String, graphql_name='searchName')
+    type = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(UserType)), graphql_name='type')
+    uid = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='uid')
+
+
+class ValidateErpMonthPlanExcelFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'department', 'file_path')
+    company = sgqlc.types.Field(IntIDInput, graphql_name='company')
+    department = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='department')
+    file_path = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='filePath')
 
 
 class WriteoffSparePartReceiptInput(sgqlc.types.Input):
@@ -4889,6 +8358,62 @@ class countryFilter(sgqlc.types.Input):
     __schema__ = platform_schema
     __field_names__ = ('full',)
     full = sgqlc.types.Field(Boolean, graphql_name='full')
+
+
+class createErpManagerInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'organization', 'user')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    organization = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='organization')
+    user = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='user')
+
+
+class detailThingInput(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('thing',)
+    thing = sgqlc.types.Field(sgqlc.types.non_null(IDInput), graphql_name='thing')
+
+
+class erpOrderProductExistsFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'company', 'english_name', 'id', 'name', 'specification', 'subcategory', 'unit')
+    category = sgqlc.types.Field(IntIDInput, graphql_name='category')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    english_name = sgqlc.types.Field(String, graphql_name='englishName')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    name = sgqlc.types.Field(String, graphql_name='name')
+    specification = sgqlc.types.Field(String, graphql_name='specification')
+    subcategory = sgqlc.types.Field(IntIDInput, graphql_name='subcategory')
+    unit = sgqlc.types.Field(String, graphql_name='unit')
+
+
+class erpOrderProductHistoryListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('company', 'creator', 'end', 'search', 'start')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    creator = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IDInput)), graphql_name='creator')
+    end = sgqlc.types.Field(Timestamp, graphql_name='end')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    start = sgqlc.types.Field(Timestamp, graphql_name='start')
+
+
+class erpOrderProductListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'company', 'customer', 'search', 'status', 'subcategory')
+    category = sgqlc.types.Field(IntIDInput, graphql_name='category')
+    company = sgqlc.types.Field(IDInput, graphql_name='company')
+    customer = sgqlc.types.Field(IntIDInput, graphql_name='customer')
+    search = sgqlc.types.Field(String, graphql_name='search')
+    status = sgqlc.types.Field(ErpOrderProductStatus, graphql_name='status')
+    subcategory = sgqlc.types.Field(IntIDInput, graphql_name='subcategory')
+
+
+class erpProductionPlanningListFilter(sgqlc.types.Input):
+    __schema__ = platform_schema
+    __field_names__ = ('department', 'product', 'start')
+    department = sgqlc.types.Field(sgqlc.types.non_null(IntIDInput), graphql_name='department')
+    product = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(IntIDInput)), graphql_name='product')
+    start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='start')
 
 
 class uccStackDataFilter(sgqlc.types.Input):
@@ -4919,6 +8444,21 @@ class AdapterKeyList(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('data', 'total_count')
     data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(AdapterKey))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class AdapterKeyRealTimeData(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('adapter_key', 'data', 'timestamp')
+    adapter_key = sgqlc.types.Field(sgqlc.types.non_null(AdapterKey), graphql_name='adapterKey')
+    data = sgqlc.types.Field(JSONString, graphql_name='data')
+    timestamp = sgqlc.types.Field(Timestamp, graphql_name='timestamp')
+
+
+class AdapterKeyRealTimeDataList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(AdapterKeyRealTimeData))), graphql_name='data')
     total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
 
 
@@ -5044,6 +8584,14 @@ class AppVersionSnapshot(sgqlc.types.Type):
     perm_snapshot = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('Permission'))), graphql_name='permSnapshot')
 
 
+class ApplyRouterTemplateConfigurationResult(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('failed_count', 'success_count', 'total_count')
+    failed_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='failedCount')
+    success_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='successCount')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
 class AuthInfo(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('token', 'user_id')
@@ -5071,10 +8619,10 @@ class AuthenticationSource(sgqlc.types.Interface):
 
 class Authorization(sgqlc.types.Type):
     __schema__ = platform_schema
-    __field_names__ = ('data_ranges', 'is_allowed', 'permission_id')
+    __field_names__ = ('data_ranges', 'is_allowed', 'permission')
     data_ranges = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='dataRanges')
     is_allowed = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isAllowed')
-    permission_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='permissionId')
+    permission = sgqlc.types.Field(sgqlc.types.non_null('Permission'), graphql_name='permission')
 
 
 class AuthorizationRule(sgqlc.types.Type):
@@ -5108,6 +8656,87 @@ class BIResult(sgqlc.types.Type):
     metric = sgqlc.types.Field(String, graphql_name='metric')
     timestamp = sgqlc.types.Field(Timestamp, graphql_name='timestamp')
     value = sgqlc.types.Field(Float, graphql_name='value')
+
+
+class Backlog(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('created_at', 'data', 'group_id', 'id', 'status', 'title', 'updated_at', 'url')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('BacklogFieldData')), graphql_name='data')
+    group_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='groupId')
+    id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='id')
+    status = sgqlc.types.Field(sgqlc.types.non_null(BacklogStatus), graphql_name='status')
+    title = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='title')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+    url = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='url')
+
+
+class BacklogFieldData(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('key', 'value')
+    key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
+    value = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='value')
+
+
+class BacklogFieldMeta(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('key', 'style')
+    key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
+    style = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='style')
+
+
+class BacklogGroup(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('app', 'fields', 'id', 'name')
+    app = sgqlc.types.Field(sgqlc.types.non_null(App), graphql_name='app')
+    fields = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(BacklogFieldMeta)), graphql_name='fields')
+    id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class BaudRate(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'value')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    value = sgqlc.types.Field(Int, graphql_name='value')
+
+
+class Bom(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'is_released', 'product', 'released_at', 'status', 'versions')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    is_released = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isReleased')
+    product = sgqlc.types.Field(sgqlc.types.non_null('Material'), graphql_name='product')
+    released_at = sgqlc.types.Field(Timestamp, graphql_name='releasedAt')
+    status = sgqlc.types.Field(sgqlc.types.non_null(BomStatus), graphql_name='status')
+    versions = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='versions')
+
+
+class BomList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Bom))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class BomMaterial(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('amount', 'bom', 'field_data', 'id', 'material', 'proportion', 'research_unit')
+    amount = sgqlc.types.Field(Float, graphql_name='amount')
+    bom = sgqlc.types.Field(sgqlc.types.non_null(Bom), graphql_name='bom')
+    field_data = sgqlc.types.Field(JSON, graphql_name='fieldData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    material = sgqlc.types.Field(sgqlc.types.non_null('Material'), graphql_name='material')
+    proportion = sgqlc.types.Field(Float, graphql_name='proportion')
+    research_unit = sgqlc.types.Field(String, graphql_name='researchUnit')
+
+
+class BomMaterialList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(BomMaterial))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
 
 
 class CalibrateOrganization(sgqlc.types.Type):
@@ -5237,6 +8866,14 @@ class ChangeBorrowStateOverview(sgqlc.types.Type):
     under_review_by_borrowed_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='underReviewByBorrowedCount')
 
 
+class ChannelProtocol(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'value')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    value = sgqlc.types.Field(String, graphql_name='value')
+
+
 class City(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('counties', 'id', 'name')
@@ -5282,6 +8919,28 @@ class CodeRuleConfiguration(sgqlc.types.Type):
     __field_names__ = ('configuration', 'rule')
     configuration = sgqlc.types.Field(sgqlc.types.non_null(JSON), graphql_name='configuration')
     rule = sgqlc.types.Field(sgqlc.types.non_null(CodeRuleConfigurationRule), graphql_name='rule')
+
+
+class CollectConfiguration(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('channel_protocol', 'collect_period', 'collect_points', 'ethernet_channel', 'interface_type', 'report_period', 'serial_channel')
+    channel_protocol = sgqlc.types.Field(sgqlc.types.non_null(ChannelProtocol), graphql_name='channelProtocol')
+    collect_period = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='collectPeriod')
+    collect_points = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('CollectPoint'))), graphql_name='collectPoints')
+    ethernet_channel = sgqlc.types.Field('EthernetChannel', graphql_name='ethernetChannel')
+    interface_type = sgqlc.types.Field(sgqlc.types.non_null(InterfaceType), graphql_name='interfaceType')
+    report_period = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='reportPeriod')
+    serial_channel = sgqlc.types.Field('SerialChannel', graphql_name='serialChannel')
+
+
+class CollectPoint(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('addr_offset', 'alias_name', 'data_type', 'name', 'register_type')
+    addr_offset = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='addrOffset')
+    alias_name = sgqlc.types.Field(String, graphql_name='aliasName')
+    data_type = sgqlc.types.Field(sgqlc.types.non_null('RegisterDataType'), graphql_name='dataType')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    register_type = sgqlc.types.Field(sgqlc.types.non_null('RegisterType'), graphql_name='registerType')
 
 
 class Company(sgqlc.types.Type):
@@ -5432,6 +9091,38 @@ class CreatedUserInfo(sgqlc.types.Type):
     user_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='userId')
 
 
+class Customer(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'city', 'contact', 'country', 'county', 'created_at', 'created_by', 'extra_data', 'has_visit', 'id', 'is_mine', 'manager', 'name', 'no', 'province', 'short_name', 'status', 'type', 'updated_at')
+    address = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='address')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    contact = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpCustomerContact'))), graphql_name='contact')
+    country = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    created_by = sgqlc.types.Field(sgqlc.types.non_null('Manager'), graphql_name='createdBy')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    has_visit = sgqlc.types.Field(Boolean, graphql_name='hasVisit')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    manager = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('Manager')), graphql_name='manager')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    short_name = sgqlc.types.Field(String, graphql_name='shortName')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpCustomerStatus), graphql_name='status')
+    type = sgqlc.types.Field(sgqlc.types.non_null(ErpCustomerType), graphql_name='type')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+
+
+class DataBit(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'value')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    value = sgqlc.types.Field(Int, graphql_name='value')
+
+
 class DayOfYear(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('day', 'month')
@@ -5441,13 +9132,14 @@ class DayOfYear(sgqlc.types.Type):
 
 class Department(sgqlc.types.Type):
     __schema__ = platform_schema
-    __field_names__ = ('code', 'id', 'is_deleted', 'level', 'manager', 'name', 'parent_id', 'path_name')
+    __field_names__ = ('code', 'id', 'is_deleted', 'level', 'manager', 'name', 'organization_id', 'parent_id', 'path_name')
     code = sgqlc.types.Field(String, graphql_name='code')
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
     is_deleted = sgqlc.types.Field(Boolean, graphql_name='isDeleted')
     level = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='level')
     manager = sgqlc.types.Field('User', graphql_name='manager')
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    organization_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='organizationId')
     parent_id = sgqlc.types.Field(ID, graphql_name='parentID')
     path_name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='pathName')
 
@@ -5494,6 +9186,22 @@ class DeptThingGroups(sgqlc.types.Type):
     __field_names__ = ('department', 'thing_groups')
     department = sgqlc.types.Field(sgqlc.types.non_null(Department), graphql_name='department')
     thing_groups = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ThingGroup')), graphql_name='thingGroups')
+
+
+class DeviceChannelConfiguration(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('collects', 'id', 'model', 'name')
+    collects = sgqlc.types.Field(sgqlc.types.non_null(CollectConfiguration), graphql_name='collects')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    model = sgqlc.types.Field(sgqlc.types.non_null('RouterModel'), graphql_name='model')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class DeviceChannelConfigurationList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(DeviceChannelConfiguration))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
 
 
 class EamExcelValidationResult(sgqlc.types.Type):
@@ -5799,6 +9507,1627 @@ class EnumData(sgqlc.types.Type):
     value = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='value')
 
 
+class ErpAutoRegisterConfig(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('enabled', 'end', 'id', 'interval', 'is_auto_complete', 'quota', 'start', 'times')
+    enabled = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='enabled')
+    end = sgqlc.types.Field(sgqlc.types.non_null('ErpAutoRegisterConfigEnd'), graphql_name='end')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    interval = sgqlc.types.Field(Int, graphql_name='interval')
+    is_auto_complete = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isAutoComplete')
+    quota = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpQuota')), graphql_name='quota')
+    start = sgqlc.types.Field(sgqlc.types.non_null('ErpAutoRegisterConfigStart'), graphql_name='start')
+    times = sgqlc.types.Field(sgqlc.types.non_null(ErpAutoRegisterConfigTimes), graphql_name='times')
+
+
+class ErpAutoRegisterConfigEnd(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('mode', 'task_template', 'timing')
+    mode = sgqlc.types.Field(ErpAutoRegisterConfigTimingMode, graphql_name='mode')
+    task_template = sgqlc.types.Field('ErpTaskTemplate', graphql_name='taskTemplate')
+    timing = sgqlc.types.Field(sgqlc.types.non_null(ErpAutoRegisterConfigEndTiming), graphql_name='timing')
+
+
+class ErpAutoRegisterConfigStart(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('key', 'mode', 'task_template', 'timing')
+    key = sgqlc.types.Field(String, graphql_name='key')
+    mode = sgqlc.types.Field(ErpAutoRegisterConfigTimingMode, graphql_name='mode')
+    task_template = sgqlc.types.Field('ErpTaskTemplate', graphql_name='taskTemplate')
+    timing = sgqlc.types.Field(sgqlc.types.non_null(ErpAutoRegisterConfigStartTiming), graphql_name='timing')
+
+
+class ErpCity(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'province')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    province = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='province')
+
+
+class ErpCounty(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('city', 'id', 'name')
+    city = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='city')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpCustomerContact(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'phone')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    phone = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='phone')
+
+
+class ErpCustomerList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(Customer)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpDailyReportDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('remark', 'timestamp')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    timestamp = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='timestamp')
+
+
+class ErpDepartment(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('company_id', 'created_at', 'department', 'id', 'is_mine', 'name', 'remark')
+    company_id = sgqlc.types.Field(Int, graphql_name='companyId')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    department = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(Department)), graphql_name='department')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+
+
+class ErpDepartmentList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpDepartment)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpEdgePosition(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('source_handle', 'target_handle')
+    source_handle = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='sourceHandle')
+    target_handle = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='targetHandle')
+
+
+class ErpExcelValidationResult(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('abnormal_row_count', 'commented_data', 'duplicated_row_count', 'invalid_format_fields', 'is_data_valid', 'is_header_valid', 'missing_fields', 'normal_row_count', 'redundant_fields', 'template', 'total_row_count')
+    abnormal_row_count = sgqlc.types.Field(Int, graphql_name='abnormalRowCount')
+    commented_data = sgqlc.types.Field('TempFile', graphql_name='commentedData')
+    duplicated_row_count = sgqlc.types.Field(Int, graphql_name='duplicatedRowCount')
+    invalid_format_fields = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='invalidFormatFields')
+    is_data_valid = sgqlc.types.Field(Boolean, graphql_name='isDataValid')
+    is_header_valid = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isHeaderValid')
+    missing_fields = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='missingFields')
+    normal_row_count = sgqlc.types.Field(Int, graphql_name='normalRowCount')
+    redundant_fields = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='redundantFields')
+    template = sgqlc.types.Field(String, graphql_name='template')
+    total_row_count = sgqlc.types.Field(Int, graphql_name='totalRowCount')
+
+
+class ErpImportResult(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('failed_data', 'failed_row_count', 'is_all_successful', 'successful_row_count', 'total_row_count')
+    failed_data = sgqlc.types.Field('TempFile', graphql_name='failedData')
+    failed_row_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='failedRowCount')
+    is_all_successful = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isAllSuccessful')
+    successful_row_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='successfulRowCount')
+    total_row_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalRowCount')
+
+
+class ErpInventoryDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('batch', 'inventory_number', 'warehouse_location')
+    batch = sgqlc.types.Field(String, graphql_name='batch')
+    inventory_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='inventoryNumber')
+    warehouse_location = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpInventoryLocationDetail'))), graphql_name='warehouseLocation')
+
+
+class ErpInventoryLocationDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('column', 'layer', 'number', 'row', 'zone')
+    column = sgqlc.types.Field(Int, graphql_name='column')
+    layer = sgqlc.types.Field(Int, graphql_name='layer')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='number')
+    row = sgqlc.types.Field(Int, graphql_name='row')
+    zone = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseZone'), graphql_name='zone')
+
+
+class ErpIssueItem(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'issue_number', 'item', 'notification_number')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    issue_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='issueNumber')
+    item = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseItem'), graphql_name='item')
+    notification_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='notificationNumber')
+
+
+class ErpIssueLog(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('account', 'batch', 'code', 'id', 'is_mine', 'item', 'no', 'number', 'remark', 'source', 'type', 'updated_at', 'warehouse_location')
+    account = sgqlc.types.Field(sgqlc.types.non_null('User'), graphql_name='account')
+    batch = sgqlc.types.Field(String, graphql_name='batch')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMine')
+    item = sgqlc.types.Field(sgqlc.types.non_null(ErpIssueItem), graphql_name='item')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='number')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    source = sgqlc.types.Field(sgqlc.types.non_null(ErpIssueNotificationSource), graphql_name='source')
+    type = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseRegisterType), graphql_name='type')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+    warehouse_location = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseLocation'), graphql_name='warehouseLocation')
+
+
+class ErpIssueLogList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpIssueLog)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpIssueNotification(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('completed_at', 'id', 'is_mine', 'item', 'no', 'notified_at', 'source', 'status')
+    completed_at = sgqlc.types.Field(Timestamp, graphql_name='completedAt')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMine')
+    item = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpIssueItem)), graphql_name='item')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    notified_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='notifiedAt')
+    source = sgqlc.types.Field(sgqlc.types.non_null(ErpIssueNotificationSource), graphql_name='source')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpIssueStatus), graphql_name='status')
+
+
+class ErpIssueNotificationList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpIssueNotification)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpManagerList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('Manager')), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpMaterial(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('batch_number', 'batch_rule', 'category', 'code', 'code_exists', 'extra_data', 'id', 'is_mine', 'lead_time', 'name', 'no', 'property', 'remark', 'source', 'specification', 'subcategory', 'unit', 'updated_at')
+    batch_number = sgqlc.types.Field(Int, graphql_name='batchNumber')
+    batch_rule = sgqlc.types.Field(ErpMaterialBatchRule, graphql_name='batchRule')
+    category = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseItemCategory'), graphql_name='category')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    code_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='codeExists')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    is_mine = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMine')
+    lead_time = sgqlc.types.Field(Int, graphql_name='leadTime')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    property = sgqlc.types.Field(sgqlc.types.non_null(ErpMaterialProperty), graphql_name='property')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    source = sgqlc.types.Field(sgqlc.types.non_null(ErpMaterialSource), graphql_name='source')
+    specification = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='specification')
+    subcategory = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseItemSubcategory'), graphql_name='subcategory')
+    unit = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='unit')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+
+
+class ErpMaterialInventory(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'material', 'number')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    material = sgqlc.types.Field(sgqlc.types.non_null('Material'), graphql_name='material')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='number')
+
+
+class ErpMaterialInventoryList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpMaterialInventory)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpMaterialList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpMaterial)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpMonthPlan(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('actual_total', 'id', 'is_mine', 'month', 'product', 'sale_total', 'target')
+    actual_total = sgqlc.types.Field(Float, graphql_name='actualTotal')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    month = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='month')
+    product = sgqlc.types.Field(sgqlc.types.non_null('ErpOrderProduct'), graphql_name='product')
+    sale_total = sgqlc.types.Field(Float, graphql_name='saleTotal')
+    target = sgqlc.types.Field(sgqlc.types.list_of('ErpMonthPlanTarget'), graphql_name='target')
+
+
+class ErpMonthPlanList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpMonthPlan))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpMonthPlanOrder(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('customer', 'item_list')
+    customer = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Customer))), graphql_name='customer')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpOrderProduct'))), graphql_name='itemList')
+
+
+class ErpMonthPlanTarget(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('actual_number', 'date', 'sale_number')
+    actual_number = sgqlc.types.Field(Float, graphql_name='actualNumber')
+    date = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='date')
+    sale_number = sgqlc.types.Field(Float, graphql_name='saleNumber')
+
+
+class ErpMps(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('detail', 'product')
+    detail = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpMpsDetail')), graphql_name='detail')
+    product = sgqlc.types.Field(sgqlc.types.non_null('ErpOrderProduct'), graphql_name='product')
+
+
+class ErpMpsDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('timestamp', 'value')
+    timestamp = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='timestamp')
+    value = sgqlc.types.Field(Float, graphql_name='value')
+
+
+class ErpMpsList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpMps)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpOrder(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'attachment', 'check_config', 'city', 'contact', 'country', 'county', 'created_at', 'currency', 'customer', 'customer_name', 'delivery_number', 'expect_delivery_time', 'extra_data', 'id', 'is_mine', 'item_list', 'item_number', 'manager', 'no', 'order_amount', 'payment_amount', 'payment_complete', 'payment_percentage', 'production_notification_condition', 'production_number', 'province', 'remark', 'sale_number', 'ship_confirm_complete', 'ship_notification_condition', 'status', 'updated_at')
+    address = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='address')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('File')), graphql_name='attachment')
+    check_config = sgqlc.types.Field('ErpOrderCheckConfig', graphql_name='checkConfig')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    contact = sgqlc.types.Field(sgqlc.types.non_null(ErpCustomerContact), graphql_name='contact')
+    country = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    currency = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderCurrency), graphql_name='currency')
+    customer = sgqlc.types.Field(sgqlc.types.non_null(Customer), graphql_name='customer')
+    customer_name = sgqlc.types.Field(String, graphql_name='customerName')
+    delivery_number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='deliveryNumber')
+    expect_delivery_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='expectDeliveryTime')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpOrderItem'))), graphql_name='itemList')
+    item_number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='itemNumber')
+    manager = sgqlc.types.Field(sgqlc.types.non_null('Manager'), graphql_name='manager')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    order_amount = sgqlc.types.Field(Float, graphql_name='orderAmount')
+    payment_amount = sgqlc.types.Field(Float, graphql_name='paymentAmount')
+    payment_complete = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='paymentComplete')
+    payment_percentage = sgqlc.types.Field(Float, graphql_name='paymentPercentage')
+    production_notification_condition = sgqlc.types.Field(sgqlc.types.non_null('NotificationCondition'), graphql_name='productionNotificationCondition')
+    production_number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='productionNumber')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    sale_number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='saleNumber')
+    ship_confirm_complete = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='shipConfirmComplete')
+    ship_notification_condition = sgqlc.types.Field(sgqlc.types.non_null('NotificationCondition'), graphql_name='shipNotificationCondition')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderStatus), graphql_name='status')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+
+
+class ErpOrderAreaStatistics(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpOrderAreaStatisticsDetail')), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpOrderAreaStatisticsDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('detail', 'key')
+    detail = sgqlc.types.Field(sgqlc.types.non_null('ErpOrderStatisticsDetail'), graphql_name='detail')
+    key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
+
+
+class ErpOrderCheckConfig(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('condition', 'created_at', 'editable', 'id', 'name', 'required', 'role')
+    condition = sgqlc.types.Field('ErpOrderCheckConfigCondition', graphql_name='condition')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    editable = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='editable')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    required = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='required')
+    role = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('Role')), graphql_name='role')
+
+
+class ErpOrderCheckConfigCondition(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('meet', 'statement')
+    meet = sgqlc.types.Field(ErpOrderCheckConfigConditionMeet, graphql_name='meet')
+    statement = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpOrderCheckConfigConditionStatement'))), graphql_name='statement')
+
+
+class ErpOrderCheckConfigConditionStatement(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('comparator', 'field', 'operator', 'type', 'value')
+    comparator = sgqlc.types.Field(sgqlc.types.non_null(ErpCheckConfigConditionStatementComparator), graphql_name='comparator')
+    field = sgqlc.types.Field(sgqlc.types.non_null(ErpCheckConfigConditionStatementField), graphql_name='field')
+    operator = sgqlc.types.Field(ErpCheckConfigConditionStatementOperator, graphql_name='operator')
+    type = sgqlc.types.Field(sgqlc.types.non_null(ErpCheckConfigConditionStatementType), graphql_name='type')
+    value = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='value')
+
+
+class ErpOrderCustomerStatistics(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpOrderCustomerStatisticsDetail')), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpOrderCustomerStatisticsDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('customer', 'detail')
+    customer = sgqlc.types.Field(sgqlc.types.non_null(Customer), graphql_name='customer')
+    detail = sgqlc.types.Field(sgqlc.types.non_null('ErpOrderStatisticsDetail'), graphql_name='detail')
+
+
+class ErpOrderItem(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('order_number', 'price', 'product', 'ship_total_number')
+    order_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='orderNumber')
+    price = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='price')
+    product = sgqlc.types.Field(sgqlc.types.non_null('ErpOrderProduct'), graphql_name='product')
+    ship_total_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='shipTotalNumber')
+
+
+class ErpOrderList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrder)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpOrderManagerStatistics(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpOrderManagerStatisticsDetail')), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpOrderManagerStatisticsDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('detail', 'manager', 'ordered_customer')
+    detail = sgqlc.types.Field(sgqlc.types.non_null('ErpOrderStatisticsDetail'), graphql_name='detail')
+    manager = sgqlc.types.Field(sgqlc.types.non_null('Manager'), graphql_name='manager')
+    ordered_customer = sgqlc.types.Field(Int, graphql_name='orderedCustomer')
+
+
+class ErpOrderProcessInfo(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('created_at', 'created_by', 'log')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    created_by = sgqlc.types.Field('User', graphql_name='createdBy')
+    log = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='log')
+
+
+class ErpOrderProduct(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('available_stock', 'category', 'code', 'customer', 'english_name', 'id', 'is_mine', 'material', 'name', 'no', 'price', 'remark', 'specification', 'status', 'stock', 'subcategory', 'unit', 'updated_at')
+    available_stock = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='availableStock')
+    category = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseItemCategory'), graphql_name='category')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    customer = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(Customer)), graphql_name='customer')
+    english_name = sgqlc.types.Field(String, graphql_name='englishName')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    material = sgqlc.types.Field(ErpMaterial, graphql_name='material')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    no = sgqlc.types.Field(String, graphql_name='no')
+    price = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='price')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    specification = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='specification')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProductStatus), graphql_name='status')
+    stock = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='stock')
+    subcategory = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseItemSubcategory'), graphql_name='subcategory')
+    unit = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='unit')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+
+
+class ErpOrderProductHistory(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('created_at', 'created_by', 'price', 'product')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    created_by = sgqlc.types.Field('User', graphql_name='createdBy')
+    price = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='price')
+    product = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProduct), graphql_name='product')
+
+
+class ErpOrderProductHistoryList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderProductHistory))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpOrderProductList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderProduct))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpOrderProductionItem(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('order_number', 'product', 'production_number', 'task_list')
+    order_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='orderNumber')
+    product = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProduct), graphql_name='product')
+    production_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='productionNumber')
+    task_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpProductionTask')), graphql_name='taskList')
+
+
+class ErpOrderProductionNotificationList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpProductionNotification')), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpOrderShipItem(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('order_number', 'product', 'ship_number')
+    order_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='orderNumber')
+    product = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProduct), graphql_name='product')
+    ship_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='shipNumber')
+
+
+class ErpOrderShipNotification(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'city', 'country', 'county', 'created_at', 'expect_ship_time', 'id', 'item_list', 'item_number', 'no', 'province', 'remark', 'ship_total_number', 'status')
+    address = sgqlc.types.Field(String, graphql_name='address')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    country = sgqlc.types.Field(String, graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    expect_ship_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='expectShipTime')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderShipItem))), graphql_name='itemList')
+    item_number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='itemNumber')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    ship_total_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='shipTotalNumber')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderShipNotificationStatus), graphql_name='status')
+
+
+class ErpOrderShipNotificationList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderShipNotification)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpOrderStatisticsDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('order_amount_cny', 'order_amount_eur', 'order_amount_usd', 'order_increment', 'order_number', 'sample_order_amount_cny', 'sample_order_amount_eur', 'sample_order_amount_usd', 'sample_order_increment', 'sample_order_number')
+    order_amount_cny = sgqlc.types.Field(Float, graphql_name='orderAmountCNY')
+    order_amount_eur = sgqlc.types.Field(Float, graphql_name='orderAmountEUR')
+    order_amount_usd = sgqlc.types.Field(Float, graphql_name='orderAmountUSD')
+    order_increment = sgqlc.types.Field(Int, graphql_name='orderIncrement')
+    order_number = sgqlc.types.Field(Float, graphql_name='orderNumber')
+    sample_order_amount_cny = sgqlc.types.Field(Float, graphql_name='sampleOrderAmountCNY')
+    sample_order_amount_eur = sgqlc.types.Field(Float, graphql_name='sampleOrderAmountEUR')
+    sample_order_amount_usd = sgqlc.types.Field(Float, graphql_name='sampleOrderAmountUSD')
+    sample_order_increment = sgqlc.types.Field(Int, graphql_name='sampleOrderIncrement')
+    sample_order_number = sgqlc.types.Field(Float, graphql_name='sampleOrderNumber')
+
+
+class ErpPosition(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'is_mine', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpPositionList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpPosition)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpPositionUser(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('created_at', 'id', 'is_mine', 'position', 'task', 'updated_at', 'user')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    position = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpPosition)), graphql_name='position')
+    task = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpTaskTemplate')), graphql_name='task')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+    user = sgqlc.types.Field(sgqlc.types.non_null('User'), graphql_name='user')
+
+
+class ErpPositionUserList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpPositionUser)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpPositionUserUserList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('User')), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpProcess(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('channel', 'extra_data', 'id', 'name', 'no')
+    channel = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='channel')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+
+
+class ErpProcessEdge(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('info', 'input_process', 'output_process', 'relation')
+    info = sgqlc.types.Field(ErpEdgePosition, graphql_name='info')
+    input_process = sgqlc.types.Field(sgqlc.types.non_null(ErpProcess), graphql_name='inputProcess')
+    output_process = sgqlc.types.Field(sgqlc.types.non_null(ErpProcess), graphql_name='outputProcess')
+    relation = sgqlc.types.Field(sgqlc.types.non_null(ErpProcessStartAtType), graphql_name='relation')
+
+
+class ErpProcessInfo(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('x', 'y')
+    x = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='x')
+    y = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='y')
+
+
+class ErpProcessList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcess)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpProcessNode(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('info', 'no', 'process')
+    info = sgqlc.types.Field(sgqlc.types.non_null(ErpProcessInfo), graphql_name='info')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    process = sgqlc.types.Field(sgqlc.types.non_null(ErpProcess), graphql_name='process')
+
+
+class ErpProcessScheduleTime(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('plan_end', 'plan_start', 'process')
+    plan_end = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='planEnd')
+    plan_start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='planStart')
+    process = sgqlc.types.Field(sgqlc.types.non_null(ErpProcess), graphql_name='process')
+
+
+class ErpProcessTask(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('batch', 'number', 'task', 'trigger_task')
+    batch = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='batch')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='number')
+    task = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpTaskTemplate'))), graphql_name='task')
+    trigger_task = sgqlc.types.Field(sgqlc.types.non_null('ErpTaskTemplate'), graphql_name='triggerTask')
+
+
+class ErpProcessThing(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('capacity', 'created_at', 'erp_thing', 'id', 'is_mine', 'unit')
+    capacity = sgqlc.types.Field(Float, graphql_name='capacity')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    erp_thing = sgqlc.types.Field(sgqlc.types.non_null('ErpThing'), graphql_name='erpThing')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    is_mine = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMine')
+    unit = sgqlc.types.Field(String, graphql_name='unit')
+
+
+class ErpProcessThingAndMaterial(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('material', 'material_default', 'process', 'thing', 'thing_default')
+    material = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(BomMaterial)), graphql_name='material')
+    material_default = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(BomMaterial)), graphql_name='materialDefault')
+    process = sgqlc.types.Field(sgqlc.types.non_null(ErpProcess), graphql_name='process')
+    thing = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessThing)), graphql_name='thing')
+    thing_default = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessThing)), graphql_name='thingDefault')
+
+
+class ErpProcessThingList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessThing)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpProductionNotification(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('confirmed_at', 'created_by', 'delivery_time', 'department', 'id', 'item_list', 'no', 'order', 'sample_order', 'status', 'transferred_at')
+    confirmed_at = sgqlc.types.Field(Timestamp, graphql_name='confirmedAt')
+    created_by = sgqlc.types.Field('User', graphql_name='createdBy')
+    delivery_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='deliveryTime')
+    department = sgqlc.types.Field(ErpDepartment, graphql_name='department')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderProductionItem))), graphql_name='itemList')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    order = sgqlc.types.Field(ErpOrder, graphql_name='order')
+    sample_order = sgqlc.types.Field('ErpSampleOrder', graphql_name='sampleOrder')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProductionNotificationStatus), graphql_name='status')
+    transferred_at = sgqlc.types.Field(Timestamp, graphql_name='transferredAt')
+
+
+class ErpProductionPlanning(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('apr', 'aug', 'code', 'dec', 'feb', 'id', 'is_mine', 'jan', 'jul', 'jun', 'mar', 'may', 'nov', 'oct', 'sep')
+    apr = sgqlc.types.Field(Float, graphql_name='apr')
+    aug = sgqlc.types.Field(Float, graphql_name='aug')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    dec = sgqlc.types.Field(Float, graphql_name='dec')
+    feb = sgqlc.types.Field(Float, graphql_name='feb')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    jan = sgqlc.types.Field(Float, graphql_name='jan')
+    jul = sgqlc.types.Field(Float, graphql_name='jul')
+    jun = sgqlc.types.Field(Float, graphql_name='jun')
+    mar = sgqlc.types.Field(Float, graphql_name='mar')
+    may = sgqlc.types.Field(Float, graphql_name='may')
+    nov = sgqlc.types.Field(Float, graphql_name='nov')
+    oct = sgqlc.types.Field(Float, graphql_name='oct')
+    sep = sgqlc.types.Field(Float, graphql_name='sep')
+
+
+class ErpProductionPlanningDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('actual', 'code', 'plan', 'product')
+    actual = sgqlc.types.Field('ErpProductionResult', graphql_name='actual')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    plan = sgqlc.types.Field(ErpProductionPlanning, graphql_name='plan')
+    product = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Bom))), graphql_name='product')
+
+
+class ErpProductionPlanningList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(ErpProductionPlanningDetail), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpProductionProduct(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('order_product', 'production_number')
+    order_product = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProduct), graphql_name='orderProduct')
+    production_number = sgqlc.types.Field(Float, graphql_name='productionNumber')
+
+
+class ErpProductionResult(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('apr', 'aug', 'dec', 'feb', 'jan', 'jul', 'jun', 'mar', 'may', 'nov', 'oct', 'sep')
+    apr = sgqlc.types.Field(Float, graphql_name='apr')
+    aug = sgqlc.types.Field(Float, graphql_name='aug')
+    dec = sgqlc.types.Field(Float, graphql_name='dec')
+    feb = sgqlc.types.Field(Float, graphql_name='feb')
+    jan = sgqlc.types.Field(Float, graphql_name='jan')
+    jul = sgqlc.types.Field(Float, graphql_name='jul')
+    jun = sgqlc.types.Field(Float, graphql_name='jun')
+    mar = sgqlc.types.Field(Float, graphql_name='mar')
+    may = sgqlc.types.Field(Float, graphql_name='may')
+    nov = sgqlc.types.Field(Float, graphql_name='nov')
+    oct = sgqlc.types.Field(Float, graphql_name='oct')
+    sep = sgqlc.types.Field(Float, graphql_name='sep')
+
+
+class ErpProductionTask(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('complete_time', 'confirm_production_number', 'created_at', 'created_by', 'delivery_time', 'department', 'id', 'is_mine', 'no', 'product', 'production', 'production_number', 'remark', 'source', 'start_time', 'status')
+    complete_time = sgqlc.types.Field(Timestamp, graphql_name='completeTime')
+    confirm_production_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='confirmProductionNumber')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    created_by = sgqlc.types.Field(sgqlc.types.non_null('User'), graphql_name='createdBy')
+    delivery_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='deliveryTime')
+    department = sgqlc.types.Field(ErpDepartment, graphql_name='department')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMine')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    product = sgqlc.types.Field(ErpOrderProduct, graphql_name='product')
+    production = sgqlc.types.Field(ErpProductionNotification, graphql_name='production')
+    production_number = sgqlc.types.Field(Float, graphql_name='productionNumber')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    source = sgqlc.types.Field(sgqlc.types.non_null(ErpProductionTaskSource), graphql_name='source')
+    start_time = sgqlc.types.Field(Timestamp, graphql_name='startTime')
+    status = sgqlc.types.Field(ErpProductionTaskStatus, graphql_name='status')
+
+
+class ErpProductionTaskList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProductionTask)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpProductionTaskProcess(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('created_at', 'created_by', 'log')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    created_by = sgqlc.types.Field('User', graphql_name='createdBy')
+    log = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='log')
+
+
+class ErpProductionWorkflow(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('add_plan_at', 'anchor_process', 'anchor_time_type', 'code', 'default_anchor', 'edge', 'hour', 'id', 'merge', 'name', 'node', 'task', 'used_by_technique')
+    add_plan_at = sgqlc.types.Field(Timestamp, graphql_name='addPlanAt')
+    anchor_process = sgqlc.types.Field(sgqlc.types.non_null(ErpProcess), graphql_name='anchorProcess')
+    anchor_time_type = sgqlc.types.Field(sgqlc.types.non_null(ErpAnchorTimeType), graphql_name='anchorTimeType')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    default_anchor = sgqlc.types.Field(sgqlc.types.non_null(ErpDefaultAnchor), graphql_name='defaultAnchor')
+    edge = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessEdge)), graphql_name='edge')
+    hour = sgqlc.types.Field(Int, graphql_name='hour')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    merge = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpProductionWorkflowMerge')), graphql_name='merge')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    node = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessNode))), graphql_name='node')
+    task = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessTask)), graphql_name='task')
+    used_by_technique = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='usedByTechnique')
+
+
+class ErpProductionWorkflowMerge(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('channel', 'confirm_process', 'confirm_task_template', 'start_process')
+    channel = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='channel')
+    confirm_process = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcess)), graphql_name='confirmProcess')
+    confirm_task_template = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpTaskTemplate')), graphql_name='confirmTaskTemplate')
+    start_process = sgqlc.types.Field(sgqlc.types.non_null(ErpProcess), graphql_name='startProcess')
+
+
+class ErpProvince(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpQuota(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('key', 'method', 'name', 'spc')
+    key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
+    method = sgqlc.types.Field(sgqlc.types.non_null(ErpQuotaMethod), graphql_name='method')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    spc = sgqlc.types.Field('SpcQuota', graphql_name='spc')
+
+
+class ErpReceiveItem(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'item', 'notification_number', 'receive_number')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    item = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseItem'), graphql_name='item')
+    notification_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='notificationNumber')
+    receive_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='receiveNumber')
+
+
+class ErpReceiveLog(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('account', 'batch', 'code', 'id', 'is_mine', 'item', 'no', 'number', 'remark', 'source', 'type', 'updated_at', 'warehouse_location')
+    account = sgqlc.types.Field('User', graphql_name='account')
+    batch = sgqlc.types.Field(String, graphql_name='batch')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMine')
+    item = sgqlc.types.Field(sgqlc.types.non_null(ErpReceiveItem), graphql_name='item')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='number')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    source = sgqlc.types.Field(sgqlc.types.non_null(ErpReceiveNotificationSource), graphql_name='source')
+    type = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseRegisterType), graphql_name='type')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+    warehouse_location = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseLocation'), graphql_name='warehouseLocation')
+
+
+class ErpReceiveLogList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpReceiveLog)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpReceiveNotification(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('completed_at', 'id', 'is_mine', 'item', 'no', 'notified_at', 'source', 'status')
+    completed_at = sgqlc.types.Field(Timestamp, graphql_name='completedAt')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMine')
+    item = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpReceiveItem)), graphql_name='item')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    notified_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='notifiedAt')
+    source = sgqlc.types.Field(sgqlc.types.non_null(ErpReceiveNotificationSource), graphql_name='source')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpReceiveStatus), graphql_name='status')
+
+
+class ErpReceiveNotificationList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpReceiveNotification)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpSafeStock(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('value', 'warehouse')
+    value = sgqlc.types.Field(Float, graphql_name='value')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouse'), graphql_name='warehouse')
+
+
+class ErpSampleOrder(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'attachment', 'check_config', 'city', 'contact', 'country', 'county', 'created_at', 'currency', 'customer', 'customer_name', 'delivery_number', 'expect_delivery_time', 'extra_data', 'id', 'is_mine', 'item_list', 'item_number', 'manager', 'no', 'order_amount', 'payment_amount', 'payment_complete', 'payment_percentage', 'production_notification_condition', 'production_number', 'province', 'remark', 'sale_number', 'ship_confirm_complete', 'ship_notification_condition', 'status', 'updated_at')
+    address = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='address')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('File')), graphql_name='attachment')
+    check_config = sgqlc.types.Field('ErpSampleOrderCheckConfig', graphql_name='checkConfig')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    contact = sgqlc.types.Field(sgqlc.types.non_null(ErpCustomerContact), graphql_name='contact')
+    country = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    currency = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderCurrency), graphql_name='currency')
+    customer = sgqlc.types.Field(sgqlc.types.non_null(Customer), graphql_name='customer')
+    customer_name = sgqlc.types.Field(String, graphql_name='customerName')
+    delivery_number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='deliveryNumber')
+    expect_delivery_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='expectDeliveryTime')
+    extra_data = sgqlc.types.Field(JSON, graphql_name='extraData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpSampleOrderItem'))), graphql_name='itemList')
+    item_number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='itemNumber')
+    manager = sgqlc.types.Field(sgqlc.types.non_null('Manager'), graphql_name='manager')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    order_amount = sgqlc.types.Field(Float, graphql_name='orderAmount')
+    payment_amount = sgqlc.types.Field(Float, graphql_name='paymentAmount')
+    payment_complete = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='paymentComplete')
+    payment_percentage = sgqlc.types.Field(Float, graphql_name='paymentPercentage')
+    production_notification_condition = sgqlc.types.Field(sgqlc.types.non_null('NotificationCondition'), graphql_name='productionNotificationCondition')
+    production_number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='productionNumber')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    sale_number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='saleNumber')
+    ship_confirm_complete = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='shipConfirmComplete')
+    ship_notification_condition = sgqlc.types.Field(sgqlc.types.non_null('NotificationCondition'), graphql_name='shipNotificationCondition')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderStatus), graphql_name='status')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+
+
+class ErpSampleOrderCheckConfig(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('condition', 'created_at', 'editable', 'id', 'name', 'required', 'role')
+    condition = sgqlc.types.Field('ErpSampleOrderCheckConfigCondition', graphql_name='condition')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    editable = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='editable')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    required = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='required')
+    role = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('Role')), graphql_name='role')
+
+
+class ErpSampleOrderCheckConfigCondition(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('meet', 'statement')
+    meet = sgqlc.types.Field(ErpOrderCheckConfigConditionMeet, graphql_name='meet')
+    statement = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpSampleOrderCheckConfigConditionStatement'))), graphql_name='statement')
+
+
+class ErpSampleOrderCheckConfigConditionStatement(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('comparator', 'field', 'operator', 'type', 'value')
+    comparator = sgqlc.types.Field(sgqlc.types.non_null(ErpCheckConfigConditionStatementComparator), graphql_name='comparator')
+    field = sgqlc.types.Field(sgqlc.types.non_null(ErpCheckConfigConditionStatementField), graphql_name='field')
+    operator = sgqlc.types.Field(ErpCheckConfigConditionStatementOperator, graphql_name='operator')
+    type = sgqlc.types.Field(sgqlc.types.non_null(ErpCheckConfigConditionStatementType), graphql_name='type')
+    value = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='value')
+
+
+class ErpSampleOrderItem(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('order_number', 'price', 'product', 'ship_total_number')
+    order_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='orderNumber')
+    price = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='price')
+    product = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProduct), graphql_name='product')
+    ship_total_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='shipTotalNumber')
+
+
+class ErpSampleOrderList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpSampleOrder)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpSampleOrderProcessInfo(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('created_at', 'created_by', 'log')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    created_by = sgqlc.types.Field('User', graphql_name='createdBy')
+    log = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='log')
+
+
+class ErpSampleOrderProductionItem(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('order_number', 'product', 'production_number')
+    order_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='orderNumber')
+    product = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProduct), graphql_name='product')
+    production_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='productionNumber')
+
+
+class ErpSampleOrderShipItem(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('order_number', 'product', 'ship_number')
+    order_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='orderNumber')
+    product = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProduct), graphql_name='product')
+    ship_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='shipNumber')
+
+
+class ErpSampleOrderShipNotification(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'city', 'country', 'county', 'created_at', 'expect_ship_time', 'id', 'item_list', 'item_number', 'no', 'province', 'remark', 'ship_total_number', 'status')
+    address = sgqlc.types.Field(String, graphql_name='address')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    country = sgqlc.types.Field(String, graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    expect_ship_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='expectShipTime')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpSampleOrderShipItem))), graphql_name='itemList')
+    item_number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='itemNumber')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    ship_total_number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='shipTotalNumber')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderShipNotificationStatus), graphql_name='status')
+
+
+class ErpSampleOrderShipNotificationList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpSampleOrderShipNotification)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpSampleProductionNotification(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('confirmed_at', 'created_by', 'delivery_time', 'department', 'id', 'item_list', 'no', 'order', 'status', 'transferred_at')
+    confirmed_at = sgqlc.types.Field(Timestamp, graphql_name='confirmedAt')
+    created_by = sgqlc.types.Field('User', graphql_name='createdBy')
+    delivery_time = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='deliveryTime')
+    department = sgqlc.types.Field(ErpDepartment, graphql_name='department')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    item_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderProductionItem))), graphql_name='itemList')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    order = sgqlc.types.Field(ErpSampleOrder, graphql_name='order')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProductionNotificationStatus), graphql_name='status')
+    transferred_at = sgqlc.types.Field(Timestamp, graphql_name='transferredAt')
+
+
+class ErpSchedule(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('code', 'id', 'is_mine', 'process', 'schedule_process', 'status', 'technique', 'type')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    process = sgqlc.types.Field(ErpProcess, graphql_name='process')
+    schedule_process = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpScheduleProcess'))), graphql_name='scheduleProcess')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpScheduleStatus), graphql_name='status')
+    technique = sgqlc.types.Field(sgqlc.types.non_null('ErpTechnique'), graphql_name='technique')
+    type = sgqlc.types.Field(ErpScheduleType, graphql_name='type')
+
+
+class ErpScheduleList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpSchedule)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpScheduleProcess(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'material', 'plan_end', 'plan_start', 'process', 'status', 'thing')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    material = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(BomMaterial)), graphql_name='material')
+    plan_end = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='planEnd')
+    plan_start = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='planStart')
+    process = sgqlc.types.Field(sgqlc.types.non_null(ErpProcess), graphql_name='process')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpScheduleProcessStatus), graphql_name='status')
+    thing = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessThing)), graphql_name='thing')
+
+
+class ErpTask(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('add_task_template', 'auto_register_config', 'batch_no', 'channel', 'complete_at', 'dispatch_at', 'has_suspend_log', 'id', 'is_add', 'is_add_on', 'is_mine', 'is_my_position', 'is_suspend', 'is_work_report_suspend', 'material', 'merge', 'need_batch_no', 'no', 'number', 'operator', 'plan_end_at', 'plan_start_at', 'preset_task', 'production_no', 'quota', 'recover_at', 'schedule', 'schedule_process', 'start_at', 'status', 'suspend_at', 'technique', 'template', 'thing', 'trigger_process_task', 'updated_at', 'work_report', 'work_report_number')
+    add_task_template = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpTaskTemplate')), graphql_name='addTaskTemplate')
+    auto_register_config = sgqlc.types.Field(ErpAutoRegisterConfig, graphql_name='autoRegisterConfig')
+    batch_no = sgqlc.types.Field(String, graphql_name='batchNo')
+    channel = sgqlc.types.Field(String, graphql_name='channel')
+    complete_at = sgqlc.types.Field(Timestamp, graphql_name='completeAt')
+    dispatch_at = sgqlc.types.Field(Timestamp, graphql_name='dispatchAt')
+    has_suspend_log = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='hasSuspendLog')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_add = sgqlc.types.Field(Boolean, graphql_name='isAdd')
+    is_add_on = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isAddOn')
+    is_mine = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMine')
+    is_my_position = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMyPosition')
+    is_suspend = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isSuspend')
+    is_work_report_suspend = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isWorkReportSuspend')
+    material = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpTaskWorkReportMaterialDetail')), graphql_name='material')
+    merge = sgqlc.types.Field(Boolean, graphql_name='merge')
+    need_batch_no = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='needBatchNo')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    number = sgqlc.types.Field(Int, graphql_name='number')
+    operator = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpPositionUser)), graphql_name='operator')
+    plan_end_at = sgqlc.types.Field(Timestamp, graphql_name='planEndAt')
+    plan_start_at = sgqlc.types.Field(Timestamp, graphql_name='planStartAt')
+    preset_task = sgqlc.types.Field(sgqlc.types.non_null('ErpTechniquePresetTask'), graphql_name='presetTask')
+    production_no = sgqlc.types.Field(String, graphql_name='productionNo')
+    quota = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpQuota)), graphql_name='quota')
+    recover_at = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(Timestamp)), graphql_name='recoverAt')
+    schedule = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpSchedule)), graphql_name='schedule')
+    schedule_process = sgqlc.types.Field(sgqlc.types.non_null(ErpScheduleProcess), graphql_name='scheduleProcess')
+    start_at = sgqlc.types.Field(Timestamp, graphql_name='startAt')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskStatus), graphql_name='status')
+    suspend_at = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(Timestamp)), graphql_name='suspendAt')
+    technique = sgqlc.types.Field(sgqlc.types.non_null('ErpTechnique'), graphql_name='technique')
+    template = sgqlc.types.Field(sgqlc.types.non_null('ErpTaskTemplate'), graphql_name='template')
+    thing = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessThing)), graphql_name='thing')
+    trigger_process_task = sgqlc.types.Field(ErpProcessTask, graphql_name='triggerProcessTask')
+    updated_at = sgqlc.types.Field(Timestamp, graphql_name='updatedAt')
+    work_report = sgqlc.types.Field('ErpTaskWorkReport', graphql_name='workReport')
+    work_report_number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='workReportNumber')
+
+
+class ErpTaskDispatchConfig(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('base_time', 'day', 'hour', 'timestamp', 'timing')
+    base_time = sgqlc.types.Field(ErpMesConfigBaseTime, graphql_name='baseTime')
+    day = sgqlc.types.Field(Int, graphql_name='day')
+    hour = sgqlc.types.Field(Int, graphql_name='hour')
+    timestamp = sgqlc.types.Field(Timestamp, graphql_name='timestamp')
+    timing = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskDispatchTiming), graphql_name='timing')
+
+
+class ErpTaskList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpTask)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpTaskStatisticByPosition(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('count', 'position')
+    count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='count')
+    position = sgqlc.types.Field(sgqlc.types.non_null(ErpPosition), graphql_name='position')
+
+
+class ErpTaskSuspendLog(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('created_at', 'operate', 'remark')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    operate = sgqlc.types.Field(sgqlc.types.non_null(UpdateErpTaskStatusOperate), graphql_name='operate')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+
+
+class ErpTaskTemplate(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('attachment', 'code', 'created_at', 'description', 'dispatch', 'id', 'name', 'no', 'plan_end', 'plan_start', 'position', 'process', 'process_params', 'product_output', 'supplement', 'thing', 'updated_at', 'user_exists')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('File')), graphql_name='attachment')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    description = sgqlc.types.Field(String, graphql_name='description')
+    dispatch = sgqlc.types.Field('ErpTaskTemplateDispatch', graphql_name='dispatch')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    no = sgqlc.types.Field('ErpTaskTemplateNo', graphql_name='no')
+    plan_end = sgqlc.types.Field('ErpTaskTemplatePlanStartEnd', graphql_name='planEnd')
+    plan_start = sgqlc.types.Field('ErpTaskTemplatePlanStartEnd', graphql_name='planStart')
+    position = sgqlc.types.Field(ErpPosition, graphql_name='position')
+    process = sgqlc.types.Field(sgqlc.types.non_null(ErpProcess), graphql_name='process')
+    process_params = sgqlc.types.Field('ErpTaskTemplateProcessParams', graphql_name='processParams')
+    product_output = sgqlc.types.Field('ErpTaskTemplateProductOutput', graphql_name='productOutput')
+    supplement = sgqlc.types.Field('ErpTaskTemplateSupplement', graphql_name='supplement')
+    thing = sgqlc.types.Field('ErpTaskTemplateThing', graphql_name='thing')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+    user_exists = sgqlc.types.Field(Boolean, graphql_name='userExists')
+
+
+class ErpTaskTemplateByWorkflow(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('task_template', 'workflow')
+    task_template = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpTaskTemplate))), graphql_name='taskTemplate')
+    workflow = sgqlc.types.Field(sgqlc.types.non_null(ErpProductionWorkflow), graphql_name='workflow')
+
+
+class ErpTaskTemplateDispatch(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('base_time', 'day', 'hour', 'minute', 'timestamp', 'timing')
+    base_time = sgqlc.types.Field(ErpMesConfigBaseTime, graphql_name='baseTime')
+    day = sgqlc.types.Field(Int, graphql_name='day')
+    hour = sgqlc.types.Field(Int, graphql_name='hour')
+    minute = sgqlc.types.Field(Int, graphql_name='minute')
+    timestamp = sgqlc.types.Field(Timestamp, graphql_name='timestamp')
+    timing = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskTemplateDispatchTiming), graphql_name='timing')
+
+
+class ErpTaskTemplateList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpTaskTemplate)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpTaskTemplateNo(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('department_idexists', 'end_at_exists', 'end_at_format', 'exists', 'manual', 'pre_process_no_exists', 'product_idexists', 'suffix_count_on', 'suffix_exists', 'suffix_fill', 'suffix_range', 'thing_exists')
+    department_idexists = sgqlc.types.Field(Boolean, graphql_name='departmentIDExists')
+    end_at_exists = sgqlc.types.Field(Boolean, graphql_name='endAtExists')
+    end_at_format = sgqlc.types.Field(ErpTaskTemplateNoEndAtFormat, graphql_name='endAtFormat')
+    exists = sgqlc.types.Field(Boolean, graphql_name='exists')
+    manual = sgqlc.types.Field(Boolean, graphql_name='manual')
+    pre_process_no_exists = sgqlc.types.Field(Boolean, graphql_name='preProcessNoExists')
+    product_idexists = sgqlc.types.Field(Boolean, graphql_name='productIDExists')
+    suffix_count_on = sgqlc.types.Field(ErpTaskTemplateNoSuffixCountOn, graphql_name='suffixCountOn')
+    suffix_exists = sgqlc.types.Field(Boolean, graphql_name='suffixExists')
+    suffix_fill = sgqlc.types.Field(Int, graphql_name='suffixFill')
+    suffix_range = sgqlc.types.Field(ErpTaskTemplateNoSuffixRange, graphql_name='suffixRange')
+    thing_exists = sgqlc.types.Field(Boolean, graphql_name='thingExists')
+
+
+class ErpTaskTemplatePlanStartEnd(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('base_time', 'format', 'operator', 'timedelta', 'timing')
+    base_time = sgqlc.types.Field(ErpMesConfigBaseTime, graphql_name='baseTime')
+    format = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskTemplateTimeFormat), graphql_name='format')
+    operator = sgqlc.types.Field(ErpTaskTemplateOperator, graphql_name='operator')
+    timedelta = sgqlc.types.Field(Int, graphql_name='timedelta')
+    timing = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskTemplateStartEndTiming), graphql_name='timing')
+
+
+class ErpTaskTemplateProcessParams(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('params_choice', 'params_choose_all', 'params_default', 'params_exists', 'register_params', 'show_detail')
+    params_choice = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='paramsChoice')
+    params_choose_all = sgqlc.types.Field(Boolean, graphql_name='paramsChooseAll')
+    params_default = sgqlc.types.Field(ErpTaskTemplateProcessParamsDefault, graphql_name='paramsDefault')
+    params_exists = sgqlc.types.Field(Boolean, graphql_name='paramsExists')
+    register_params = sgqlc.types.Field(Boolean, graphql_name='registerParams')
+    show_detail = sgqlc.types.Field(Boolean, graphql_name='showDetail')
+
+
+class ErpTaskTemplateProductOutput(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('register_product_output',)
+    register_product_output = sgqlc.types.Field(Boolean, graphql_name='registerProductOutput')
+
+
+class ErpTaskTemplateSupplement(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('editable', 'exists', 'stock_logic')
+    editable = sgqlc.types.Field(Boolean, graphql_name='editable')
+    exists = sgqlc.types.Field(Boolean, graphql_name='exists')
+    stock_logic = sgqlc.types.Field(ErpTaskTemplateOperator, graphql_name='stockLogic')
+
+
+class ErpTaskTemplateThing(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('choice', 'default', 'editable', 'exists', 'multiple', 'style')
+    choice = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessThing)), graphql_name='choice')
+    default = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessThing)), graphql_name='default')
+    editable = sgqlc.types.Field(Boolean, graphql_name='editable')
+    exists = sgqlc.types.Field(Boolean, graphql_name='exists')
+    multiple = sgqlc.types.Field(Boolean, graphql_name='multiple')
+    style = sgqlc.types.Field(ErpTaskTemplateThingStyle, graphql_name='style')
+
+
+class ErpTaskWorkReport(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('add_batch_no', 'add_number', 'created_at', 'created_by', 'custom_data', 'id', 'is_add', 'is_my_position', 'material', 'operator', 'output', 'process_params', 'status', 'task', 'thing', 'work_report')
+    add_batch_no = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='addBatchNo')
+    add_number = sgqlc.types.Field(Int, graphql_name='addNumber')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    created_by = sgqlc.types.Field('User', graphql_name='createdBy')
+    custom_data = sgqlc.types.Field(JSON, graphql_name='customData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_add = sgqlc.types.Field(Boolean, graphql_name='isAdd')
+    is_my_position = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMyPosition')
+    material = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpTaskWorkReportMaterialDetail')), graphql_name='material')
+    operator = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpPositionUser)), graphql_name='operator')
+    output = sgqlc.types.Field(Float, graphql_name='output')
+    process_params = sgqlc.types.Field(JSON, graphql_name='processParams')
+    status = sgqlc.types.Field(sgqlc.types.non_null(RegisterErpTaskWorkReportOperate), graphql_name='status')
+    task = sgqlc.types.Field(sgqlc.types.non_null(ErpTask), graphql_name='task')
+    thing = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessThing)), graphql_name='thing')
+    work_report = sgqlc.types.Field(JSON, graphql_name='workReport')
+
+
+class ErpTaskWorkReportList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpTaskWorkReport)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpTaskWorkReportMaterialDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('material', 'number')
+    material = sgqlc.types.Field(sgqlc.types.non_null(BomMaterial), graphql_name='material')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='number')
+
+
+class ErpTechnique(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('bom_material', 'created_at', 'id', 'is_mine', 'name', 'preset', 'product', 'updated_at')
+    bom_material = sgqlc.types.Field(BomMaterial, graphql_name='bomMaterial')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    preset = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='preset')
+    product = sgqlc.types.Field(Bom, graphql_name='product')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+
+
+class ErpTechniqueList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpTechnique)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpTechniquePresetTask(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('description', 'duration', 'parameter', 'preset', 'product', 'production_attachment', 'task_attachment', 'task_template', 'work_report')
+    description = sgqlc.types.Field(String, graphql_name='description')
+    duration = sgqlc.types.Field(Int, graphql_name='duration')
+    parameter = sgqlc.types.Field(JSON, graphql_name='parameter')
+    preset = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='preset')
+    product = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(BomMaterial)), graphql_name='product')
+    production_attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('File')), graphql_name='productionAttachment')
+    task_attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('File')), graphql_name='taskAttachment')
+    task_template = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskTemplate), graphql_name='taskTemplate')
+    work_report = sgqlc.types.Field(JSON, graphql_name='workReport')
+
+
+class ErpTechniqueProcessTime(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'workflow')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpTechniqueProcessTimeDetail')), graphql_name='data')
+    workflow = sgqlc.types.Field(ErpProductionWorkflow, graphql_name='workflow')
+
+
+class ErpTechniqueProcessTimeDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('duration', 'prepare_time', 'process')
+    duration = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='duration')
+    prepare_time = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='prepareTime')
+    process = sgqlc.types.Field(sgqlc.types.non_null(ErpProcess), graphql_name='process')
+
+
+class ErpThing(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'is_mine', 'thing')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMine')
+    thing = sgqlc.types.Field(sgqlc.types.non_null('Thing'), graphql_name='thing')
+
+
+class ErpThingList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpThing)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpVisit(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'assigned', 'attachment', 'canceled_at', 'city', 'contact', 'country', 'county', 'created_at', 'customer', 'detail', 'due_at', 'end_at', 'id', 'is_mine', 'logged_at', 'manager', 'no', 'phone', 'province', 'purpose', 'remark', 'start_at', 'status', 'type', 'updated_at')
+    address = sgqlc.types.Field(String, graphql_name='address')
+    assigned = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='assigned')
+    attachment = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('File')), graphql_name='attachment')
+    canceled_at = sgqlc.types.Field(Timestamp, graphql_name='canceledAt')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    contact = sgqlc.types.Field(String, graphql_name='contact')
+    country = sgqlc.types.Field(String, graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    customer = sgqlc.types.Field(Customer, graphql_name='customer')
+    detail = sgqlc.types.Field(String, graphql_name='detail')
+    due_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='dueAt')
+    end_at = sgqlc.types.Field(Timestamp, graphql_name='endAt')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    logged_at = sgqlc.types.Field(Timestamp, graphql_name='loggedAt')
+    manager = sgqlc.types.Field('Manager', graphql_name='manager')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    phone = sgqlc.types.Field(String, graphql_name='phone')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    purpose = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpVisitPurpose))), graphql_name='purpose')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    start_at = sgqlc.types.Field(Timestamp, graphql_name='startAt')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ErpVisitStatus), graphql_name='status')
+    type = sgqlc.types.Field(ErpVisitType, graphql_name='type')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+
+
+class ErpVisitList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpVisit)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpVisitTotalByManager(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpVisitTotalByManagerDetail')), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpVisitTotalByManagerDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('complete_rate', 'completed', 'expired', 'manager', 'todo', 'total', 'uncompleted')
+    complete_rate = sgqlc.types.Field(Float, graphql_name='completeRate')
+    completed = sgqlc.types.Field(Int, graphql_name='completed')
+    expired = sgqlc.types.Field(Int, graphql_name='expired')
+    manager = sgqlc.types.Field(sgqlc.types.non_null('Manager'), graphql_name='manager')
+    todo = sgqlc.types.Field(Int, graphql_name='todo')
+    total = sgqlc.types.Field(Int, graphql_name='total')
+    uncompleted = sgqlc.types.Field(Int, graphql_name='uncompleted')
+
+
+class ErpVisitTransferByManager(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpVisitTransferByManagerDetail')), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpVisitTransferByManagerDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('increment', 'manager', 'rate', 'transfer')
+    increment = sgqlc.types.Field(Int, graphql_name='increment')
+    manager = sgqlc.types.Field(sgqlc.types.non_null('Manager'), graphql_name='manager')
+    rate = sgqlc.types.Field(Float, graphql_name='rate')
+    transfer = sgqlc.types.Field(Int, graphql_name='transfer')
+
+
+class ErpWarehouse(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('address', 'city', 'country', 'county', 'created_at', 'id', 'name', 'no', 'province', 'remark', 'type')
+    address = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='address')
+    city = sgqlc.types.Field(String, graphql_name='city')
+    country = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='country')
+    county = sgqlc.types.Field(String, graphql_name='county')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    province = sgqlc.types.Field(String, graphql_name='province')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    type = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseType'), graphql_name='type')
+
+
+class ErpWarehouseDailyReportDetail(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('issue', 'oh', 'plan', 'timestamp')
+    issue = sgqlc.types.Field(Float, graphql_name='issue')
+    oh = sgqlc.types.Field(Float, graphql_name='oh')
+    plan = sgqlc.types.Field(Float, graphql_name='plan')
+    timestamp = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='timestamp')
+
+
+class ErpWarehouseItem(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'code', 'id', 'is_mine', 'is_operate', 'is_valid', 'name', 'no', 'remark', 'specification', 'subcategory', 'unit', 'updated_at', 'warehouse')
+    category = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseItemCategory'), graphql_name='category')
+    code = sgqlc.types.Field(String, graphql_name='code')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    is_operate = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isOperate')
+    is_valid = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isValid')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    no = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='no')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    specification = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='specification')
+    subcategory = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseItemCategory'), graphql_name='subcategory')
+    unit = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='unit')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+    warehouse = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpWarehouse)), graphql_name='warehouse')
+
+
+class ErpWarehouseItemCategory(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'sub')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    sub = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('ErpWarehouseItemSubcategory')), graphql_name='sub')
+
+
+class ErpWarehouseItemList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpWarehouseItem)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpWarehouseItemReceiveInfo(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('batch', 'warehouse_location_info')
+    batch = sgqlc.types.Field(String, graphql_name='batch')
+    warehouse_location_info = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ErpWarehouseLocationInfo'))), graphql_name='warehouseLocationInfo')
+
+
+class ErpWarehouseItemSafeStock(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('item', 'safe_stock')
+    item = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseItem), graphql_name='item')
+    safe_stock = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpSafeStock))), graphql_name='safeStock')
+
+
+class ErpWarehouseItemSafeStockList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpWarehouseItemSafeStock)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpWarehouseItemStock(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('al_total_count', 'item', 'item_inventory', 'oh_total_count')
+    al_total_count = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='alTotalCount')
+    item = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseItem), graphql_name='item')
+    item_inventory = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ItemInventory'))), graphql_name='itemInventory')
+    oh_total_count = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='ohTotalCount')
+
+
+class ErpWarehouseItemStockList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(ErpWarehouseItemStock)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpWarehouseItemSubcategory(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpWarehouseList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpWarehouse)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpWarehouseLocation(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('column', 'id', 'layer', 'row', 'zone')
+    column = sgqlc.types.Field(Int, graphql_name='column')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    layer = sgqlc.types.Field(Int, graphql_name='layer')
+    row = sgqlc.types.Field(Int, graphql_name='row')
+    zone = sgqlc.types.Field(sgqlc.types.non_null('ErpWarehouseZone'), graphql_name='zone')
+
+
+class ErpWarehouseLocationInfo(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('number', 'warehouse_location')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='number')
+    warehouse_location = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseLocation), graphql_name='warehouseLocation')
+
+
+class ErpWarehouseType(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ErpWarehouseUser(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('created_at', 'id', 'user', 'warehouse')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    id = sgqlc.types.Field(ID, graphql_name='id')
+    user = sgqlc.types.Field(sgqlc.types.non_null('User'), graphql_name='user')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpWarehouse))), graphql_name='warehouse')
+
+
+class ErpWarehouseUserList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpWarehouseUser)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpWarehouseZone(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('column_max', 'column_min', 'created_at', 'id', 'layer_max', 'layer_min', 'name', 'remark', 'row_max', 'row_min', 'warehouse')
+    column_max = sgqlc.types.Field(Int, graphql_name='columnMax')
+    column_min = sgqlc.types.Field(Int, graphql_name='columnMin')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    layer_max = sgqlc.types.Field(Int, graphql_name='layerMax')
+    layer_min = sgqlc.types.Field(Int, graphql_name='layerMin')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    remark = sgqlc.types.Field(String, graphql_name='remark')
+    row_max = sgqlc.types.Field(Int, graphql_name='rowMax')
+    row_min = sgqlc.types.Field(Int, graphql_name='rowMin')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouse), graphql_name='warehouse')
+
+
+class ErpWarehouseZoneList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpWarehouseZone)), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpWorkflowList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpProductionWorkflow))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ErpWorkshop(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'is_mine', 'thing_group')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMine')
+    thing_group = sgqlc.types.Field(sgqlc.types.non_null('ThingGroup'), graphql_name='thingGroup')
+
+
+class EthernetChannel(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('ip', 'port', 'slave_id')
+    ip = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='ip')
+    port = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='port')
+    slave_id = sgqlc.types.Field(Int, graphql_name='slaveId')
+
+
 class EvasionDate(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('end_date', 'id', 'name', 'start_date')
@@ -5854,6 +11183,13 @@ class GroupFile(sgqlc.types.Type):
     file = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(EamFile))), graphql_name='file')
     is_complete_file = sgqlc.types.Field(Boolean, graphql_name='isCompleteFile')
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class HistoryData(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'timestamp')
+    data = sgqlc.types.Field(JSONString, graphql_name='data')
+    timestamp = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='timestamp')
 
 
 class Image(sgqlc.types.Type):
@@ -5925,6 +11261,120 @@ class InspectionProcessItem(sgqlc.types.Type):
     remark = sgqlc.types.Field(String, graphql_name='remark')
 
 
+class ItemInventory(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('al', 'oh', 'warehouse')
+    al = sgqlc.types.Field(Float, graphql_name='al')
+    oh = sgqlc.types.Field(Float, graphql_name='oh')
+    warehouse = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouse), graphql_name='warehouse')
+
+
+class JunyeAlarmDistribution(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('number', 'reason')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='number')
+    reason = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='reason')
+
+
+class JunyeAnnualPlan(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('actual_count', 'scheduled_count')
+    actual_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='actualCount')
+    scheduled_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='scheduledCount')
+
+
+class JunyeAnnualRevenue(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('earning', 'order_count', 'year')
+    earning = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='earning')
+    order_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='orderCount')
+    year = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='year')
+
+
+class JunyeBusinessSituation(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('annual_revenue', 'customer_constitute')
+    annual_revenue = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(JunyeAnnualRevenue))), graphql_name='annualRevenue')
+    customer_constitute = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('JunyeCustomerConstitute'))), graphql_name='customerConstitute')
+
+
+class JunyeCustomerConstitute(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('kind', 'number')
+    kind = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='kind')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='number')
+
+
+class JunyeDailyIO(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('actual_count', 'date', 'scheduled_count')
+    actual_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='actualCount')
+    date = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='date')
+    scheduled_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='scheduledCount')
+
+
+class JunyeEnergyConsumption(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('date', 'electricity', 'gas', 'water')
+    date = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='date')
+    electricity = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='electricity')
+    gas = sgqlc.types.Field(Int, graphql_name='gas')
+    water = sgqlc.types.Field(Int, graphql_name='water')
+
+
+class JunyeMaterialManagement(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('product_receipt', 'purchase_receipt', 'requisition')
+    product_receipt = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(JunyeDailyIO))), graphql_name='productReceipt')
+    purchase_receipt = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(JunyeDailyIO))), graphql_name='purchaseReceipt')
+    requisition = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(JunyeDailyIO))), graphql_name='requisition')
+
+
+class JunyeMetricData(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('kind', 'name', 'unit', 'value')
+    kind = sgqlc.types.Field(sgqlc.types.non_null(JunyeMetricKind), graphql_name='kind')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    unit = sgqlc.types.Field(sgqlc.types.non_null(JunyeMetricUnit), graphql_name='unit')
+    value = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='value')
+
+
+class JunyeProductDelivery(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('actual_count', 'product', 'scheduled_count')
+    actual_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='actualCount')
+    product = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='product')
+    scheduled_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='scheduledCount')
+
+
+class JunyeProductionPlan(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('annual_plan', 'product_delivery')
+    annual_plan = sgqlc.types.Field(sgqlc.types.non_null(JunyeAnnualPlan), graphql_name='annualPlan')
+    product_delivery = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(JunyeProductDelivery))), graphql_name='productDelivery')
+
+
+class JunyeThingStatusDistribution(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('number', 'status')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='number')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ThingStatusType), graphql_name='status')
+
+
+class JunyeThingType(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class JunyeThingTypeDistribution(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('number', 'thing_type')
+    number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='number')
+    thing_type = sgqlc.types.Field(sgqlc.types.non_null(JunyeThingType), graphql_name='thingType')
+
+
 class Log(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('account', 'action', 'app', 'code', 'details', 'feature', 'id', 'ip', 'location', 'occurred_at', 'payload', 'tenant_id')
@@ -5987,6 +11437,53 @@ class MaintenanceSparePartItem(sgqlc.types.Type):
     quantity = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='quantity')
     spare_part = sgqlc.types.Field(sgqlc.types.non_null('SparePart'), graphql_name='sparePart')
     spare_part_outbound = sgqlc.types.Field(sgqlc.types.non_null('SparePartOutbound'), graphql_name='sparePartOutbound')
+
+
+class Manager(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('created_at', 'customer_count', 'id', 'is_mine', 'updated_at', 'user')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    customer_count = sgqlc.types.Field(Int, graphql_name='customerCount')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_mine = sgqlc.types.Field(Boolean, graphql_name='isMine')
+    updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
+    user = sgqlc.types.Field('User', graphql_name='user')
+
+
+class Material(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('category', 'code', 'field_data', 'id', 'name', 'property', 'specification', 'unit', 'versions')
+    category = sgqlc.types.Field('MaterialCategory', graphql_name='category')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    field_data = sgqlc.types.Field(JSON, graphql_name='fieldData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    property = sgqlc.types.Field(sgqlc.types.non_null(MaterialProperty), graphql_name='property')
+    specification = sgqlc.types.Field(String, graphql_name='specification')
+    unit = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='unit')
+    versions = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='versions')
+
+
+class MaterialCategory(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'property')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    property = sgqlc.types.Field(sgqlc.types.non_null(MaterialProperty), graphql_name='property')
+
+
+class MaterialCategoryList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(MaterialCategory))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class MaterialList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Material))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
 
 
 class Menu(sgqlc.types.Type):
@@ -6083,9 +11580,11 @@ class MetaTemplateList(sgqlc.types.Type):
 
 class Mutation(sgqlc.types.Type):
     __schema__ = platform_schema
-    __field_names__ = ('_dummy', '_eam', 'accept_thing_calibrate', 'accept_thing_inspection', 'accept_thing_maintenance', 'accept_thing_repair', 'activate_eam_form', 'active_message_channel', 'add_meta_templates_to_tenant', 'add_thing_borrow_draft', 'add_thing_change_borrow_draft', 'add_thing_transfer_records', 'add_thing_transfer_records_by_code', 'approve_change_borrow', 'approve_thing_calibrate', 'approve_thing_maintenance', 'approve_thing_repair', 'assign_app_permissions', 'assign_tenant_apps', 'bind_my_email', 'cancel_spare_part_claim', 'change_my_password', 'change_my_password_by_email_verification', 'change_my_password_by_verify_code', 'company_login', 'configure_authentication_source_ldap3', 'configure_authentication_source_oauth2', 'configure_authentication_source_open_idconnect1', 'configure_authentication_source_saml2', 'confirm_borrow', 'confirm_borrow_by_thing', 'confirm_return', 'confirm_return_by_thing', 'confirm_spare_part_claim', 'copy_eam_form', 'copy_thing_bar_label', 'create_adapter_key', 'create_app_version', 'create_calibrate_organization', 'create_calibrate_schedule', 'create_change_borrow_approve_configuration', 'create_cockpit_aggregation', 'create_cockpit_key', 'create_company_bidatasource', 'create_company_thing_category_uccfield', 'create_depository', 'create_eam_field', 'create_eam_file', 'create_eam_files', 'create_eam_spare_part_category', 'create_eam_spare_part_warehouse', 'create_energy_group', 'create_enterprise_app', 'create_evasion_date', 'create_factory', 'create_file', 'create_files', 'create_image', 'create_images', 'create_inspection_method', 'create_maintenance_method', 'create_market_file', 'create_market_files', 'create_meta_template', 'create_oauth2_authentication_configuration', 'create_open_idconnect1_authentication_configuration', 'create_organization', 'create_outside_calibrate', 'create_role', 'create_source_key', 'create_spare_part', 'create_spare_part_claim', 'create_spare_part_outbound', 'create_spare_part_receipt', 'create_spare_part_transfer', 'create_spare_part_usage_record', 'create_spare_part_writeoff', 'create_tenant', 'create_tenant_owner', 'create_thing', 'create_thing_administrator_department', 'create_thing_area', 'create_thing_attachment_type', 'create_thing_bar_label', 'create_thing_borrow', 'create_thing_borrow_approve_configuration', 'create_thing_calibrate', 'create_thing_calibrate_workflow_configuration', 'create_thing_category', 'create_thing_category_uccfield', 'create_thing_change_borrow_by_draft', 'create_thing_complete_file_rule', 'create_thing_group', 'create_thing_inspection', 'create_thing_inspection_workflow_configuration', 'create_thing_inventory_redundant_record', 'create_thing_inventory_ticket', 'create_thing_label', 'create_thing_maintenance', 'create_thing_maintenance_workflow_configuration', 'create_thing_repair', 'create_thing_repair_workflow_configuration', 'create_thing_schedule', 'create_thing_specification_language', 'create_thing_specification_language_property', 'create_thing_status', 'create_thing_type', 'create_thing_ucc', 'create_user', 'deactivate_message_channel', 'debug_adapter_key', 'delete_adapter_keys', 'delete_app_version', 'delete_authentication_configuration', 'delete_calibrate_organization', 'delete_calibrate_schedule', 'delete_change_borrow_approve_configuration', 'delete_cockpit_aggregations', 'delete_cockpit_keys', 'delete_company_bidatasource', 'delete_company_thing_category_uccfield', 'delete_company_thing_specification_language', 'delete_company_thing_type', 'delete_department_thing_groups', 'delete_depository', 'delete_eam_field', 'delete_eam_form', 'delete_eam_spare_part_category', 'delete_eam_spare_part_warehouse', 'delete_energy_groups', 'delete_enterprise_apps', 'delete_evasion_date', 'delete_factory', 'delete_inspection_method', 'delete_maintenance_method', 'delete_message_templates_of_tenant', 'delete_meta_template', 'delete_organization', 'delete_outside_calibrate', 'delete_role', 'delete_source_keys', 'delete_spare_part', 'delete_table_fields_config', 'delete_tenant', 'delete_thing', 'delete_thing_access_config', 'delete_thing_area', 'delete_thing_attachment_type', 'delete_thing_bar_label', 'delete_thing_borrow_approve_configuration', 'delete_thing_borrow_draft_thing', 'delete_thing_calibrate_workflow_configuration', 'delete_thing_category', 'delete_thing_category_uccfield', 'delete_thing_change_borrow_draft_thing', 'delete_thing_complete_file_rule', 'delete_thing_group', 'delete_thing_inspection_workflow_configuration', 'delete_thing_inventory_redundant_record', 'delete_thing_label', 'delete_thing_maintenance_workflow_configuration', 'delete_thing_repair_workflow_configuration', 'delete_thing_schedule', 'delete_thing_specification_language', 'delete_thing_specification_language_property', 'delete_thing_statuses', 'delete_thing_task', 'delete_thing_thing_specification_language', 'delete_thing_types', 'delete_thing_ucc', 'delete_user_thing_groups', 'delete_users', 'disable_tenant', 'disable_users', 'duplicate_uccform_structure', 'enable_tenant', 'enable_users', 'end_thing_inventory_ticket', 'finish_thing_inspection', 'finish_thing_maintenance', 'finish_thing_repair', 'generate_code', 'import_inspection_method', 'import_maintenance_method', 'import_spare_part', 'import_thing', 'import_thing_area', 'import_thing_category', 'import_thing_label', 'import_thing_schedule', 'import_thing_schedule_thing', 'import_thing_spare_part', 'issue_spare_part_claim', 'login', 'login_by_email', 'logout', 'move_things', 'offline_app_version', 'online_app_version', 'operate_spare_part_claim', 'operate_thing_borrow', 'overwrite_message_template', 'pass_thing_inventory_record', 'pause_thing_maintenance', 'pause_thing_repair', 'read_all_inbox_messages', 'read_inbox_messages', 'reject_change_borrow', 'reject_thing_calibrate', 'reject_thing_maintenance', 'reject_thing_repair', 'remove_authorization_rules_of_user', 'remove_calibrate_thing_category', 'remove_thing_administrator_department', 'remove_thing_function_department', 'replace_thing_borrow', 'reset_app_client_secret', 'reset_authentication_source', 'reset_tenant_owner_password', 'reset_user_password', 'restart_thing_inspection', 'restart_thing_maintenance', 'restart_thing_repair', 'save_thing_calibrate', 'save_thing_inspection', 'save_thing_maintenance', 'save_thing_repair', 'send_identity_verify_code_to_email', 'set_admin_users', 'set_authorization_rules_to_role', 'set_authorization_rules_to_user', 'set_calibrate_thing_category', 'set_channel_of_message_templates', 'set_channels_of_message_template', 'set_code_rule_configuration', 'set_company_thing_department_scope', 'set_company_thing_specification_language', 'set_company_thing_type', 'set_department_thing_group', 'set_departments_thing_group', 'set_eam_field_to_eam_form', 'set_eam_form_structure', 'set_eam_form_thing_category', 'set_eam_spare_part_form_structure', 'set_eam_spare_part_warehouse_manager', 'set_outside_calibrate_thing_calibrate', 'set_permissions_to_tenant', 'set_role_thing_category', 'set_single_department_thing_groups', 'set_single_user_thing_groups', 'set_spare_part_stock_configuration', 'set_spare_part_thing', 'set_spare_part_workflow_configuration', 'set_sub_thing', 'set_table_column_setting', 'set_table_fields_config', 'set_table_fixed_fields_config', 'set_thing_access_config', 'set_thing_borrow_range_configuration', 'set_thing_borrow_workflow_configuration', 'set_thing_calibrate', 'set_thing_function_department', 'set_thing_inventory_record', 'set_thing_inventory_record_by_thing', 'set_thing_schedule_thing', 'set_thing_spare_part', 'set_thing_specification_language_thing', 'set_thing_thing_specification_language', 'set_uccform_structure', 'set_uccstack_data', 'set_users_thing_group', 'set_workbench', 'star_app', 'start_thing_inventory_ticket', 'submit_change_borrow', 'submit_thing_borrow', 'submit_thing_calibrate', 'track_thing_inventory_ticket', 'transfer_tenant_owner', 'turn_to_thing_calibrate', 'turn_to_thing_inspection', 'turn_to_thing_maintenance', 'turn_to_thing_repair', 'un_assign_app_permissions', 'un_assign_tenant_apps', 'un_star_app', 'unbind_email_of_users', 'unbind_my_email', 'unset_admin_users', 'update_adapter_key', 'update_app_version', 'update_authorization_rules_of_user', 'update_calibrate_organization', 'update_calibrate_schedule', 'update_change_borrow_approve_configuration', 'update_cockpit_aggregation', 'update_cockpit_key', 'update_company_thing_category_uccfield', 'update_department_thing_administrator', 'update_department_thing_group', 'update_depository', 'update_eam_field', 'update_eam_spare_part_category', 'update_eam_spare_part_warehouse', 'update_energy_group', 'update_energy_time_distribution', 'update_enterprise_app', 'update_evasion_date', 'update_factory', 'update_inspection_method', 'update_maintenance_method', 'update_me', 'update_meta_channel', 'update_meta_template', 'update_oauth2_authentication_configuration', 'update_open_idconnect1_authentication_configuration', 'update_organization', 'update_outside_calibrate', 'update_role', 'update_source_key', 'update_spare_part', 'update_spare_part_claim', 'update_status_of_template', 'update_tenant', 'update_thing', 'update_thing_area', 'update_thing_attachment_type', 'update_thing_bar_label', 'update_thing_borrow', 'update_thing_borrow_approve_configuration', 'update_thing_borrow_draft_thing', 'update_thing_by_code', 'update_thing_calibrate_workflow_configuration', 'update_thing_category', 'update_thing_category_uccfield', 'update_thing_change_borrow_by_draft', 'update_thing_change_borrow_draft_thing', 'update_thing_complete_file_rule', 'update_thing_function_departments', 'update_thing_group', 'update_thing_inspection_workflow_configuration', 'update_thing_inventory_redundant_record', 'update_thing_label', 'update_thing_maintenance_workflow_configuration', 'update_thing_repair_workflow_configuration', 'update_thing_schedule', 'update_thing_specification_language', 'update_thing_specification_language_property', 'update_thing_status', 'update_thing_task', 'update_thing_type', 'update_thing_ucc', 'update_things', 'update_user', 'update_user_thing_group', 'update_workflow_base_configuration', 'use_spare_part_claim', 'visit_app', 'visit_menu', 'writeoff_spare_part_receipt')
+    __field_names__ = ('_dummy', '_eam', '_junye_dummy', '_plm', 'accept_thing_calibrate', 'accept_thing_inspection', 'accept_thing_maintenance', 'accept_thing_repair', 'activate_eam_form', 'active_message_channel', 'add_bom_material', 'add_erp_order_product', 'add_erp_process_thing', 'add_erp_warehouse_item', 'add_meta_templates_to_tenant', 'add_product_task', 'add_project_document', 'add_project_group_member', 'add_thing_borrow_draft', 'add_thing_change_borrow_draft', 'add_thing_transfer_records', 'add_thing_transfer_records_by_code', 'apply_router_template_configuration', 'approve_change_borrow', 'approve_thing_calibrate', 'approve_thing_maintenance', 'approve_thing_repair', 'arrange_erp_production_task', 'assign_app_permissions', 'assign_erp_manager', 'assign_erp_visit', 'assign_tenant_apps', 'batch_create_erp_order', 'batch_dispatch_erp_task', 'bind_my_email', 'cancel_erp_order_ship_notification', 'cancel_erp_sample_order_ship_notification', 'cancel_erp_visit', 'cancel_spare_part_claim', 'change_my_password', 'change_my_password_by_email_verification', 'change_my_password_by_verify_code', 'check_erp_order', 'check_erp_sample_order', 'clear_table_filter_setting', 'company_login', 'configure_authentication_source_ldap3', 'configure_authentication_source_oauth2', 'configure_authentication_source_open_idconnect1', 'configure_authentication_source_saml2', 'confirm_borrow', 'confirm_borrow_by_thing', 'confirm_erp_order_payment', 'confirm_erp_order_production', 'confirm_erp_order_ship', 'confirm_erp_sample_order_payment', 'confirm_erp_sample_order_production', 'confirm_erp_sample_order_ship', 'confirm_return', 'confirm_return_by_thing', 'confirm_spare_part_claim', 'copy_eam_form', 'copy_erp_production_workflow', 'copy_thing_bar_label', 'create_adapter_key', 'create_app_version', 'create_calibrate_organization', 'create_calibrate_schedule', 'create_change_borrow_approve_configuration', 'create_cockpit_aggregation', 'create_cockpit_key', 'create_company_bidatasource', 'create_company_thing_category_uccfield', 'create_depository', 'create_device_channel_configuration', 'create_eam_field', 'create_eam_file', 'create_eam_files', 'create_eam_spare_part_category', 'create_eam_spare_part_warehouse', 'create_edm_file', 'create_edm_files', 'create_energy_group', 'create_enterprise_app', 'create_erp_customer', 'create_erp_department', 'create_erp_file', 'create_erp_files', 'create_erp_manager', 'create_erp_material', 'create_erp_order', 'create_erp_order_check_config', 'create_erp_order_product', 'create_erp_position', 'create_erp_position_user', 'create_erp_process', 'create_erp_production_planning', 'create_erp_production_workflow', 'create_erp_sale_plan', 'create_erp_sample_order', 'create_erp_sample_order_check_config', 'create_erp_schedule', 'create_erp_task_template', 'create_erp_technique', 'create_erp_thing', 'create_erp_visit', 'create_erp_warehouse', 'create_erp_warehouse_item', 'create_erp_warehouse_item_category', 'create_erp_warehouse_type', 'create_erp_warehouse_user', 'create_erp_warehouse_zone', 'create_erp_workshop', 'create_evasion_date', 'create_factory', 'create_file', 'create_files', 'create_image', 'create_images', 'create_inspection_method', 'create_maintenance_method', 'create_market_file', 'create_market_files', 'create_material', 'create_material_category', 'create_meta_template', 'create_oauth2_authentication_configuration', 'create_open_idconnect1_authentication_configuration', 'create_organization', 'create_outside_calibrate', 'create_plm_file', 'create_plm_files', 'create_product_flow', 'create_product_project', 'create_project_group', 'create_role', 'create_router', 'create_router_template_configuration', 'create_source_key', 'create_spare_part', 'create_spare_part_claim', 'create_spare_part_outbound', 'create_spare_part_receipt', 'create_spare_part_transfer', 'create_spare_part_usage_record', 'create_spare_part_writeoff', 'create_task_bom', 'create_tenant', 'create_tenant_owner', 'create_thing', 'create_thing_administrator_department', 'create_thing_area', 'create_thing_attachment_type', 'create_thing_bar_label', 'create_thing_borrow', 'create_thing_borrow_approve_configuration', 'create_thing_calibrate', 'create_thing_calibrate_workflow_configuration', 'create_thing_category', 'create_thing_category_uccfield', 'create_thing_change_borrow_by_draft', 'create_thing_complete_file_rule', 'create_thing_group', 'create_thing_inspection', 'create_thing_inspection_workflow_configuration', 'create_thing_inventory_redundant_record', 'create_thing_inventory_ticket', 'create_thing_label', 'create_thing_maintenance', 'create_thing_maintenance_workflow_configuration', 'create_thing_repair', 'create_thing_repair_workflow_configuration', 'create_thing_schedule', 'create_thing_specification_language', 'create_thing_specification_language_property', 'create_thing_status', 'create_thing_type', 'create_thing_ucc', 'create_user', 'deactivate_message_channel', 'debug_adapter_key', 'delete_adapter_keys', 'delete_app_version', 'delete_authentication_configuration', 'delete_bom', 'delete_calibrate_organization', 'delete_calibrate_schedule', 'delete_change_borrow_approve_configuration', 'delete_cockpit_aggregations', 'delete_cockpit_keys', 'delete_company_bidatasource', 'delete_company_thing_category_uccfield', 'delete_company_thing_specification_language', 'delete_company_thing_type', 'delete_department_thing_groups', 'delete_depository', 'delete_device_channel_configuration', 'delete_eam_field', 'delete_eam_form', 'delete_eam_spare_part_category', 'delete_eam_spare_part_warehouse', 'delete_energy_groups', 'delete_enterprise_apps', 'delete_erp_customer', 'delete_erp_department', 'delete_erp_manager', 'delete_erp_material', 'delete_erp_month_plan', 'delete_erp_order', 'delete_erp_order_check_config', 'delete_erp_order_product', 'delete_erp_position', 'delete_erp_position_user', 'delete_erp_process', 'delete_erp_process_thing', 'delete_erp_production_planning', 'delete_erp_production_task', 'delete_erp_production_workflow', 'delete_erp_sample_order', 'delete_erp_sample_order_check_config', 'delete_erp_schedule', 'delete_erp_task_template', 'delete_erp_technique', 'delete_erp_thing', 'delete_erp_warehouse', 'delete_erp_warehouse_item', 'delete_erp_warehouse_item_category', 'delete_erp_warehouse_type', 'delete_erp_warehouse_user', 'delete_erp_warehouse_zone', 'delete_erp_workshop', 'delete_evasion_date', 'delete_factory', 'delete_inspection_method', 'delete_maintenance_method', 'delete_material', 'delete_material_category', 'delete_message_templates_of_tenant', 'delete_meta_template', 'delete_organization', 'delete_outside_calibrate', 'delete_product_flow', 'delete_project_group', 'delete_role', 'delete_router', 'delete_router_template_configuration', 'delete_source_keys', 'delete_spare_part', 'delete_table_fields_config', 'delete_tenant', 'delete_thing', 'delete_thing_access_config', 'delete_thing_area', 'delete_thing_attachment_type', 'delete_thing_bar_label', 'delete_thing_borrow_approve_configuration', 'delete_thing_borrow_draft_thing', 'delete_thing_calibrate_workflow_configuration', 'delete_thing_category', 'delete_thing_category_uccfield', 'delete_thing_change_borrow_draft_thing', 'delete_thing_complete_file_rule', 'delete_thing_group', 'delete_thing_inspection_workflow_configuration', 'delete_thing_inventory_redundant_record', 'delete_thing_label', 'delete_thing_maintenance_workflow_configuration', 'delete_thing_repair_workflow_configuration', 'delete_thing_schedule', 'delete_thing_specification_language', 'delete_thing_specification_language_property', 'delete_thing_statuses', 'delete_thing_task', 'delete_thing_thing_specification_language', 'delete_thing_types', 'delete_thing_ucc', 'delete_user_thing_groups', 'delete_users', 'disable_tenant', 'disable_users', 'dispatch_erp_task', 'drag_erp_process', 'duplicate_uccform_structure', 'enable_tenant', 'enable_users', 'end_product_project', 'end_thing_inventory_ticket', 'erp_mock_task', 'finish_erp_order_production', 'finish_erp_order_shipment', 'finish_erp_sample_order_production', 'finish_erp_sample_order_shipment', 'finish_thing_inspection', 'finish_thing_maintenance', 'finish_thing_repair', 'generate_code', 'import_erp_customer', 'import_erp_material', 'import_erp_month_plan', 'import_erp_product', 'import_erp_warehouse_item', 'import_inspection_method', 'import_maintenance_method', 'import_router', 'import_spare_part', 'import_thing', 'import_thing_area', 'import_thing_category', 'import_thing_label', 'import_thing_schedule', 'import_thing_schedule_thing', 'import_thing_spare_part', 'issue_spare_part_claim', 'junye_flush_metric', 'log_erp_visit', 'login', 'login_by_email', 'logout', 'manual_create_erp_production_task', 'manual_erp_issue', 'manual_erp_receive', 'merge_erp_task', 'move_things', 'offline_app_version', 'online_app_version', 'operate_spare_part_claim', 'operate_thing_borrow', 'overwrite_message_template', 'pass_thing_inventory_record', 'pause_thing_maintenance', 'pause_thing_repair', 'read_all_inbox_messages', 'read_inbox_messages', 'redispatch_erp_task', 'register_erp_issue', 'register_erp_receive', 'register_erp_task_work_report', 'reject_change_borrow', 'reject_thing_calibrate', 'reject_thing_maintenance', 'reject_thing_repair', 'remove_authorization_rules_of_user', 'remove_bom_material', 'remove_calibrate_thing_category', 'remove_project_document', 'remove_project_group_member', 'remove_thing_administrator_department', 'remove_thing_function_department', 'replace_thing_borrow', 'reset_app_client_secret', 'reset_authentication_source', 'reset_tenant_owner_password', 'reset_user_password', 'restart_thing_inspection', 'restart_thing_maintenance', 'restart_thing_repair', 'save_thing_calibrate', 'save_thing_inspection', 'save_thing_maintenance', 'save_thing_repair', 'send_identity_verify_code_to_email', 'set_admin_users', 'set_authorization_rules_to_role', 'set_authorization_rules_to_user', 'set_calibrate_thing_category', 'set_channel_of_message_templates', 'set_channels_of_message_template', 'set_code_rule_configuration', 'set_company_thing_department_scope', 'set_company_thing_specification_language', 'set_company_thing_type', 'set_default_filter_setting', 'set_department_thing_group', 'set_departments_thing_group', 'set_eam_field_to_eam_form', 'set_eam_form_structure', 'set_eam_form_thing_category', 'set_eam_spare_part_form_structure', 'set_eam_spare_part_warehouse_manager', 'set_erp_auto_register_config', 'set_erp_customer', 'set_erp_daily_report', 'set_erp_position_user', 'set_erp_production_workflow_chart', 'set_erp_task_dispatch_config', 'set_erp_technique_preset_task', 'set_erp_technique_process_time', 'set_erp_warehouse', 'set_erp_warehouse_item_category', 'set_erp_warehouse_item_safe_stock', 'set_erp_warehouse_type', 'set_outside_calibrate_thing_calibrate', 'set_permissions_to_tenant', 'set_project_product', 'set_role_thing_category', 'set_single_department_thing_groups', 'set_single_user_thing_groups', 'set_spare_part_stock_configuration', 'set_spare_part_thing', 'set_spare_part_workflow_configuration', 'set_stared_pages', 'set_sub_thing', 'set_table_column_setting', 'set_table_fields_config', 'set_table_filter_setting', 'set_table_fixed_fields_config', 'set_thing_access_config', 'set_thing_borrow_range_configuration', 'set_thing_borrow_workflow_configuration', 'set_thing_calibrate', 'set_thing_function_department', 'set_thing_inventory_record', 'set_thing_inventory_record_by_thing', 'set_thing_schedule_thing', 'set_thing_spare_part', 'set_thing_specification_language_thing', 'set_thing_thing_specification_language', 'set_uccform_structure', 'set_uccform_with_auto_register', 'set_uccstack_data', 'set_users_thing_group', 'set_workbench', 'star_app', 'star_pages', 'start_product_project', 'start_thing_inventory_ticket', 'submit_change_borrow', 'submit_thing_borrow', 'submit_thing_calibrate', 'track_thing_inventory_ticket', 'transfer_erp_order_production_notification', 'transfer_erp_order_ship_notification', 'transfer_erp_sample_order_production_notification', 'transfer_erp_sample_order_ship_notification', 'transfer_tenant_owner', 'turn_to_thing_calibrate', 'turn_to_thing_inspection', 'turn_to_thing_maintenance', 'turn_to_thing_repair', 'un_assign_app_permissions', 'un_assign_tenant_apps', 'un_star_app', 'un_star_pages', 'unbind_email_of_users', 'unbind_my_email', 'unset_admin_users', 'update_adapter_key', 'update_app_version', 'update_authorization_rules_of_user', 'update_bom', 'update_bom_material', 'update_calibrate_organization', 'update_calibrate_schedule', 'update_change_borrow_approve_configuration', 'update_cockpit_aggregation', 'update_cockpit_key', 'update_company_thing_category_uccfield', 'update_department_thing_administrator', 'update_department_thing_group', 'update_depository', 'update_device_channel_configuration', 'update_eam_field', 'update_eam_spare_part_category', 'update_eam_spare_part_warehouse', 'update_energy_group', 'update_energy_time_distribution', 'update_enterprise_app', 'update_erp_department', 'update_erp_issue_log', 'update_erp_material', 'update_erp_material_inventory', 'update_erp_month_plan', 'update_erp_order', 'update_erp_order_check_config', 'update_erp_order_product', 'update_erp_position', 'update_erp_process', 'update_erp_process_thing', 'update_erp_production', 'update_erp_production_planning', 'update_erp_production_task', 'update_erp_production_task_status', 'update_erp_production_workflow', 'update_erp_receive_log', 'update_erp_sample_order', 'update_erp_sample_order_check_config', 'update_erp_schedule', 'update_erp_schedule_process_time', 'update_erp_task', 'update_erp_task_status', 'update_erp_task_template', 'update_erp_task_work_report', 'update_erp_warehouse', 'update_erp_warehouse_item', 'update_erp_warehouse_item_category', 'update_erp_warehouse_type', 'update_erp_warehouse_user', 'update_erp_warehouse_zone', 'update_evasion_date', 'update_factory', 'update_inspection_method', 'update_maintenance_method', 'update_material', 'update_material_category', 'update_me', 'update_meta_channel', 'update_meta_template', 'update_oauth2_authentication_configuration', 'update_open_idconnect1_authentication_configuration', 'update_organization', 'update_outside_calibrate', 'update_product_flow', 'update_product_task', 'update_project_document', 'update_project_group', 'update_role', 'update_router', 'update_router_alarm_records', 'update_router_template_configuration', 'update_routers_alarm_rules', 'update_source_key', 'update_spare_part', 'update_spare_part_claim', 'update_status_of_template', 'update_tenant', 'update_thing', 'update_thing_area', 'update_thing_attachment_type', 'update_thing_bar_label', 'update_thing_borrow', 'update_thing_borrow_approve_configuration', 'update_thing_borrow_draft_thing', 'update_thing_by_code', 'update_thing_calibrate_workflow_configuration', 'update_thing_category', 'update_thing_category_uccfield', 'update_thing_change_borrow_by_draft', 'update_thing_change_borrow_draft_thing', 'update_thing_complete_file_rule', 'update_thing_function_departments', 'update_thing_group', 'update_thing_inspection_workflow_configuration', 'update_thing_inventory_redundant_record', 'update_thing_label', 'update_thing_maintenance_workflow_configuration', 'update_thing_repair_workflow_configuration', 'update_thing_schedule', 'update_thing_specification_language', 'update_thing_specification_language_property', 'update_thing_status', 'update_thing_task', 'update_thing_type', 'update_thing_ucc', 'update_things', 'update_user', 'update_user_thing_group', 'update_workflow_base_configuration', 'use_spare_part_claim', 'visit_app', 'visit_menu', 'writeoff_spare_part_receipt')
     _dummy = sgqlc.types.Field(Boolean, graphql_name='_dummy')
     _eam = sgqlc.types.Field(Boolean, graphql_name='_eam')
+    _junye_dummy = sgqlc.types.Field(Boolean, graphql_name='_junyeDummy')
+    _plm = sgqlc.types.Field(Boolean, graphql_name='_plm')
     accept_thing_calibrate = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='acceptThingCalibrate', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
 ))
@@ -6110,9 +11609,37 @@ class Mutation(sgqlc.types.Type):
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='id', default=None)),
 ))
     )
+    add_bom_material = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='addBomMaterial', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(AddBomMaterialInput), graphql_name='input', default=None)),
+))
+    )
+    add_erp_order_product = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='addErpOrderProduct', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(AddErpOrderProductInput))), graphql_name='input', default=None)),
+))
+    )
+    add_erp_process_thing = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='addErpProcessThing', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(AddErpProcessThingInput), graphql_name='input', default=None)),
+))
+    )
+    add_erp_warehouse_item = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='addErpWarehouseItem', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(AddErpWarehouseItemInput), graphql_name='input', default=None)),
+))
+    )
     add_meta_templates_to_tenant = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='addMetaTemplatesToTenant', args=sgqlc.types.ArgDict((
         ('ids', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='ids', default=None)),
         ('tenant_id', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='tenantId', default=None)),
+))
+    )
+    add_product_task = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='addProductTask', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(AddProductTaskInput), graphql_name='input', default=None)),
+))
+    )
+    add_project_document = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='addProjectDocument', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(AddProjectDocumentInput), graphql_name='input', default=None)),
+))
+    )
+    add_project_group_member = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='addProjectGroupMember', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(AddProjectGroupMemberInput), graphql_name='input', default=None)),
 ))
     )
     add_thing_borrow_draft = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='addThingBorrowDraft', args=sgqlc.types.ArgDict((
@@ -6131,6 +11658,10 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(AddThingTransferRecordByCodeInput), graphql_name='input', default=None)),
 ))
     )
+    apply_router_template_configuration = sgqlc.types.Field(sgqlc.types.non_null(ApplyRouterTemplateConfigurationResult), graphql_name='applyRouterTemplateConfiguration', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(ApplyRouterTemplateConfigurationInput), graphql_name='input', default=None)),
+))
+    )
     approve_change_borrow = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='approveChangeBorrow', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(ApproveChangeBorrowInput), graphql_name='input', default=None)),
 ))
@@ -6147,16 +11678,48 @@ class Mutation(sgqlc.types.Type):
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
 ))
     )
+    arrange_erp_production_task = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='arrangeErpProductionTask', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(ArrangeErpProductionTaskInput), graphql_name='input', default=None)),
+))
+    )
     assign_app_permissions = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='assignAppPermissions', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(AssignAppPermissionsInput), graphql_name='input', default=None)),
+))
+    )
+    assign_erp_manager = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='assignErpManager', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(AssignErpManagerInput), graphql_name='input', default=None)),
+))
+    )
+    assign_erp_visit = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='assignErpVisit', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(AssignErpVisitInput), graphql_name='input', default=None)),
 ))
     )
     assign_tenant_apps = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='assignTenantApps', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(AssignTenantAppsInput), graphql_name='input', default=None)),
 ))
     )
+    batch_create_erp_order = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='batchCreateErpOrder', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(CreateErpOrderInput)), graphql_name='input', default=None)),
+))
+    )
+    batch_dispatch_erp_task = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='batchDispatchErpTask', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(Int)), graphql_name='id', default=None)),
+))
+    )
     bind_my_email = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='bindMyEmail', args=sgqlc.types.ArgDict((
         ('verify_code', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='verifyCode', default=None)),
+))
+    )
+    cancel_erp_order_ship_notification = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='cancelErpOrderShipNotification', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    cancel_erp_sample_order_ship_notification = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='cancelErpSampleOrderShipNotification', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    cancel_erp_visit = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='cancelErpVisit', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
 ))
     )
     cancel_spare_part_claim = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='cancelSparePartClaim', args=sgqlc.types.ArgDict((
@@ -6173,6 +11736,18 @@ class Mutation(sgqlc.types.Type):
     )
     change_my_password_by_verify_code = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='changeMyPasswordByVerifyCode', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(ChangeMyPasswordByVerifyCodeInput), graphql_name='input', default=None)),
+))
+    )
+    check_erp_order = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='checkErpOrder', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CheckErpOrderInput), graphql_name='input', default=None)),
+))
+    )
+    check_erp_sample_order = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='checkErpSampleOrder', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CheckErpSampleOrderInput), graphql_name='input', default=None)),
+))
+    )
+    clear_table_filter_setting = sgqlc.types.Field(Void, graphql_name='clearTableFilterSetting', args=sgqlc.types.ArgDict((
+        ('table', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='table', default=None)),
 ))
     )
     company_login = sgqlc.types.Field(sgqlc.types.non_null(AuthInfo), graphql_name='companyLogin', args=sgqlc.types.ArgDict((
@@ -6203,6 +11778,30 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(ConfirmBorrowByThingInput), graphql_name='input', default=None)),
 ))
     )
+    confirm_erp_order_payment = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='confirmErpOrderPayment', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(ConfirmErpOrderPaymentInput), graphql_name='input', default=None)),
+))
+    )
+    confirm_erp_order_production = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='confirmErpOrderProduction', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(ConfirmErpOrderProductionInput), graphql_name='input', default=None)),
+))
+    )
+    confirm_erp_order_ship = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='confirmErpOrderShip', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(ConfirmErpOrderShipInput), graphql_name='input', default=None)),
+))
+    )
+    confirm_erp_sample_order_payment = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='confirmErpSampleOrderPayment', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(ConfirmErpSampleOrderPaymentInput), graphql_name='input', default=None)),
+))
+    )
+    confirm_erp_sample_order_production = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='confirmErpSampleOrderProduction', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(ConfirmErpSampleOrderProductionInput), graphql_name='input', default=None)),
+))
+    )
+    confirm_erp_sample_order_ship = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='confirmErpSampleOrderShip', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(ConfirmErpSampleOrderShipInput), graphql_name='input', default=None)),
+))
+    )
     confirm_return = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='confirmReturn', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(ConfirmReturnInput), graphql_name='input', default=None)),
 ))
@@ -6217,6 +11816,10 @@ class Mutation(sgqlc.types.Type):
     )
     copy_eam_form = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='copyEamForm', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    copy_erp_production_workflow = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='copyErpProductionWorkflow', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CopyErpProductionWorkflowInput), graphql_name='input', default=None)),
 ))
     )
     copy_thing_bar_label = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='copyThingBarLabel', args=sgqlc.types.ArgDict((
@@ -6263,6 +11866,10 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateDepositoryInput), graphql_name='input', default=None)),
 ))
     )
+    create_device_channel_configuration = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createDeviceChannelConfiguration', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateDeviceChannelConfigurationInput), graphql_name='input', default=None)),
+))
+    )
     create_eam_field = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='createEamField', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(EamFieldInput), graphql_name='input', default=None)),
 ))
@@ -6283,12 +11890,136 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateEamSparePartWarehouseInput), graphql_name='input', default=None)),
 ))
     )
+    create_edm_file = sgqlc.types.Field(sgqlc.types.non_null(File), graphql_name='createEdmFile', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateFileInput), graphql_name='input', default=None)),
+))
+    )
+    create_edm_files = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(File))), graphql_name='createEdmFiles', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(CreateFileInput))), graphql_name='input', default=None)),
+))
+    )
     create_energy_group = sgqlc.types.Field(EnergyGroup, graphql_name='createEnergyGroup', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateEnergyGroup), graphql_name='input', default=None)),
 ))
     )
     create_enterprise_app = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='createEnterpriseApp', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateEnterpriseAppInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_customer = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpCustomer', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpCustomerInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_department = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpDepartment', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpDepartmentInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_file = sgqlc.types.Field(sgqlc.types.non_null(File), graphql_name='createErpFile', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpFileInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_files = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(File))), graphql_name='createErpFiles', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(CreateErpFileInput))), graphql_name='input', default=None)),
+))
+    )
+    create_erp_manager = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpManager', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(createErpManagerInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_material = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpMaterial', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpMaterialInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_order = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpOrder', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpOrderInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_order_check_config = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpOrderCheckConfig', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpOrderCheckConfigInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_order_product = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpOrderProduct', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpOrderProductInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_position = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='createErpPosition', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpPositionInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_position_user = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpPositionUser', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpPositionUserInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_process = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='createErpProcess', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpProcessInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_production_planning = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpProductionPlanning', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpProductionPlanningInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_production_workflow = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='createErpProductionWorkflow', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpProductionWorkflowInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_sale_plan = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpSalePlan', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(CreateErpSalePlanInput, graphql_name='input', default=None)),
+))
+    )
+    create_erp_sample_order = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpSampleOrder', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpSampleOrderInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_sample_order_check_config = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpSampleOrderCheckConfig', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpSampleOrderCheckConfigInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_schedule = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpSchedule', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpScheduleInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_task_template = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='createErpTaskTemplate', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpTaskTemplateInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_technique = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpTechnique', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpTechniqueInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_thing = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpThing', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpThingInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_visit = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpVisit', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpVisitInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_warehouse = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpWarehouse', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpWarehouseInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_warehouse_item = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpWarehouseItem', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpWarehouseItemInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_warehouse_item_category = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpWarehouseItemCategory', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpWarehouseItemCategoryInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_warehouse_type = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpWarehouseType', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpWarehouseTypeInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_warehouse_user = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpWarehouseUser', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpWarehouseUserInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_warehouse_zone = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createErpWarehouseZone', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpWarehouseZoneInput), graphql_name='input', default=None)),
+))
+    )
+    create_erp_workshop = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='createErpWorkshop', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateErpWorkshopInput), graphql_name='input', default=None)),
 ))
     )
     create_evasion_date = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='createEvasionDate', args=sgqlc.types.ArgDict((
@@ -6331,6 +12062,14 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(CreateMarketFileInput)), graphql_name='input', default=None)),
 ))
     )
+    create_material = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='createMaterial', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateMaterialInput), graphql_name='input', default=None)),
+))
+    )
+    create_material_category = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='createMaterialCategory', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateMaterialCategoryInput), graphql_name='input', default=None)),
+))
+    )
     create_meta_template = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='createMetaTemplate', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateMetaTemplateInput), graphql_name='input', default=None)),
 ))
@@ -6351,8 +12090,36 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateOutsideCalibrateInput), graphql_name='input', default=None)),
 ))
     )
+    create_plm_file = sgqlc.types.Field(sgqlc.types.non_null(File), graphql_name='createPlmFile', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreatePlmFileInput), graphql_name='input', default=None)),
+))
+    )
+    create_plm_files = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(File)), graphql_name='createPlmFiles', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(CreatePlmFileInput))), graphql_name='input', default=None)),
+))
+    )
+    create_product_flow = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='createProductFlow', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateProductFlowInput), graphql_name='input', default=None)),
+))
+    )
+    create_product_project = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='createProductProject', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateProductProjectInput), graphql_name='input', default=None)),
+))
+    )
+    create_project_group = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='createProjectGroup', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateProjectGroupInput), graphql_name='input', default=None)),
+))
+    )
     create_role = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='createRole', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateRoleInput), graphql_name='input', default=None)),
+))
+    )
+    create_router = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createRouter', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateRouterInput), graphql_name='input', default=None)),
+))
+    )
+    create_router_template_configuration = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='createRouterTemplateConfiguration', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateRouterTemplateConfigurationInput), graphql_name='input', default=None)),
 ))
     )
     create_source_key = sgqlc.types.Field('SourceKey', graphql_name='createSourceKey', args=sgqlc.types.ArgDict((
@@ -6385,6 +12152,10 @@ class Mutation(sgqlc.types.Type):
     )
     create_spare_part_writeoff = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='createSparePartWriteoff', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateSparePartWriteoffInput), graphql_name='input', default=None)),
+))
+    )
+    create_task_bom = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='createTaskBom', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(CreateTaskBomInput), graphql_name='input', default=None)),
 ))
     )
     create_tenant = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='createTenant', args=sgqlc.types.ArgDict((
@@ -6537,6 +12308,10 @@ class Mutation(sgqlc.types.Type):
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='id', default=None)),
 ))
     )
+    delete_bom = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteBom', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
     delete_calibrate_organization = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteCalibrateOrganization', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
 ))
@@ -6581,6 +12356,10 @@ class Mutation(sgqlc.types.Type):
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
 ))
     )
+    delete_device_channel_configuration = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteDeviceChannelConfiguration', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
     delete_eam_field = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteEamField', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
 ))
@@ -6605,6 +12384,118 @@ class Mutation(sgqlc.types.Type):
         ('ids', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='ids', default=None)),
 ))
     )
+    delete_erp_customer = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpCustomer', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_department = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpDepartment', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_manager = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpManager', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_material = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpMaterial', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_month_plan = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpMonthPlan', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_order = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpOrder', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_order_check_config = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpOrderCheckConfig', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(ID)), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_order_product = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpOrderProduct', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_position = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpPosition', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_position_user = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpPositionUser', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(DeleteErpPositionUserInput), graphql_name='input', default=None)),
+))
+    )
+    delete_erp_process = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpProcess', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_process_thing = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpProcessThing', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_production_planning = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpProductionPlanning', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(Int)), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_production_task = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpProductionTask', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_production_workflow = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpProductionWorkflow', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_sample_order = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpSampleOrder', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_sample_order_check_config = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpSampleOrderCheckConfig', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(ID)), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_schedule = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpSchedule', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_task_template = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpTaskTemplate', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(Int)), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_technique = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpTechnique', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(Int)), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_thing = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpThing', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_warehouse = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpWarehouse', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_warehouse_item = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpWarehouseItem', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_warehouse_item_category = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpWarehouseItemCategory', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_warehouse_type = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpWarehouseType', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_warehouse_user = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpWarehouseUser', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_warehouse_zone = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpWarehouseZone', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_erp_workshop = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteErpWorkshop', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
     delete_evasion_date = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteEvasionDate', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
 ))
@@ -6618,6 +12509,14 @@ class Mutation(sgqlc.types.Type):
 ))
     )
     delete_maintenance_method = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteMaintenanceMethod', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    delete_material = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteMaterial', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    delete_material_category = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteMaterialCategory', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
 ))
     )
@@ -6638,8 +12537,24 @@ class Mutation(sgqlc.types.Type):
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
 ))
     )
+    delete_product_flow = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteProductFlow', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    delete_project_group = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteProjectGroup', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
     delete_role = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteRole', args=sgqlc.types.ArgDict((
         ('ids', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='ids', default=None)),
+))
+    )
+    delete_router = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteRouter', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
+    delete_router_template_configuration = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='deleteRouterTemplateConfiguration', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
 ))
     )
     delete_source_keys = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='deleteSourceKeys', args=sgqlc.types.ArgDict((
@@ -6778,6 +12693,14 @@ class Mutation(sgqlc.types.Type):
         ('ids', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='ids', default=None)),
 ))
     )
+    dispatch_erp_task = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='dispatchErpTask', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    drag_erp_process = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='dragErpProcess', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(DragErpProcessInput), graphql_name='input', default=None)),
+))
+    )
     duplicate_uccform_structure = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='duplicateUCCFormStructure', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(DuplicateUCCFormStructureInput), graphql_name='input', default=None)),
 ))
@@ -6790,8 +12713,32 @@ class Mutation(sgqlc.types.Type):
         ('ids', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='ids', default=None)),
 ))
     )
+    end_product_project = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='endProductProject', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(EndProductProject), graphql_name='input', default=None)),
+))
+    )
     end_thing_inventory_ticket = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='endThingInventoryTicket', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    erp_mock_task = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='erpMockTask', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(ErpMockTaskInput), graphql_name='input', default=None)),
+))
+    )
+    finish_erp_order_production = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='finishErpOrderProduction', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    finish_erp_order_shipment = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='finishErpOrderShipment', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    finish_erp_sample_order_production = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='finishErpSampleOrderProduction', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    finish_erp_sample_order_shipment = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='finishErpSampleOrderShipment', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
 ))
     )
     finish_thing_inspection = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='finishThingInspection', args=sgqlc.types.ArgDict((
@@ -6810,6 +12757,34 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(GenerateCodeInput), graphql_name='input', default=None)),
 ))
     )
+    import_erp_customer = sgqlc.types.Field(sgqlc.types.non_null(ErpImportResult), graphql_name='importErpCustomer', args=sgqlc.types.ArgDict((
+        ('company', sgqlc.types.Arg(IDInput, graphql_name='company', default=None)),
+        ('file_path', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='filePath', default=None)),
+        ('option', sgqlc.types.Arg(sgqlc.types.non_null(ErpImportOption), graphql_name='option', default=None)),
+))
+    )
+    import_erp_material = sgqlc.types.Field(sgqlc.types.non_null(ErpImportResult), graphql_name='importErpMaterial', args=sgqlc.types.ArgDict((
+        ('company', sgqlc.types.Arg(IDInput, graphql_name='company', default=None)),
+        ('file_path', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='filePath', default=None)),
+        ('option', sgqlc.types.Arg(sgqlc.types.non_null(ErpImportOption), graphql_name='option', default=None)),
+))
+    )
+    import_erp_month_plan = sgqlc.types.Field(sgqlc.types.non_null(ErpImportResult), graphql_name='importErpMonthPlan', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(ImportErpMonthPlanInput, graphql_name='input', default=None)),
+))
+    )
+    import_erp_product = sgqlc.types.Field(sgqlc.types.non_null(ErpImportResult), graphql_name='importErpProduct', args=sgqlc.types.ArgDict((
+        ('company', sgqlc.types.Arg(IDInput, graphql_name='company', default=None)),
+        ('file_path', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='filePath', default=None)),
+        ('option', sgqlc.types.Arg(sgqlc.types.non_null(ErpImportOption), graphql_name='option', default=None)),
+))
+    )
+    import_erp_warehouse_item = sgqlc.types.Field(sgqlc.types.non_null(ErpImportResult), graphql_name='importErpWarehouseItem', args=sgqlc.types.ArgDict((
+        ('company', sgqlc.types.Arg(IDInput, graphql_name='company', default=None)),
+        ('file_path', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='filePath', default=None)),
+        ('option', sgqlc.types.Arg(sgqlc.types.non_null(ErpImportOption), graphql_name='option', default=None)),
+))
+    )
     import_inspection_method = sgqlc.types.Field(sgqlc.types.non_null(EamImportResult), graphql_name='importInspectionMethod', args=sgqlc.types.ArgDict((
         ('company', sgqlc.types.Arg(IDInput, graphql_name='company', default=None)),
         ('file_path', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='filePath', default=None)),
@@ -6820,6 +12795,10 @@ class Mutation(sgqlc.types.Type):
         ('company', sgqlc.types.Arg(IDInput, graphql_name='company', default=None)),
         ('file_path', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='filePath', default=None)),
         ('option', sgqlc.types.Arg(sgqlc.types.non_null(EamImportOption), graphql_name='option', default=None)),
+))
+    )
+    import_router = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='importRouter', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(ImportFileInput), graphql_name='input', default=None)),
 ))
     )
     import_spare_part = sgqlc.types.Field(sgqlc.types.non_null(EamImportResult), graphql_name='importSparePart', args=sgqlc.types.ArgDict((
@@ -6874,6 +12853,11 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(IssueSparePartClaimInput), graphql_name='input', default=None)),
 ))
     )
+    junye_flush_metric = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='junyeFlushMetric')
+    log_erp_visit = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='logErpVisit', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(LogErpVisitInput), graphql_name='input', default=None)),
+))
+    )
     login = sgqlc.types.Field(sgqlc.types.non_null(AuthInfo), graphql_name='login', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(LoginInput), graphql_name='input', default=None)),
 ))
@@ -6883,6 +12867,22 @@ class Mutation(sgqlc.types.Type):
 ))
     )
     logout = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='logout')
+    manual_create_erp_production_task = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='manualCreateErpProductionTask', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(ManualCreateErpProductionTaskInput), graphql_name='input', default=None)),
+))
+    )
+    manual_erp_issue = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='manualErpIssue', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(ManualErpIssueInput, graphql_name='input', default=None)),
+))
+    )
+    manual_erp_receive = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='manualErpReceive', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(ManualErpReceiveInput, graphql_name='input', default=None)),
+))
+    )
+    merge_erp_task = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='mergeErpTask', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(MergeErpTaskInput), graphql_name='input', default=None)),
+))
+    )
     move_things = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='moveThings', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(MoveThingInput), graphql_name='input', default=None)),
 ))
@@ -6927,6 +12927,22 @@ class Mutation(sgqlc.types.Type):
         ('ids', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='ids', default=None)),
 ))
     )
+    redispatch_erp_task = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='redispatchErpTask', args=sgqlc.types.ArgDict((
+        ('department', sgqlc.types.Arg(sgqlc.types.non_null(IntIDInput), graphql_name='department', default=None)),
+))
+    )
+    register_erp_issue = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='registerErpIssue', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(RegisterErpIssueInput, graphql_name='input', default=None)),
+))
+    )
+    register_erp_receive = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='registerErpReceive', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(RegisterErpReceiveInput, graphql_name='input', default=None)),
+))
+    )
+    register_erp_task_work_report = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='registerErpTaskWorkReport', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(RegisterErpTaskWorkReportInput), graphql_name='input', default=None)),
+))
+    )
     reject_change_borrow = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='rejectChangeBorrow', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(RejectChangeBorrowInput), graphql_name='input', default=None)),
 ))
@@ -6948,7 +12964,19 @@ class Mutation(sgqlc.types.Type):
         ('user_id', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='userId', default=None)),
 ))
     )
+    remove_bom_material = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='removeBomMaterial', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
     remove_calibrate_thing_category = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='removeCalibrateThingCategory', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    remove_project_document = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='removeProjectDocument', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    remove_project_group_member = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='removeProjectGroupMember', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
 ))
     )
@@ -7057,6 +13085,11 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetCompanyThingType), graphql_name='input', default=None)),
 ))
     )
+    set_default_filter_setting = sgqlc.types.Field(Void, graphql_name='setDefaultFilterSetting', args=sgqlc.types.ArgDict((
+        ('data', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(DefaultFilterFieldInput))), graphql_name='data', default=None)),
+        ('table', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='table', default=None)),
+))
+    )
     set_department_thing_group = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setDepartmentThingGroup', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetDepartmentThingGroup), graphql_name='input', default=None)),
 ))
@@ -7085,12 +13118,64 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetEamSparePartWarehouseManager), graphql_name='input', default=None)),
 ))
     )
+    set_erp_auto_register_config = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setErpAutoRegisterConfig', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetErpAutoRegisterConfigInput), graphql_name='input', default=None)),
+))
+    )
+    set_erp_customer = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setErpCustomer', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetErpCustomerInput), graphql_name='input', default=None)),
+))
+    )
+    set_erp_daily_report = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setErpDailyReport', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetErpDailyReport), graphql_name='input', default=None)),
+))
+    )
+    set_erp_position_user = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setErpPositionUser', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetErpPositionUserInput), graphql_name='input', default=None)),
+))
+    )
+    set_erp_production_workflow_chart = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setErpProductionWorkflowChart', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetErpProductionWorkflowInput), graphql_name='input', default=None)),
+))
+    )
+    set_erp_task_dispatch_config = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setErpTaskDispatchConfig', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetErpTaskDispatchConfigInput), graphql_name='input', default=None)),
+))
+    )
+    set_erp_technique_preset_task = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='setErpTechniquePresetTask', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetErpTechniquePresetTaskInput), graphql_name='input', default=None)),
+))
+    )
+    set_erp_technique_process_time = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setErpTechniqueProcessTime', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetErpTechniqueProcessTimeInput), graphql_name='input', default=None)),
+))
+    )
+    set_erp_warehouse = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setErpWarehouse', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetErpWarehouseInput), graphql_name='input', default=None)),
+))
+    )
+    set_erp_warehouse_item_category = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setErpWarehouseItemCategory', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetErpWarehouseItemCategoryInput), graphql_name='input', default=None)),
+))
+    )
+    set_erp_warehouse_item_safe_stock = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setErpWarehouseItemSafeStock', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(SetErpWarehouseItemSafeStockInput))), graphql_name='input', default=None)),
+))
+    )
+    set_erp_warehouse_type = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setErpWarehouseType', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetErpWarehouseTypeInput), graphql_name='input', default=None)),
+))
+    )
     set_outside_calibrate_thing_calibrate = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setOutsideCalibrateThingCalibrate', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetOutsideCalibrateThingCalibrateInput), graphql_name='input', default=None)),
 ))
     )
     set_permissions_to_tenant = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setPermissionsToTenant', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetPermissionToTenantInput), graphql_name='input', default=None)),
+))
+    )
+    set_project_product = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setProjectProduct', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetProjectProductInput), graphql_name='input', default=None)),
 ))
     )
     set_role_thing_category = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setRoleThingCategory', args=sgqlc.types.ArgDict((
@@ -7117,6 +13202,10 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetSparePartWorkflowConfigurationInput), graphql_name='input', default=None)),
 ))
     )
+    set_stared_pages = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setStaredPages', args=sgqlc.types.ArgDict((
+        ('ids', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='ids', default=None)),
+))
+    )
     set_sub_thing = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setSubThing', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetSubThingInput), graphql_name='input', default=None)),
 ))
@@ -7127,6 +13216,11 @@ class Mutation(sgqlc.types.Type):
     )
     set_table_fields_config = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setTableFieldsConfig', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetTableFieldsConfigInput), graphql_name='input', default=None)),
+))
+    )
+    set_table_filter_setting = sgqlc.types.Field(Void, graphql_name='setTableFilterSetting', args=sgqlc.types.ArgDict((
+        ('data', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(TableFilterFieldInput))), graphql_name='data', default=None)),
+        ('table', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='table', default=None)),
 ))
     )
     set_table_fixed_fields_config = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setTableFixedFieldsConfig', args=sgqlc.types.ArgDict((
@@ -7181,6 +13275,10 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(SetUCCFormStructureInput, graphql_name='input', default=None)),
 ))
     )
+    set_uccform_with_auto_register = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setUCCFormWithAutoRegister', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetUCCFormWithAutoRegister), graphql_name='input', default=None)),
+))
+    )
     set_uccstack_data = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='setUCCStackData', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(SetUCCStackDataInput), graphql_name='input', default=None)),
 ))
@@ -7195,6 +13293,14 @@ class Mutation(sgqlc.types.Type):
     )
     star_app = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='starApp', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(StarAppInput), graphql_name='input', default=None)),
+))
+    )
+    star_pages = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='starPages', args=sgqlc.types.ArgDict((
+        ('ids', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='ids', default=None)),
+))
+    )
+    start_product_project = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='startProductProject', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
 ))
     )
     start_thing_inventory_ticket = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='startThingInventoryTicket', args=sgqlc.types.ArgDict((
@@ -7215,6 +13321,22 @@ class Mutation(sgqlc.types.Type):
     )
     track_thing_inventory_ticket = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='trackThingInventoryTicket', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    transfer_erp_order_production_notification = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='transferErpOrderProductionNotification', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    transfer_erp_order_ship_notification = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='transferErpOrderShipNotification', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    transfer_erp_sample_order_production_notification = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='transferErpSampleOrderProductionNotification', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    transfer_erp_sample_order_ship_notification = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='transferErpSampleOrderShipNotification', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
 ))
     )
     transfer_tenant_owner = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='transferTenantOwner', args=sgqlc.types.ArgDict((
@@ -7249,6 +13371,10 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(UnStarAppInput), graphql_name='input', default=None)),
 ))
     )
+    un_star_pages = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='unStarPages', args=sgqlc.types.ArgDict((
+        ('ids', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='ids', default=None)),
+))
+    )
     unbind_email_of_users = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='unbindEmailOfUsers', args=sgqlc.types.ArgDict((
         ('ids', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='ids', default=None)),
 ))
@@ -7271,6 +13397,14 @@ class Mutation(sgqlc.types.Type):
     )
     update_authorization_rules_of_user = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateAuthorizationRulesOfUser', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateAuthorizationRulesOfUserInput), graphql_name='input', default=None)),
+))
+    )
+    update_bom = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateBom', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateBomInput), graphql_name='input', default=None)),
+))
+    )
+    update_bom_material = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateBomMaterial', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateBomMaterialInput), graphql_name='input', default=None)),
 ))
     )
     update_calibrate_organization = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateCalibrateOrganization', args=sgqlc.types.ArgDict((
@@ -7309,6 +13443,10 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateDepositoryInput), graphql_name='input', default=None)),
 ))
     )
+    update_device_channel_configuration = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateDeviceChannelConfiguration', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateDeviceChannelConfigurationInput), graphql_name='input', default=None)),
+))
+    )
     update_eam_field = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateEamField', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateEamFieldInput), graphql_name='input', default=None)),
 ))
@@ -7333,6 +13471,132 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateEnterpriseAppInput), graphql_name='input', default=None)),
 ))
     )
+    update_erp_department = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpDepartment', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpDepartmentInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_issue_log = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpIssueLog', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(UpdateErpIssueLogInput, graphql_name='input', default=None)),
+))
+    )
+    update_erp_material = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpMaterial', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpMaterialInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_material_inventory = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpMaterialInventory', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(UpdateErpMaterialInventoryInput))), graphql_name='input', default=None)),
+))
+    )
+    update_erp_month_plan = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpMonthPlan', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpMonthPlanInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_order = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpOrder', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpOrderInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_order_check_config = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpOrderCheckConfig', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpOrderCheckConfigInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_order_product = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpOrderProduct', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpOrderProductInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_position = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpPosition', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpPositionInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_process = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='updateErpProcess', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpProcessInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_process_thing = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpProcessThing', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpProcessThingInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_production = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpProduction', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpProductionInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_production_planning = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpProductionPlanning', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpProductionPlanningInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_production_task = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpProductionTask', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpProductionTaskInput), graphql_name='input', default=None)),
+        ('scenario', sgqlc.types.Arg(sgqlc.types.non_null(TypeUpdateErpProductionTaskScenario), graphql_name='scenario', default=None)),
+))
+    )
+    update_erp_production_task_status = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpProductionTaskStatus', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    update_erp_production_workflow = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpProductionWorkflow', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpProductionWorkflowInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_receive_log = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpReceiveLog', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(UpdateErpReceiveLogInput, graphql_name='input', default=None)),
+))
+    )
+    update_erp_sample_order = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpSampleOrder', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpSampleOrderInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_sample_order_check_config = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpSampleOrderCheckConfig', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpSampleOrderCheckConfigInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_schedule = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpSchedule', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpScheduleInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_schedule_process_time = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpScheduleProcessTime', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpScheduleProcessTimeInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_task = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpTask', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpTaskInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_task_status = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpTaskStatus', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpTaskStatusInput), graphql_name='input', default=None)),
+        ('scenario', sgqlc.types.Arg(sgqlc.types.non_null(TypeUpdateTaskStatusScenario), graphql_name='scenario', default=None)),
+))
+    )
+    update_erp_task_template = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='updateErpTaskTemplate', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpTaskTemplateInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_task_work_report = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpTaskWorkReport', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpTaskWorkReportInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_warehouse = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpWarehouse', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpWarehouseInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_warehouse_item = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpWarehouseItem', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpWarehouseItemInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_warehouse_item_category = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpWarehouseItemCategory', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpWarehouseItemCategoryInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_warehouse_type = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpWarehouseType', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpWarehouseTypeInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_warehouse_user = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpWarehouseUser', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpWarehouseUserInput), graphql_name='input', default=None)),
+))
+    )
+    update_erp_warehouse_zone = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateErpWarehouseZone', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateErpWarehouseZoneInput), graphql_name='input', default=None)),
+))
+    )
     update_evasion_date = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateEvasionDate', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateEvasionDateInput), graphql_name='input', default=None)),
 ))
@@ -7347,6 +13611,14 @@ class Mutation(sgqlc.types.Type):
     )
     update_maintenance_method = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateMaintenanceMethod', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateMaintenanceMethodInput), graphql_name='input', default=None)),
+))
+    )
+    update_material = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateMaterial', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateMaterialInput), graphql_name='input', default=None)),
+))
+    )
+    update_material_category = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateMaterialCategory', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateMaterialCategoryInput), graphql_name='input', default=None)),
 ))
     )
     update_me = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateMe', args=sgqlc.types.ArgDict((
@@ -7377,8 +13649,40 @@ class Mutation(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateOutsideCalibrateInput), graphql_name='input', default=None)),
 ))
     )
+    update_product_flow = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateProductFlow', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateProductFlowInput), graphql_name='input', default=None)),
+))
+    )
+    update_product_task = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateProductTask', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateProductTaskInput), graphql_name='input', default=None)),
+))
+    )
+    update_project_document = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateProjectDocument', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateProjectDocumentInput), graphql_name='input', default=None)),
+))
+    )
+    update_project_group = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateProjectGroup', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateProjectGroupInput), graphql_name='input', default=None)),
+))
+    )
     update_role = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateRole', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateRoleInput), graphql_name='input', default=None)),
+))
+    )
+    update_router = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateRouter', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateRouterInput), graphql_name='input', default=None)),
+))
+    )
+    update_router_alarm_records = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateRouterAlarmRecords', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(UpdateRouterAlarmRecordsInput, graphql_name='input', default=None)),
+))
+    )
+    update_router_template_configuration = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateRouterTemplateConfiguration', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(UpdateRouterTemplateConfigurationInput), graphql_name='input', default=None)),
+))
+    )
+    update_routers_alarm_rules = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='updateRoutersAlarmRules', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(UpdateRoutersAlarmRulesInput, graphql_name='input', default=None)),
 ))
     )
     update_source_key = sgqlc.types.Field(Boolean, graphql_name='updateSourceKey', args=sgqlc.types.ArgDict((
@@ -7551,6 +13855,21 @@ class Mutation(sgqlc.types.Type):
     )
 
 
+class MyBacklogGroup(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('count', 'data', 'group')
+    count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Backlog))), graphql_name='data')
+    group = sgqlc.types.Field(sgqlc.types.non_null(BacklogGroup), graphql_name='group')
+
+
+class NotificationCondition(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('condition', 'value')
+    condition = sgqlc.types.Field(sgqlc.types.non_null(NotificationTiming), graphql_name='condition')
+    value = sgqlc.types.Field(Float, graphql_name='value')
+
+
 class OldRole(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('app', 'created_at', 'desc', 'id', 'name', 'permissions', 'updated_at')
@@ -7620,6 +13939,23 @@ class OutsideCalibrateList(sgqlc.types.Type):
     total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
 
 
+class Page(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('app', 'avatar', 'id', 'name', 'url')
+    app = sgqlc.types.Field(sgqlc.types.non_null(App), graphql_name='app')
+    avatar = sgqlc.types.Field(Image, graphql_name='avatar')
+    id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    url = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='url')
+
+
+class PageList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Page))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
 class Permission(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('apis', 'app', 'data_ranges', 'dependencies', 'id', 'name', 'parent_id', 'path_name', 'type')
@@ -7641,6 +13977,117 @@ class PermissionDataRange(sgqlc.types.Type):
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
 
 
+class ProductFlow(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'task_template')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    task_template = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ProductTaskTemplate'))), graphql_name='taskTemplate')
+
+
+class ProductProject(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('attachment', 'category', 'code', 'create_by', 'created_at', 'description', 'end_attachment', 'end_description', 'field_data', 'id', 'name', 'plan_start_at', 'product', 'project_group', 'released_bom', 'status')
+    attachment = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(File))), graphql_name='attachment')
+    category = sgqlc.types.Field(sgqlc.types.non_null(ProductProjectCategory), graphql_name='category')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    create_by = sgqlc.types.Field(sgqlc.types.non_null('User'), graphql_name='createBy')
+    created_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='createdAt')
+    description = sgqlc.types.Field(String, graphql_name='description')
+    end_attachment = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(File))), graphql_name='endAttachment')
+    end_description = sgqlc.types.Field(String, graphql_name='endDescription')
+    field_data = sgqlc.types.Field(JSON, graphql_name='fieldData')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    plan_start_at = sgqlc.types.Field(Timestamp, graphql_name='planStartAt')
+    product = sgqlc.types.Field(Material, graphql_name='product')
+    project_group = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ProjectGroup'))), graphql_name='projectGroup')
+    released_bom = sgqlc.types.Field(Bom, graphql_name='releasedBom')
+    status = sgqlc.types.Field(sgqlc.types.non_null(ProductProjectStatus), graphql_name='status')
+
+
+class ProductProjectDocument(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('document', 'id', 'phase', 'project', 'task')
+    document = sgqlc.types.Field(sgqlc.types.non_null(File), graphql_name='document')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    phase = sgqlc.types.Field(sgqlc.types.non_null(ProductProjectDocumentPhase), graphql_name='phase')
+    project = sgqlc.types.Field(sgqlc.types.non_null(ProductProject), graphql_name='project')
+    task = sgqlc.types.Field('ProductTask', graphql_name='task')
+
+
+class ProductProjectDocumentList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ProductProjectDocument))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ProductProjectList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ProductProject))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ProductTask(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('bom', 'executive', 'id', 'name', 'output_attachment', 'participant', 'plan_end_at', 'plan_start_at', 'product_project')
+    bom = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Bom))), graphql_name='bom')
+    executive = sgqlc.types.Field('User', graphql_name='executive')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    output_attachment = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(File))), graphql_name='outputAttachment')
+    participant = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('User')), graphql_name='participant')
+    plan_end_at = sgqlc.types.Field(Timestamp, graphql_name='planEndAt')
+    plan_start_at = sgqlc.types.Field(Timestamp, graphql_name='planStartAt')
+    product_project = sgqlc.types.Field(sgqlc.types.non_null(ProductProject), graphql_name='productProject')
+
+
+class ProductTaskDocument(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('attachment', 'id', 'task')
+    attachment = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(File))), graphql_name='attachment')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    task = sgqlc.types.Field(sgqlc.types.non_null(ProductTask), graphql_name='task')
+
+
+class ProductTaskList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ProductTask))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ProductTaskTemplate(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ProjectGroup(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class ProjectGroupList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ProjectGroup))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class ProjectGroupMember(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'member', 'project_group')
+    id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
+    member = sgqlc.types.Field(sgqlc.types.non_null('User'), graphql_name='member')
+    project_group = sgqlc.types.Field(sgqlc.types.non_null(ProjectGroup), graphql_name='projectGroup')
+
+
 class Province(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('id', 'name')
@@ -7656,7 +14103,7 @@ class PushSchedule(sgqlc.types.Type):
 
 class Query(sgqlc.types.Type):
     __schema__ = platform_schema
-    __field_names__ = ('log_list', '_eam', 'adapter_key', 'adapter_key_list', 'adapter_model_key_list', 'admin_user_list', 'all_authorization_rules_of_role', 'all_permissions_of_user', 'apis', 'app_groups', 'app_menu_list', 'app_version_list', 'assignable_managers_of_organization', 'assignable_meta_template_list_of_tenant', 'assignable_permissions_of_tenant', 'assigned_permissions_of_app', 'authentication_configuration', 'authentication_source', 'authorization_rule_and_dependencies', 'authorization_rule_dependent_by', 'bi_issue_issue', 'calibrate_organization', 'calibrate_organization_list', 'calibrate_schedule', 'calibrate_schedule_list', 'can_replace_thing_list', 'change_borrow', 'change_borrow_approve_configuration', 'change_borrow_approve_configuration_list', 'change_borrow_default_approve_configuration_list', 'change_borrow_item', 'change_borrow_item_list', 'change_borrow_list', 'change_borrow_operator_record_list', 'change_borrow_state_overview', 'check_alter_department_thing_group', 'check_delete_department', 'children_of_department', 'cities', 'city_companies', 'cockpit_aggregation', 'cockpit_aggregations', 'cockpit_key', 'cockpit_key_list', 'code_rule_configuration', 'companies', 'company_bidatasource_list', 'company_bidatasource_tree', 'company_thing_calibrate_configuration', 'company_thing_category_uccfield', 'company_thing_category_uccfield_list', 'company_thing_department_scope', 'company_thing_group_tree', 'company_thing_specification_language_list', 'company_thing_type_list', 'counties', 'countries', 'current_change_borrow_approve_configuration_list', 'current_spare_part_claim_operation_list', 'current_thing_borrow_approve_configuration_list', 'current_thing_borrow_transitions', 'current_thing_calibrate_workflow_configuration_list', 'current_thing_inspection_workflow_configuration_list', 'current_thing_maintenance_workflow_configuration_list', 'current_thing_repair_workflow_configuration_list', 'department_by_id_and_level', 'department_list', 'department_thing_administrator_list', 'department_thing_groups', 'department_tree', 'depository', 'depository_list', 'dept_user_thing_groups', 'direct_authorization_rules_of_user', 'eam_field', 'eam_field_inter_list', 'eam_field_list', 'eam_field_summary', 'eam_file_list', 'eam_form_by_thing_category', 'eam_form_list', 'eam_form_structure', 'eam_spare_part_category', 'eam_spare_part_category_list', 'eam_spare_part_category_tree', 'eam_spare_part_category_tree_nodes', 'eam_spare_part_form_structure', 'eam_spare_part_warehouse', 'eam_spare_part_warehouse_list', 'eam_spare_part_warehouse_manager', 'energy_group', 'energy_group_list', 'energy_time_distribution', 'evasion_date', 'evasion_date_list', 'export_spare_part', 'export_spare_part_claim_list', 'export_spare_part_outbound_list', 'export_spare_part_receipt_list', 'export_spare_part_transfer_list', 'export_thing', 'export_thing_inventory_record', 'export_thing_inventory_track_record', 'factory', 'factory_list', 'inbox_message', 'inbox_message_list', 'inspection_method', 'inspection_method_import_template', 'inspection_method_list', 'is_adapter_key_exists', 'is_calibrate_organization_exists', 'is_calibrate_schedule_exists', 'is_change_borrow_approve_configuration_exists', 'is_company_thing_category_uccfield_exists', 'is_create_app_version_allowed', 'is_depository_exists', 'is_eam_field_exists', 'is_eam_form_exists', 'is_eam_spare_part_category_exists', 'is_eam_spare_part_warehouse_exists', 'is_email_exists', 'is_email_verified', 'is_exist_thing_circulation', 'is_factory_exists', 'is_inspection_method_exists', 'is_maintenance_method_exists', 'is_outside_calibrate_exists', 'is_permission_changed_of_latest_app_version', 'is_spare_part_exists', 'is_thing_area_code_exists', 'is_thing_area_exists', 'is_thing_attachment_type_exists', 'is_thing_bar_label_exists', 'is_thing_borrow_approve_configuration_exists', 'is_thing_calibrate_workflow_configuration_exists', 'is_thing_category_code_exists', 'is_thing_category_exists', 'is_thing_category_uccfield_exists', 'is_thing_contain', 'is_thing_exists', 'is_thing_inspection_workflow_configuration_exists', 'is_thing_inventory_ticket_exists', 'is_thing_label_exists', 'is_thing_maintenance_workflow_configuration_exists', 'is_thing_repair_workflow_configuration_exists', 'is_thing_schedule_exists', 'is_thing_specification_language_exists', 'is_thing_specification_language_property_exists', 'is_thing_type_exists', 'is_thing_uccexists', 'login_configuration', 'maintenance_method', 'maintenance_method_import_template', 'maintenance_method_list', 'managed_organizations_of_user', 'me', 'menu_visit_history_list', 'message_channels_of_tenant', 'message_template_list_of_tenant', 'meta_channels', 'meta_template', 'meta_template_event_exists', 'meta_template_list', 'my_app_list', 'my_tenant', 'my_tenant_app_list', 'my_tenant_development_app_list', 'my_thing_group', 'my_thing_inventory_record_list', 'organization', 'organization_by_code', 'organization_by_id_and_level', 'organization_code_exists', 'organization_list', 'organization_name_exists_in_siblings', 'organization_tree_nodes', 'outside_calibrate', 'outside_calibrate_list', 'permissions', 'permissions_of_tenant', 'provinces', 'recent_app', 'role', 'role_list', 'role_name_exists', 'role_thing_categories', 'root_organization', 'sap_thing_code_history_list', 'source_key', 'source_key_list', 'source_model_key_list', 'spare_part', 'spare_part_claim', 'spare_part_claim_list', 'spare_part_claim_record', 'spare_part_import_template', 'spare_part_list', 'spare_part_outbound', 'spare_part_outbound_item_list', 'spare_part_outbound_list', 'spare_part_outbound_summary', 'spare_part_receipt', 'spare_part_receipt_item_list', 'spare_part_receipt_list', 'spare_part_receipt_writeoff_list', 'spare_part_stock_configuration', 'spare_part_stock_list', 'spare_part_stock_record_list', 'spare_part_transfer', 'spare_part_transfer_item_list', 'spare_part_transfer_list', 'spare_part_usage_record_list', 'spare_part_workflow_configuration', 'spare_part_writeoff_list', 'stared_apps', 'sub_thing_list', 'sub_thing_ucclist', 'system_log_action', 'system_log_list', 'table_column_setting', 'table_fields_config', 'table_fixed_fields_config', 'tenant', 'tenant_app_list', 'tenant_code_exists', 'tenant_industry_tree_nodes', 'tenant_list', 'tenant_name_exists', 'tenant_uscc_exists', 'thing', 'thing_access_config_list', 'thing_area', 'thing_area_import_template', 'thing_area_list', 'thing_area_tree', 'thing_attachment_type_list', 'thing_bar_label', 'thing_bar_label_list', 'thing_borrow', 'thing_borrow_approve_configuration', 'thing_borrow_approve_configuration_list', 'thing_borrow_default_approve_configuration_list', 'thing_borrow_draft', 'thing_borrow_list', 'thing_borrow_operator_record_list', 'thing_borrow_range_configuration', 'thing_borrow_relate_resource_list', 'thing_borrow_status_overview', 'thing_borrow_workflow_configuration', 'thing_by_code', 'thing_by_qr_code', 'thing_calibrate', 'thing_calibrate_default_workflow_configuration_list', 'thing_calibrate_list', 'thing_calibrate_record_list', 'thing_calibrate_status_overview', 'thing_calibrate_workflow_configuration', 'thing_calibrate_workflow_configuration_list', 'thing_category', 'thing_category_import_template', 'thing_category_list', 'thing_category_tree', 'thing_category_tree_nodes', 'thing_category_uccfield', 'thing_category_uccfield_list', 'thing_change_borrow_draft', 'thing_circulation_list', 'thing_circulation_overview', 'thing_complete_file_rule_list', 'thing_function_department', 'thing_function_department_list', 'thing_group', 'thing_group_depts', 'thing_group_list', 'thing_group_tree', 'thing_group_users', 'thing_import_template', 'thing_inspection', 'thing_inspection_default_workflow_configuration_list', 'thing_inspection_list', 'thing_inspection_operator_record_list', 'thing_inspection_status_overview', 'thing_inspection_workflow_configuration', 'thing_inspection_workflow_configuration_list', 'thing_inventory_record', 'thing_inventory_record_list', 'thing_inventory_redundant_record', 'thing_inventory_redundant_record_list', 'thing_inventory_relate_resource_list', 'thing_inventory_ticket', 'thing_inventory_ticket_list', 'thing_inventory_track_record', 'thing_inventory_track_record_list', 'thing_inventory_track_redundant_record', 'thing_inventory_track_redundant_record_list', 'thing_is_lent_overview', 'thing_label', 'thing_label_import_template', 'thing_label_list', 'thing_list', 'thing_maintenance', 'thing_maintenance_default_workflow_configuration_list', 'thing_maintenance_list', 'thing_maintenance_operator_record_list', 'thing_maintenance_status_overview', 'thing_maintenance_workflow_configuration', 'thing_maintenance_workflow_configuration_list', 'thing_mechanism_model', 'thing_on_state_overview', 'thing_repair', 'thing_repair_default_workflow_configuration_list', 'thing_repair_list', 'thing_repair_operator_record_list', 'thing_repair_status_overview', 'thing_repair_workflow_configuration', 'thing_repair_workflow_configuration_list', 'thing_schedule', 'thing_schedule_import_template', 'thing_schedule_list', 'thing_schedule_thing_import_template', 'thing_spare_part_import_template', 'thing_specification_language', 'thing_specification_language_list', 'thing_specification_language_property', 'thing_specification_language_property_list', 'thing_status', 'thing_statuses', 'thing_task_list', 'thing_thing_specification_language_list', 'thing_transfer_record_list', 'thing_type', 'thing_type_code_list', 'thing_type_list', 'thing_types', 'thing_ucc', 'thing_uccby_thing_category', 'thing_ucclist', 'things', 'ucc_form_structure', 'ucc_form_structure_json_schema', 'ucc_stack_data', 'unread_message_apps', 'upload_config', 'upload_configs', 'user', 'user_account_exists', 'user_list', 'validate_inspection_method_excel', 'validate_maintenance_method_excel', 'validate_spare_part_excel', 'validate_thing_area_excel', 'validate_thing_category_excel', 'validate_thing_excel', 'validate_thing_label_excel', 'validate_thing_schedule_excel', 'validate_thing_schedule_thing_excel', 'validate_thing_spare_part_excel', 'workbench', 'workbench_card_data', 'workbench_card_option', 'workflow_base_configuration', 'workflow_default_init_state')
+    __field_names__ = ('log_list', '_eam', '_plm', 'adapter_key', 'adapter_key_list', 'adapter_model_key_list', 'admin_user_list', 'all_authorization_rules_of_role', 'all_permissions_of_user', 'apis', 'app_groups', 'app_menu_list', 'app_version_exists', 'app_version_list', 'assignable_managers_of_organization', 'assignable_meta_template_list_of_tenant', 'assignable_permissions_of_tenant', 'assigned_permissions_of_app', 'authentication_configuration', 'authentication_source', 'authorization_rule_and_dependencies', 'authorization_rule_dependent_by', 'bi_issue_issue', 'bom', 'bom_list', 'bom_material_list', 'calibrate_organization', 'calibrate_organization_list', 'calibrate_schedule', 'calibrate_schedule_list', 'can_replace_thing_list', 'change_borrow', 'change_borrow_approve_configuration', 'change_borrow_approve_configuration_list', 'change_borrow_default_approve_configuration_list', 'change_borrow_item', 'change_borrow_item_list', 'change_borrow_list', 'change_borrow_operator_record_list', 'change_borrow_state_overview', 'check_alter_department_thing_group', 'check_delete_department', 'check_erp_task_work_report_channel', 'check_merge_all_erp_task', 'children_of_department', 'cities', 'city_companies', 'cockpit_aggregation', 'cockpit_aggregations', 'cockpit_key', 'cockpit_key_list', 'code_rule_configuration', 'companies', 'company_bidatasource_list', 'company_bidatasource_tree', 'company_thing_calibrate_configuration', 'company_thing_category_uccfield', 'company_thing_category_uccfield_list', 'company_thing_department_scope', 'company_thing_group_tree', 'company_thing_specification_language_list', 'company_thing_type_list', 'counties', 'countries', 'current_change_borrow_approve_configuration_list', 'current_spare_part_claim_operation_list', 'current_thing_borrow_approve_configuration_list', 'current_thing_borrow_transitions', 'current_thing_calibrate_workflow_configuration_list', 'current_thing_inspection_workflow_configuration_list', 'current_thing_maintenance_workflow_configuration_list', 'current_thing_repair_workflow_configuration_list', 'default_filter_setting', 'department_by_id_and_level', 'department_list', 'department_thing_administrator_list', 'department_thing_groups', 'department_tree', 'depository', 'depository_list', 'dept_user_thing_groups', 'device_channel_baud_rate', 'device_channel_channel_list', 'device_channel_configuration', 'device_channel_data_bit', 'device_channel_protocols', 'device_channel_register_data_types', 'device_channel_register_types', 'device_channel_serial_com_ports', 'device_channel_serial_parities', 'device_channel_stop_bit', 'direct_authorization_rules_of_user', 'eam_field', 'eam_field_inter_list', 'eam_field_list', 'eam_field_summary', 'eam_file_list', 'eam_form_by_thing_category', 'eam_form_list', 'eam_form_structure', 'eam_spare_part_category', 'eam_spare_part_category_list', 'eam_spare_part_category_tree', 'eam_spare_part_category_tree_nodes', 'eam_spare_part_form_structure', 'eam_spare_part_warehouse', 'eam_spare_part_warehouse_list', 'eam_spare_part_warehouse_manager', 'energy_group', 'energy_group_list', 'energy_time_distribution', 'erp_auto_register_config', 'erp_batch_no_exists', 'erp_city', 'erp_county', 'erp_customer_exists', 'erp_customer_import_template', 'erp_customer_list', 'erp_daily_report', 'erp_daily_report_last_query_product', 'erp_department', 'erp_department_exists', 'erp_department_list', 'erp_inventory_detail', 'erp_issue_log', 'erp_issue_log_list', 'erp_issue_notification', 'erp_issue_notification_exists', 'erp_issue_notification_list', 'erp_manager_list', 'erp_material', 'erp_material_code_exists', 'erp_material_import_template', 'erp_material_inventory_list', 'erp_material_list', 'erp_material_name_exists', 'erp_merge_production_channel_by_task', 'erp_merge_production_channel_list', 'erp_merge_start_process_list', 'erp_month_plan', 'erp_month_plan_import_template', 'erp_month_plan_list', 'erp_month_plan_order', 'erp_month_plan_product_list', 'erp_mps_list', 'erp_my_department_list', 'erp_my_position_list', 'erp_my_warehouse_list', 'erp_occupied_by_task', 'erp_order', 'erp_order_area_statistics', 'erp_order_check_config', 'erp_order_check_config_exists', 'erp_order_customer_statistics', 'erp_order_list', 'erp_order_manager_statistics', 'erp_order_process', 'erp_order_product', 'erp_order_product_code_exists', 'erp_order_product_exists', 'erp_order_product_history_list', 'erp_order_product_list', 'erp_order_production_notification', 'erp_order_production_notification_process', 'erp_order_ship_notification_list', 'erp_order_ship_notification_process', 'erp_position_exists', 'erp_position_list', 'erp_position_user_list', 'erp_position_user_user_list', 'erp_process_channel_list', 'erp_process_exists', 'erp_process_list', 'erp_process_schedule_time', 'erp_process_thing_and_material_list', 'erp_process_thing_list', 'erp_product_import_template', 'erp_product_name_list', 'erp_product_type_list', 'erp_production_notification', 'erp_production_notification_list', 'erp_production_planning', 'erp_production_planning_list', 'erp_production_task', 'erp_production_task_list', 'erp_production_task_process', 'erp_production_workflow', 'erp_production_workflow_exists', 'erp_production_workflow_list', 'erp_province', 'erp_receive_log', 'erp_receive_log_list', 'erp_receive_notification', 'erp_receive_notification_exists', 'erp_receive_notification_list', 'erp_sample_order', 'erp_sample_order_check_config', 'erp_sample_order_check_config_exists', 'erp_sample_order_list', 'erp_sample_order_process', 'erp_sample_order_production_notification', 'erp_sample_order_production_notification_process', 'erp_sample_order_ship_notification_list', 'erp_sample_order_ship_notification_process', 'erp_schedule', 'erp_schedule_list', 'erp_task', 'erp_task_dispatch_config', 'erp_task_list', 'erp_task_material_choice', 'erp_task_statistic_by_position', 'erp_task_suspend_log_list', 'erp_task_template', 'erp_task_template_exists', 'erp_task_template_list', 'erp_task_template_list_by_workflow', 'erp_task_template_quota_binded', 'erp_task_work_report', 'erp_task_work_report_list', 'erp_technique', 'erp_technique_bom', 'erp_technique_exists', 'erp_technique_list', 'erp_technique_preset_task', 'erp_technique_process_time', 'erp_template_list_by_batch_no', 'erp_thing_list', 'erp_visit', 'erp_visit_list', 'erp_visit_total_by_manager', 'erp_visit_transfer_by_manager', 'erp_warehouse', 'erp_warehouse_daily_report', 'erp_warehouse_item', 'erp_warehouse_item_category_exists', 'erp_warehouse_item_category_list', 'erp_warehouse_item_exists', 'erp_warehouse_item_import_template', 'erp_warehouse_item_inventory_info', 'erp_warehouse_item_list', 'erp_warehouse_item_safe_stock', 'erp_warehouse_item_safe_stock_list', 'erp_warehouse_item_stock_list', 'erp_warehouse_list', 'erp_warehouse_type_exists', 'erp_warehouse_type_list', 'erp_warehouse_user', 'erp_warehouse_user_list', 'erp_warehouse_zone', 'erp_warehouse_zone_exists', 'erp_warehouse_zone_list', 'erp_workshop_list', 'evasion_date', 'evasion_date_list', 'exist_router', 'exists_router_template_name', 'export_erp_issue_log_list', 'export_erp_mps_list', 'export_erp_order_list', 'export_erp_production_task_list', 'export_erp_receive_log_list', 'export_erp_sample_order_list', 'export_router', 'export_spare_part', 'export_spare_part_claim_list', 'export_spare_part_outbound_list', 'export_spare_part_receipt_list', 'export_spare_part_transfer_list', 'export_thing', 'export_thing_inventory_record', 'export_thing_inventory_track_record', 'factory', 'factory_list', 'inbox_message', 'inbox_message_list', 'inspection_method', 'inspection_method_import_template', 'inspection_method_list', 'is_adapter_key_exists', 'is_bom_exists', 'is_calibrate_organization_exists', 'is_calibrate_schedule_exists', 'is_change_borrow_approve_configuration_exists', 'is_company_thing_category_uccfield_exists', 'is_create_app_version_allowed', 'is_depository_exists', 'is_eam_field_exists', 'is_eam_form_exists', 'is_eam_spare_part_category_exists', 'is_eam_spare_part_warehouse_exists', 'is_email_exists', 'is_email_verified', 'is_exist_thing_circulation', 'is_factory_exists', 'is_inspection_method_exists', 'is_maintenance_method_exists', 'is_material_category_exists', 'is_material_exists', 'is_outside_calibrate_exists', 'is_permission_changed_of_latest_app_version', 'is_product_flow_exists', 'is_product_project_exists', 'is_project_group_name_exists', 'is_spare_part_exists', 'is_thing_area_code_exists', 'is_thing_area_exists', 'is_thing_attachment_type_exists', 'is_thing_bar_label_exists', 'is_thing_borrow_approve_configuration_exists', 'is_thing_calibrate_workflow_configuration_exists', 'is_thing_category_code_exists', 'is_thing_category_exists', 'is_thing_category_uccfield_exists', 'is_thing_contain', 'is_thing_exists', 'is_thing_inspection_workflow_configuration_exists', 'is_thing_inventory_ticket_exists', 'is_thing_label_exists', 'is_thing_maintenance_workflow_configuration_exists', 'is_thing_repair_workflow_configuration_exists', 'is_thing_schedule_exists', 'is_thing_specification_language_exists', 'is_thing_specification_language_property_exists', 'is_thing_type_exists', 'is_thing_uccexists', 'junye_alarm_distribution', 'junye_business_situation', 'junye_current_month_energy_consumption', 'junye_daily_energy_consumption_history', 'junye_last_month_energy_consumption', 'junye_material_management', 'junye_production_plan', 'junye_thing_group_location_map', 'junye_thing_location_map', 'junye_thing_status_distribution', 'junye_thing_type_distribution', 'login_configuration', 'maintenance_method', 'maintenance_method_import_template', 'maintenance_method_list', 'managed_organizations_of_user', 'material', 'material_category', 'material_category_list', 'material_list', 'me', 'menu_visit_history_list', 'message_channels_of_tenant', 'message_template_list_of_tenant', 'meta_channels', 'meta_template', 'meta_template_event_exists', 'meta_template_list', 'my_app_list', 'my_backlog_groups', 'my_stared_page', 'my_tenant', 'my_tenant_app_list', 'my_tenant_development_app_list', 'my_thing_group', 'my_thing_inventory_record_list', 'organization', 'organization_by_code', 'organization_by_id_and_level', 'organization_code_exists', 'organization_list', 'organization_name_exists_in_siblings', 'organization_tree_nodes', 'outside_calibrate', 'outside_calibrate_list', 'page_list', 'permissions', 'permissions_of_tenant', 'product_flow', 'product_flows', 'product_project', 'product_project_document_list', 'product_project_list', 'product_task', 'product_task_list', 'project_group', 'project_group_list', 'project_group_member_list', 'provinces', 'recent_app', 'role', 'role_list', 'role_name_exists', 'role_thing_categories', 'root_organization', 'router', 'router_alarm_level_list', 'router_alarm_record_list', 'router_alarm_record_summary', 'router_alarm_type_list', 'router_list', 'router_model_list', 'router_summary', 'router_template_configuration', 'router_template_configuration_list', 'router_thing_adapter_key_real_time_data_list', 'router_thing_history_data', 'sap_thing_code_history_list', 'source_key', 'source_key_list', 'source_model_key_list', 'spare_part', 'spare_part_claim', 'spare_part_claim_list', 'spare_part_claim_record', 'spare_part_import_template', 'spare_part_list', 'spare_part_outbound', 'spare_part_outbound_item_list', 'spare_part_outbound_list', 'spare_part_outbound_summary', 'spare_part_receipt', 'spare_part_receipt_item_list', 'spare_part_receipt_list', 'spare_part_receipt_writeoff_list', 'spare_part_stock_configuration', 'spare_part_stock_list', 'spare_part_stock_record_list', 'spare_part_transfer', 'spare_part_transfer_item_list', 'spare_part_transfer_list', 'spare_part_usage_record_list', 'spare_part_workflow_configuration', 'spare_part_writeoff_list', 'spc_quota_list', 'stared_apps', 'sub_thing_list', 'sub_thing_ucclist', 'system_log_action', 'system_log_list', 'table_column_setting', 'table_fields_config', 'table_filter_setting', 'table_fixed_fields_config', 'tenant', 'tenant_app_list', 'tenant_code_exists', 'tenant_industry_tree_nodes', 'tenant_list', 'tenant_name_exists', 'tenant_uscc_exists', 'thing', 'thing_access_config_list', 'thing_area', 'thing_area_import_template', 'thing_area_list', 'thing_area_tree', 'thing_attachment_type_list', 'thing_bar_label', 'thing_bar_label_list', 'thing_borrow', 'thing_borrow_approve_configuration', 'thing_borrow_approve_configuration_list', 'thing_borrow_default_approve_configuration_list', 'thing_borrow_draft', 'thing_borrow_list', 'thing_borrow_operator_record_list', 'thing_borrow_range_configuration', 'thing_borrow_relate_resource_list', 'thing_borrow_status_overview', 'thing_borrow_workflow_configuration', 'thing_by_code', 'thing_by_qr_code', 'thing_calibrate', 'thing_calibrate_default_workflow_configuration_list', 'thing_calibrate_list', 'thing_calibrate_record_list', 'thing_calibrate_status_overview', 'thing_calibrate_workflow_configuration', 'thing_calibrate_workflow_configuration_list', 'thing_category', 'thing_category_import_template', 'thing_category_list', 'thing_category_tree', 'thing_category_tree_nodes', 'thing_category_uccfield', 'thing_category_uccfield_list', 'thing_change_borrow_draft', 'thing_circulation_list', 'thing_circulation_overview', 'thing_complete_file_rule_list', 'thing_function_department', 'thing_function_department_list', 'thing_group', 'thing_group_depts', 'thing_group_list', 'thing_group_tree', 'thing_group_users', 'thing_import_template', 'thing_inspection', 'thing_inspection_default_workflow_configuration_list', 'thing_inspection_list', 'thing_inspection_operator_record_list', 'thing_inspection_status_overview', 'thing_inspection_workflow_configuration', 'thing_inspection_workflow_configuration_list', 'thing_inventory_record', 'thing_inventory_record_list', 'thing_inventory_redundant_record', 'thing_inventory_redundant_record_list', 'thing_inventory_relate_resource_list', 'thing_inventory_ticket', 'thing_inventory_ticket_list', 'thing_inventory_track_record', 'thing_inventory_track_record_list', 'thing_inventory_track_redundant_record', 'thing_inventory_track_redundant_record_list', 'thing_is_lent_overview', 'thing_label', 'thing_label_import_template', 'thing_label_list', 'thing_list', 'thing_maintenance', 'thing_maintenance_default_workflow_configuration_list', 'thing_maintenance_list', 'thing_maintenance_operator_record_list', 'thing_maintenance_status_overview', 'thing_maintenance_workflow_configuration', 'thing_maintenance_workflow_configuration_list', 'thing_mechanism_model', 'thing_on_state_overview', 'thing_repair', 'thing_repair_default_workflow_configuration_list', 'thing_repair_list', 'thing_repair_operator_record_list', 'thing_repair_status_overview', 'thing_repair_workflow_configuration', 'thing_repair_workflow_configuration_list', 'thing_schedule', 'thing_schedule_import_template', 'thing_schedule_list', 'thing_schedule_thing_import_template', 'thing_spare_part_import_template', 'thing_specification_language', 'thing_specification_language_list', 'thing_specification_language_property', 'thing_specification_language_property_list', 'thing_status', 'thing_statuses', 'thing_task_list', 'thing_thing_specification_language_list', 'thing_transfer_record_list', 'thing_type', 'thing_type_code_list', 'thing_type_list', 'thing_types', 'thing_ucc', 'thing_uccby_thing_category', 'thing_ucclist', 'things', 'try_delete_erp_warehouse_type', 'ucc_form_structure', 'ucc_form_structure_json_schema', 'ucc_stack_data', 'unread_message_apps', 'upload_config', 'upload_configs', 'upload_edm_config', 'upload_edm_configs', 'user', 'user_account_exists', 'user_list', 'users', 'validate_erp_customer_excel', 'validate_erp_material_excel', 'validate_erp_month_plan_excel', 'validate_erp_product_excel', 'validate_erp_warehouse_item_excel', 'validate_inspection_method_excel', 'validate_maintenance_method_excel', 'validate_spare_part_excel', 'validate_thing_area_excel', 'validate_thing_category_excel', 'validate_thing_excel', 'validate_thing_label_excel', 'validate_thing_schedule_excel', 'validate_thing_schedule_thing_excel', 'validate_thing_spare_part_excel', 'workbench', 'workbench_card_data', 'workbench_card_option', 'workflow_base_configuration', 'workflow_default_init_state')
     log_list = sgqlc.types.Field(sgqlc.types.non_null('LogList'), graphql_name='LogList', args=sgqlc.types.ArgDict((
         ('filter', sgqlc.types.Arg(LogListFilterInput, graphql_name='filter', default=None)),
         ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
@@ -7665,6 +14112,7 @@ class Query(sgqlc.types.Type):
 ))
     )
     _eam = sgqlc.types.Field(Boolean, graphql_name='_eam')
+    _plm = sgqlc.types.Field(Boolean, graphql_name='_plm')
     adapter_key = sgqlc.types.Field(AdapterKey, graphql_name='adapterKey', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
 ))
@@ -7710,6 +14158,11 @@ class Query(sgqlc.types.Type):
         ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
 ))
     )
+    app_version_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='appVersionExists', args=sgqlc.types.ArgDict((
+        ('app_id', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='AppId', default=None)),
+        ('app_version', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='appVersion', default=None)),
+))
+    )
     app_version_list = sgqlc.types.Field(sgqlc.types.non_null(AppVersionList), graphql_name='appVersionList', args=sgqlc.types.ArgDict((
         ('filter', sgqlc.types.Arg(AppVersionListFilterInput, graphql_name='filter', default=None)),
         ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
@@ -7753,6 +14206,24 @@ class Query(sgqlc.types.Type):
     )
     bi_issue_issue = sgqlc.types.Field(sgqlc.types.list_of(BIResult), graphql_name='biIssueIssue', args=sgqlc.types.ArgDict((
         ('filter', sgqlc.types.Arg(BIFilterInput, graphql_name='filter', default=None)),
+))
+    )
+    bom = sgqlc.types.Field(Bom, graphql_name='bom', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    bom_list = sgqlc.types.Field(sgqlc.types.non_null(BomList), graphql_name='bomList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(BomFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    bom_material_list = sgqlc.types.Field(sgqlc.types.non_null(BomMaterialList), graphql_name='bomMaterialList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(BomMaterialFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
 ))
     )
     calibrate_organization = sgqlc.types.Field(sgqlc.types.non_null(CalibrateOrganization), graphql_name='calibrateOrganization', args=sgqlc.types.ArgDict((
@@ -7837,6 +14308,14 @@ class Query(sgqlc.types.Type):
     )
     check_delete_department = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='checkDeleteDepartment', args=sgqlc.types.ArgDict((
         ('department', sgqlc.types.Arg(sgqlc.types.non_null(IDInput), graphql_name='department', default=None)),
+))
+    )
+    check_erp_task_work_report_channel = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='checkErpTaskWorkReportChannel', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(CheckErpTaskWorkReportChannelFilter), graphql_name='filter', default=None)),
+))
+    )
+    check_merge_all_erp_task = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(Int)), graphql_name='checkMergeAllErpTask', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(CheckMergeAllErpTaskFilter), graphql_name='filter', default=None)),
 ))
     )
     children_of_department = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Department))), graphql_name='childrenOfDepartment', args=sgqlc.types.ArgDict((
@@ -7983,6 +14462,10 @@ class Query(sgqlc.types.Type):
         ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
 ))
     )
+    default_filter_setting = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('TableFilterField'))), graphql_name='defaultFilterSetting', args=sgqlc.types.ArgDict((
+        ('table', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='table', default=None)),
+))
+    )
     department_by_id_and_level = sgqlc.types.Field(Department, graphql_name='departmentByIdAndLevel', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
         ('level', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='level', default=None)),
@@ -8022,6 +14505,51 @@ class Query(sgqlc.types.Type):
         ('filter', sgqlc.types.Arg(sgqlc.types.non_null(DeptUserThingGroupInputFilter), graphql_name='filter', default=None)),
         ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
         ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+))
+    )
+    device_channel_baud_rate = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(BaudRate))), graphql_name='deviceChannelBaudRate', args=sgqlc.types.ArgDict((
+        ('model_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='modelId', default=None)),
+))
+    )
+    device_channel_channel_list = sgqlc.types.Field(sgqlc.types.non_null(DeviceChannelConfigurationList), graphql_name='deviceChannelChannelList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(DeviceChannelConfigurationFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    device_channel_configuration = sgqlc.types.Field(DeviceChannelConfiguration, graphql_name='deviceChannelConfiguration', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    device_channel_data_bit = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(DataBit))), graphql_name='deviceChannelDataBit', args=sgqlc.types.ArgDict((
+        ('model_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='modelId', default=None)),
+))
+    )
+    device_channel_protocols = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ChannelProtocol))), graphql_name='deviceChannelProtocols', args=sgqlc.types.ArgDict((
+        ('interface_type', sgqlc.types.Arg(sgqlc.types.non_null(InterfaceType), graphql_name='interfaceType', default=None)),
+        ('model_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='modelId', default=None)),
+))
+    )
+    device_channel_register_data_types = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('RegisterDataType'))), graphql_name='deviceChannelRegisterDataTypes', args=sgqlc.types.ArgDict((
+        ('model_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='modelId', default=None)),
+))
+    )
+    device_channel_register_types = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('RegisterType'))), graphql_name='deviceChannelRegisterTypes', args=sgqlc.types.ArgDict((
+        ('model_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='modelId', default=None)),
+        ('protolcol_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='protolcolId', default=None)),
+))
+    )
+    device_channel_serial_com_ports = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('SerialComPort'))), graphql_name='deviceChannelSerialComPorts', args=sgqlc.types.ArgDict((
+        ('model_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='modelId', default=None)),
+))
+    )
+    device_channel_serial_parities = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('SerialParity'))), graphql_name='deviceChannelSerialParities', args=sgqlc.types.ArgDict((
+        ('model_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='modelId', default=None)),
+))
+    )
+    device_channel_stop_bit = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('StopBit'))), graphql_name='deviceChannelStopBit', args=sgqlc.types.ArgDict((
+        ('model_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='modelId', default=None)),
 ))
     )
     direct_authorization_rules_of_user = sgqlc.types.Field(sgqlc.types.non_null(AuthorizationRuleList), graphql_name='directAuthorizationRulesOfUser', args=sgqlc.types.ArgDict((
@@ -8117,6 +14645,690 @@ class Query(sgqlc.types.Type):
 ))
     )
     energy_time_distribution = sgqlc.types.Field(EnergyTimeDistribution, graphql_name='energyTimeDistribution')
+    erp_auto_register_config = sgqlc.types.Field(ErpAutoRegisterConfig, graphql_name='erpAutoRegisterConfig', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpAutoRegisterConfigFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_batch_no_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpBatchNoExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpBatchNoExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_city = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpCity)), graphql_name='erpCity', args=sgqlc.types.ArgDict((
+        ('province_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='provinceID', default=None)),
+))
+    )
+    erp_county = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpCounty)), graphql_name='erpCounty', args=sgqlc.types.ArgDict((
+        ('city_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='cityID', default=None)),
+))
+    )
+    erp_customer_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpCustomerExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpCustomerExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_customer_import_template = sgqlc.types.Field(sgqlc.types.non_null('RawFile'), graphql_name='erpCustomerImportTemplate', args=sgqlc.types.ArgDict((
+        ('company', sgqlc.types.Arg(IDInput, graphql_name='company', default=None)),
+))
+    )
+    erp_customer_list = sgqlc.types.Field(sgqlc.types.non_null(ErpCustomerList), graphql_name='erpCustomerList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpCustomerListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_daily_report = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpDailyReportDetail)), graphql_name='erpDailyReport', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpDailyReportFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_daily_report_last_query_product = sgqlc.types.Field(ErpOrderProduct, graphql_name='erpDailyReportLastQueryProduct')
+    erp_department = sgqlc.types.Field(sgqlc.types.non_null(ErpDepartment), graphql_name='erpDepartment', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(Int, graphql_name='id', default=None)),
+))
+    )
+    erp_department_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpDepartmentExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpDepartmentExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_department_list = sgqlc.types.Field(ErpDepartmentList, graphql_name='erpDepartmentList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpDepartmentListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_inventory_detail = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpInventoryDetail))), graphql_name='erpInventoryDetail', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpInventoryDetailFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_issue_log = sgqlc.types.Field(sgqlc.types.non_null(ErpIssueLog), graphql_name='erpIssueLog', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_issue_log_list = sgqlc.types.Field(sgqlc.types.non_null(ErpIssueLogList), graphql_name='erpIssueLogList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpIssueLogListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_issue_notification = sgqlc.types.Field(sgqlc.types.non_null(ErpIssueNotification), graphql_name='erpIssueNotification', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpNotificationFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_issue_notification_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpIssueNotificationExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpIssueNotificationExistsFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_issue_notification_list = sgqlc.types.Field(sgqlc.types.non_null(ErpIssueNotificationList), graphql_name='erpIssueNotificationList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpIssueNotificationListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_manager_list = sgqlc.types.Field(sgqlc.types.non_null(ErpManagerList), graphql_name='erpManagerList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpManagerListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_material = sgqlc.types.Field(sgqlc.types.non_null(ErpMaterial), graphql_name='erpMaterial', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(Int, graphql_name='id', default=None)),
+))
+    )
+    erp_material_code_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpMaterialCodeExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpOrderProductCodeExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_material_import_template = sgqlc.types.Field(sgqlc.types.non_null('RawFile'), graphql_name='erpMaterialImportTemplate', args=sgqlc.types.ArgDict((
+        ('company', sgqlc.types.Arg(IDInput, graphql_name='company', default=None)),
+))
+    )
+    erp_material_inventory_list = sgqlc.types.Field(sgqlc.types.non_null(ErpMaterialInventoryList), graphql_name='erpMaterialInventoryList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpMaterialInventoryListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_material_list = sgqlc.types.Field(sgqlc.types.non_null(ErpMaterialList), graphql_name='erpMaterialList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpMaterialListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_material_name_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpMaterialNameExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpMaterialNameExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_merge_production_channel_by_task = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='erpMergeProductionChannelByTask', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    erp_merge_production_channel_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='erpMergeProductionChannelList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpMergeProductionChannelListFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_merge_start_process_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcess)), graphql_name='erpMergeStartProcessList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpMergeStartProcessListFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_month_plan = sgqlc.types.Field(sgqlc.types.non_null(ErpMonthPlan), graphql_name='erpMonthPlan', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    erp_month_plan_import_template = sgqlc.types.Field(sgqlc.types.non_null('RawFile'), graphql_name='erpMonthPlanImportTemplate', args=sgqlc.types.ArgDict((
+        ('template', sgqlc.types.Arg(sgqlc.types.non_null(ErpMonthPlanImportTemplateInput), graphql_name='template', default=None)),
+))
+    )
+    erp_month_plan_list = sgqlc.types.Field(sgqlc.types.non_null(ErpMonthPlanList), graphql_name='erpMonthPlanList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpMonthPlanListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_month_plan_order = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpMonthPlanOrder)), graphql_name='erpMonthPlanOrder', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
+))
+    )
+    erp_month_plan_product_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(ErpOrderProduct)), graphql_name='erpMonthPlanProductList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpMonthPlanProductList, graphql_name='filter', default=None)),
+))
+    )
+    erp_mps_list = sgqlc.types.Field(sgqlc.types.non_null(ErpMpsList), graphql_name='erpMpsList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpMpsListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_my_department_list = sgqlc.types.Field(ErpDepartmentList, graphql_name='erpMyDepartmentList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpDepartmentListFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_my_position_list = sgqlc.types.Field(sgqlc.types.non_null(ErpPositionList), graphql_name='erpMyPositionList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpMyPositionListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_my_warehouse_list = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseList), graphql_name='erpMyWarehouseList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpWarehouseListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_occupied_by_task = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpOccupiedByTask', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpOccupiedByTaskFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_order = sgqlc.types.Field(sgqlc.types.non_null(ErpOrder), graphql_name='erpOrder', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_order_area_statistics = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderAreaStatistics), graphql_name='erpOrderAreaStatistics', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpOrderAreaStatisticsFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_order_check_config = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderCheckConfig)), graphql_name='erpOrderCheckConfig', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpOrderCheckConfigFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_order_check_config_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpOrderCheckConfigExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpOrderCheckConfigExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_order_customer_statistics = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderCustomerStatistics), graphql_name='erpOrderCustomerStatistics', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpOrderCustomerStatisticsFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_order_list = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderList), graphql_name='erpOrderList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpOrderListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_order_manager_statistics = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderManagerStatistics), graphql_name='erpOrderManagerStatistics', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpOrderManagerStatisticsFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_order_process = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderProcessInfo))), graphql_name='erpOrderProcess', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpOrderProcessFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_order_product = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProduct), graphql_name='erpOrderProduct', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_order_product_code_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpOrderProductCodeExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpOrderProductCodeExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_order_product_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpOrderProductExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(erpOrderProductExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_order_product_history_list = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProductHistoryList), graphql_name='erpOrderProductHistoryList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(erpOrderProductHistoryListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_order_product_list = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProductList), graphql_name='erpOrderProductList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(erpOrderProductListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_order_production_notification = sgqlc.types.Field(ErpProductionNotification, graphql_name='erpOrderProductionNotification', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpOrderProductionNotificationFilterInput), graphql_name='filter', default=None)),
+))
+    )
+    erp_order_production_notification_process = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderProcessInfo))), graphql_name='erpOrderProductionNotificationProcess', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_order_ship_notification_list = sgqlc.types.Field(ErpOrderShipNotificationList, graphql_name='erpOrderShipNotificationList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpOrderShipNotificationListFilterInput), graphql_name='filter', default=None)),
+))
+    )
+    erp_order_ship_notification_process = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpOrderProcessInfo))), graphql_name='erpOrderShipNotificationProcess', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_position_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpPositionExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpPositionExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_position_list = sgqlc.types.Field(sgqlc.types.non_null(ErpPositionList), graphql_name='erpPositionList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpPositionListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_position_user_list = sgqlc.types.Field(sgqlc.types.non_null(ErpPositionUserList), graphql_name='erpPositionUserList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpPositionUserFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_position_user_user_list = sgqlc.types.Field(sgqlc.types.non_null(ErpPositionUserUserList), graphql_name='erpPositionUserUserList', args=sgqlc.types.ArgDict((
+        ('department', sgqlc.types.Arg(sgqlc.types.non_null(IntIDInput), graphql_name='department', default=None)),
+))
+    )
+    erp_process_channel_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='erpProcessChannelList', args=sgqlc.types.ArgDict((
+        ('process', sgqlc.types.Arg(sgqlc.types.non_null(IntIDInput), graphql_name='process', default=None)),
+))
+    )
+    erp_process_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpProcessExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpProcessExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_process_list = sgqlc.types.Field(sgqlc.types.non_null(ErpProcessList), graphql_name='erpProcessList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpProcessListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_process_schedule_time = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessScheduleTime))), graphql_name='erpProcessScheduleTime', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpProcessScheduleTimeFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_process_thing_and_material_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProcessThingAndMaterial)), graphql_name='erpProcessThingAndMaterialList', args=sgqlc.types.ArgDict((
+        ('technique', sgqlc.types.Arg(sgqlc.types.non_null(IntIDInput), graphql_name='technique', default=None)),
+))
+    )
+    erp_process_thing_list = sgqlc.types.Field(sgqlc.types.non_null(ErpProcessThingList), graphql_name='erpProcessThingList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpProcessThingListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_product_import_template = sgqlc.types.Field(sgqlc.types.non_null('RawFile'), graphql_name='erpProductImportTemplate')
+    erp_product_name_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='erpProductNameList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpProductNameListFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_product_type_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='erpProductTypeList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpProductTypeListFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_production_notification = sgqlc.types.Field(sgqlc.types.non_null(ErpProductionNotification), graphql_name='erpProductionNotification', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_production_notification_list = sgqlc.types.Field(sgqlc.types.non_null(ErpOrderProductionNotificationList), graphql_name='erpProductionNotificationList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpProductionNotificationListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_production_planning = sgqlc.types.Field(sgqlc.types.non_null(ErpProductionPlanning), graphql_name='erpProductionPlanning', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    erp_production_planning_list = sgqlc.types.Field(sgqlc.types.non_null(ErpProductionPlanningList), graphql_name='erpProductionPlanningList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(erpProductionPlanningListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_production_task = sgqlc.types.Field(sgqlc.types.non_null(ErpProductionTask), graphql_name='erpProductionTask', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_production_task_list = sgqlc.types.Field(sgqlc.types.non_null(ErpProductionTaskList), graphql_name='erpProductionTaskList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpProductionTaskListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_production_task_process = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpProductionTaskProcess))), graphql_name='erpProductionTaskProcess', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_production_workflow = sgqlc.types.Field(sgqlc.types.non_null(ErpProductionWorkflow), graphql_name='erpProductionWorkflow', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    erp_production_workflow_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpProductionWorkflowExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpProductionWorkflowExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_production_workflow_list = sgqlc.types.Field(sgqlc.types.non_null(ErpWorkflowList), graphql_name='erpProductionWorkflowList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpProductionWorkflowListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_province = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpProvince)), graphql_name='erpProvince')
+    erp_receive_log = sgqlc.types.Field(sgqlc.types.non_null(ErpReceiveLog), graphql_name='erpReceiveLog', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_receive_log_list = sgqlc.types.Field(sgqlc.types.non_null(ErpReceiveLogList), graphql_name='erpReceiveLogList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpReceiveLogListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_receive_notification = sgqlc.types.Field(sgqlc.types.non_null(ErpReceiveNotification), graphql_name='erpReceiveNotification', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpNotificationFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_receive_notification_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpReceiveNotificationExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpReceiveNotificationExistsFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_receive_notification_list = sgqlc.types.Field(sgqlc.types.non_null(ErpReceiveNotificationList), graphql_name='erpReceiveNotificationList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpReceiveNotificationListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_sample_order = sgqlc.types.Field(sgqlc.types.non_null(ErpSampleOrder), graphql_name='erpSampleOrder', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_sample_order_check_config = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpSampleOrderCheckConfig)), graphql_name='erpSampleOrderCheckConfig', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpSampleOrderCheckConfigFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_sample_order_check_config_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpSampleOrderCheckConfigExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpSampleOrderCheckConfigExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_sample_order_list = sgqlc.types.Field(sgqlc.types.non_null(ErpSampleOrderList), graphql_name='erpSampleOrderList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpSampleOrderListFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_sample_order_process = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpSampleOrderProcessInfo))), graphql_name='erpSampleOrderProcess', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpSampleOrderProcessFilterInput), graphql_name='filter', default=None)),
+))
+    )
+    erp_sample_order_production_notification = sgqlc.types.Field(ErpSampleProductionNotification, graphql_name='erpSampleOrderProductionNotification', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpSampleOrderProductionNotificationFilterInput), graphql_name='filter', default=None)),
+))
+    )
+    erp_sample_order_production_notification_process = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpSampleOrderProcessInfo))), graphql_name='erpSampleOrderProductionNotificationProcess', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_sample_order_ship_notification_list = sgqlc.types.Field(ErpSampleOrderShipNotificationList, graphql_name='erpSampleOrderShipNotificationList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpSampleOrderShipNotificationListFilterInput), graphql_name='filter', default=None)),
+))
+    )
+    erp_sample_order_ship_notification_process = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ErpSampleOrderProcessInfo))), graphql_name='erpSampleOrderShipNotificationProcess', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_schedule = sgqlc.types.Field(sgqlc.types.non_null(ErpSchedule), graphql_name='erpSchedule', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    erp_schedule_list = sgqlc.types.Field(sgqlc.types.non_null(ErpScheduleList), graphql_name='erpScheduleList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpScheduleListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_task = sgqlc.types.Field(sgqlc.types.non_null(ErpTask), graphql_name='erpTask', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+        ('scenario', sgqlc.types.Arg(sgqlc.types.non_null(TypeTaskScenario), graphql_name='scenario', default=None)),
+))
+    )
+    erp_task_dispatch_config = sgqlc.types.Field(ErpTaskDispatchConfig, graphql_name='erpTaskDispatchConfig', args=sgqlc.types.ArgDict((
+        ('department', sgqlc.types.Arg(sgqlc.types.non_null(IntIDInput), graphql_name='department', default=None)),
+))
+    )
+    erp_task_list = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskList), graphql_name='erpTaskList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpTaskListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+        ('scenario', sgqlc.types.Arg(sgqlc.types.non_null(TypeTaskScenario), graphql_name='scenario', default=None)),
+))
+    )
+    erp_task_material_choice = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(BomMaterial)), graphql_name='erpTaskMaterialChoice', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    erp_task_statistic_by_position = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpTaskStatisticByPosition)), graphql_name='erpTaskStatisticByPosition', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpTaskStatisticByPositionFilter), graphql_name='filter', default=None)),
+        ('scenario', sgqlc.types.Arg(sgqlc.types.non_null(TypeTaskScenario), graphql_name='scenario', default=None)),
+))
+    )
+    erp_task_suspend_log_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpTaskSuspendLog)), graphql_name='erpTaskSuspendLogList', args=sgqlc.types.ArgDict((
+        ('task', sgqlc.types.Arg(sgqlc.types.non_null(IntIDInput), graphql_name='task', default=None)),
+))
+    )
+    erp_task_template = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskTemplate), graphql_name='erpTaskTemplate', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    erp_task_template_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpTaskTemplateExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpTaskTemplateExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_task_template_list = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskTemplateList), graphql_name='erpTaskTemplateList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpTaskTemplateListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_task_template_list_by_workflow = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpTaskTemplateByWorkflow)), graphql_name='erpTaskTemplateListByWorkflow', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpTaskTemplateListByWorkflowFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_task_template_quota_binded = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpTaskTemplateQuotaBinded', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpTaskTemplateQuotaBindedFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_task_work_report = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskWorkReport), graphql_name='erpTaskWorkReport', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    erp_task_work_report_list = sgqlc.types.Field(sgqlc.types.non_null(ErpTaskWorkReportList), graphql_name='erpTaskWorkReportList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpTaskWorkReportListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_technique = sgqlc.types.Field(ErpTechnique, graphql_name='erpTechnique', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(Int, graphql_name='id', default=None)),
+))
+    )
+    erp_technique_bom = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(Bom)), graphql_name='erpTechniqueBom', args=sgqlc.types.ArgDict((
+        ('department', sgqlc.types.Arg(sgqlc.types.non_null(IntIDInput), graphql_name='department', default=None)),
+))
+    )
+    erp_technique_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpTechniqueExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpTechniqueExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_technique_list = sgqlc.types.Field(sgqlc.types.non_null(ErpTechniqueList), graphql_name='erpTechniqueList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpTechniqueListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_technique_preset_task = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpTechniquePresetTask)), graphql_name='erpTechniquePresetTask', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    erp_technique_process_time = sgqlc.types.Field(sgqlc.types.non_null(ErpTechniqueProcessTime), graphql_name='erpTechniqueProcessTime', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    erp_template_list_by_batch_no = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpTaskTemplate)), graphql_name='erpTemplateListByBatchNo', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpTemplateListByBatchNoFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_thing_list = sgqlc.types.Field(sgqlc.types.non_null(ErpThingList), graphql_name='erpThingList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpThingListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_visit = sgqlc.types.Field(sgqlc.types.non_null(ErpVisit), graphql_name='erpVisit', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(ID, graphql_name='id', default=None)),
+))
+    )
+    erp_visit_list = sgqlc.types.Field(sgqlc.types.non_null(ErpVisitList), graphql_name='erpVisitList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpVisitListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_visit_total_by_manager = sgqlc.types.Field(sgqlc.types.non_null(ErpVisitTotalByManager), graphql_name='erpVisitTotalByManager', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpVisitTotalByManagerFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_visit_transfer_by_manager = sgqlc.types.Field(sgqlc.types.non_null(ErpVisitTransferByManager), graphql_name='erpVisitTransferByManager', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpVisitTransferByManagerFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_warehouse = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouse), graphql_name='erpWarehouse', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_warehouse_daily_report = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpWarehouseDailyReportDetail)), graphql_name='erpWarehouseDailyReport', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpWarehouseDailyReportFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_warehouse_item = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseItem), graphql_name='erpWarehouseItem', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_warehouse_item_category_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpWarehouseItemCategoryExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpWarehouseItemCategoryExistsFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_warehouse_item_category_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpWarehouseItemCategory)), graphql_name='erpWarehouseItemCategoryList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpWarehouseItemCategoryListFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_warehouse_item_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpWarehouseItemExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpWarehouseItemExistsFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_warehouse_item_import_template = sgqlc.types.Field(sgqlc.types.non_null('RawFile'), graphql_name='erpWarehouseItemImportTemplate')
+    erp_warehouse_item_inventory_info = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(ErpWarehouseItemReceiveInfo)), graphql_name='erpWarehouseItemInventoryInfo', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpWarehouseItemInventoryInfoFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_warehouse_item_list = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseItemList), graphql_name='erpWarehouseItemList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpWarehouseItemListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_warehouse_item_safe_stock = sgqlc.types.Field(ErpWarehouseItemSafeStock, graphql_name='erpWarehouseItemSafeStock', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpWarehouseItemSafeStockFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_warehouse_item_safe_stock_list = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseItemSafeStockList), graphql_name='erpWarehouseItemSafeStockList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpWarehouseItemSafeStockListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_warehouse_item_stock_list = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseItemStockList), graphql_name='erpWarehouseItemStockList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpWarehouseItemStockListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_warehouse_list = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseList), graphql_name='erpWarehouseList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpWarehouseListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_warehouse_type_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpWarehouseTypeExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpWarehouseTypeExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_warehouse_type_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpWarehouseType)), graphql_name='erpWarehouseTypeList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpWarehouseTypeListFilter, graphql_name='filter', default=None)),
+))
+    )
+    erp_warehouse_user = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseUser), graphql_name='erpWarehouseUser', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_warehouse_user_list = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseUserList), graphql_name='erpWarehouseUserList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ErpWarehouseUserListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_warehouse_zone = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseZone), graphql_name='erpWarehouseZone', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    erp_warehouse_zone_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='erpWarehouseZoneExists', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpWarehouseZoneExistsFilter), graphql_name='filter', default=None)),
+))
+    )
+    erp_warehouse_zone_list = sgqlc.types.Field(sgqlc.types.non_null(ErpWarehouseZoneList), graphql_name='erpWarehouseZoneList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpWarehouseZoneListFilter), graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    erp_workshop_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(ErpWorkshop)), graphql_name='erpWorkshopList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpWorkshopListFilter), graphql_name='filter', default=None)),
+))
+    )
     evasion_date = sgqlc.types.Field(EvasionDate, graphql_name='evasionDate', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
 ))
@@ -8126,6 +15338,48 @@ class Query(sgqlc.types.Type):
         ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
         ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
         ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    exist_router = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='existRouter', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(RouterFilterInput, graphql_name='filter', default=None)),
+))
+    )
+    exists_router_template_name = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='existsRouterTemplateName', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(RouterTemplateFilterInput), graphql_name='filter', default=None)),
+))
+    )
+    export_erp_issue_log_list = sgqlc.types.Field(sgqlc.types.non_null('RawFile'), graphql_name='exportErpIssueLogList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpIssueLogListFilter), graphql_name='filter', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    export_erp_mps_list = sgqlc.types.Field(sgqlc.types.non_null('RawFile'), graphql_name='exportErpMpsList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpMpsListFilter), graphql_name='filter', default=None)),
+))
+    )
+    export_erp_order_list = sgqlc.types.Field(sgqlc.types.non_null('RawFile'), graphql_name='exportErpOrderList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpOrderListFilter), graphql_name='filter', default=None)),
+        ('label', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='label', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    export_erp_production_task_list = sgqlc.types.Field(sgqlc.types.non_null('RawFile'), graphql_name='exportErpProductionTaskList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpProductionTaskListFilter), graphql_name='filter', default=None)),
+))
+    )
+    export_erp_receive_log_list = sgqlc.types.Field(sgqlc.types.non_null('RawFile'), graphql_name='exportErpReceiveLogList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpReceiveLogListFilter), graphql_name='filter', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    export_erp_sample_order_list = sgqlc.types.Field(sgqlc.types.non_null('RawFile'), graphql_name='exportErpSampleOrderList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ErpSampleOrderListFilterInput), graphql_name='filter', default=None)),
+        ('label', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='label', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    export_router = sgqlc.types.Field('RawFile', graphql_name='exportRouter', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(RouterFilterInput, graphql_name='filter', default=None)),
 ))
     )
     export_spare_part = sgqlc.types.Field(sgqlc.types.non_null('RawFile'), graphql_name='exportSparePart', args=sgqlc.types.ArgDict((
@@ -8204,6 +15458,10 @@ class Query(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(IsAdapterKeyExists), graphql_name='input', default=None)),
 ))
     )
+    is_bom_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isBomExists', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(IsBomExistsInput), graphql_name='input', default=None)),
+))
+    )
     is_calibrate_organization_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isCalibrateOrganizationExists', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(IsCalibrateOrganizationInput), graphql_name='input', default=None)),
 ))
@@ -8268,12 +15526,32 @@ class Query(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(IsMaintenanceMethodExistsInput), graphql_name='input', default=None)),
 ))
     )
+    is_material_category_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMaterialCategoryExists', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(IsMaterialCategoryExistsInput), graphql_name='input', default=None)),
+))
+    )
+    is_material_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isMaterialExists', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(IsMaterialExistsInput), graphql_name='input', default=None)),
+))
+    )
     is_outside_calibrate_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isOutsideCalibrateExists', args=sgqlc.types.ArgDict((
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(IsOutsideCalibrateExistsInput), graphql_name='input', default=None)),
 ))
     )
     is_permission_changed_of_latest_app_version = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isPermissionChangedOfLatestAppVersion', args=sgqlc.types.ArgDict((
         ('app_id', sgqlc.types.Arg(String, graphql_name='appId', default=None)),
+))
+    )
+    is_product_flow_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isProductFlowExists', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(IsProductFlowExistsInput), graphql_name='input', default=None)),
+))
+    )
+    is_product_project_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isProductProjectExists', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(IsProductProjectExistsInput), graphql_name='input', default=None)),
+))
+    )
+    is_project_group_name_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isProjectGroupNameExists', args=sgqlc.types.ArgDict((
+        ('input', sgqlc.types.Arg(sgqlc.types.non_null(IsProjectGroupNameExistsInput), graphql_name='input', default=None)),
 ))
     )
     is_spare_part_exists = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isSparePartExists', args=sgqlc.types.ArgDict((
@@ -8364,8 +15642,39 @@ class Query(sgqlc.types.Type):
         ('input', sgqlc.types.Arg(sgqlc.types.non_null(IsThingUCCExistsInput), graphql_name='input', default=None)),
 ))
     )
+    junye_alarm_distribution = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(JunyeAlarmDistribution))), graphql_name='junyeAlarmDistribution', args=sgqlc.types.ArgDict((
+        ('thing_group_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='thingGroupId', default=None)),
+))
+    )
+    junye_business_situation = sgqlc.types.Field(sgqlc.types.non_null(JunyeBusinessSituation), graphql_name='junyeBusinessSituation')
+    junye_current_month_energy_consumption = sgqlc.types.Field(sgqlc.types.non_null(JunyeEnergyConsumption), graphql_name='junyeCurrentMonthEnergyConsumption', args=sgqlc.types.ArgDict((
+        ('thing_group_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='thingGroupId', default=None)),
+))
+    )
+    junye_daily_energy_consumption_history = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(JunyeEnergyConsumption))), graphql_name='junyeDailyEnergyConsumptionHistory', args=sgqlc.types.ArgDict((
+        ('day', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='day', default=None)),
+        ('thing_group_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='thingGroupId', default=None)),
+))
+    )
+    junye_last_month_energy_consumption = sgqlc.types.Field(sgqlc.types.non_null(JunyeEnergyConsumption), graphql_name='junyeLastMonthEnergyConsumption', args=sgqlc.types.ArgDict((
+        ('thing_group_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='thingGroupId', default=None)),
+))
+    )
+    junye_material_management = sgqlc.types.Field(sgqlc.types.non_null(JunyeMaterialManagement), graphql_name='junyeMaterialManagement')
+    junye_production_plan = sgqlc.types.Field(sgqlc.types.non_null(JunyeProductionPlan), graphql_name='junyeProductionPlan')
+    junye_thing_group_location_map = sgqlc.types.Field(sgqlc.types.non_null(JSONString), graphql_name='junyeThingGroupLocationMap')
+    junye_thing_location_map = sgqlc.types.Field(sgqlc.types.non_null(JSONString), graphql_name='junyeThingLocationMap')
+    junye_thing_status_distribution = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(JunyeThingStatusDistribution))), graphql_name='junyeThingStatusDistribution', args=sgqlc.types.ArgDict((
+        ('thing_group_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='thingGroupId', default=None)),
+))
+    )
+    junye_thing_type_distribution = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(JunyeThingTypeDistribution))), graphql_name='junyeThingTypeDistribution', args=sgqlc.types.ArgDict((
+        ('thing_group_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='thingGroupId', default=None)),
+))
+    )
     login_configuration = sgqlc.types.Field(sgqlc.types.non_null(LoginConfiguration), graphql_name='loginConfiguration', args=sgqlc.types.ArgDict((
-        ('tenant_code', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='tenantCode', default=None)),
+        ('tenant_code', sgqlc.types.Arg(String, graphql_name='tenantCode', default=None)),
+        ('tenant_id', sgqlc.types.Arg(String, graphql_name='tenantId', default=None)),
 ))
     )
     maintenance_method = sgqlc.types.Field(MaintenanceMethod, graphql_name='maintenanceMethod', args=sgqlc.types.ArgDict((
@@ -8385,6 +15694,28 @@ class Query(sgqlc.types.Type):
     )
     managed_organizations_of_user = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(Organization)), graphql_name='managedOrganizationsOfUser', args=sgqlc.types.ArgDict((
         ('user_id', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='userId', default=None)),
+))
+    )
+    material = sgqlc.types.Field(Material, graphql_name='material', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    material_category = sgqlc.types.Field(MaterialCategory, graphql_name='materialCategory', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    material_category_list = sgqlc.types.Field(sgqlc.types.non_null(MaterialCategoryList), graphql_name='materialCategoryList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(MaterialCategoryFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    material_list = sgqlc.types.Field(sgqlc.types.non_null(MaterialList), graphql_name='materialList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(MaterialFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
 ))
     )
     me = sgqlc.types.Field(sgqlc.types.non_null('User'), graphql_name='me')
@@ -8426,6 +15757,15 @@ class Query(sgqlc.types.Type):
     my_app_list = sgqlc.types.Field(sgqlc.types.non_null(AppList), graphql_name='myAppList', args=sgqlc.types.ArgDict((
         ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
         ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+))
+    )
+    my_backlog_groups = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(MyBacklogGroup))), graphql_name='myBacklogGroups', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(MyBacklogGroupFilterInput, graphql_name='filter', default=None)),
+))
+    )
+    my_stared_page = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Page))), graphql_name='myStaredPage', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(PageListFilterInput, graphql_name='filter', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
 ))
     )
     my_tenant = sgqlc.types.Field(sgqlc.types.non_null('Tenant'), graphql_name='myTenant')
@@ -8498,6 +15838,13 @@ class Query(sgqlc.types.Type):
         ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
 ))
     )
+    page_list = sgqlc.types.Field(sgqlc.types.non_null(PageList), graphql_name='pageList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(PageListFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
     permissions = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(Permission)), graphql_name='permissions', args=sgqlc.types.ArgDict((
         ('filter', sgqlc.types.Arg(PermissionFilterInput, graphql_name='filter', default=None)),
         ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
@@ -8506,6 +15853,58 @@ class Query(sgqlc.types.Type):
     permissions_of_tenant = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Permission))), graphql_name='permissionsOfTenant', args=sgqlc.types.ArgDict((
         ('filter', sgqlc.types.Arg(PermissionFilterInput, graphql_name='filter', default=None)),
         ('tenant_id', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='tenantId', default=None)),
+))
+    )
+    product_flow = sgqlc.types.Field(ProductFlow, graphql_name='productFlow', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    product_flows = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(ProductFlow)), graphql_name='productFlows', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ProductFlowFilterInput, graphql_name='filter', default=None)),
+))
+    )
+    product_project = sgqlc.types.Field(ProductProject, graphql_name='productProject', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    product_project_document_list = sgqlc.types.Field(sgqlc.types.non_null(ProductProjectDocumentList), graphql_name='productProjectDocumentList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ProductProjectDocumentFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    product_project_list = sgqlc.types.Field(sgqlc.types.non_null(ProductProjectList), graphql_name='productProjectList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ProductProjectFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    product_task = sgqlc.types.Field(ProductTask, graphql_name='productTask', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    product_task_list = sgqlc.types.Field(sgqlc.types.non_null(ProductTaskList), graphql_name='productTaskList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ProductTaskFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    project_group = sgqlc.types.Field(ProjectGroup, graphql_name='projectGroup', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
+))
+    )
+    project_group_list = sgqlc.types.Field(sgqlc.types.non_null(ProjectGroupList), graphql_name='projectGroupList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(ProjectGroupFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    project_group_member_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ProjectGroupMember))), graphql_name='projectGroupMemberList', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Int))), graphql_name='id', default=None)),
 ))
     )
     provinces = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(Province)), graphql_name='provinces')
@@ -8533,6 +15932,75 @@ class Query(sgqlc.types.Type):
 ))
     )
     root_organization = sgqlc.types.Field(sgqlc.types.non_null(Organization), graphql_name='rootOrganization')
+    router = sgqlc.types.Field('Router', graphql_name='router', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    router_alarm_level_list = sgqlc.types.Field(sgqlc.types.non_null('RouterAlarmLevelList'), graphql_name='routerAlarmLevelList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(RouterAlarmLevelFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    router_alarm_record_list = sgqlc.types.Field(sgqlc.types.non_null('RouterAlarmRecrodList'), graphql_name='routerAlarmRecordList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(RouterAlarmRecordFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    router_alarm_record_summary = sgqlc.types.Field(sgqlc.types.non_null('RouterAlarmRecordSummary'), graphql_name='routerAlarmRecordSummary', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(RouterAlarmRecordSummaryFilter, graphql_name='filter', default=None)),
+))
+    )
+    router_alarm_type_list = sgqlc.types.Field(sgqlc.types.non_null('RouterAlarmTypeList'), graphql_name='routerAlarmTypeList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(RouterAlarmTypeFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    router_list = sgqlc.types.Field(sgqlc.types.non_null('RouterList'), graphql_name='routerList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(RouterFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    router_model_list = sgqlc.types.Field(sgqlc.types.non_null('RouterModelList'), graphql_name='routerModelList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(RouterModelFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    router_summary = sgqlc.types.Field('RouterSummary', graphql_name='routerSummary', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(RouterSummaryFilterInput, graphql_name='filter', default=None)),
+))
+    )
+    router_template_configuration = sgqlc.types.Field('RouterTemplateConfiguration', graphql_name='routerTemplateConfiguration', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='id', default=None)),
+))
+    )
+    router_template_configuration_list = sgqlc.types.Field(sgqlc.types.non_null('RouterTemplateConfigurationList'), graphql_name='routerTemplateConfigurationList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(RouterTemplateConfigurationFilterInput, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    router_thing_adapter_key_real_time_data_list = sgqlc.types.Field(sgqlc.types.non_null(AdapterKeyRealTimeDataList), graphql_name='routerThingAdapterKeyRealTimeDataList', args=sgqlc.types.ArgDict((
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('thing_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='thingId', default=None)),
+))
+    )
+    router_thing_history_data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(HistoryData))), graphql_name='routerThingHistoryData', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(RouterHistoryFilterInput, graphql_name='filter', default=None)),
+        ('thing_id', sgqlc.types.Arg(sgqlc.types.non_null(ID), graphql_name='thingId', default=None)),
+))
+    )
     sap_thing_code_history_list = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('SapThingCodeHistory'))), graphql_name='sapThingCodeHistoryList', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(Int), graphql_name='id', default=None)),
 ))
@@ -8679,6 +16147,10 @@ class Query(sgqlc.types.Type):
         ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
 ))
     )
+    spc_quota_list = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('SpcQuota')), graphql_name='spcQuotaList', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(SpcQuotaListFilter, graphql_name='filter', default=None)),
+))
+    )
     stared_apps = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(App))), graphql_name='staredApps')
     sub_thing_list = sgqlc.types.Field(sgqlc.types.non_null('ThingList'), graphql_name='subThingList', args=sgqlc.types.ArgDict((
         ('filter', sgqlc.types.Arg(SubThingListFilterInput, graphql_name='filter', default=None)),
@@ -8711,6 +16183,10 @@ class Query(sgqlc.types.Type):
         ('default_fields_config', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(TableFieldConfigInput))), graphql_name='defaultFieldsConfig', default=None)),
         ('filter', sgqlc.types.Arg(TableFieldConfigFilterInput, graphql_name='filter', default=None)),
         ('key', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='key', default=None)),
+))
+    )
+    table_filter_setting = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('TableFilterField'))), graphql_name='tableFilterSetting', args=sgqlc.types.ArgDict((
+        ('table', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='table', default=None)),
 ))
     )
     table_fixed_fields_config = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('TableFixedField'))), graphql_name='tableFixedFieldsConfig', args=sgqlc.types.ArgDict((
@@ -9315,6 +16791,10 @@ class Query(sgqlc.types.Type):
         ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
 ))
     )
+    try_delete_erp_warehouse_type = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='tryDeleteErpWarehouseType', args=sgqlc.types.ArgDict((
+        ('id', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(ID))), graphql_name='id', default=None)),
+))
+    )
     ucc_form_structure = sgqlc.types.Field(sgqlc.types.non_null('UCCFormStructure'), graphql_name='uccFormStructure', args=sgqlc.types.ArgDict((
         ('filter', sgqlc.types.Arg(sgqlc.types.non_null(UCCFormStructureFilter), graphql_name='filter', default=None)),
 ))
@@ -9336,6 +16816,14 @@ class Query(sgqlc.types.Type):
         ('names', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='names', default=None)),
 ))
     )
+    upload_edm_config = sgqlc.types.Field(sgqlc.types.non_null('UploadConfig'), graphql_name='uploadEdmConfig', args=sgqlc.types.ArgDict((
+        ('name', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='name', default=None)),
+))
+    )
+    upload_edm_configs = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('UploadConfig'))), graphql_name='uploadEdmConfigs', args=sgqlc.types.ArgDict((
+        ('names', sgqlc.types.Arg(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='names', default=None)),
+))
+    )
     user = sgqlc.types.Field('User', graphql_name='user', args=sgqlc.types.ArgDict((
         ('id', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='id', default=None)),
 ))
@@ -9350,6 +16838,37 @@ class Query(sgqlc.types.Type):
         ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
         ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
         ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    users = sgqlc.types.Field(sgqlc.types.non_null('UserList'), graphql_name='users', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(UserListFilter, graphql_name='filter', default=None)),
+        ('limit', sgqlc.types.Arg(Int, graphql_name='limit', default=None)),
+        ('offset', sgqlc.types.Arg(Int, graphql_name='offset', default=None)),
+        ('order_by', sgqlc.types.Arg(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='orderBy', default=None)),
+))
+    )
+    validate_erp_customer_excel = sgqlc.types.Field(sgqlc.types.non_null(ErpExcelValidationResult), graphql_name='validateErpCustomerExcel', args=sgqlc.types.ArgDict((
+        ('company', sgqlc.types.Arg(IDInput, graphql_name='company', default=None)),
+        ('file_path', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='filePath', default=None)),
+))
+    )
+    validate_erp_material_excel = sgqlc.types.Field(sgqlc.types.non_null(ErpExcelValidationResult), graphql_name='validateErpMaterialExcel', args=sgqlc.types.ArgDict((
+        ('company', sgqlc.types.Arg(IDInput, graphql_name='company', default=None)),
+        ('file_path', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='filePath', default=None)),
+))
+    )
+    validate_erp_month_plan_excel = sgqlc.types.Field(sgqlc.types.non_null(ErpExcelValidationResult), graphql_name='validateErpMonthPlanExcel', args=sgqlc.types.ArgDict((
+        ('filter', sgqlc.types.Arg(sgqlc.types.non_null(ValidateErpMonthPlanExcelFilter), graphql_name='filter', default=None)),
+))
+    )
+    validate_erp_product_excel = sgqlc.types.Field(sgqlc.types.non_null(ErpExcelValidationResult), graphql_name='validateErpProductExcel', args=sgqlc.types.ArgDict((
+        ('company', sgqlc.types.Arg(IDInput, graphql_name='company', default=None)),
+        ('file_path', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='filePath', default=None)),
+))
+    )
+    validate_erp_warehouse_item_excel = sgqlc.types.Field(sgqlc.types.non_null(ErpExcelValidationResult), graphql_name='validateErpWarehouseItemExcel', args=sgqlc.types.ArgDict((
+        ('company', sgqlc.types.Arg(IDInput, graphql_name='company', default=None)),
+        ('file_path', sgqlc.types.Arg(sgqlc.types.non_null(String), graphql_name='filePath', default=None)),
 ))
     )
     validate_inspection_method_excel = sgqlc.types.Field(sgqlc.types.non_null(EamExcelValidationResult), graphql_name='validateInspectionMethodExcel', args=sgqlc.types.ArgDict((
@@ -9422,6 +16941,22 @@ class RawFile(sgqlc.types.Type):
     name = sgqlc.types.Field(String, graphql_name='name')
 
 
+class RegisterDataType(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'value')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    value = sgqlc.types.Field(String, graphql_name='value')
+
+
+class RegisterType(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'value')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    value = sgqlc.types.Field(String, graphql_name='value')
+
+
 class RenderStyle(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('config', 'kind', 'meta_channel_id')
@@ -9467,6 +17002,170 @@ class RoleList(sgqlc.types.Type):
     total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
 
 
+class Router(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('activated_at', 'alarm_rules', 'client_id', 'code', 'configuration_status', 'contact', 'desc', 'detail_things', 'id', 'images', 'last_update_at', 'latest_data_at', 'location', 'model', 'name', 'phone', 'purchased_at', 'status', 'status_duration', 'thing_status', 'years_of_maintenance')
+    activated_at = sgqlc.types.Field(Timestamp, graphql_name='activatedAt')
+    alarm_rules = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('RouterAlarmRule'))), graphql_name='alarmRules')
+    client_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='clientId')
+    code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='code')
+    configuration_status = sgqlc.types.Field(RouterConfigurationStatus, graphql_name='configurationStatus')
+    contact = sgqlc.types.Field(String, graphql_name='contact')
+    desc = sgqlc.types.Field(String, graphql_name='desc')
+    detail_things = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null('RouterDetailThing')), graphql_name='detailThings')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    images = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(File)), graphql_name='images')
+    last_update_at = sgqlc.types.Field(Timestamp, graphql_name='lastUpdateAt')
+    latest_data_at = sgqlc.types.Field(Timestamp, graphql_name='latestDataAt')
+    location = sgqlc.types.Field(String, graphql_name='location')
+    model = sgqlc.types.Field(sgqlc.types.non_null('RouterModel'), graphql_name='model')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    phone = sgqlc.types.Field(String, graphql_name='phone')
+    purchased_at = sgqlc.types.Field(Timestamp, graphql_name='purchasedAt')
+    status = sgqlc.types.Field(sgqlc.types.non_null(RouterStatus), graphql_name='status')
+    status_duration = sgqlc.types.Field(Int, graphql_name='statusDuration')
+    thing_status = sgqlc.types.Field(sgqlc.types.non_null(RouterThingStatus), graphql_name='thingStatus')
+    years_of_maintenance = sgqlc.types.Field(Int, graphql_name='yearsOfMaintenance')
+
+
+class RouterAlarmLevel(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'weight')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    weight = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='weight')
+
+
+class RouterAlarmLevelList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(RouterAlarmLevel))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class RouterAlarmRecordLevelSummary(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('count', 'level')
+    count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='count')
+    level = sgqlc.types.Field(sgqlc.types.non_null(RouterAlarmLevel), graphql_name='level')
+
+
+class RouterAlarmRecordSummary(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('levels_summary',)
+    levels_summary = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(RouterAlarmRecordLevelSummary))), graphql_name='levelsSummary')
+
+
+class RouterAlarmRecrod(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('ack_at', 'content', 'id', 'is_ack', 'is_restored', 'level_name', 'occurred_at', 'restored_at', 'router_id', 'router_location', 'router_name', 'suggestion')
+    ack_at = sgqlc.types.Field(Timestamp, graphql_name='ackAt')
+    content = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='content')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    is_ack = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isAck')
+    is_restored = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isRestored')
+    level_name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='levelName')
+    occurred_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='occurredAt')
+    restored_at = sgqlc.types.Field(Timestamp, graphql_name='restoredAt')
+    router_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='routerId')
+    router_location = sgqlc.types.Field(String, graphql_name='routerLocation')
+    router_name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='routerName')
+    suggestion = sgqlc.types.Field(String, graphql_name='suggestion')
+
+
+class RouterAlarmRecrodList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(RouterAlarmRecrod))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class RouterAlarmRule(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('enabled', 'level', 'suggestion', 'threshold', 'type')
+    enabled = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='enabled')
+    level = sgqlc.types.Field(sgqlc.types.non_null(RouterAlarmLevel), graphql_name='level')
+    suggestion = sgqlc.types.Field(String, graphql_name='suggestion')
+    threshold = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='threshold')
+    type = sgqlc.types.Field(sgqlc.types.non_null('RouterAlarmType'), graphql_name='type')
+
+
+class RouterAlarmType(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class RouterAlarmTypeList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(RouterAlarmType))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class RouterDetailThing(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('status', 'thing')
+    status = sgqlc.types.Field(sgqlc.types.non_null(RouterThingStatus), graphql_name='status')
+    thing = sgqlc.types.Field(sgqlc.types.non_null('Thing'), graphql_name='thing')
+
+
+class RouterList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(Router))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class RouterModel(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'manufacturer', 'name')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    manufacturer = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='manufacturer')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class RouterModelList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(RouterModel))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class RouterSummary(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('offline_count', 'online_count', 'total_count')
+    offline_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='OfflineCount')
+    online_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='OnlineCount')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class RouterTemplateConfiguration(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('collects', 'id', 'interface_type_names', 'model', 'name')
+    collects = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(CollectConfiguration))), graphql_name='collects')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    interface_type_names = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(String))), graphql_name='interfaceTypeNames')
+    model = sgqlc.types.Field(sgqlc.types.non_null(RouterModel), graphql_name='model')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+
+
+class RouterTemplateConfigurationList(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('data', 'total_count')
+    data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(RouterTemplateConfiguration))), graphql_name='data')
+    total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
+
+
+class RouterType(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'value')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    value = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='value')
+
+
 class SapThingCodeHistory(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('created_at', 'id', 'sap_code_after', 'sap_code_before')
@@ -9474,6 +17173,33 @@ class SapThingCodeHistory(sgqlc.types.Type):
     id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='id')
     sap_code_after = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='sapCodeAfter')
     sap_code_before = sgqlc.types.Field(String, graphql_name='sapCodeBefore')
+
+
+class SerialChannel(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('baud', 'com_port', 'data_bit', 'parity', 'slave_id', 'stop_bit')
+    baud = sgqlc.types.Field(sgqlc.types.non_null(BaudRate), graphql_name='baud')
+    com_port = sgqlc.types.Field(sgqlc.types.non_null('SerialComPort'), graphql_name='comPort')
+    data_bit = sgqlc.types.Field(sgqlc.types.non_null(DataBit), graphql_name='dataBit')
+    parity = sgqlc.types.Field(sgqlc.types.non_null('SerialParity'), graphql_name='parity')
+    slave_id = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='slaveId')
+    stop_bit = sgqlc.types.Field(sgqlc.types.non_null('StopBit'), graphql_name='stopBit')
+
+
+class SerialComPort(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'value')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    value = sgqlc.types.Field(String, graphql_name='value')
+
+
+class SerialParity(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'value')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    value = sgqlc.types.Field(String, graphql_name='value')
 
 
 class SourceKey(sgqlc.types.Type):
@@ -9834,6 +17560,23 @@ class SparePartWriteoffList(sgqlc.types.Type):
     total_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='totalCount')
 
 
+class SpcQuota(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('is_used', 'key', 'name', 'value_type')
+    is_used = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isUsed')
+    key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    value_type = sgqlc.types.Field(ErpSpcValueType, graphql_name='value_type')
+
+
+class StopBit(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'name', 'value')
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+    name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='name')
+    value = sgqlc.types.Field(Int, graphql_name='value')
+
+
 class SystemLog(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('action', 'app', 'id', 'resource', 'timestamp', 'user')
@@ -9877,6 +17620,22 @@ class TableFieldConfig(sgqlc.types.Type):
     key = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='key')
     label = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='label')
     visible = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='visible')
+
+
+class TableFilterField(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('active', 'data_type', 'default_filter_value', 'default_operator', 'editable', 'id', 'is_preset', 'label', 'multiple', 'options', 'type')
+    active = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='active')
+    data_type = sgqlc.types.Field(sgqlc.types.non_null(UCCDataType), graphql_name='dataType')
+    default_filter_value = sgqlc.types.Field(String, graphql_name='defaultFilterValue')
+    default_operator = sgqlc.types.Field(sgqlc.types.non_null(UCCOperator), graphql_name='defaultOperator')
+    editable = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='editable')
+    id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='id')
+    is_preset = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isPreset')
+    label = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='label')
+    multiple = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='multiple')
+    options = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(String)), graphql_name='options')
+    type = sgqlc.types.Field(sgqlc.types.non_null(UCCFilterUIType), graphql_name='type')
 
 
 class TableFixedField(sgqlc.types.Type):
@@ -9965,7 +17724,7 @@ class TenantList(sgqlc.types.Type):
 
 class Thing(sgqlc.types.Type):
     __schema__ = platform_schema
-    __field_names__ = ('acceptance_at', 'access_key', 'account_type', 'accounting_department', 'activated_at', 'alert_at', 'apply_for_purchase_at', 'apply_for_purchase_num', 'area', 'arrived_at', 'asset_normalization_at', 'attachment', 'book_value', 'brand', 'calibrate_code', 'calibrate_method', 'calibrate_repeat', 'calibrate_result', 'calibrate_state', 'can_borrowed', 'can_operate_borrowed', 'category', 'code', 'code_prefix', 'company_id', 'contract_num', 'department', 'depreciation_of_year', 'depreciation_rate', 'depreciation_rate_of_month', 'desc', 'distributor', 'energy_group', 'field_data', 'final_value', 'fuselage_code', 'group_file', 'id', 'image', 'installed_at', 'is_calibration_expired', 'is_complete_file', 'is_deleted', 'is_lent', 'label', 'last_calibrate_at', 'lease_begin_at', 'lease_finish_at', 'lease_num', 'machine_number', 'maintainer', 'manager', 'manufacturer', 'model_num', 'name', 'next_calibrate_at', 'on_state', 'parent_thing_id', 'performance_status', 'po_num', 'predict_residual_rate', 'produce_at', 'purchase_price', 'purchase_type', 'purchased_at', 'qr_code', 'sap_thing_code', 'serial_number', 'spare_part', 'specification', 'storage_addr', 'storage_type', 'sub_thing_id', 'thing_group', 'thing_subject_code', 'transfer_at', 'transfer_record', 'type', 'used_year', 'warranty_deadline_at', 'warranty_institutions', 'warranty_method', 'years_of_use')
+    __field_names__ = ('acceptance_at', 'access_key', 'account_type', 'accounting_department', 'activated_at', 'alert_at', 'apply_for_purchase_at', 'apply_for_purchase_num', 'area', 'arrived_at', 'asset_normalization_at', 'attachment', 'book_value', 'brand', 'calibrate_code', 'calibrate_method', 'calibrate_repeat', 'calibrate_result', 'calibrate_state', 'can_borrowed', 'can_operate_borrowed', 'category', 'code', 'code_prefix', 'company_id', 'contract_num', 'department', 'depreciation_of_year', 'depreciation_rate', 'depreciation_rate_of_month', 'desc', 'distributor', 'energy_group', 'field_data', 'final_value', 'fuselage_code', 'group_file', 'id', 'image', 'installed_at', 'is_calibration_expired', 'is_complete_file', 'is_deleted', 'is_lent', 'junye_metric_data', 'junye_product', 'junye_production_time', 'junye_runtime', 'junye_type', 'label', 'last_calibrate_at', 'lease_begin_at', 'lease_finish_at', 'lease_num', 'machine_number', 'maintainer', 'manager', 'manufacturer', 'model_num', 'name', 'next_calibrate_at', 'on_state', 'parent_thing_id', 'performance_status', 'po_num', 'predict_residual_rate', 'produce_at', 'purchase_price', 'purchase_type', 'purchased_at', 'qr_code', 'sap_thing_code', 'serial_number', 'spare_part', 'specification', 'storage_addr', 'storage_type', 'sub_thing_id', 'thing_group', 'thing_subject_code', 'transfer_at', 'transfer_record', 'type', 'used_year', 'warranty_deadline_at', 'warranty_institutions', 'warranty_method', 'years_of_use')
     acceptance_at = sgqlc.types.Field(Timestamp, graphql_name='acceptanceAt')
     access_key = sgqlc.types.Field(String, graphql_name='accessKey')
     account_type = sgqlc.types.Field(ThingAccountType, graphql_name='accountType')
@@ -10010,6 +17769,11 @@ class Thing(sgqlc.types.Type):
     is_complete_file = sgqlc.types.Field(String, graphql_name='isCompleteFile')
     is_deleted = sgqlc.types.Field(Boolean, graphql_name='isDeleted')
     is_lent = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name='isLent')
+    junye_metric_data = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(JunyeMetricData))), graphql_name='junyeMetricData')
+    junye_product = sgqlc.types.Field(String, graphql_name='junyeProduct')
+    junye_production_time = sgqlc.types.Field(sgqlc.types.list_of(sgqlc.types.non_null(Timestamp)), graphql_name='junyeProductionTime')
+    junye_runtime = sgqlc.types.Field(Int, graphql_name='junyeRuntime')
+    junye_type = sgqlc.types.Field(sgqlc.types.non_null(JunyeThingType), graphql_name='junyeType')
     label = sgqlc.types.Field(sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null('ThingLabel'))), graphql_name='label')
     last_calibrate_at = sgqlc.types.Field(Timestamp, graphql_name='lastCalibrateAt')
     lease_begin_at = sgqlc.types.Field(Timestamp, graphql_name='leaseBeginAt')
@@ -11269,6 +19033,14 @@ class User(sgqlc.types.Type):
     updated_at = sgqlc.types.Field(sgqlc.types.non_null(Timestamp), graphql_name='updatedAt')
 
 
+class UserBacklog(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('backlog_id', 'id', 'user_id')
+    backlog_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='backlogId')
+    id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='id')
+    user_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='userId')
+
+
 class UserList(sgqlc.types.Type):
     __schema__ = platform_schema
     __field_names__ = ('data', 'total_count')
@@ -11281,6 +19053,15 @@ class UserStaredApp(sgqlc.types.Type):
     __field_names__ = ('app_id', 'id', 'user_id')
     app_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='appId')
     id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='id')
+    user_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='userId')
+
+
+class UserStaredPage(sgqlc.types.Type):
+    __schema__ = platform_schema
+    __field_names__ = ('id', 'page_id', 'rank', 'user_id')
+    id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='id')
+    page_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='pageId')
+    rank = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='rank')
     user_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='userId')
 
 
@@ -11446,7 +19227,8 @@ class OpenIDConnect1LoginConfiguration(sgqlc.types.Type, LoginConfiguration):
 
 class SystemLoginConfiguration(sgqlc.types.Type, LoginConfiguration):
     __schema__ = platform_schema
-    __field_names__ = ()
+    __field_names__ = ('tenant_code',)
+    tenant_code = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name='tenantCode')
 
 
 

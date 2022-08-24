@@ -1,4 +1,3 @@
-import jmespath
 from sgqlc.endpoint.http import HTTPEndpoint
 from sgqlc.operation import Operation
 from apis.get_token_headers import GetTokenHeader
@@ -29,13 +28,13 @@ class User(GetTokenHeader):
         headers = self.get_headers()
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
         op = Operation(Query)
-        user_list = op.user_list(
+        user_list = op.staff_list(
             filter=eval(f"{kwargs}"),
         )
         if args:
             user_list.__fields__(*args)
         data = endpoint(op)
-        res = (op + data).user_list
+        res = (op + data).staff_list
         return res
 
     def roles_info(self, args=None, **kwargs):
@@ -55,10 +54,10 @@ class User(GetTokenHeader):
         headers = self.get_headers()
         endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
         op = Operation(Mutation)
-        op.create_user(input=variables)
+        op.create_account(input=variables)
         data = endpoint(op)
         try:
-            res = (op + data).create_user
+            res = (op + data).create_account
             return res
         except:
             res = data.get("errors")[0].get("message")
@@ -76,6 +75,17 @@ class User(GetTokenHeader):
         except:
             res = data.get("errors")[0].get("message")
             return res
+
+    def organization(self, org_id: str, args=None):
+        headers = self.get_headers()
+        endpoint = HTTPEndpoint(url=self.url, base_headers=headers)
+        op = Operation(Query)
+        organization = op.organization(id=org_id)
+        if args:
+            organization.__fields__(*args)
+        data = endpoint(op)
+        res = (op + data).organization
+        return res
 
     def organization_tree_nodes(self):
         headers = self.get_headers()
@@ -139,8 +149,11 @@ if __name__ == '__main__':
     a = User()
     # name = a.organization_list(id="0bb2ace2-5633-3913-bc67-cedae567a943").data[0].name
     # con = a.department_list(args=["id", "name"], ids=[{"id": 62640}])
-    con = a.get_user()
-    print(con)
+    con = a.get_user().id
+    from pprint import pprint
+    pprint(con)
     # con = a.create_user()
     # print(con)
     # print(json.loads(con)["id"])
+
+

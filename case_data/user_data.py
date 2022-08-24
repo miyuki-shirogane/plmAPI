@@ -1,6 +1,5 @@
 import json
 
-import jmespath
 
 from apis.base_api import BaseApi
 from apis.user_apis import User

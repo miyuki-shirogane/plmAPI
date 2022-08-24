@@ -91,17 +91,9 @@ class Request:
 
     def json_to_yaml(self):
         j = {
-  "attachment": None,
-  "expected": {
-    "start": 1657814400000,
-    "end": 1657987199999
-  },
-  "reason": None,
-  "thing": [
-    {
-      "id": "8317"
-    }
-  ]
+  "id": 292,
+  "operateType": "WITHDRAW",
+  "opinion": ""
 }
         with open("case_data/temp_v.yaml", "w") as f:
             yaml.safe_dump(data=j, stream=f, allow_unicode=True)
